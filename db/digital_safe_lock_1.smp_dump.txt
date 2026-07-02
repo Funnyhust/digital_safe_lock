@@ -1,0 +1,48 @@
+
+State Machine - |digital_safe_lock|lcd_controller:lcd_inst|next_state_after_delay
+Name next_state_after_delay.S_PRINT1 next_state_after_delay.S_LINE1 next_state_after_delay.S_INIT_4 next_state_after_delay.S_INIT_3 next_state_after_delay.S_INIT_2 next_state_after_delay.S_INIT_1 next_state_after_delay.S_PRINT2 
+next_state_after_delay.S_INIT_1 0 0 0 0 0 0 0 
+next_state_after_delay.S_INIT_2 0 0 0 0 1 1 0 
+next_state_after_delay.S_INIT_3 0 0 0 1 0 1 0 
+next_state_after_delay.S_INIT_4 0 0 1 0 0 1 0 
+next_state_after_delay.S_LINE1 0 1 0 0 0 1 0 
+next_state_after_delay.S_PRINT1 1 0 0 0 0 1 0 
+next_state_after_delay.S_PRINT2 0 0 0 0 0 1 1 
+
+State Machine - |digital_safe_lock|lcd_controller:lcd_inst|seq
+Name seq.SEQ_DELAY seq.SEQ_EN_LO seq.SEQ_EN_HI seq.SEQ_SETUP seq.SEQ_DONE 
+seq.SEQ_SETUP 0 0 0 0 0 
+seq.SEQ_EN_HI 0 0 1 1 0 
+seq.SEQ_EN_LO 0 1 0 1 0 
+seq.SEQ_DELAY 1 0 0 1 0 
+seq.SEQ_DONE 0 0 0 1 1 
+
+State Machine - |digital_safe_lock|lcd_controller:lcd_inst|state
+Name state.S_WAIT state.S_PRINT2 state.S_LINE2 state.S_PRINT1 state.S_LINE1 state.S_INIT_4 state.S_INIT_3 state.S_INIT_2 state.S_INIT_1 state.S_PWR_ON 
+state.S_PWR_ON 0 0 0 0 0 0 0 0 0 0 
+state.S_INIT_1 0 0 0 0 0 0 0 0 1 1 
+state.S_INIT_2 0 0 0 0 0 0 0 1 0 1 
+state.S_INIT_3 0 0 0 0 0 0 1 0 0 1 
+state.S_INIT_4 0 0 0 0 0 1 0 0 0 1 
+state.S_LINE1 0 0 0 0 1 0 0 0 0 1 
+state.S_PRINT1 0 0 0 1 0 0 0 0 0 1 
+state.S_LINE2 0 0 1 0 0 0 0 0 0 1 
+state.S_PRINT2 0 1 0 0 0 0 0 0 0 1 
+state.S_WAIT 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |digital_safe_lock|lock_fsm:fsm_inst|state
+Name state.S_CHG_DONE state.S_WRITE_CHG state.S_ERR state.S_UNLOCKED state.S_READ_CHECK state.S_IDLE state.S_INIT_WAIT state.S_INIT_WR 
+state.S_INIT_WR 0 0 0 0 0 0 0 0 
+state.S_INIT_WAIT 0 0 0 0 0 0 1 1 
+state.S_IDLE 0 0 0 0 0 1 0 1 
+state.S_READ_CHECK 0 0 0 0 1 0 0 1 
+state.S_UNLOCKED 0 0 0 1 0 0 0 1 
+state.S_ERR 0 0 1 0 0 0 0 1 
+state.S_WRITE_CHG 0 1 0 0 0 0 0 1 
+state.S_CHG_DONE 1 0 0 0 0 0 0 1 
+
+State Machine - |digital_safe_lock|internal_ram:int_ram|state
+Name state.IDLE state.DONE state.WAIT 
+state.IDLE 0 0 0 
+state.WAIT 1 0 1 
+state.DONE 1 1 0 
