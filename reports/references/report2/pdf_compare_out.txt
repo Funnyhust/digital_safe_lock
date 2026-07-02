@@ -1,0 +1,607 @@
+﻿
+
+====== FILE: HXT_20224163 ======
+Total pages: 116
+--- Trang 1 ---
+─Éß║áI Hß╗îC B├üCH KHOA H├Ç Nß╗ÿI
+TR╞»ß╗£NG ─ÉIß╗åN ΓÇô ─ÉIß╗åN Tß╗¼
+─Éß╗Æ ├üN Tß╗ÉT NGHIß╗åP
+X├éY Dß╗░NG V├Ç CHß║╛ Tß║áO DRONE ß╗¿NG Dß╗ñNG CHO
+GI├üM S├üT AN NINH V├Ç Cß╗¿U Hß╗ÿ
+HO├ÇNG XU├éN TO├ÇN
+toan.hx224163@sis.hust.edu.vn
+Ng├ánh: ─Éiß╗çn tß╗¡ viß╗àn th├┤ng
+Chuy├¬n ng├ánh: Kß╗╣ thuß║¡t ─æiß╗çn tß╗¡ viß╗àn th├┤ng
+Giß║úng vi├¬n h╞░ß╗¢ng dß║½n: ThS. V┼⌐ Song T├╣ng
+Chß╗»k├╜cß╗ºaGVHD
+Khoa: ─Éiß╗çn tß╗¡
+H├Ç Nß╗ÿI, 06/2026
+--- Trang 3 ---
+─É├üNH GI├ü QUYß╗éN ─Éß╗Æ ├üN Tß╗ÉT NGHIß╗åP
+(D├ÇNHCHOGIß║óNGVI├èNH╞»ß╗ÜNGDß║¬N)
+T├¬n ─æß╗ü t├ái: X├óy dß╗▒ng v├á chß║┐ tß║ío Drone ß╗⌐ng dß╗Ñng cho gi├ím s├ít an ninh v├á cß╗⌐u hß╗Ö
+Hß╗ì t├¬n SV: Ho├áng Xu├ón To├án MSSV: 20224163
+C├ín bß╗Ö h╞░ß╗¢ng dß║½n: ThS. V┼⌐ Song T├╣ng
+STT Ti├¬uch├¡ H╞░ß╗¢ngdß║½n─æ├ínhgi├íti├¬uch├¡ ─Éiß╗âm
+(─Éiß╗âmtß╗æi─æa) ti├¬uch├¡
+Th├íi─æß╗Öl├ám
+Nghi├¬mt├║c,t├¡chcß╗▒cv├áchß╗º─æß╗Öngtrongqu├ítr├¼nhl├ám─ÉATN
+1 viß╗çc
+(2,5─æiß╗âm) Ho├ánth├ánh─æß║ºy─æß╗ºv├á─æ├║ngtiß║┐n─æß╗Öc├ícnß╗Öidung─æ╞░ß╗úcGVHDgiao
+Tr├¼nhb├áy─æ├║ngmß║½uquy─æß╗ïnh,bß╗æcß╗Ñcc├ícch╞░╞ínglogicv├áhß╗úpl├╜:Bß║úngbiß╗âu,
+Kß╗╣n─ângviß║┐t h├¼nhß║únhr├╡r├áng,c├│ti├¬u─æß╗ü,─æ╞░ß╗úc─æ├ínhsß╗æthß╗⌐tß╗▒v├á─æ╞░ß╗úcgiß║úith├¡chhay─æß╗ücß║¡p
+2 quyß╗ân─ÉATN ─æß║┐ntrong─æß╗ô├ín,c├│c─ânlß╗ü,dß║Ñuc├íchsaudß║Ñuchß║Ñm,dß║Ñuphß║⌐y,c├│mß╗ƒ─æß║ºu
+(2─æiß╗âm) ch╞░╞íngv├ákß║┐tluß║¡nch╞░╞íng,c├│liß╗çtk├¬t├áiliß╗çuthamkhß║úov├ác├│tr├¡chdß║½n,v.v.
+Kß╗╣n─ângdiß╗àn─æß║ít,ph├ónt├¡ch,giß║úith├¡ch,lß║¡pluß║¡n:Cß║Ñutr├║cc├óur├╡r├áng,v─ân
+phongkhoahß╗ìc,lß║¡pluß║¡nlogicv├ác├│c╞ísß╗ƒ,thuß║¡tngß╗»chuy├¬nng├ánhph├╣hß╗úp,
+v.v.
+N├¬ur├╡t├¡nhcß║Ñpthiß║┐t,├╜ngh─⌐akhoahß╗ìcv├áthß╗▒ctiß╗àncß╗ºa─æß╗üt├ái,c├ícvß║Ñn─æß╗üv├á
+c├ícgiß║úthuyß║┐t,phß║ímviß╗⌐ngdß╗Ñngcß╗ºa─æß╗üt├ái.Thß╗▒chiß╗çn─æß║ºy─æß╗ºquytr├¼nhnghi├¬n
+cß╗⌐u:─Éß║╖tvß║Ñn─æß╗ü,mß╗Ñcti├¬u─æß╗üra,ph╞░╞íngph├ípnghi├¬ncß╗⌐u/giß║úiquyß║┐tvß║Ñn─æß╗ü,
+Nß╗Öidungv├á
+kß║┐tquß║ú─æß║ít─æ╞░ß╗úc,─æ├ínhgi├ív├ákß║┐tluß║¡n.
+kß║┐tquß║ú─æß║ít
+3
+─æ╞░ß╗úc
+Nß╗Öidungv├ákß║┐tquß║ú─æ╞░ß╗úctr├¼nhb├áymß╗Ötc├íchlogicv├áhß╗úpl├╜,─æ╞░ß╗úcph├ónt├¡chv├á
+(5─æiß╗âm)
+─æ├ínhgi├íthß╗Åa─æ├íng.Biß╗çnluß║¡nph├ónt├¡chkß║┐tquß║úm├┤phß╗Ång/phß║ºnmß╗üm/thß╗▒c
+nghiß╗çm,sos├ínhkß║┐tquß║ú─æß║ít─æ╞░ß╗úcvß╗¢ikß║┐tquß║útr╞░ß╗¢c─æ├│c├│li├¬nquan.
+Chß╗ër├╡ph├╣hß╗úpgiß╗»akß║┐tquß║ú─æß║ít─æ╞░ß╗úcv├ámß╗Ñcti├¬uban─æß║ºu─æß╗üra─æß╗ôngthß╗¥icung
+cß║Ñplß║¡pluß║¡n─æß╗â─æß╗üxuß║Ñth╞░ß╗¢nggiß║úiquyß║┐tc├│thß╗âthß╗▒chiß╗çntrongt╞░╞ínglai.H├ám
+l╞░ß╗úngkhoahß╗ìc/─æß╗Öphß╗⌐ctß║ípcao,c├│t├¡nhmß╗¢i/t├¡nhs├íngtß║íotrongnß╗Öidungv├á
+kß║┐tquß║ú─æß╗ô├ín.
+C├│b├áib├íoKH─æ╞░ß╗úc─æ─ânghoß║╖cchß║Ñpnhß║¡n─æ─âng/─æß║ítgiß║úiSVNCKHgiß║úi3cß║Ñp
+─Éiß╗âmth├ánh Tr╞░ß╗¥ngtrß╗ƒl├¬n/C├ícgiß║úith╞░ß╗ƒngkhoahß╗ìctrongn╞░ß╗¢c,quß╗æctß║┐tß╗½giß║úi3trß╗ƒl├¬n/
+4 t├¡ch C├│─æ─ângk├╜bß║▒ngph├ítminhs├íngchß║┐.(1─æiß╗âm)
+(1─æiß╗âm)
+─É╞░ß╗úcb├íoc├íotß║íihß╗Öi─æß╗ôngcß║ÑpTr╞░ß╗¥ngtronghß╗Öinghß╗ïSVNCKHnh╞░ngkh├┤ng
+─æß║ítgiß║úitß╗½giß║úi3trß╗ƒl├¬n/─Éß║ítgiß║úikhuyß║┐nkh├¡chtrongcuß╗Öcthikhoahß╗ìctrong
+n╞░ß╗¢c,quß╗æctß║┐/Kß║┐tquß║ú─æß╗ô├ínl├ásß║únphß║⌐mß╗⌐ngdß╗Ñngc├│t├¡nhho├ánthiß╗çncao,y├¬u
+cß║ºukhß╗æil╞░ß╗úngthß╗▒chiß╗çnlß╗¢n.(0,5─æiß╗âm)
+─Éiß╗âmtß╗òngc├ícti├¬uch├¡:
+─Éiß╗âmh╞░ß╗¢ngdß║½n:
+--- Trang 4 ---
+Nhß║¡n x├⌐t kh├íc cß╗ºa c├ín bß╗Ö h╞░ß╗¢ng dß║½n:
+...............................................................................
+...............................................................................
+...............................................................................
+...............................................................................
+...............................................................................
+...............................................................................
+C├ín bß╗Ö h╞░ß╗¢ng dß║½n
+(K├╜ v├á ghi r├╡ hß╗ì t├¬n)
+--- Trang 5 ---
+─É├üNH GI├ü QUYß╗éN ─Éß╗Æ ├üN Tß╗ÉT NGHIß╗åP
+(D├ÇNHCHOC├üNBß╗ÿPHß║óNBIß╗åN)
+T├¬n ─æß╗ü t├ái: X├óy dß╗▒ng v├á chß║┐ tß║ío Drone ß╗⌐ng dß╗Ñng cho gi├ím s├ít an ninh v├á cß╗⌐u hß╗Ö
+Hß╗ì t├¬n SV: Ho├áng Xu├ón To├án MSSV: 20224163
+C├ín bß╗Ö phß║ún biß╗çn: ..............................................................
+STT Ti├¬uch├¡ H╞░ß╗¢ngdß║½n─æ├ínhgi├íti├¬uch├¡ ─Éiß╗âm
+(─Éiß╗âmtß╗æi─æa) ti├¬uch├¡
+─Éß╗ô├íntr├¼nhb├áy─æ├║ngmß║½uquy─æß╗ïnh,bß╗æcß╗Ñcc├ícch╞░╞ínglogicv├áhß╗úpl├╜:Bß║úng
+Tr├¼nhb├áy biß╗âu,h├¼nhß║únhr├╡r├áng,c├│ti├¬u─æß╗ü,─æ╞░ß╗úc─æ├ínhsß╗æthß╗⌐tß╗▒v├á─æ╞░ß╗úcgiß║úith├¡chhay─æß╗ü
+1 quyß╗ân─ÉATN cß║¡p─æß║┐ntrong─æß╗ô├ín,c├│c─ânlß╗ü,dß║Ñuc├íchsaudß║Ñuchß║Ñm,dß║Ñuphß║⌐y,c├│mß╗ƒ─æß║ºu
+(4─æiß╗âm) ch╞░╞íngv├ákß║┐tluß║¡nch╞░╞íng,c├│liß╗çtk├¬t├áiliß╗çuthamkhß║úov├ác├│tr├¡chdß║½n,v.v.
+Kß╗╣n─ângdiß╗àn─æß║ít,ph├ónt├¡ch,giß║úith├¡ch,lß║¡pluß║¡n:cß║Ñutr├║cc├óur├╡r├áng,v─ân
+phongkhoahß╗ìc,lß║¡pluß║¡nlogicv├ác├│c╞ísß╗ƒ,thuß║¡tngß╗»chuy├¬nng├ánhph├╣hß╗úp,
+v.v.
+N├¬ur├╡t├¡nhcß║Ñpthiß║┐t,├╜ngh─⌐akhoahß╗ìcv├áthß╗▒ctiß╗àncß╗ºa─æß╗üt├ái,c├ícvß║Ñn─æß╗üv├á
+c├ícgiß║úthuyß║┐t,phß║ímviß╗⌐ngdß╗Ñngcß╗ºa─æß╗üt├ái.Thß╗▒chiß╗çn─æß║ºy─æß╗ºquytr├¼nhnghi├¬n
+cß╗⌐u:─Éß║╖tvß║Ñn─æß╗ü,mß╗Ñcti├¬u─æß╗üra,ph╞░╞íngph├ípnghi├¬ncß╗⌐u/giß║úiquyß║┐tvß║Ñn─æß╗ü,
+Nß╗Öidungv├á
+kß║┐tquß║ú─æß║ít─æ╞░ß╗úc,─æ├ínhgi├ív├ákß║┐tluß║¡n.
+kß║┐tquß║ú─æß║ít
+2
+─æ╞░ß╗úc
+Nß╗Öidungv├ákß║┐tquß║ú─æ╞░ß╗úctr├¼nhb├áymß╗Ötc├íchlogicv├áhß╗úpl├╜,─æ╞░ß╗úcph├ónt├¡chv├á
+(5,5─æiß╗âm)
+─æ├ínhgi├íthß╗Åa─æ├íng.Biß╗çnluß║¡nph├ónt├¡chkß║┐tquß║úm├┤phß╗Ång/phß║ºnmß╗üm/thß╗▒c
+nghiß╗çm,sos├ínhkß║┐tquß║ú─æß║ít─æ╞░ß╗úcvß╗¢ikß║┐tquß║útr╞░ß╗¢c─æ├│c├│li├¬nquan.
+Chß╗ër├╡ph├╣hß╗úpgiß╗»akß║┐tquß║ú─æß║ít─æ╞░ß╗úcv├ámß╗Ñcti├¬uban─æß║ºu─æß╗üra─æß╗ôngthß╗¥icung
+cß║Ñplß║¡pluß║¡n─æß╗â─æß╗üxuß║Ñth╞░ß╗¢nggiß║úiquyß║┐tc├│thß╗âthß╗▒chiß╗çntrongt╞░╞ínglai.H├ám
+l╞░ß╗úngkhoahß╗ìc/─æß╗Öphß╗⌐ctß║ípcao,c├│t├¡nhmß╗¢i/t├¡nhs├íngtß║íotrongnß╗Öidungv├á
+kß║┐tquß║ú─æß╗ô├ín.
+C├│b├áib├íoKH─æ╞░ß╗úc─æ─ânghoß║╖cchß║Ñpnhß║¡n─æ─âng/─æß║ítgiß║úiSVNCKHgiß║úi3cß║Ñp
+─Éiß╗âmth├ánh Tr╞░ß╗¥ngtrß╗ƒl├¬n/C├ícgiß║úith╞░ß╗ƒngkhoahß╗ìctrongn╞░ß╗¢c,quß╗æctß║┐tß╗½giß║úi3trß╗ƒl├¬n/
+3 t├¡ch C├│─æ─ângk├╜bß║▒ngph├ítminhs├íngchß║┐.(1─æiß╗âm)
+(1─æiß╗âm)
+─É╞░ß╗úcb├íoc├íotß║íihß╗Öi─æß╗ôngcß║ÑpTr╞░ß╗¥ngtronghß╗Öinghß╗ïSVNCKHnh╞░ngkh├┤ng
+─æß║ítgiß║úitß╗½giß║úi3trß╗ƒl├¬n/─Éß║ítgiß║úikhuyß║┐nkh├¡chtrongcuß╗Öcthikhoahß╗ìctrong
+n╞░ß╗¢c,quß╗æctß║┐/Kß║┐tquß║ú─æß╗ô├ínl├ásß║únphß║⌐mß╗⌐ngdß╗Ñngc├│t├¡nhho├ánthiß╗çncao,y├¬u
+cß║ºukhß╗æil╞░ß╗úngthß╗▒chiß╗çnlß╗¢n.(0,5─æiß╗âm)
+─Éiß╗âmtß╗òngc├ícti├¬uch├¡:
+─Éiß╗âmphß║únbiß╗çn:
+--- Trang 6 ---
+Nhß║¡n x├⌐t kh├íc cß╗ºa c├ín bß╗Ö phß║ún biß╗çn:
+...............................................................................
+...............................................................................
+...............................................................................
+...............................................................................
+...............................................................................
+...............................................................................
+C├ín bß╗Ö phß║ún biß╗çn
+(K├╜ v├á ghi r├╡ hß╗ì t├¬n)
+--- Trang 7 ---
+Lß╗£I Cß║óM ╞áN
+─Éß║ºu ti├¬n, em xin b├áy tß╗Å l├▓ng biß║┐t ╞ín s├óu sß║»c ─æß║┐n thß║ºy ThS. V┼⌐ Song T├╣ng ng╞░ß╗¥i ─æ├ú
+tß║¡n t├¼nh h╞░ß╗¢ng dß║½n, ─æß╗ïnh h╞░ß╗¢ng v├á hß╗ù trß╗ú em trong suß╗æt qu├í tr├¼nh thß╗▒c hiß╗çn ─æß╗ü t├ái ΓÇ£X├óy
+dß╗▒ng v├á chß║┐ tß║ío Drone ß╗⌐ng dß╗Ñng cho gi├ím s├ít an ninh v├á cß╗⌐u hß╗ÖΓÇ¥. Nhß╗»ng g├│p ├╜ chuy├¬n
+m├┤n qu├╜ b├íu cß╗ºa thß║ºy ─æ├ú gi├║p em ho├án thiß╗çn ─æß╗ü t├ái tß╗½ kh├óu nghi├¬n cß╗⌐u, thiß║┐t kß║┐ hß╗ç thß╗æng
+─æß║┐n triß╗ân khai v├á ─æ├ính gi├í kß║┐t quß║ú.
+Em xin ch├ón th├ánh cß║úm ╞ín c├íc thß║ºy c├┤ trong Khoa ─Éiß╗çn tß╗¡ Viß╗àn th├┤ng, ─Éß║íi hß╗ìc
+B├ích khoa H├á Nß╗Öi ─æ├ú truyß╗ün ─æß║ít cho em nhß╗»ng kiß║┐n thß╗⌐c nß╗ün tß║úng v├á tß║ío ─æiß╗üu kiß╗çn thuß║¡n
+lß╗úi trong qu├í tr├¼nh hß╗ìc tß║¡p v├á nghi├¬n cß╗⌐u.
+Do thß╗¥i gian v├á kiß║┐n thß╗⌐c c├▓n hß║ín chß║┐, ─æß╗ô ├ín kh├│ tr├ính khß╗Åi nhß╗»ng thiß║┐u s├│t. Em
+rß║Ñt mong nhß║¡n ─æ╞░ß╗úc nhß╗»ng ├╜ kiß║┐n ─æ├│ng g├│p cß╗ºa qu├╜ thß║ºy c├┤ ─æß╗â ho├án thiß╗çn h╞ín.
+Em xin ch├ón th├ánh cß║úm ╞ín!
+H├á Nß╗Öi, ng├áy 22 th├íng 06 n─âm 2026
+Ng╞░ß╗¥i thß╗▒c hiß╗çn
+HO├ÇNG XU├éN TO├ÇN
+--- Trang 9 ---
+Lß╗£I CAM ─ÉOAN
+T├┤i l├á Ho├áng Xu├ón To├án, m├ú sß╗æ sinh vi├¬n 20224163, kh├│a 67, ng╞░ß╗¥i h╞░ß╗¢ng dß║½n l├á
+ThS. V┼⌐ Song T├╣ng. T├┤i xin cam ─æoan to├án bß╗Ö nß╗Öi dung ─æ╞░ß╗úc tr├¼nh b├áy trong ─æß╗ô ├ín ΓÇ£X├óy
+dß╗▒ng v├á chß║┐ tß║ío Drone ß╗⌐ng dß╗Ñng cho gi├ím s├ít an ninh v├á cß╗⌐u hß╗ÖΓÇ¥ l├á kß║┐t quß║ú qu├í tr├¼nh
+t├¼m hiß╗âu v├á nghi├¬n cß╗⌐u cß╗ºa t├┤i. C├íc dß╗» liß╗çu ─æ╞░ß╗úc n├¬u trong ─æß╗ô ├ín ho├án to├án trung thß╗▒c,
+phß║ún ├ính ─æ├║ng kß║┐t quß║ú ─æo ─æß║íc thß╗▒c tß║┐. Mß╗ìi th├┤ng tin tr├¡ch dß║½n ─æß╗üu tu├ón thß╗º c├íc quy ─æß╗ïnh
+vß╗ü sß╗ƒ hß╗»u tr├¡ tuß╗ç, c├íc t├ái liß╗çu tham khß║úo ─æ╞░ß╗úc liß╗çt k├¬ r├╡ r├áng. T├┤i xin chß╗ïu ho├án to├án tr├ích
+nhiß╗çm vß╗¢i nhß╗»ng nß╗Öi dung ─æ╞░ß╗úc viß║┐t trong ─æß╗ô ├ín n├áy.
+H├á Nß╗Öi, ng├áy 22 th├íng 06 n─âm 2026
+Ng╞░ß╗¥i cam ─æoan
+Ho├áng Xu├ón To├án
+--- Trang 11 ---
+T├ôM Tß║«T Nß╗ÿI DUNG ─Éß╗Æ ├üN
+─Éß╗ô ├ín ΓÇ£X├óy dß╗▒ng v├á chß║┐ tß║ío Drone ß╗⌐ng dß╗Ñng cho gi├ím s├ít an ninh v├á cß╗⌐u hß╗ÖΓÇ¥
+─æ╞░ß╗úc thß╗▒c hiß╗çn nhß║▒m x├óy dß╗▒ng mß╗Öt giß║úi ph├íp cß╗⌐u nß║ín ─æß╗ông bß╗Ö v├á tß╗▒ chß╗º. ─Éß╗ô ├ín tß║¡p trung
+nghi├¬n cß╗⌐u, thiß║┐t kß║┐ v├á chß║┐ tß║ío mß╗Öt hß╗ç thß╗æng thiß║┐t bß╗ï bay Quadcopter tß╗▒ chß║┐ kß║┐t hß╗úp trß║ím
+mß║╖t ─æß║Ñt t├¡ch hß╗úp tr├¡ tuß╗ç nh├ón tß║ío (AI) nhß║▒m phß╗Ñc vß╗Ñ c├┤ng t├íc gi├ím s├ít an ninh v├á hß╗ù trß╗ú
+t├¼m kiß║┐m cß╗⌐u hß╗Ö hiß╗çu quß║ú trong b├ín k├¡nh hoß║ít ─æß╗Öng 1ΓÇô2km. Hß╗ç thß╗æng bao gß╗ôm hai ph├ón
+hß╗ç ch├¡nh: ph├ón hß╗ç thiß║┐t bß╗ï bay (Drone) v├á ph├ón hß╗ç trß║ím mß║╖t ─æß║Ñt (GCS).
+Vß╗ü ph├ón hß╗ç thiß║┐t bß╗ï bay, phß║ºn cß╗⌐ng ─æ╞░ß╗úc x├óy dß╗▒ng xung quanh vi ─æiß╗üu khiß╗ân trung
+t├óm STM32F103C8T6 (ARM Cortex-M3, 72MHz). Bo mß║ích ─æiß╗üu khiß╗ân bay (Flight
+Controller) ─æ╞░ß╗úc thiß║┐t kß║┐ ho├án to├án tß╗½ ─æß║ºu tr├¬n phß║ºn mß╗üm Altium Designer vß╗¢i mß║íng l╞░ß╗¢i
+nguß╗ôn hß║í ├íp ph├ón tß║ºng chß╗æng nhiß╗àu ─æß╗Öng lß╗▒c. Cß║úm biß║┐n qu├ín t├¡nh MPU6050 (6-DOF)
+giao tiß║┐p qua bus Software I2C tß╗æc ─æß╗Ö cao 400kHz. Hß╗ç thß╗æng sß╗¡ dß╗Ñng bß╗Ö thu s├│ng v├┤
+tuyß║┐n ExpressLRS qua giao thß╗⌐c CRSF ─æß╗Ö trß╗à thß║Ñp c├╣ng camera truyß╗ün tß║úi luß╗ông video
+FPV Analog 5.8GHz. Phß║ºn mß╗üm nh├║ng (Firmware) ─æ╞░ß╗úc thiß║┐t kß║┐ theo kiß║┐n tr├║c si├¬u lß║╖p
+phi chß║╖n (Non-blocking Super-loop scheduler) tß╗æi ╞░u h├│a thß╗¥i gian thß╗▒c ß╗ƒ tß║ºn sß╗æ 250Hz,
+sß╗¡ dß╗Ñng bß╗Ö lß╗ìc b├╣ (Complementary Filter) ╞░ß╗¢c l╞░ß╗úng g├│c t╞░ thß║┐ v├á bß╗Ö ─æiß╗üu khiß╗ân PID
+v├▓ng lß║╖p k├⌐p ß╗òn ─æß╗ïnh ba trß╗Ñc Roll, Pitch, Yaw.
+Vß╗ü ph├ón hß╗ç trß║ím mß║╖t ─æß║Ñt (GCS), hß╗ç thß╗æng t├¡ch hß╗úp nhß║¡n dß║íng thß╗¥i gian thß╗▒c tß╗½
+video truyß╗ün vß╗ü cß╗ºa Drone th├┤ng qua th╞░ viß╗çn OpenCV. Trß║ím mß║╖t ─æß║Ñt thß╗▒c thi chiß║┐n thuß║¡t
+Cascade Pipeline kß║┐t hß╗úp 4 m├┤ h├¼nh hß╗ìc s├óu chuy├¬n biß╗çt: m├┤ h├¼nh YOLOv8s ─æ├│ng vai
+tr├▓ ph├ít hiß╗çn v├á cß║»t (crop) v├╣ng ß║únh chß╗⌐a ng╞░ß╗¥i, sau ─æ├│ truyß╗ün kß║┐t quß║ú cho 3 m├┤ h├¼nh
+ph├ón t├¡ch chuy├¬n s├óu bao gß╗ôm YOLOv8s-Pose tr├¡ch xuß║Ñt 17 ─æiß╗âm khß╗¢p x╞░╞íng c╞í thß╗â,
+YOLOv8s-Posture nhß║¡n diß╗çn t╞░ thß║┐ (─Éß╗⌐ng/Ngß╗ôi/Nß║▒m) v├á YOLOv8s-Rescue ph├ón loß║íi
+trß║íng th├íi cß╗⌐u hß╗Ö (normal/victim). Kiß║┐n tr├║c n├áy gi├║p triß╗çt ti├¬u nhiß╗àu bß╗æi cß║únh v├á t─âng tß╗æi
+─æa ─æß╗Ö ch├¡nh x├íc. Dß╗» liß╗çu sau ─æ├│ ─æ╞░ß╗úc ─æ╞░a qua bß╗Ö dung hß╗úp quyß║┐t ─æß╗ïnh (Decision Fusion)
+dß╗▒a tr├¬n thuß║¡t to├ín t├¡nh ─æiß╗âm nguy c╞í (Danger Score) ─æß╗â ph├ón cß║Ñp cß║únh b├ío tß╗▒ ─æß╗Öng, k├¡ch
+hoß║ít c╞í chß║┐ ghi h├¼nh/video replay sß╗▒ kiß╗çn chß║íy nß╗ün bß║Ñt ─æß╗ông bß╗Ö v├á tß╗▒ ─æß╗Öng xuß║Ñt b├ío c├ío
+cß╗⌐u hß╗Ö dß║íng HTML.
+Kß║┐t quß║ú thß╗▒c nghiß╗çm cho thß║Ñy thiß║┐t bß╗ï bay c├ón bß║▒ng v├á phß║ún hß╗ôi ch├¡nh x├íc lß╗çnh ─æiß╗üu
+khiß╗ân, c╞í chß║┐ an to├án Failsafe ngß║»t ─æß╗Öng c╞í khß║⌐n cß║Ñp hoß║ít ─æß╗Öng tß╗æt d╞░ß╗¢i 0.25 gi├óy khi mß║Ñt
+s├│ng. Ph├ón hß╗ç nhß║¡n dß║íng AI tß║íi trß║ím mß║╖t ─æß║Ñt hoß║ít ─æß╗Öng m╞░ß╗út m├á ─æß║ít tß╗æc ─æß╗Ö tß╗æi thiß╗âu 25
+--- Trang 12 ---
+FPS tr├¬n m├íy trß║ím vß╗¢i ─æß╗Ö ch├¡nh x├íc F1-score ─æß║ít tr├¬n 85%, nhß║¡n diß╗çn nhß║íy b├⌐n nß║ín nh├ón
+trong c├íc t╞░ thß║┐ phß╗⌐c tß║íp v├á xuß║Ñt b├ío c├ío cß╗⌐u nß║ín ─æß║ºy ─æß╗º.
+Tß╗½ kh├│a: Quadcopter, STM32F103C8T6, Flight Controller, PID, YOLOv8, ╞»ß╗¢c l╞░ß╗úng
+t╞░ thß║┐, Dung hß╗úp quyß║┐t ─æß╗ïnh, Trß║ím mß║╖t ─æß║Ñt, Cß╗⌐u hß╗Ö cß╗⌐u nß║ín.
+12
+--- Trang 13 ---
+Mß╗ñC Lß╗ñC
+DANH Mß╗ñC K├¥ HIß╗åU V├Ç CHß╗« VIß║╛T Tß║«T 19
+DANH Mß╗ñC H├îNH Vß║╝ 24
+DANH Mß╗ñC Bß║óNG BIß╗éU 25
+PHß║ªN Mß╗₧ ─Éß║ªU 1
+1. ─Éß║╖t vß║Ñn ─æß╗ü v├á t├¡nh cß║Ñp thiß║┐t cß╗ºa ─æß╗ü t├ái . . . . . . . . . . . . . . . . . . . . 1
+2. Mß╗Ñc ti├¬u v├á kß║┐t quß║ú dß╗▒ kiß║┐n cß╗ºa ─æß╗ü t├ái . . . . . . . . . . . . . . . . . . . . 2
+3. ─Éß╗æi t╞░ß╗úng v├á phß║ím vi nghi├¬n cß╗⌐u . . . . . . . . . . . . . . . . . . . . . . 3
+4. Ph╞░╞íng ph├íp nghi├¬n cß╗⌐u . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+5. ├¥ ngh─⌐a khoa hß╗ìc v├á thß╗▒c tiß╗àn . . . . . . . . . . . . . . . . . . . . . . . . 4
+6. Nhß╗»ng c├┤ng viß╗çc ch├¡nh v├á tiß║┐n ─æß╗Ö thß╗▒c hiß╗çn . . . . . . . . . . . . . . . . . 5
+7. Cß║Ñu tr├║c ─æß╗ü t├ái . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+CH╞»╞áNG 1. Tß╗öNG QUAN Vß╗Ç THIß║╛T Bß╗è BAY KH├öNG NG╞»ß╗£I L├üI 7
+1.1 Tß╗òng quan vß╗ü UAV v├á ß╗⌐ng dß╗Ñng trong cß╗⌐u hß╗Ö cß╗⌐u nß║ín . . . . . . . . . . 7
+1.2 T├¼nh h├¼nh nghi├¬n cß╗⌐u trong v├á ngo├ái n╞░ß╗¢c . . . . . . . . . . . . . . . . 8
+1.2.1 Nghi├¬n cß╗⌐u quß╗æc tß║┐ . . . . . . . . . . . . . . . . . . . . . . . . 8
+1.2.2 Nghi├¬n cß╗⌐u trong n╞░ß╗¢c . . . . . . . . . . . . . . . . . . . . . . 9
+1.3 C├íc c├┤ng nghß╗ç nß╗ün tß║úng ─æ╞░ß╗úc sß╗¡ dß╗Ñng trong ─æß╗ü t├ái . . . . . . . . . . . . 9
+1.3.1 Vi ─æiß╗üu khiß╗ân STM32F103C8T6 (ARM Cortex-M3) . . . . . . 9
+1.3.2 Cß║úm biß║┐n qu├ín t├¡nh IMU MPU6050 . . . . . . . . . . . . . . . 10
+1.3.3 Giao thß╗⌐c ─æiß╗üu khiß╗ân v├┤ tuyß║┐n ExpressLRS (ELRS) . . . . . . . 11
+1.3.4 Camera FPV v├á hß╗ç thß╗æng truyß╗ün h├¼nh ß║únh VTX/VRX . . . . . . 13
+1.4 X├íc ─æß╗ïnh khoß║úng trß╗æng nghi├¬n cß╗⌐u v├á h╞░ß╗¢ng tiß║┐p cß║¡n cß╗ºa ─æß╗ü t├ái . . . . . 15
+--- Trang 14 ---
+1.4.1 Thiß║┐u nghi├¬n cß╗⌐u tß╗▒ thiß║┐t kß║┐ FC nh├║ng ARM cho UAV cß╗⌐u hß╗Ö
+trong n╞░ß╗¢c . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+1.4.2 Thiß║┐u hß╗ç thß╗æng AI ─æa m├┤ h├¼nh dung hß╗úp quyß║┐t ─æß╗ïnh cho b├ái to├ín
+cß╗⌐u hß╗Ö . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+1.4.3 Thiß║┐u t├¡ch hß╗úp tß╗½ ─æß║ºu ─æß║┐n cuß╗æi . . . . . . . . . . . . . . . . . . 15
+Kß║┐t luß║¡n Ch╞░╞íng 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+CH╞»╞áNG 2. THIß║╛T Kß║╛ V├Ç X├éY Dß╗░NG Hß╗å THß╗ÉNG DRONE Cß╗¿U Hß╗ÿ 16
+2.1 ─Éß╗Öng lß╗▒c hß╗ìc Quadcopter v├á Hß╗ç tß╗ìa ─æß╗Ö bay . . . . . . . . . . . . . . . 16
+2.1.1 Hß╗ç tß╗ìa ─æß╗Ö Tr├íi ─Éß║Ñt (Inertial Frame - Earth Frame - E) . . . . . . 16
+2.1.2 Hß╗ç tß╗ìa ─æß╗Ö vß║¡t thß╗â (Body Frame - B) . . . . . . . . . . . . . . . 16
+2.2 Hß╗ç thß╗æng cß║úm biß║┐n ─æß╗ïnh vß╗ï qu├ín t├¡nh IMU MPU6050 v├á Bß╗Ö lß╗ìc b├╣ . . . 18
+2.3 Hß╗ç thß╗æng ─æiß╗üu khiß╗ân phß║ún hß╗ôi PID v├▓ng k├¡n rß╗¥i rß║íc . . . . . . . . . . . 21
+2.3.1 Xß╗¡ l├╜ nhiß╗àu Gyro bß║▒ng Bß╗Ö lß╗ìc th├┤ng thß║Ñp (Low-Pass Filter) . . 23
+2.3.2 Hiß╗çn t╞░ß╗úng b├úo h├▓a t├¡ch ph├ón (Integral Windup) v├á c╞í chß║┐ chß╗æng
+b├úo h├▓a (Anti-windup) . . . . . . . . . . . . . . . . . . . . . . 24
+2.3.3 Kh├│a an to├án t├¡n hiß╗çu ─æiß╗üu khiß╗ân (Output Clamping) v├á Kß║┐ thß╗½a
+trß║íng th├íi . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+2.4 Giao thß╗⌐c truyß╗ün th├┤ng ─æiß╗üu khiß╗ân v├┤ tuyß║┐n CRSF v├á I2C . . . . . . . . 25
+2.5 Thiß║┐t kß║┐ phß║ºn cß╗⌐ng v├á c╞í kh├¡ Drone . . . . . . . . . . . . . . . . . . . 27
+2.5.1 Thiß║┐t kß║┐ s╞í ─æß╗ô nguy├¬n l├╜ v├á Layout PCB Flight Controller . . . 28
+2.5.2 Thiß║┐t kß║┐ mß║ích nguß╗ôn logic v├á cß║ºu ph├ón ├íp ─æo pin . . . . . . . . 31
+2.5.3 Lß║»p r├íp c╞í kh├¡ v├á hß╗ç thß╗æng ─æß╗Öng lß╗▒c . . . . . . . . . . . . . . . 33
+2.5.4 Hß╗ç thß╗æng ─æiß╗üu khiß╗ân v├┤ tuyß║┐n v├á truyß╗ün tß║úi h├¼nh ß║únh thß╗¥i gian thß╗▒c 33
+2.6 Lß║¡p tr├¼nh phß║ºn mß╗üm nh├║ng (Firmware Flight Controller) . . . . . . . . 34
+2.6.1 Kiß║┐n tr├║c v├▓ng lß║╖p ─æiß╗üu khiß╗ân ch├¡nh thß╗¥i gian thß╗▒c tß║ºn sß╗æ 250Hz 35
+2.6.2 Kß╗╣ thuß║¡t lß║¡p lß╗ïch v├▓ng lß║╖p thß╗¥i gian thß╗▒c phi chß║╖n v├á Quß║ún l├╜ quß╗╣
+thß╗¥i gian thß╗▒c thi . . . . . . . . . . . . . . . . . . . . . . . . . 35
+14
+--- Trang 15 ---
+2.6.3 Tß╗æi ╞░u h├│a giao tiß║┐p Software I2C v├á Kß╗╣ thuß║¡t kh├┤i phß╗Ñc Bus
+(Bus Recovery) . . . . . . . . . . . . . . . . . . . . . . . . . . 37
+2.6.4 Thuß║¡t to├ín trß╗Ön ─æß╗Öng c╞í (Motor Mixer) cß║Ñu h├¼nh Quad-X . . . . 39
+2.7 Thiß║┐t kß║┐ phß║ºn mß╗üm ─æiß╗üu phß╗æi trß║ím mß║╖t ─æß║Ñt . . . . . . . . . . . . . . . . 39
+2.7.1 Kiß║┐n tr├║c hß╗ç thß╗æng ─æiß╗üu phß╗æi v├á xß╗¡ l├╜ dß╗» liß╗çu trß║ím GCS . . . . . 39
+2.7.2 Bß╗Ö quß║ún l├╜ mß╗Ñc ti├¬u (Target Manager) v├á kh├│a mß╗Ñc ti├¬u (Focus
+Lock) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+2.7.3 Giao diß╗çn t╞░╞íng t├íc v├á Hß╗ç thß╗æng ph├¡m ─æiß╗üu khiß╗ân cß╗ºa ng╞░ß╗¥i vß║¡n
+h├ánh . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+2.7.4 Bß╗Ö ghi nhß║¡t k├╜ sß╗▒ kiß╗çn cß╗⌐u hß╗Ö v├á Tß╗▒ ─æß╗Öng xuß║Ñt b├ío c├ío HTML . 42
+2.8 Tß╗òng quan vß╗ü kiß║┐n tr├║c YOLO trong ph├ít hiß╗çn ─æß╗æi t╞░ß╗úng . . . . . . . . 43
+2.8.1 Giß╗¢i thiß╗çu nß╗ün tß║úng Ultralytics YOLOv8 . . . . . . . . . . . . . 44
+2.8.2 L├╜ thuyß║┐t mß║íng hß╗ìc s├óu ph├ít hiß╗çn ─æß╗æi t╞░ß╗úng YOLOv8 . . . . . . 44
+2.8.3 Nß╗ün tß║úng quß║ún l├╜ dß╗» liß╗çu Roboflow Universe . . . . . . . . . . 46
+2.8.4 Quy tr├¼nh thu thß║¡p v├á tiß╗ün xß╗¡ l├╜ dß╗» liß╗çu qua nß╗ün tß║úng Roboflow . 46
+2.8.5 Quy tr├¼nh chuß║⌐n bß╗ï v├á l├ám sß║ích dß╗» liß╗çu huß║Ñn luyß╗çn thß╗▒c tß║┐ . . . 47
+2.8.6 ß╗¿ng dß╗Ñng m├┤ h├¼nh chuy├¬n biß╗çt YOLOv8s-Rescue v├á YOLOv8s-
+Posture . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 48
+2.9 Cß║Ñu tr├║c bß╗Ö dß╗» liß╗çu huß║Ñn luyß╗çn . . . . . . . . . . . . . . . . . . . . . . 48
+2.9.1 Tß║¡p dß╗» liß╗çu Ph├ít hiß╗çn Cß╗⌐u hß╗Ö (YOLOv8s-Rescue) . . . . . . . . 49
+2.9.2 Tß║¡p dß╗» liß╗çu Ph├ón loß║íi T╞░ thß║┐ (YOLOv8s-Posture) . . . . . . . . 51
+2.10 ╞»ß╗¢c l╞░ß╗úng t╞░ thß║┐ ng╞░ß╗¥i (Pose Estimation) dß╗▒a tr├¬n YOLO-Pose . . . . . 51
+2.10.1 Nguy├¬n l├╜ ╞░ß╗¢c l╞░ß╗úng t╞░ thß║┐ ng╞░ß╗¥i v├á tr├¡ch xuß║Ñt 17 keypoints . . 51
+2.10.2 Ph├ón t├¡ch h├¼nh hß╗ìc t╞░ thß║┐ dß╗▒a tr├¬n tß╗ìa ─æß╗Ö keypoints . . . . . . . 52
+2.11 Thuß║¡t to├ín ph├ón t├¡ch cß╗¡ chß╗ë ─æß╗Öng v├á trß║íng th├íi nß║ín nh├ón . . . . . . . . . 53
+2.11.1 Ph├ít hiß╗çn cß╗¡ chß╗ë vß║½y hai tay cß║ºu cß╗⌐u (two_hands_waving) . . . . 53
+2.11.2 Thuß║¡t to├ín ─æ├ính gi├í trß║íng th├íi bß║Ñt ─æß╗Öng t─⌐nh (immobility) . . . . 54
+2.12 C╞í chß║┐ dung hß╗úp quyß║┐t ─æß╗ïnh (Decision Fusion) ─æa m├┤ h├¼nh . . . . . . . 54
+15
+--- Trang 16 ---
+2.12.1 Thuß║¡t to├ín dung hß╗úp quyß║┐t ─æß╗ïnh t├¡ch l┼⌐y bß║▒ng chß╗⌐ng . . . . . . 55
+2.12.2 Thiß║┐t lß║¡p hß╗ç thß╗æng ─æiß╗âm nguy cß║Ñp Danger Score . . . . . . . . . 55
+2.13 Luß╗ông hoß║ít ─æß╗Öng tß╗òng qu├ít cß╗ºa hß╗ç thß╗æng AI trß║ím mß║╖t ─æß║Ñt . . . . . . . . 57
+2.14 ─É├ính gi├í hiß╗çu n─âng huß║Ñn luyß╗çn c├íc m├┤ h├¼nh YOLO . . . . . . . . . . . 60
+2.14.1 Thiß║┐t lß║¡p tham sß╗æ v├á cß║Ñu h├¼nh huß║Ñn luyß╗çn thß╗▒c tß║┐ . . . . . . . . 60
+2.14.2 Quy tr├¼nh huß║Ñn luyß╗çn tß╗▒ ─æß╗Öng v├á tß╗æi ╞░u h├│a bß╗Ö nhß╗¢ GPU (VRAM
+Leak Bypass) . . . . . . . . . . . . . . . . . . . . . . . . . . . 61
+2.14.3 ─É├ính gi├í hiß╗çu n─âng m├┤ h├¼nh ph├ón t├¡ch t╞░ thß║┐ (YOLOv8s-Posture) 62
+2.14.4 ─É├ính gi├í hiß╗çu n─âng m├┤ h├¼nh ph├ón t├¡ch cß╗⌐u hß╗Ö (YOLOv8s-Rescue) 66
+Kß║┐t luß║¡n Ch╞░╞íng 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69
+CH╞»╞áNG 3. Kß║╛T QUß║ó THß╗░C NGHIß╗åM V├Ç ─É├üNH GI├ü 71
+3.1 Kß║┐t quß║ú thiß║┐t kß║┐ v├á chß║┐ tß║ío phß║ºn cß╗⌐ng thß╗▒c tß║┐ . . . . . . . . . . . . . . . 71
+3.1.1 Sß║ún phß║⌐m mß║ích in PCB Flight Controller ho├án chß╗ënh . . . . . . 71
+3.1.2 M├┤ h├¼nh Drone Quadcopter ho├án chß╗ënh . . . . . . . . . . . . . 72
+3.2 Kß║┐t quß║ú thß╗▒c nghiß╗çm t├¡nh ß╗òn ─æß╗ïnh cß╗ºa hß╗ç thß╗æng bay . . . . . . . . . . . 72
+3.2.1 Thß╗¡ nghiß╗çm triß╗çt ti├¬u nhiß╗àu rung c╞í hß╗ìc cß╗ºa bß╗Ö lß╗ìc b├╣ hß╗ç sß╗æ cao 73
+3.2.2 Nhß║¡t k├╜ thß╗▒c nghiß╗çm tinh chß╗ënh hß╗ç sß╗æ bß╗Ö ─æiß╗üu khiß╗ân PID ngo├ái
+thß╗▒c ─æß╗ïa . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 74
+3.2.3 ─É├ính gi├í khoß║úng c├ích ─æiß╗üu khiß╗ân v├á t├¡nh n─âng an to├án Failsafe . 76
+3.3 Kß║┐t quß║ú thß╗▒c nghiß╗çm hß╗ç thß╗æng nhß║¡n dß║íng cß╗⌐u hß╗Ö AI tß║íi trß║ím mß║╖t ─æß║Ñt . . 77
+3.3.1 ─É├ính gi├í ─æß╗Ö ch├¡nh x├íc cß╗ºa thuß║¡t to├ín dung hß╗úp quyß║┐t ─æß╗ïnh . . . 77
+3.3.2 Kß║┐t quß║ú ph├ít hiß╗çn nß║ín nh├ón trong t├¼nh huß╗æng cß╗⌐u hß╗Ö thß╗▒c tß║┐ . . 77
+3.4 ─É├ính gi├í ╞░u nh╞░ß╗úc ─æiß╗âm v├á chi ph├¡ chß║┐ tß║ío . . . . . . . . . . . . . . . . 79
+3.4.1 ─É├ính gi├í ╞░u ─æiß╗âm v├á hß║ín chß║┐ cß╗ºa hß╗ç thß╗æng . . . . . . . . . . . . 79
+3.4.2 Bß║úng tß╗òng hß╗úp chi ph├¡ linh kiß╗çn v├á chß║┐ tß║ío . . . . . . . . . . . . 80
+Kß║┐t luß║¡n Ch╞░╞íng 3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 81
+Kß║╛T LUß║¼N V├Ç H╞»ß╗ÜNG PH├üT TRIß╗éN 82
+16
+... (truncated)
+
+
+====== FILE: HXT ======
+Total pages: 116
+--- Trang 1 ---
+─Éß║áI Hß╗îC B├üCH KHOA H├Ç Nß╗ÿI
+TR╞»ß╗£NG ─ÉIß╗åN ΓÇô ─ÉIß╗åN Tß╗¼
+─Éß╗Æ ├üN Tß╗ÉT NGHIß╗åP
+X├éY Dß╗░NG V├Ç CHß║╛ Tß║áO DRONE ß╗¿NG Dß╗ñNG CHO
+GI├üM S├üT AN NINH V├Ç Cß╗¿U Hß╗ÿ
+HO├ÇNG XU├éN TO├ÇN
+toan.hx224163@sis.hust.edu.vn
+Ng├ánh: ─Éiß╗çn tß╗¡ viß╗àn th├┤ng
+Chuy├¬n ng├ánh: Kß╗╣ thuß║¡t ─æiß╗çn tß╗¡ viß╗àn th├┤ng
+Giß║úng vi├¬n h╞░ß╗¢ng dß║½n: ThS. V┼⌐ Song T├╣ng
+Chß╗»k├╜cß╗ºaGVHD
+Khoa: ─Éiß╗çn tß╗¡
+H├Ç Nß╗ÿI, 06/2026
+--- Trang 3 ---
+─É├üNH GI├ü QUYß╗éN ─Éß╗Æ ├üN Tß╗ÉT NGHIß╗åP
+(D├ÇNHCHOGIß║óNGVI├èNH╞»ß╗ÜNGDß║¬N)
+T├¬n ─æß╗ü t├ái: X├óy dß╗▒ng v├á chß║┐ tß║ío Drone ß╗⌐ng dß╗Ñng cho gi├ím s├ít an ninh v├á cß╗⌐u hß╗Ö
+Hß╗ì t├¬n SV: Ho├áng Xu├ón To├án MSSV: 20224163
+C├ín bß╗Ö h╞░ß╗¢ng dß║½n: ThS. V┼⌐ Song T├╣ng
+STT Ti├¬uch├¡ H╞░ß╗¢ngdß║½n─æ├ínhgi├íti├¬uch├¡ ─Éiß╗âm
+(─Éiß╗âmtß╗æi─æa) ti├¬uch├¡
+Th├íi─æß╗Öl├ám
+Nghi├¬mt├║c,t├¡chcß╗▒cv├áchß╗º─æß╗Öngtrongqu├ítr├¼nhl├ám─ÉATN
+1 viß╗çc
+(2,5─æiß╗âm) Ho├ánth├ánh─æß║ºy─æß╗ºv├á─æ├║ngtiß║┐n─æß╗Öc├ícnß╗Öidung─æ╞░ß╗úcGVHDgiao
+Tr├¼nhb├áy─æ├║ngmß║½uquy─æß╗ïnh,bß╗æcß╗Ñcc├ícch╞░╞ínglogicv├áhß╗úpl├╜:Bß║úngbiß╗âu,
+Kß╗╣n─ângviß║┐t h├¼nhß║únhr├╡r├áng,c├│ti├¬u─æß╗ü,─æ╞░ß╗úc─æ├ínhsß╗æthß╗⌐tß╗▒v├á─æ╞░ß╗úcgiß║úith├¡chhay─æß╗ücß║¡p
+2 quyß╗ân─ÉATN ─æß║┐ntrong─æß╗ô├ín,c├│c─ânlß╗ü,dß║Ñuc├íchsaudß║Ñuchß║Ñm,dß║Ñuphß║⌐y,c├│mß╗ƒ─æß║ºu
+(2─æiß╗âm) ch╞░╞íngv├ákß║┐tluß║¡nch╞░╞íng,c├│liß╗çtk├¬t├áiliß╗çuthamkhß║úov├ác├│tr├¡chdß║½n,v.v.
+Kß╗╣n─ângdiß╗àn─æß║ít,ph├ónt├¡ch,giß║úith├¡ch,lß║¡pluß║¡n:Cß║Ñutr├║cc├óur├╡r├áng,v─ân
+phongkhoahß╗ìc,lß║¡pluß║¡nlogicv├ác├│c╞ísß╗ƒ,thuß║¡tngß╗»chuy├¬nng├ánhph├╣hß╗úp,
+v.v.
+N├¬ur├╡t├¡nhcß║Ñpthiß║┐t,├╜ngh─⌐akhoahß╗ìcv├áthß╗▒ctiß╗àncß╗ºa─æß╗üt├ái,c├ícvß║Ñn─æß╗üv├á
+c├ícgiß║úthuyß║┐t,phß║ímviß╗⌐ngdß╗Ñngcß╗ºa─æß╗üt├ái.Thß╗▒chiß╗çn─æß║ºy─æß╗ºquytr├¼nhnghi├¬n
+cß╗⌐u:─Éß║╖tvß║Ñn─æß╗ü,mß╗Ñcti├¬u─æß╗üra,ph╞░╞íngph├ípnghi├¬ncß╗⌐u/giß║úiquyß║┐tvß║Ñn─æß╗ü,
+Nß╗Öidungv├á
+kß║┐tquß║ú─æß║ít─æ╞░ß╗úc,─æ├ínhgi├ív├ákß║┐tluß║¡n.
+kß║┐tquß║ú─æß║ít
+3
+─æ╞░ß╗úc
+Nß╗Öidungv├ákß║┐tquß║ú─æ╞░ß╗úctr├¼nhb├áymß╗Ötc├íchlogicv├áhß╗úpl├╜,─æ╞░ß╗úcph├ónt├¡chv├á
+(5─æiß╗âm)
+─æ├ínhgi├íthß╗Åa─æ├íng.Biß╗çnluß║¡nph├ónt├¡chkß║┐tquß║úm├┤phß╗Ång/phß║ºnmß╗üm/thß╗▒c
+nghiß╗çm,sos├ínhkß║┐tquß║ú─æß║ít─æ╞░ß╗úcvß╗¢ikß║┐tquß║útr╞░ß╗¢c─æ├│c├│li├¬nquan.
+Chß╗ër├╡ph├╣hß╗úpgiß╗»akß║┐tquß║ú─æß║ít─æ╞░ß╗úcv├ámß╗Ñcti├¬uban─æß║ºu─æß╗üra─æß╗ôngthß╗¥icung
+cß║Ñplß║¡pluß║¡n─æß╗â─æß╗üxuß║Ñth╞░ß╗¢nggiß║úiquyß║┐tc├│thß╗âthß╗▒chiß╗çntrongt╞░╞ínglai.H├ám
+l╞░ß╗úngkhoahß╗ìc/─æß╗Öphß╗⌐ctß║ípcao,c├│t├¡nhmß╗¢i/t├¡nhs├íngtß║íotrongnß╗Öidungv├á
+kß║┐tquß║ú─æß╗ô├ín.
+C├│b├áib├íoKH─æ╞░ß╗úc─æ─ânghoß║╖cchß║Ñpnhß║¡n─æ─âng/─æß║ítgiß║úiSVNCKHgiß║úi3cß║Ñp
+─Éiß╗âmth├ánh Tr╞░ß╗¥ngtrß╗ƒl├¬n/C├ícgiß║úith╞░ß╗ƒngkhoahß╗ìctrongn╞░ß╗¢c,quß╗æctß║┐tß╗½giß║úi3trß╗ƒl├¬n/
+4 t├¡ch C├│─æ─ângk├╜bß║▒ngph├ítminhs├íngchß║┐.(1─æiß╗âm)
+(1─æiß╗âm)
+─É╞░ß╗úcb├íoc├íotß║íihß╗Öi─æß╗ôngcß║ÑpTr╞░ß╗¥ngtronghß╗Öinghß╗ïSVNCKHnh╞░ngkh├┤ng
+─æß║ítgiß║úitß╗½giß║úi3trß╗ƒl├¬n/─Éß║ítgiß║úikhuyß║┐nkh├¡chtrongcuß╗Öcthikhoahß╗ìctrong
+n╞░ß╗¢c,quß╗æctß║┐/Kß║┐tquß║ú─æß╗ô├ínl├ásß║únphß║⌐mß╗⌐ngdß╗Ñngc├│t├¡nhho├ánthiß╗çncao,y├¬u
+cß║ºukhß╗æil╞░ß╗úngthß╗▒chiß╗çnlß╗¢n.(0,5─æiß╗âm)
+─Éiß╗âmtß╗òngc├ícti├¬uch├¡:
+─Éiß╗âmh╞░ß╗¢ngdß║½n:
+--- Trang 4 ---
+Nhß║¡n x├⌐t kh├íc cß╗ºa c├ín bß╗Ö h╞░ß╗¢ng dß║½n:
+...............................................................................
+...............................................................................
+...............................................................................
+...............................................................................
+...............................................................................
+...............................................................................
+C├ín bß╗Ö h╞░ß╗¢ng dß║½n
+(K├╜ v├á ghi r├╡ hß╗ì t├¬n)
+--- Trang 5 ---
+─É├üNH GI├ü QUYß╗éN ─Éß╗Æ ├üN Tß╗ÉT NGHIß╗åP
+(D├ÇNHCHOC├üNBß╗ÿPHß║óNBIß╗åN)
+T├¬n ─æß╗ü t├ái: X├óy dß╗▒ng v├á chß║┐ tß║ío Drone ß╗⌐ng dß╗Ñng cho gi├ím s├ít an ninh v├á cß╗⌐u hß╗Ö
+Hß╗ì t├¬n SV: Ho├áng Xu├ón To├án MSSV: 20224163
+C├ín bß╗Ö phß║ún biß╗çn: ..............................................................
+STT Ti├¬uch├¡ H╞░ß╗¢ngdß║½n─æ├ínhgi├íti├¬uch├¡ ─Éiß╗âm
+(─Éiß╗âmtß╗æi─æa) ti├¬uch├¡
+─Éß╗ô├íntr├¼nhb├áy─æ├║ngmß║½uquy─æß╗ïnh,bß╗æcß╗Ñcc├ícch╞░╞ínglogicv├áhß╗úpl├╜:Bß║úng
+Tr├¼nhb├áy biß╗âu,h├¼nhß║únhr├╡r├áng,c├│ti├¬u─æß╗ü,─æ╞░ß╗úc─æ├ínhsß╗æthß╗⌐tß╗▒v├á─æ╞░ß╗úcgiß║úith├¡chhay─æß╗ü
+1 quyß╗ân─ÉATN cß║¡p─æß║┐ntrong─æß╗ô├ín,c├│c─ânlß╗ü,dß║Ñuc├íchsaudß║Ñuchß║Ñm,dß║Ñuphß║⌐y,c├│mß╗ƒ─æß║ºu
+(4─æiß╗âm) ch╞░╞íngv├ákß║┐tluß║¡nch╞░╞íng,c├│liß╗çtk├¬t├áiliß╗çuthamkhß║úov├ác├│tr├¡chdß║½n,v.v.
+Kß╗╣n─ângdiß╗àn─æß║ít,ph├ónt├¡ch,giß║úith├¡ch,lß║¡pluß║¡n:cß║Ñutr├║cc├óur├╡r├áng,v─ân
+phongkhoahß╗ìc,lß║¡pluß║¡nlogicv├ác├│c╞ísß╗ƒ,thuß║¡tngß╗»chuy├¬nng├ánhph├╣hß╗úp,
+v.v.
+N├¬ur├╡t├¡nhcß║Ñpthiß║┐t,├╜ngh─⌐akhoahß╗ìcv├áthß╗▒ctiß╗àncß╗ºa─æß╗üt├ái,c├ícvß║Ñn─æß╗üv├á
+c├ícgiß║úthuyß║┐t,phß║ímviß╗⌐ngdß╗Ñngcß╗ºa─æß╗üt├ái.Thß╗▒chiß╗çn─æß║ºy─æß╗ºquytr├¼nhnghi├¬n
+cß╗⌐u:─Éß║╖tvß║Ñn─æß╗ü,mß╗Ñcti├¬u─æß╗üra,ph╞░╞íngph├ípnghi├¬ncß╗⌐u/giß║úiquyß║┐tvß║Ñn─æß╗ü,
+Nß╗Öidungv├á
+kß║┐tquß║ú─æß║ít─æ╞░ß╗úc,─æ├ínhgi├ív├ákß║┐tluß║¡n.
+kß║┐tquß║ú─æß║ít
+2
+─æ╞░ß╗úc
+Nß╗Öidungv├ákß║┐tquß║ú─æ╞░ß╗úctr├¼nhb├áymß╗Ötc├íchlogicv├áhß╗úpl├╜,─æ╞░ß╗úcph├ónt├¡chv├á
+(5,5─æiß╗âm)
+─æ├ínhgi├íthß╗Åa─æ├íng.Biß╗çnluß║¡nph├ónt├¡chkß║┐tquß║úm├┤phß╗Ång/phß║ºnmß╗üm/thß╗▒c
+nghiß╗çm,sos├ínhkß║┐tquß║ú─æß║ít─æ╞░ß╗úcvß╗¢ikß║┐tquß║útr╞░ß╗¢c─æ├│c├│li├¬nquan.
+Chß╗ër├╡ph├╣hß╗úpgiß╗»akß║┐tquß║ú─æß║ít─æ╞░ß╗úcv├ámß╗Ñcti├¬uban─æß║ºu─æß╗üra─æß╗ôngthß╗¥icung
+cß║Ñplß║¡pluß║¡n─æß╗â─æß╗üxuß║Ñth╞░ß╗¢nggiß║úiquyß║┐tc├│thß╗âthß╗▒chiß╗çntrongt╞░╞ínglai.H├ám
+l╞░ß╗úngkhoahß╗ìc/─æß╗Öphß╗⌐ctß║ípcao,c├│t├¡nhmß╗¢i/t├¡nhs├íngtß║íotrongnß╗Öidungv├á
+kß║┐tquß║ú─æß╗ô├ín.
+C├│b├áib├íoKH─æ╞░ß╗úc─æ─ânghoß║╖cchß║Ñpnhß║¡n─æ─âng/─æß║ítgiß║úiSVNCKHgiß║úi3cß║Ñp
+─Éiß╗âmth├ánh Tr╞░ß╗¥ngtrß╗ƒl├¬n/C├ícgiß║úith╞░ß╗ƒngkhoahß╗ìctrongn╞░ß╗¢c,quß╗æctß║┐tß╗½giß║úi3trß╗ƒl├¬n/
+3 t├¡ch C├│─æ─ângk├╜bß║▒ngph├ítminhs├íngchß║┐.(1─æiß╗âm)
+(1─æiß╗âm)
+─É╞░ß╗úcb├íoc├íotß║íihß╗Öi─æß╗ôngcß║ÑpTr╞░ß╗¥ngtronghß╗Öinghß╗ïSVNCKHnh╞░ngkh├┤ng
+─æß║ítgiß║úitß╗½giß║úi3trß╗ƒl├¬n/─Éß║ítgiß║úikhuyß║┐nkh├¡chtrongcuß╗Öcthikhoahß╗ìctrong
+n╞░ß╗¢c,quß╗æctß║┐/Kß║┐tquß║ú─æß╗ô├ínl├ásß║únphß║⌐mß╗⌐ngdß╗Ñngc├│t├¡nhho├ánthiß╗çncao,y├¬u
+cß║ºukhß╗æil╞░ß╗úngthß╗▒chiß╗çnlß╗¢n.(0,5─æiß╗âm)
+─Éiß╗âmtß╗òngc├ícti├¬uch├¡:
+─Éiß╗âmphß║únbiß╗çn:
+--- Trang 6 ---
+Nhß║¡n x├⌐t kh├íc cß╗ºa c├ín bß╗Ö phß║ún biß╗çn:
+...............................................................................
+...............................................................................
+...............................................................................
+...............................................................................
+...............................................................................
+...............................................................................
+C├ín bß╗Ö phß║ún biß╗çn
+(K├╜ v├á ghi r├╡ hß╗ì t├¬n)
+--- Trang 7 ---
+Lß╗£I Cß║óM ╞áN
+─Éß║ºu ti├¬n, em xin b├áy tß╗Å l├▓ng biß║┐t ╞ín s├óu sß║»c ─æß║┐n thß║ºy ThS. V┼⌐ Song T├╣ng ng╞░ß╗¥i ─æ├ú
+tß║¡n t├¼nh h╞░ß╗¢ng dß║½n, ─æß╗ïnh h╞░ß╗¢ng v├á hß╗ù trß╗ú em trong suß╗æt qu├í tr├¼nh thß╗▒c hiß╗çn ─æß╗ü t├ái ΓÇ£X├óy
+dß╗▒ng v├á chß║┐ tß║ío Drone ß╗⌐ng dß╗Ñng cho gi├ím s├ít an ninh v├á cß╗⌐u hß╗ÖΓÇ¥. Nhß╗»ng g├│p ├╜ chuy├¬n
+m├┤n qu├╜ b├íu cß╗ºa thß║ºy ─æ├ú gi├║p em ho├án thiß╗çn ─æß╗ü t├ái tß╗½ kh├óu nghi├¬n cß╗⌐u, thiß║┐t kß║┐ hß╗ç thß╗æng
+─æß║┐n triß╗ân khai v├á ─æ├ính gi├í kß║┐t quß║ú.
+Em xin ch├ón th├ánh cß║úm ╞ín c├íc thß║ºy c├┤ trong Khoa ─Éiß╗çn tß╗¡ Viß╗àn th├┤ng, ─Éß║íi hß╗ìc
+B├ích khoa H├á Nß╗Öi ─æ├ú truyß╗ün ─æß║ít cho em nhß╗»ng kiß║┐n thß╗⌐c nß╗ün tß║úng v├á tß║ío ─æiß╗üu kiß╗çn thuß║¡n
+lß╗úi trong qu├í tr├¼nh hß╗ìc tß║¡p v├á nghi├¬n cß╗⌐u.
+Do thß╗¥i gian v├á kiß║┐n thß╗⌐c c├▓n hß║ín chß║┐, ─æß╗ô ├ín kh├│ tr├ính khß╗Åi nhß╗»ng thiß║┐u s├│t. Em
+rß║Ñt mong nhß║¡n ─æ╞░ß╗úc nhß╗»ng ├╜ kiß║┐n ─æ├│ng g├│p cß╗ºa qu├╜ thß║ºy c├┤ ─æß╗â ho├án thiß╗çn h╞ín.
+Em xin ch├ón th├ánh cß║úm ╞ín!
+H├á Nß╗Öi, ng├áy 22 th├íng 06 n─âm 2026
+Ng╞░ß╗¥i thß╗▒c hiß╗çn
+HO├ÇNG XU├éN TO├ÇN
+--- Trang 9 ---
+Lß╗£I CAM ─ÉOAN
+T├┤i l├á Ho├áng Xu├ón To├án, m├ú sß╗æ sinh vi├¬n 20224163, kh├│a 67, ng╞░ß╗¥i h╞░ß╗¢ng dß║½n l├á
+ThS. V┼⌐ Song T├╣ng. T├┤i xin cam ─æoan to├án bß╗Ö nß╗Öi dung ─æ╞░ß╗úc tr├¼nh b├áy trong ─æß╗ô ├ín ΓÇ£X├óy
+dß╗▒ng v├á chß║┐ tß║ío Drone ß╗⌐ng dß╗Ñng cho gi├ím s├ít an ninh v├á cß╗⌐u hß╗ÖΓÇ¥ l├á kß║┐t quß║ú qu├í tr├¼nh
+t├¼m hiß╗âu v├á nghi├¬n cß╗⌐u cß╗ºa t├┤i. C├íc dß╗» liß╗çu ─æ╞░ß╗úc n├¬u trong ─æß╗ô ├ín ho├án to├án trung thß╗▒c,
+phß║ún ├ính ─æ├║ng kß║┐t quß║ú ─æo ─æß║íc thß╗▒c tß║┐. Mß╗ìi th├┤ng tin tr├¡ch dß║½n ─æß╗üu tu├ón thß╗º c├íc quy ─æß╗ïnh
+vß╗ü sß╗ƒ hß╗»u tr├¡ tuß╗ç, c├íc t├ái liß╗çu tham khß║úo ─æ╞░ß╗úc liß╗çt k├¬ r├╡ r├áng. T├┤i xin chß╗ïu ho├án to├án tr├ích
+nhiß╗çm vß╗¢i nhß╗»ng nß╗Öi dung ─æ╞░ß╗úc viß║┐t trong ─æß╗ô ├ín n├áy.
+H├á Nß╗Öi, ng├áy 22 th├íng 06 n─âm 2026
+Ng╞░ß╗¥i cam ─æoan
+Ho├áng Xu├ón To├án
+--- Trang 11 ---
+T├ôM Tß║«T Nß╗ÿI DUNG ─Éß╗Æ ├üN
+─Éß╗ô ├ín ΓÇ£X├óy dß╗▒ng v├á chß║┐ tß║ío Drone ß╗⌐ng dß╗Ñng cho gi├ím s├ít an ninh v├á cß╗⌐u hß╗ÖΓÇ¥
+─æ╞░ß╗úc thß╗▒c hiß╗çn nhß║▒m x├óy dß╗▒ng mß╗Öt giß║úi ph├íp cß╗⌐u nß║ín ─æß╗ông bß╗Ö v├á tß╗▒ chß╗º. ─Éß╗ô ├ín tß║¡p trung
+nghi├¬n cß╗⌐u, thiß║┐t kß║┐ v├á chß║┐ tß║ío mß╗Öt hß╗ç thß╗æng thiß║┐t bß╗ï bay Quadcopter tß╗▒ chß║┐ kß║┐t hß╗úp trß║ím
+mß║╖t ─æß║Ñt t├¡ch hß╗úp tr├¡ tuß╗ç nh├ón tß║ío (AI) nhß║▒m phß╗Ñc vß╗Ñ c├┤ng t├íc gi├ím s├ít an ninh v├á hß╗ù trß╗ú
+t├¼m kiß║┐m cß╗⌐u hß╗Ö hiß╗çu quß║ú trong b├ín k├¡nh hoß║ít ─æß╗Öng 1ΓÇô2km. Hß╗ç thß╗æng bao gß╗ôm hai ph├ón
+hß╗ç ch├¡nh: ph├ón hß╗ç thiß║┐t bß╗ï bay (Drone) v├á ph├ón hß╗ç trß║ím mß║╖t ─æß║Ñt (GCS).
+Vß╗ü ph├ón hß╗ç thiß║┐t bß╗ï bay, phß║ºn cß╗⌐ng ─æ╞░ß╗úc x├óy dß╗▒ng xung quanh vi ─æiß╗üu khiß╗ân trung
+t├óm STM32F103C8T6 (ARM Cortex-M3, 72MHz). Bo mß║ích ─æiß╗üu khiß╗ân bay (Flight
+Controller) ─æ╞░ß╗úc thiß║┐t kß║┐ ho├án to├án tß╗½ ─æß║ºu tr├¬n phß║ºn mß╗üm Altium Designer vß╗¢i mß║íng l╞░ß╗¢i
+nguß╗ôn hß║í ├íp ph├ón tß║ºng chß╗æng nhiß╗àu ─æß╗Öng lß╗▒c. Cß║úm biß║┐n qu├ín t├¡nh MPU6050 (6-DOF)
+giao tiß║┐p qua bus Software I2C tß╗æc ─æß╗Ö cao 400kHz. Hß╗ç thß╗æng sß╗¡ dß╗Ñng bß╗Ö thu s├│ng v├┤
+tuyß║┐n ExpressLRS qua giao thß╗⌐c CRSF ─æß╗Ö trß╗à thß║Ñp c├╣ng camera truyß╗ün tß║úi luß╗ông video
+FPV Analog 5.8GHz. Phß║ºn mß╗üm nh├║ng (Firmware) ─æ╞░ß╗úc thiß║┐t kß║┐ theo kiß║┐n tr├║c si├¬u lß║╖p
+phi chß║╖n (Non-blocking Super-loop scheduler) tß╗æi ╞░u h├│a thß╗¥i gian thß╗▒c ß╗ƒ tß║ºn sß╗æ 250Hz,
+sß╗¡ dß╗Ñng bß╗Ö lß╗ìc b├╣ (Complementary Filter) ╞░ß╗¢c l╞░ß╗úng g├│c t╞░ thß║┐ v├á bß╗Ö ─æiß╗üu khiß╗ân PID
+v├▓ng lß║╖p k├⌐p ß╗òn ─æß╗ïnh ba trß╗Ñc Roll, Pitch, Yaw.
+Vß╗ü ph├ón hß╗ç trß║ím mß║╖t ─æß║Ñt (GCS), hß╗ç thß╗æng t├¡ch hß╗úp nhß║¡n dß║íng thß╗¥i gian thß╗▒c tß╗½
+video truyß╗ün vß╗ü cß╗ºa Drone th├┤ng qua th╞░ viß╗çn OpenCV. Trß║ím mß║╖t ─æß║Ñt thß╗▒c thi chiß║┐n thuß║¡t
+Cascade Pipeline kß║┐t hß╗úp 4 m├┤ h├¼nh hß╗ìc s├óu chuy├¬n biß╗çt: m├┤ h├¼nh YOLOv8s ─æ├│ng vai
+tr├▓ ph├ít hiß╗çn v├á cß║»t (crop) v├╣ng ß║únh chß╗⌐a ng╞░ß╗¥i, sau ─æ├│ truyß╗ün kß║┐t quß║ú cho 3 m├┤ h├¼nh
+ph├ón t├¡ch chuy├¬n s├óu bao gß╗ôm YOLOv8s-Pose tr├¡ch xuß║Ñt 17 ─æiß╗âm khß╗¢p x╞░╞íng c╞í thß╗â,
+YOLOv8s-Posture nhß║¡n diß╗çn t╞░ thß║┐ (─Éß╗⌐ng/Ngß╗ôi/Nß║▒m) v├á YOLOv8s-Rescue ph├ón loß║íi
+trß║íng th├íi cß╗⌐u hß╗Ö (normal/victim). Kiß║┐n tr├║c n├áy gi├║p triß╗çt ti├¬u nhiß╗àu bß╗æi cß║únh v├á t─âng tß╗æi
+─æa ─æß╗Ö ch├¡nh x├íc. Dß╗» liß╗çu sau ─æ├│ ─æ╞░ß╗úc ─æ╞░a qua bß╗Ö dung hß╗úp quyß║┐t ─æß╗ïnh (Decision Fusion)
+dß╗▒a tr├¬n thuß║¡t to├ín t├¡nh ─æiß╗âm nguy c╞í (Danger Score) ─æß╗â ph├ón cß║Ñp cß║únh b├ío tß╗▒ ─æß╗Öng, k├¡ch
+hoß║ít c╞í chß║┐ ghi h├¼nh/video replay sß╗▒ kiß╗çn chß║íy nß╗ün bß║Ñt ─æß╗ông bß╗Ö v├á tß╗▒ ─æß╗Öng xuß║Ñt b├ío c├ío
+cß╗⌐u hß╗Ö dß║íng HTML.
+Kß║┐t quß║ú thß╗▒c nghiß╗çm cho thß║Ñy thiß║┐t bß╗ï bay hoß║ít ─æß╗Öng ß╗òn ─æß╗ïnh c╞í kh├¡ v├á phß║ún hß╗ôi
+ch├¡nh x├íc lß╗çnh ─æiß╗üu khiß╗ân, c╞í chß║┐ an to├án Failsafe ngß║»t ─æß╗Öng c╞í khß║⌐n cß║Ñp hoß║ít ─æß╗Öng tß╗æt
+d╞░ß╗¢i 0.25 gi├óy khi mß║Ñt s├│ng. Ph├ón hß╗ç nhß║¡n dß║íng AI tß║íi trß║ím mß║╖t ─æß║Ñt hoß║ít ─æß╗Öng m╞░ß╗út m├á
+--- Trang 12 ---
+─æß║ít tß╗æc ─æß╗Ö khoß║úng 20 - 25 FPS tr├¬n m├íy trß║ím vß╗¢i ─æß╗Ö ch├¡nh x├íc F1-score ─æß║ít tr├¬n 85%,
+nhß║¡n diß╗çn nhß║íy b├⌐n nß║ín nh├ón trong c├íc t╞░ thß║┐ phß╗⌐c tß║íp v├á xuß║Ñt b├ío c├ío cß╗⌐u nß║ín ─æß║ºy ─æß╗º.
+Tß╗½ kh├│a: Quadcopter, STM32F103C8T6, Flight Controller, PID, YOLOv8, ╞»ß╗¢c l╞░ß╗úng
+t╞░ thß║┐, Dung hß╗úp quyß║┐t ─æß╗ïnh, Trß║ím mß║╖t ─æß║Ñt, Cß╗⌐u hß╗Ö cß╗⌐u nß║ín.
+12
+--- Trang 13 ---
+Mß╗ñC Lß╗ñC
+DANH Mß╗ñC K├¥ HIß╗åU V├Ç CHß╗« VIß║╛T Tß║«T 19
+DANH Mß╗ñC H├îNH Vß║╝ 24
+DANH Mß╗ñC Bß║óNG BIß╗éU 25
+PHß║ªN Mß╗₧ ─Éß║ªU 1
+1. ─Éß║╖t vß║Ñn ─æß╗ü v├á t├¡nh cß║Ñp thiß║┐t cß╗ºa ─æß╗ü t├ái . . . . . . . . . . . . . . . . . . . . 1
+2. Mß╗Ñc ti├¬u v├á kß║┐t quß║ú dß╗▒ kiß║┐n cß╗ºa ─æß╗ü t├ái . . . . . . . . . . . . . . . . . . . . 2
+3. ─Éß╗æi t╞░ß╗úng v├á phß║ím vi nghi├¬n cß╗⌐u . . . . . . . . . . . . . . . . . . . . . . 3
+4. Ph╞░╞íng ph├íp nghi├¬n cß╗⌐u . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+5. ├¥ ngh─⌐a khoa hß╗ìc v├á thß╗▒c tiß╗àn . . . . . . . . . . . . . . . . . . . . . . . . 4
+6. Nhß╗»ng c├┤ng viß╗çc ch├¡nh v├á tiß║┐n ─æß╗Ö thß╗▒c hiß╗çn . . . . . . . . . . . . . . . . . 4
+7. Cß║Ñu tr├║c ─æß╗ü t├ái . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+CH╞»╞áNG 1. Tß╗öNG QUAN Vß╗Ç THIß║╛T Bß╗è BAY KH├öNG NG╞»ß╗£I L├üI 7
+1.1 Tß╗òng quan vß╗ü UAV v├á ß╗⌐ng dß╗Ñng trong cß╗⌐u hß╗Ö cß╗⌐u nß║ín . . . . . . . . . . 7
+1.2 T├¼nh h├¼nh nghi├¬n cß╗⌐u trong v├á ngo├ái n╞░ß╗¢c . . . . . . . . . . . . . . . . 8
+1.2.1 Nghi├¬n cß╗⌐u quß╗æc tß║┐ . . . . . . . . . . . . . . . . . . . . . . . . 8
+1.2.2 Nghi├¬n cß╗⌐u trong n╞░ß╗¢c . . . . . . . . . . . . . . . . . . . . . . 9
+1.3 C├íc c├┤ng nghß╗ç nß╗ün tß║úng ─æ╞░ß╗úc sß╗¡ dß╗Ñng trong ─æß╗ü t├ái . . . . . . . . . . . . 9
+1.3.1 Vi ─æiß╗üu khiß╗ân STM32F103C8T6 (ARM Cortex-M3) . . . . . . 9
+1.3.2 Cß║úm biß║┐n qu├ín t├¡nh IMU MPU6050 . . . . . . . . . . . . . . . 10
+1.3.3 Giao thß╗⌐c ─æiß╗üu khiß╗ân v├┤ tuyß║┐n ExpressLRS (ELRS) . . . . . . . 11
+1.3.4 Camera FPV v├á hß╗ç thß╗æng truyß╗ün h├¼nh ß║únh VTX/VRX . . . . . . 13
+1.4 X├íc ─æß╗ïnh khoß║úng trß╗æng nghi├¬n cß╗⌐u v├á h╞░ß╗¢ng tiß║┐p cß║¡n cß╗ºa ─æß╗ü t├ái . . . . . 15
+Kß║┐t luß║¡n Ch╞░╞íng 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+--- Trang 14 ---
+CH╞»╞áNG 2. THIß║╛T Kß║╛ V├Ç X├éY Dß╗░NG Hß╗å THß╗ÉNG DRONE Cß╗¿U Hß╗ÿ 16
+2.1 ─Éß╗Öng lß╗▒c hß╗ìc Quadcopter v├á Hß╗ç tß╗ìa ─æß╗Ö bay . . . . . . . . . . . . . . . 16
+2.1.1 Hß╗ç tß╗ìa ─æß╗Ö Tr├íi ─Éß║Ñt (Inertial Frame - Earth Frame - E) . . . . . . 16
+2.1.2 Hß╗ç tß╗ìa ─æß╗Ö vß║¡t thß╗â (Body Frame - B) . . . . . . . . . . . . . . . 16
+2.2 Hß╗ç thß╗æng cß║úm biß║┐n ─æß╗ïnh vß╗ï qu├ín t├¡nh IMU MPU6050 v├á Bß╗Ö lß╗ìc b├╣ . . . 18
+2.2.1 Ph├ón t├¡ch ─æß║╖c t├¡nh nhiß╗àu cß╗ºa gia tß╗æc kß║┐ v├á con quay hß╗ôi chuyß╗ân . 19
+2.2.2 Thuß║¡t to├ín bß╗Ö lß╗ìc b├╣ rß╗¥i rß║íc (Discrete Complementary Filter) . . 20
+2.2.3 B├╣ ch├⌐o g├│c xoay Yaw (Yaw Coupling Compensation) . . . . . 21
+2.3 Hß╗ç thß╗æng ─æiß╗üu khiß╗ân phß║ún hß╗ôi PID v├▓ng k├¡n rß╗¥i rß║íc . . . . . . . . . . . 21
+2.3.1 Cß║Ñu tr├║c bß╗Ö ─æiß╗üu khiß╗ân PID nß╗æi tß║ºng k├⌐p (Cascade PID) . . . . 21
+2.3.2 Xß╗¡ l├╜ nhiß╗àu Gyro bß║▒ng Bß╗Ö lß╗ìc th├┤ng thß║Ñp (Low-Pass Filter) . . 23
+2.3.3 Hiß╗çn t╞░ß╗úng b├úo h├▓a t├¡ch ph├ón (Integral Windup) v├á c╞í chß║┐ chß╗æng
+b├úo h├▓a (Anti-windup) . . . . . . . . . . . . . . . . . . . . . . 24
+2.3.4 Kh├│a an to├án t├¡n hiß╗çu ─æiß╗üu khiß╗ân (Output Clamping) v├á Kß║┐ thß╗½a
+trß║íng th├íi . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+2.4 C╞í chß║┐ ─æiß╗üu phß╗æi ─æß╗Öng c╞í v├á Giao thß╗⌐c truyß╗ün th├┤ng . . . . . . . . . . . 25
+2.4.1 Thuß║¡t to├ín trß╗Ön ─æß╗Öng c╞í (Motor Mixer) cß║Ñu h├¼nh Quad-X . . . . 25
+2.4.2 C╞í chß║┐ ph├ít xung ─æiß╗üu khiß╗ân ─æß╗Öng c╞í (Motor PWM) . . . . . . 26
+2.4.3 Giao thß╗⌐c truyß╗ün th├┤ng ─æiß╗üu khiß╗ân v├┤ tuyß║┐n CRSF v├á I2C . . . . 27
+2.5 Thiß║┐t kß║┐ phß║ºn cß╗⌐ng v├á c╞í kh├¡ Drone . . . . . . . . . . . . . . . . . . . 28
+2.5.1 Thiß║┐t kß║┐ s╞í ─æß╗ô nguy├¬n l├╜ v├á Layout PCB Flight Controller . . . 29
+2.5.2 Thiß║┐t kß║┐ mß║ích nguß╗ôn logic v├á cß║ºu ph├ón ├íp ─æo pin . . . . . . . . 32
+2.5.3 Lß║»p r├íp c╞í kh├¡ v├á hß╗ç thß╗æng ─æß╗Öng lß╗▒c . . . . . . . . . . . . . . . 34
+2.5.4 Hß╗ç thß╗æng ─æiß╗üu khiß╗ân v├┤ tuyß║┐n v├á truyß╗ün tß║úi h├¼nh ß║únh thß╗¥i gian thß╗▒c 34
+2.6 Lß║¡p tr├¼nh phß║ºn mß╗üm nh├║ng (Firmware Flight Controller) . . . . . . . . 35
+2.6.1 Kiß║┐n tr├║c v├▓ng lß║╖p ─æiß╗üu khiß╗ân ch├¡nh thß╗¥i gian thß╗▒c tß║ºn sß╗æ 250Hz 36
+2.6.2 Kß╗╣ thuß║¡t lß║¡p lß╗ïch v├▓ng lß║╖p thß╗¥i gian thß╗▒c phi chß║╖n v├á Quß║ún l├╜ quß╗╣
+thß╗¥i gian thß╗▒c thi . . . . . . . . . . . . . . . . . . . . . . . . . 36
+14
+--- Trang 15 ---
+2.6.3 Tß╗æi ╞░u h├│a giao tiß║┐p Software I2C v├á Kß╗╣ thuß║¡t kh├┤i phß╗Ñc Bus
+(Bus Recovery) . . . . . . . . . . . . . . . . . . . . . . . . . . 37
+2.7 Thiß║┐t kß║┐ phß║ºn mß╗üm ─æiß╗üu phß╗æi trß║ím mß║╖t ─æß║Ñt . . . . . . . . . . . . . . . . 39
+2.7.1 Kiß║┐n tr├║c hß╗ç thß╗æng ─æiß╗üu phß╗æi v├á xß╗¡ l├╜ dß╗» liß╗çu trß║ím GCS . . . . . 39
+2.7.2 Bß╗Ö quß║ún l├╜ mß╗Ñc ti├¬u (Target Manager) v├á kh├│a mß╗Ñc ti├¬u (Focus
+Lock) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 40
+2.7.3 Giao diß╗çn t╞░╞íng t├íc v├á Hß╗ç thß╗æng ph├¡m ─æiß╗üu khiß╗ân cß╗ºa ng╞░ß╗¥i vß║¡n
+h├ánh . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+2.7.4 Bß╗Ö ghi nhß║¡t k├╜ sß╗▒ kiß╗çn cß╗⌐u hß╗Ö v├á Tß╗▒ ─æß╗Öng xuß║Ñt b├ío c├ío HTML . 42
+2.8 Tß╗òng quan vß╗ü kiß║┐n tr├║c YOLO trong ph├ít hiß╗çn ─æß╗æi t╞░ß╗úng . . . . . . . . 42
+2.8.1 Giß╗¢i thiß╗çu nß╗ün tß║úng Ultralytics YOLOv8 . . . . . . . . . . . . . 43
+2.8.2 L├╜ thuyß║┐t mß║íng hß╗ìc s├óu ph├ít hiß╗çn ─æß╗æi t╞░ß╗úng YOLOv8 . . . . . . 44
+2.8.3 Nß╗ün tß║úng quß║ún l├╜ dß╗» liß╗çu Roboflow Universe . . . . . . . . . . 45
+2.8.4 Quy tr├¼nh thu thß║¡p v├á tiß╗ün xß╗¡ l├╜ dß╗» liß╗çu qua nß╗ün tß║úng Roboflow . 46
+2.8.5 Quy tr├¼nh chuß║⌐n bß╗ï v├á l├ám sß║ích dß╗» liß╗çu huß║Ñn luyß╗çn thß╗▒c tß║┐ . . . 46
+2.8.6 ß╗¿ng dß╗Ñng m├┤ h├¼nh chuy├¬n biß╗çt YOLOv8s-Rescue v├á YOLOv8s-
+Posture . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 47
+2.9 Cß║Ñu tr├║c bß╗Ö dß╗» liß╗çu huß║Ñn luyß╗çn . . . . . . . . . . . . . . . . . . . . . . 48
+2.9.1 Tß║¡p dß╗» liß╗çu Ph├ít hiß╗çn Cß╗⌐u hß╗Ö (YOLOv8s-Rescue) . . . . . . . . 48
+2.9.2 Tß║¡p dß╗» liß╗çu Ph├ón loß║íi T╞░ thß║┐ (YOLOv8s-Posture) . . . . . . . . 50
+2.10 ╞»ß╗¢c l╞░ß╗úng t╞░ thß║┐ ng╞░ß╗¥i (Pose Estimation) dß╗▒a tr├¬n YOLO-Pose . . . . . 50
+2.10.1 Nguy├¬n l├╜ ╞░ß╗¢c l╞░ß╗úng t╞░ thß║┐ ng╞░ß╗¥i v├á tr├¡ch xuß║Ñt 17 keypoints . . 50
+2.10.2 Ph├ón t├¡ch h├¼nh hß╗ìc t╞░ thß║┐ dß╗▒a tr├¬n tß╗ìa ─æß╗Ö keypoints . . . . . . . 51
+2.11 Thuß║¡t to├ín ph├ón t├¡ch cß╗¡ chß╗ë ─æß╗Öng v├á trß║íng th├íi nß║ín nh├ón . . . . . . . . . 52
+2.11.1 Ph├ít hiß╗çn cß╗¡ chß╗ë vß║½y hai tay cß║ºu cß╗⌐u (two_hands_waving) . . . . 52
+2.11.2 Thuß║¡t to├ín ─æ├ính gi├í trß║íng th├íi bß║Ñt ─æß╗Öng t─⌐nh (immobility) . . . . 53
+2.12 C╞í chß║┐ dung hß╗úp quyß║┐t ─æß╗ïnh (Decision Fusion) ─æa m├┤ h├¼nh . . . . . . . 53
+2.12.1 Thuß║¡t to├ín dung hß╗úp quyß║┐t ─æß╗ïnh t├¡ch l┼⌐y bß║▒ng chß╗⌐ng . . . . . . 54
+15
+--- Trang 16 ---
+2.12.2 Thiß║┐t lß║¡p hß╗ç thß╗æng ─æiß╗âm nguy cß║Ñp Danger Score . . . . . . . . . 54
+2.13 Luß╗ông hoß║ít ─æß╗Öng tß╗òng qu├ít cß╗ºa hß╗ç thß╗æng AI trß║ím mß║╖t ─æß║Ñt . . . . . . . . 56
+2.14 ─É├ính gi├í hiß╗çu n─âng huß║Ñn luyß╗çn c├íc m├┤ h├¼nh YOLO . . . . . . . . . . . 59
+2.14.1 Thiß║┐t lß║¡p tham sß╗æ v├á cß║Ñu h├¼nh huß║Ñn luyß╗çn thß╗▒c tß║┐ . . . . . . . . 59
+2.14.2 Quy tr├¼nh huß║Ñn luyß╗çn tß╗▒ ─æß╗Öng v├á tß╗æi ╞░u h├│a bß╗Ö nhß╗¢ GPU (VRAM
+Leak Bypass) . . . . . . . . . . . . . . . . . . . . . . . . . . . 60
+2.14.3 ─É├ính gi├í hiß╗çu n─âng m├┤ h├¼nh ph├ón t├¡ch t╞░ thß║┐ (YOLOv8s-Posture) 61
+2.14.4 ─É├ính gi├í hiß╗çu n─âng m├┤ h├¼nh ph├ón t├¡ch cß╗⌐u hß╗Ö (YOLOv8s-Rescue) 65
+Kß║┐t luß║¡n Ch╞░╞íng 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 68
+CH╞»╞áNG 3. Kß║╛T QUß║ó THß╗░C NGHIß╗åM V├Ç ─É├üNH GI├ü 70
+3.1 Kß║┐t quß║ú thiß║┐t kß║┐ v├á chß║┐ tß║ío phß║ºn cß╗⌐ng thß╗▒c tß║┐ . . . . . . . . . . . . . . . 70
+3.1.1 Sß║ún phß║⌐m mß║ích in PCB Flight Controller ho├án chß╗ënh . . . . . . 70
+3.1.2 M├┤ h├¼nh Drone Quadcopter ho├án chß╗ënh . . . . . . . . . . . . . 71
+3.2 Kß║┐t quß║ú thß╗▒c nghiß╗çm t├¡nh ß╗òn ─æß╗ïnh cß╗ºa hß╗ç thß╗æng bay . . . . . . . . . . . 71
+3.2.1 Thß╗¡ nghiß╗çm triß╗çt ti├¬u nhiß╗àu rung c╞í hß╗ìc cß╗ºa bß╗Ö lß╗ìc b├╣ hß╗ç sß╗æ cao 72
+3.2.2 Nhß║¡t k├╜ thß╗▒c nghiß╗çm tinh chß╗ënh hß╗ç sß╗æ bß╗Ö ─æiß╗üu khiß╗ân PID ngo├ái
+thß╗▒c ─æß╗ïa . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 73
+3.2.3 ─É├ính gi├í khoß║úng c├ích ─æiß╗üu khiß╗ân v├á t├¡nh n─âng an to├án Failsafe . 75
+3.3 Kß║┐t quß║ú thß╗▒c nghiß╗çm hß╗ç thß╗æng nhß║¡n dß║íng cß╗⌐u hß╗Ö AI tß║íi trß║ím mß║╖t ─æß║Ñt . . 76
+3.3.1 ─É├ính gi├í ─æß╗Ö ch├¡nh x├íc cß╗ºa thuß║¡t to├ín dung hß╗úp quyß║┐t ─æß╗ïnh . . . 76
+3.3.2 Kß║┐t quß║ú ph├ít hiß╗çn nß║ín nh├ón trong t├¼nh huß╗æng cß╗⌐u hß╗Ö thß╗▒c tß║┐ . . 76
+3.4 ─É├ính gi├í ╞░u nh╞░ß╗úc ─æiß╗âm v├á chi ph├¡ chß║┐ tß║ío . . . . . . . . . . . . . . . . 78
+3.4.1 ─É├ính gi├í ╞░u ─æiß╗âm v├á hß║ín chß║┐ cß╗ºa hß╗ç thß╗æng . . . . . . . . . . . . 78
+3.4.2 Bß║úng tß╗òng hß╗úp chi ph├¡ linh kiß╗çn v├á chß║┐ tß║ío . . . . . . . . . . . . 79
+Kß║┐t luß║¡n Ch╞░╞íng 3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 80
+Kß║╛T LUß║¼N V├Ç H╞»ß╗ÜNG PH├üT TRIß╗éN 82
+16
+... (truncated)

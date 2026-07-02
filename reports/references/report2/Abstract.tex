@@ -1,0 +1,15 @@
+\section*{TÓM TẮT NỘI DUNG ĐỒ ÁN}
+\thispagestyle{empty}
+
+Đồ án \textbf{``Xây dựng và chế tạo Drone ứng dụng cho giám sát an ninh và cứu hộ''} được thực hiện nhằm xây dựng một giải pháp cứu nạn đồng bộ và tự chủ. Đồ án tập trung nghiên cứu, thiết kế và chế tạo một hệ thống thiết bị bay Quadcopter tự chế kết hợp trạm mặt đất tích hợp trí tuệ nhân tạo (AI) nhằm phục vụ công tác giám sát an ninh và hỗ trợ tìm kiếm cứu hộ hiệu quả trong bán kính hoạt động 1--2\,km. Hệ thống bao gồm hai phân hệ chính: phân hệ thiết bị bay (Drone) và phân hệ trạm mặt đất (GCS).
+
+Về phân hệ thiết bị bay, phần cứng được xây dựng xung quanh vi điều khiển trung tâm STM32F103C8T6 (ARM Cortex-M3, 72\,MHz). Bo mạch điều khiển bay (Flight Controller) được thiết kế hoàn toàn từ đầu trên phần mềm Altium Designer với mạng lưới nguồn hạ áp phân tầng chống nhiễu động lực. Cảm biến quán tính MPU6050 (6-DOF) giao tiếp qua bus Software I2C tốc độ cao 400\,kHz. Hệ thống sử dụng bộ thu sóng vô tuyến ExpressLRS qua giao thức CRSF độ trễ thấp cùng camera truyền tải luồng video FPV Analog 5.8\,GHz. Phần mềm nhúng (Firmware) được thiết kế theo kiến trúc siêu lặp phi chặn (Non-blocking Super-loop scheduler) tối ưu hóa thời gian thực ở tần số 250\,Hz, sử dụng bộ lọc bù (Complementary Filter) ước lượng góc tư thế và bộ điều khiển PID vòng lặp kép ổn định ba trục Roll, Pitch, Yaw.
+
+Về phân hệ trạm mặt đất (GCS), hệ thống tích hợp nhận dạng thời gian thực từ video truyền về của Drone thông qua thư viện OpenCV. Trạm mặt đất thực thi chiến thuật Cascade Pipeline kết hợp 4 mô hình học sâu chuyên biệt: mô hình YOLOv8s đóng vai trò phát hiện và cắt (crop) vùng ảnh chứa người, sau đó truyền kết quả cho 3 mô hình phân tích chuyên sâu bao gồm YOLOv8s-Pose trích xuất 17 điểm khớp xương cơ thể, YOLOv8s-Posture nhận diện tư thế (Đứng/Ngồi/Nằm) và YOLOv8s-Rescue phân loại trạng thái cứu hộ (normal/victim). Kiến trúc này giúp triệt tiêu nhiễu bối cảnh và tăng tối đa độ chính xác. Dữ liệu sau đó được đưa qua bộ dung hợp quyết định (Decision Fusion) dựa trên thuật toán tính điểm nguy cơ (Danger Score) để phân cấp cảnh báo tự động, kích hoạt cơ chế ghi hình/video replay sự kiện chạy nền bất đồng bộ và tự động xuất báo cáo cứu hộ dạng HTML.
+
+Kết quả thực nghiệm cho thấy thiết bị bay hoạt động ổn định cơ khí và phản hồi chính xác lệnh điều khiển, cơ chế an toàn Failsafe ngắt động cơ khẩn cấp hoạt động tốt dưới 0.25 giây khi mất sóng. Phân hệ nhận dạng AI tại trạm mặt đất hoạt động mượt mà đạt tốc độ khoảng 20 - 25 FPS trên máy trạm với độ chính xác F1-score đạt trên 85\%, nhận diện nhạy bén nạn nhân trong các tư thế phức tạp và xuất báo cáo cứu nạn đầy đủ.
+
+\vspace{6pt}
+\noindent\textbf{Từ khóa:} Quadcopter, STM32F103C8T6, Flight Controller, PID, YOLOv8, Ước lượng tư thế, Dung hợp quyết định, Trạm mặt đất, Cứu hộ cứu nạn.
+\cleardoublepage
+

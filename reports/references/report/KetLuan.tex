@@ -1,0 +1,23 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN}
+\addcontentsline{toc}{section}{\numberline{}KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN}
+
+\subsection*{Kết luận đạt được}
+Đồ án tốt nghiệp đề tài \textbf{"Thiết kế hệ thống giám sát sức khỏe IoT thời gian thực"} đã hoàn thành đầy đủ và vượt mức toàn bộ các nội dung nhiệm vụ nghiên cứu đặt ra, bao gồm cả thiết kế phần cứng bo mạch vật lý nhúng, lập trình firmware xử lý tín hiệu số nâng cao và phát triển hệ thống máy chủ giám sát chuyên dụng:
+\begin{enumerate}
+    \item Thiết kế và chế tạo thành công sản phẩm bo mạch phần cứng đồng hồ đeo tay nhỏ gọn 2 lớp trên phần mềm Altium Designer đạt kích thước tối ưu 42x42mm, tích hợp vi điều khiển thế hệ mới ESP32-C3 lõi RISC-V, các cảm biến sinh trắc học MAX30102, cảm biến nhiệt ẩm HDC2022 qua I2C và khối nguồn sạc pin Lithium 3.7V có mạch bảo vệ an toàn tích hợp DW01A + FS8205A.
+    \item Triển khai thành công bộ xử lý tín hiệu số DSP lọc thông thấp số IIR và giải thuật phát hiện đỉnh thích ứng động (Adaptive Peak Detection) trực tiếp trên vi điều khiển nhúng để khử nhiễu và bắt nhịp tim chính xác.
+    \item Thiết lập và thử nghiệm thành công giải thuật \textbf{Bù sai số tĩnh thích ứng đo ở cổ tay (Wrist Offset Compensation)} giúp giải quyết triệt để sự suy giảm biên độ sóng PPG tại cổ tay, đưa sai số đo đạc $SpO_2$ xuống mức cực kỳ thấp ($0.34\%$) so với thiết bị y tế Beurer PO30 chuyên dụng.
+    \item Xây dựng cơ chế AP Mode \& Captive Portal cấu hình mạng không dây thông minh lưu Flash Preferences và giải pháp hạ công suất phát RF Wi-Fi xuống 11dBm để loại bỏ lỗi sụt dòng gây reset chip.
+    \item Phát triển thành công hệ thống máy chủ API song song chạy được trên cả Node.js và PHP hỗ trợ ghi dữ liệu JSON cục bộ tối ưu hóa hiệu năng, cùng giao diện Dashboard Web thời gian thực (Dark Mode, Chart.js) trực quan sinh động và hệ thống phân quyền quản trị y tế Bác sĩ/Y tá an toàn.
+\end{enumerate}
+
+\subsection*{Hướng phát triển đề tài}
+Mặc dù đã đạt được nhiều kết quả thực nghiệm khoa học khả quan, đề tài vẫn cần tiếp tục nghiên cứu và mở rộng phát triển theo các hướng tiềm năng sau:
+\begin{enumerate}
+    \item Nghiên cứu triển khai các giải thuật lọc số thích ứng tiên tiến như bộ lọc thích ứng LMS (Least Mean Squares) hoặc bộ lọc Kalman trên vi điều khiển kết hợp cảm biến gia tốc để lọc triệt để các nhiễu động mạnh (Motion Artifacts) khi người dùng chạy bộ.
+    \item Thiết kế tối ưu hóa cơ khí, thu nhỏ kích thước linh kiện để chuyển đổi thiết kế sang dạng bo mạch nhiều lớp (4 lớp) siêu nhỏ và chế tạo khuôn vỏ bằng công nghệ in 3D nhựa thân thiện sinh học để đạt thẩm mỹ như sản phẩm thương mại.
+    \item Mở rộng kết nối cơ sở dữ liệu y tế lớn (như MySQL, PostgreSQL) tích hợp thêm các công nghệ truyền thông IoT hiệu năng cao khác như MQTT hay WebSockets để nâng cao khả năng chịu tải của hệ thống máy chủ khi quản lý hàng ngàn thiết bị đo đồng thời.
+\end{enumerate}

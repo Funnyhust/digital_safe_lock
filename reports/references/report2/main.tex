@@ -1,0 +1,159 @@
+% Đồ án tốt nghiệp - Xây Dựng và Chế Tạo Drone Ứng Dụng Cho Giám Sát An Ninh và Cứu Hộ
+% Sinh viên: Hoàng Xuân Toàn
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage[fontsize=13pt]{scrextend}
+\usepackage[paperheight=29.7cm,paperwidth=21cm,right=2cm,left=3cm,top=2cm,bottom=2.5cm,twoside]{geometry}
+\usepackage{mathptmx}
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning,shapes.geometric,arrows.meta}
+\usepackage{indentfirst}
+\usepackage{booktabs}
+\renewcommand{\baselinestretch}{1.2}
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{1cm}
+% Cho phép dòng rộng hơn một chút để tránh ngắt từ kỹ thuật xấu
+\tolerance=1000
+\emergencystretch=2em
+\widowpenalty=10000
+\clubpenalty=10000
+
+\usepackage{titlesec}
+\setcounter{secnumdepth}{4}
+\titlespacing*{\section}{0pt}{0pt}{30pt}
+\titleformat*{\section}{\fontsize{16pt}{0pt}\selectfont \bfseries \centering}
+
+\titlespacing*{\subsection}{0pt}{10pt}{0pt}
+\titleformat*{\subsection}{\fontsize{14pt}{0pt}\selectfont \bfseries}
+
+\titlespacing*{\subsubsection}{0pt}{10pt}{0pt}
+\titleformat*{\subsubsection}{\fontsize{13pt}{0pt}\selectfont \bfseries \itshape}
+
+\titleformat{\paragraph}[hang]{\fontsize{13pt}{15pt}\selectfont \bfseries \itshape}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}{0pt}{10pt}{6pt}
+
+\renewcommand{\figurename}{\fontsize{12pt}{0pt}\selectfont \bfseries Hình}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\usepackage[font=bf]{caption}
+\captionsetup[figure]{labelsep=space}
+
+\renewcommand{\tablename}{\fontsize{12pt}{0pt}\selectfont \bfseries Bảng}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+\captionsetup[table]{labelsep=space}
+
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{multicol} % Gói lệnh dùng chia cột danh sách keypoints
+\usepackage{textcomp} % Ký tự đặc biệt như °
+\usepackage{gensymb}  % Lệnh \degree
+\usepackage{wrapfig}  % Cho phép chèn ảnh bên phải/trái text
+
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{gray}\itshape,
+  stringstyle=\color{orange},
+  frame=single,
+  breaklines=true,
+  tabsize=2
+}
+
+\renewcommand{\contentsname}{MỤC LỤC}
+\renewcommand{\listfigurename}{DANH MỤC HÌNH VẼ}
+\renewcommand{\listtablename}{DANH MỤC BẢNG BIỂU}
+\renewcommand{\refname}{TÀI LIỆU THAM KHẢO}
+
+\usepackage[unicode]{hyperref}
+\hypersetup{
+    pdfauthor={Hoàng Xuân Toàn},
+    pdftitle={Xây dựng và chế tạo Drone ứng dụng cho giám sát an ninh và cứu hộ},
+    pdfsubject={Đồ án tốt nghiệp},
+    pdfkeywords={Quadcopter, STM32F103C8T6, Flight Controller, PID, YOLOv8, Ước lượng tư thế, Dung hợp quyết định, Trạm mặt đất, Cứu hộ cứu nạn},
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=blue
+}
+\usepackage{colortbl}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\usepackage{forloop}
+\newcounter{loopcntr}
+\renewcommand{\labelitemi}{--}
+\renewcommand{\labelitemii}{$\circ$}
+\renewcommand{\labelitemiii}{$\diamond$}
+
+\begin{document}
+
+\input{Bia}
+\input{PhieuGVHD}
+\input{PhieuPhanBien}
+\input{LoiCamOn}
+\input{LoiCamDoan}
+\input{Abstract}
+
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\tableofcontents
+\thispagestyle{empty}
+\cleardoublepage
+
+\input{Abbreviations}
+\newpage
+
+{\let\oldnumberline\numberline
+\renewcommand{\numberline}{Hình~\oldnumberline}
+\listoffigures}
+\phantomsection\addcontentsline{toc}{section}{\numberline{}DANH MỤC HÌNH VẼ}
+\newpage
+
+{\let\oldnumberline\numberline
+\renewcommand{\numberline}{Bảng~\oldnumberline}
+\listoftables}
+\phantomsection\addcontentsline{toc}{section}{\numberline{}DANH MỤC BẢNG BIỂU}
+\newpage
+
+\pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PHẦN MỞ ĐẦU
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{PhanMoDau}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CÁC CHƯƠNG BÁO CÁO NỘI DUNG CHÍNH (3 CHƯƠNG)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{NewCh1}
+\newpage
+
+\input{NewCh2}
+\newpage
+
+\input{NewCh3}
+\newpage
+
+\input{KetLuan}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TÀI LIỆU THAM KHẢO VÀ PHỤ LỤC
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\phantomsection\addcontentsline{toc}{section}{\numberline{}TÀI LIỆU THAM KHẢO}
+\nocite{*}
+\bibliographystyle{IEEEtran}
+\bibliography{DroneRef}
+\newpage
+
+\input{PhuLuc}
+
+\end{document}

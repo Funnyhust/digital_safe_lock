@@ -1,0 +1,165 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PHỤ LỤC
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{PHỤ LỤC}
+\addcontentsline{toc}{section}{\numberline{}PHỤ LỤC}
+
+\subsection*{Phụ lục A: Mã nguồn C++ thuật toán lọc tư thế và điều khiển PID (STM32)}
+
+Dưới đây là đoạn mã nguồn C++ cốt lõi thực thi thuật toán bộ lọc bù (Complementary Filter) và tính toán PID kép (Cascade PID) cho góc tư thế trích xuất trực tiếp từ các tệp \texttt{imu\_estimator.cpp} và \texttt{pid\_controller.cpp} trong firmware:
+
+\begin{lstlisting}[language=C++]
+// 1. Uoc luong tu the goc nghieng tu IMU MPU6050 (imu_estimator.cpp)
+static const float Alpha = 0.9996f;
+
+void imuEstimatorUpdate(const MpuData *p_imu, float dt) {
+  // Tinh toan goc nghieng tinh tu Gia toc ke (Accel)
+  float roll_acc = atan2f(p_imu->ay, p_imu->az) * 57.29578f; // 180 / PI
+  float pitch_acc = atan2f(-p_imu->ax, sqrtf(p_imu->ay * p_imu->ay + p_imu->az * p_imu->az)) * 57.29578f;
+
+  if (is_first_run) {
+    current_att.roll = roll_acc;
+    current_att.pitch = pitch_acc;
+    current_att.yaw = 0.0f;
+    is_first_run = false;
+    return;
+  }
+
+  // Tich phan Gyro vao goc hien tai
+  current_att.roll  += p_imu->gx * dt;
+  current_att.pitch += p_imu->gy * dt;
+  current_att.yaw   += p_imu->gz * dt;
+
+  // Bu cheo goc khi xoay Yaw (Yaw coupling compensation)
+  float yaw_rad = p_imu->gz * dt * 0.0174532925f;
+  float sin_yaw = sinf(yaw_rad);
+  
+  float prev_roll = current_att.roll;
+  current_att.roll  += current_att.pitch * sin_yaw;
+  current_att.pitch -= prev_roll * sin_yaw;
+
+  // Thuat toan hoa tron bo loc bu (Complementary Filter)
+  current_att.roll  = Alpha * current_att.roll  + (1.0f - Alpha) * roll_acc;
+  current_att.pitch = Alpha * current_att.pitch + (1.0f - Alpha) * pitch_acc;
+}
+
+// 2. Tinh toan PID Cascade cho truc Roll (pid_controller.cpp)
+void pidCompute(const Attitude *current_att, const MpuData *current_imu,
+                float target_roll_deg, float *out_roll) {
+
+  // Bo loc thong thap IIR 70/30 lam muot tin hieu gyro truoc khi tinh PID
+  gyro_roll_input = (gyro_roll_input * 0.7f) + (current_imu->gx * 0.3f);
+
+  // Vong ngoai: Angle -> Rate setpoint
+  float error_angle_roll = target_roll_deg - current_att->roll;
+  float target_rate_roll = angle_gains[AXIS_ROLL].kp * error_angle_roll;
+
+  // Gioi han rate setpoint o muc +-164 deg/s de dam bao an toan
+  if (target_rate_roll > 164.0f) target_rate_roll = 164.0f;
+  else if (target_rate_roll < -164.0f) target_rate_roll = -164.0f;
+
+  // Vong trong: Rate PID
+  float error_rate_roll = gyro_roll_input - target_rate_roll;
+
+  // Khau tich phan (I) khong nhan dt, co chong bao hoa (Anti-windup clamping)
+  i_mem_roll += rate_gains[AXIS_ROLL].ki * error_rate_roll;
+  if (i_mem_roll > PID_MAX_ROLL_PITCH) i_mem_roll = PID_MAX_ROLL_PITCH;
+  else if (i_mem_roll < -PID_MAX_ROLL_PITCH) i_mem_roll = -PID_MAX_ROLL_PITCH;
+
+  // Khau vi phan (D) khong chia dt (do dt=4ms co dinh va da gop vao he so Kd)
+  float pid_output_roll = rate_gains[AXIS_ROLL].kp * error_rate_roll + i_mem_roll +
+                          rate_gains[AXIS_ROLL].kd * (error_rate_roll - last_error_roll);
+
+  if (pid_output_roll > PID_MAX_ROLL_PITCH) pid_output_roll = PID_MAX_ROLL_PITCH;
+  else if (pid_output_roll < -PID_MAX_ROLL_PITCH) pid_output_roll = -PID_MAX_ROLL_PITCH;
+
+  last_error_roll = error_rate_roll;
+  *out_roll = pid_output_roll;
+}
+\end{lstlisting}
+
+\subsection*{Phụ lục B: Mã nguồn Python thuật toán phát hiện cử chỉ vẫy tay cầu cứu}
+
+Đoạn mã Python dưới đây thực thi thuật toán phân tích chuỗi thời gian chuyển động của cổ tay so với vai trích xuất từ 17 keypoints của YOLOv8-Pose nhằm phát hiện cử chỉ vẫy hai tay cầu cứu tuần hoàn của nạn nhân (trích xuất từ \texttt{utils.py} ở trạm mặt đất GCS):
+
+\begin{lstlisting}[language=Python]
+# 1. Ham phan tich so lan doi huong co tay tren hang doi (utils.py)
+def _direction_changes(values: list[float], min_delta: float = 0.05) -> int:
+    if len(values) < 3:
+        return 0
+    signs: list[int] = []
+    anchor = values[0]
+    for value in values[1:]:
+        delta = value - anchor
+        if abs(delta) < min_delta:
+            continue
+        sign = 1 if delta > 0 else -1
+        if not signs or sign != signs[-1]:
+            signs.append(sign)
+        anchor = value
+    return max(0, len(signs) - 1)
+
+# 2. Thuat toan kiem tra co tay co dang vay tay hay khong (utils.py)
+def detect_wrist_waving(history, current_time: float) -> bool:
+    # Loc cac diem trong cua so thoi gian WAVING_WINDOW_SECONDS (mac dinh 2.0 giay)
+    recent = [item for item in history if current_time - float(item[0]) <= config.WAVING_WINDOW_SECONDS]
+    if len(recent) < 4:
+        return False
+    xs = [float(item[1]) for item in recent]
+    ys = [float(item[2]) for item in recent]
+    above_values = [bool(item[3]) for item in recent]
+    
+    # Yeu cau co tay phai cao hon vai mot ty le thoi gian nhat dinh
+    above_count = sum(1 for value in above_values if value)
+    if above_count / len(recent) < getattr(config, 'WAVING_MIN_ABOVE_RATIO', 0.7):
+        return False
+
+    # Kiem tra bien do di chuyen co tay co vuot nguong toi thieu WRIST_MOVE_THRESHOLD
+    move_x = max(xs) - min(xs)
+    move_y = max(ys) - min(ys)
+    if max(move_x, move_y) < config.WRIST_MOVE_THRESHOLD:
+        return False
+
+    # Tinh toan so lan doi huong de xac dinh cu chi vay
+    direction_changes = max(_direction_changes(xs, 0.05), _direction_changes(ys, 0.05))
+    return direction_changes >= config.WAVING_MIN_DIRECTION_CHANGES
+\end{lstlisting}
+
+\subsection*{Phụ lục C: Bản vẽ sơ đồ mạch nguyên lý Flight Controller và Layout PCB}
+
+Dưới đây là hình ảnh bản vẽ thiết kế nguyên lý tổng thể của bo mạch điều khiển bay và đường đi dây Layout PCB:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{Images/schematic_fc_power.jpg}
+    \caption[Sơ đồ mạch nguyên lý - Khối mạch nguồn chính]{\bfseries\fontsize{12pt}{0pt}\selectfont Sơ đồ mạch nguyên lý - Khối mạch nguồn chính (Power Main)}
+    \label{fig:layout_schematic_power}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{Images/schematic_fc_mcu.jpg}
+    \caption[Sơ đồ mạch nguyên lý - Khối MCU và ngoại vi]{\bfseries\fontsize{12pt}{0pt}\selectfont Sơ đồ mạch nguyên lý - Khối vi điều khiển trung tâm và giao tiếp cảm biến}
+    \label{fig:layout_schematic_mcu}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Images/layout_pcb_fc_top.jpg}
+    \caption[Bản vẽ đường đi dây PCB - Lớp Top Layer]{\bfseries\fontsize{12pt}{0pt}\selectfont Bản vẽ đường đi dây PCB - Lớp Top Layer}
+    \label{fig:layout_pcb_top_full}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Images/layout_pcb_fc_bottom.jpg}
+    \caption[Bản vẽ đường đi dây PCB - Lớp Bottom Layer]{\bfseries\fontsize{12pt}{0pt}\selectfont Bản vẽ đường đi dây PCB - Lớp Bottom Layer}
+    \label{fig:layout_pcb_bottom_full}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Images/layout_pcb_fc_3d.jpg}
+    \caption[Mô phỏng phối cảnh 3D bo mạch Flight Controller]{\bfseries\fontsize{12pt}{0pt}\selectfont Mô phỏng phối cảnh 3D bo mạch Flight Controller hoàn chỉnh}
+    \label{fig:layout_pcb_3d_full}
+\end{figure}

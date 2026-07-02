@@ -1,0 +1,9 @@
+\contentsline {table}{\numberline {1.1}{\ignorespaces Thông số kỹ thuật chính của STM32F103C8T6}}{10}{table.caption.7}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Phân vùng chi tiết tập dữ liệu huấn luyện YOLOv8s-Rescue}}{49}{table.caption.34}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Phân vùng chi tiết tập dữ liệu huấn luyện YOLOv8s-Posture}}{50}{table.caption.35}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Bảng quy tắc phân loại trạng thái cứu hộ dựa trên Danger Score}}{56}{table.caption.38}%
+\contentsline {table}{\numberline {2.4}{\ignorespaces Các tham số cấu hình huấn luyện mô hình YOLOv8}}{60}{table.caption.40}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Bảng so sánh hiệu quả triệt nhiễu rung của bộ lọc bù với các hệ số alpha}}{72}{table.caption.53}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Bảng tổng hợp tham số PID tối ưu sau hiệu chỉnh thực địa}}{75}{table.caption.54}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Bảng so sánh hiệu năng nhận diện của các phương pháp}}{76}{table.caption.55}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces Bảng tổng hợp chi phí linh kiện chế tạo hệ thống Drone cứu hộ}}{80}{table.caption.58}%

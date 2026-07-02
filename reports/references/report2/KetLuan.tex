@@ -1,0 +1,36 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN}
+\phantomsection\addcontentsline{toc}{section}{\numberline{}KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN}
+
+\subsection*{1. Kết luận}
+
+Đồ án tốt nghiệp đề tài \textbf{"Xây dựng và chế tạo Drone ứng dụng cho giám sát an ninh và cứu hộ"} đã hoàn thành đầy đủ tất cả các mục tiêu kỹ thuật đặt ra ban đầu, giải quyết trọn vẹn cả bài toán thiết kế phần cứng, lập trình phần mềm nhúng và tích hợp thuật toán trí tuệ nhân tạo. Các kết quả cụ thể đạt được bao gồm:
+
+\begin{itemize}
+    \item \textbf{Về phần cứng}\\
+    Thiết kế và gia công thành công bo mạch điều khiển bay Flight Controller dựa trên vi điều khiển STM32F103C8T6. Mạch tích hợp bộ lọc nguồn phân tầng LDO và Buck hoạt động ổn định, không bị ảnh hưởng bởi nhiễu động lực từ động cơ. Lắp ráp hoàn chỉnh mô hình Drone Quadcopter cấu hình Quad-X hoạt động ổn định cơ khí với tỷ lệ lực đẩy trên trọng lượng đạt mức 3.58.
+
+    \item \textbf{Về phần mềm nhúng (Firmware)}\\
+    Xây dựng thành công mã nguồn firmware Bare-metal C++ điều khiển bay thời gian thực chu kỳ vòng lặp 250\,Hz ổn định. Triển khai thuật toán bộ lọc bù (Complementary Filter) dung hợp cảm biến IMU để ước lượng góc nghiêng ổn định cùng bộ điều khiển phản hồi PID kép giúp dập tắt dao động nhanh chóng. Giải mã thành công giao thức CRSF và tích hợp cơ chế ngắt động cơ khẩn cấp (Failsafe) khi mất sóng điều khiển.
+
+    \item \textbf{Về phần mềm trạm mặt đất và thuật toán AI}\\
+    Phát triển thành công phần mềm trạm mặt đất OpenCV kết nối luồng video FPV thời gian thực, tích hợp luồng ghi sự kiện bất đồng bộ. Đề xuất cơ chế dung hợp quyết định (Decision Fusion) đa mô hình dựa trên chiến thuật Cascade Pipeline kết hợp 4 mô hình YOLO (YOLOv8s đóng vai trò cắt ảnh, truyền cho YOLOv8s-Pose, YOLOv8s-Posture, YOLOv8s-Rescue) giúp triệt tiêu nhiễu bối cảnh, đạt độ chính xác F1-score nhận dạng nạn nhân cứu hộ lên tới 88.0\% ở tốc độ xử lý khoảng 20 - 25 FPS. Tích hợp thành công module tự động ghi nhật ký sự kiện cứu hộ và sinh báo cáo HTML chứa hình ảnh trực quan cùng thống kê nguy hiểm.
+\end{itemize}
+
+\subsection*{2. Hướng phát triển của đề tài}
+
+Mặc dù hệ thống đã hoạt động ổn định, em nhận thấy vẫn còn nhiều tiềm năng để nâng cấp và mở rộng hiệu năng phục vụ thực tế:
+
+\begin{itemize}
+    \item \textbf{Tích hợp camera cảm biến nhiệt (Thermal Camera)}\\
+    Trong các nhiệm vụ tìm kiếm ban đêm hoặc dưới tán cây rậm rạp, camera FPV thông thường không thể quan sát được nạn nhân. Việc tích hợp thêm camera nhiệt (ví dụ FLIR Lepton) và huấn luyện mô hình YOLOv8 trên ảnh nhiệt sẽ giúp định vị nạn nhân chính xác thông qua bức xạ hồng ngoại cơ thể người.
+
+    \item \textbf{Tích hợp máy tính nhúng xử lý AI Edge trực tiếp trên Drone}\\
+    Nhằm loại bỏ độ trễ truyền hình ảnh FPV analog và hoạt động độc lập không phụ thuộc máy trạm mặt đất, việc tích hợp các dòng máy tính nhúng AI nhẹ (như NVIDIA Jetson Orin Nano) trực tiếp lên Drone để chạy suy luận YOLO và gửi cảnh báo trực tiếp qua sóng Telemetry là bước tiến quan trọng.
+
+    \item \textbf{Nghiên cứu thuật toán bay tự hành và lập bản đồ 3D}\\
+    Tích hợp cảm biến LiDAR và GPS RTK độ chính xác cao để Drone có khả năng tự động thiết lập hành trình bay quét tối ưu, tự tránh chướng ngại vật (Obstacle Avoidance) và dựng bản đồ 3D vùng lũ lụt, thiên tai để phục vụ lực lượng SAR mặt đất.
+\end{itemize}
+

@@ -1,0 +1,493 @@
+\documentclass[13pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage[fontsize=13pt]{scrextend}
+\usepackage[left=3cm,right=2cm,top=2cm,bottom=2.5cm]{geometry}
+\usepackage{mathptmx}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning,shapes.geometric,arrows.meta}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{indentfirst}
+\usepackage{titlesec}
+
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=black}
+\renewcommand{\baselinestretch}{1.25}
+\setlength{\parindent}{1cm}
+\setlength{\parskip}{6pt}
+\setcounter{secnumdepth}{4}
+\renewcommand{\contentsname}{MỤC LỤC}
+\renewcommand{\listfigurename}{DANH MỤC HÌNH VẼ}
+\renewcommand{\listtablename}{DANH MỤC BẢNG BIỂU}
+\renewcommand{\figurename}{\bfseries Hình}
+\renewcommand{\tablename}{\bfseries Bảng}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+\captionsetup{labelsep=space,font=bf}
+
+\titleformat*{\section}{\fontsize{16pt}{18pt}\selectfont\bfseries\centering}
+\titleformat*{\subsection}{\fontsize{14pt}{16pt}\selectfont\bfseries}
+\titleformat*{\subsubsection}{\fontsize{13pt}{15pt}\selectfont\bfseries\itshape}
+\titlespacing*{\section}{0pt}{0pt}{18pt}
+\titlespacing*{\subsection}{0pt}{12pt}{4pt}
+\titlespacing*{\subsubsection}{0pt}{10pt}{2pt}
+
+\lstdefinestyle{verilogstyle}{
+  language=Verilog,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{gray}\itshape,
+  stringstyle=\color{orange},
+  numbers=left,
+  numberstyle=\tiny,
+  stepnumber=1,
+  frame=single,
+  breaklines=true,
+  tabsize=2,
+  columns=fullflexible
+}
+
+\newcommand{\placeholder}[2]{
+\begin{figure}[H]
+  \centering
+  \fbox{\begin{minipage}[c][6cm][c]{0.86\textwidth}
+    \centering \textbf{Chèn hình sau}\\[6pt]
+    #2
+  \end{minipage}}
+  \caption{#1}
+\end{figure}
+}
+
+\newcommand{\optionalimage}[3]{
+\begin{figure}[H]
+  \centering
+  \IfFileExists{#1}{\includegraphics[width=0.86\textwidth]{#1}}{
+    \fbox{\begin{minipage}[c][6cm][c]{0.86\textwidth}
+      \centering \textbf{Chèn hình sau}\\[6pt]#3\\[4pt]\texttt{\detokenize{#1}}
+    \end{minipage}}
+  }
+  \caption{#2}
+\end{figure}
+}
+
+\begin{document}
+
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{tikzpicture}[overlay,remember picture]
+\draw[line width=3pt] ($(current page.north west)+(3cm,-2cm)$) rectangle ($(current page.south east)+(-2cm,2.5cm)$);
+\draw[line width=0.5pt] ($(current page.north west)+(3.1cm,-2.1cm)$) rectangle ($(current page.south east)+(-2.1cm,2.6cm)$);
+\end{tikzpicture}
+\begin{center}
+ĐẠI HỌC BÁCH KHOA HÀ NỘI\\
+\textbf{TRƯỜNG ĐIỆN - ĐIỆN TỬ}
+
+\vspace{0.9cm}
+\includegraphics[width=0.16\textwidth]{images/logoBK.png}
+
+\vspace{1.0cm}
+\textbf{\fontsize{22pt}{26pt}\selectfont BÁO CÁO DỰ ÁN}
+
+\vspace{0.4cm}
+\textbf{\fontsize{17pt}{21pt}\selectfont DỰ ÁN 10: KHÓA SỐ BẢO MẬT\\
+(DIGITAL SAFE LOCK) LƯU MẬT KHẨU VÀO SRAM}
+
+\vspace{1.2cm}
+\begin{tabular}{>{\bfseries}p{5cm}p{8cm}}
+Sinh viên thực hiện: & Nguyễn Văn Dương -- 20241713E\\
+                     & Phạm Chí Dũng -- 20200106\\
+Đề tài: & Thiết kế hệ thống khóa số bảo mật trên FPGA\\
+Nền tảng triển khai: & Kit DE2-150, FPGA Cyclone IV GX EP4CGX150DF31C7\\
+Phần mềm: & Intel Quartus Prime 18.1 Lite Edition\\
+\end{tabular}
+
+\vfill
+{\fontsize{14pt}{16pt}\selectfont Hà Nội, 07/2026}
+\end{center}
+\end{titlepage}
+
+\pagenumbering{roman}
+\section*{LỜI NÓI ĐẦU}
+\addcontentsline{toc}{section}{LỜI NÓI ĐẦU}
+Trong các hệ thống nhúng và hệ thống số, bài toán điều khiển truy cập bằng mật khẩu là một ví dụ điển hình để kết hợp nhiều khối chức năng: nhận tín hiệu từ phần cứng, chống dội phím, điều khiển theo máy trạng thái hữu hạn, giao tiếp bộ nhớ và hiển thị trạng thái cho người dùng. Dự án ``Khóa số bảo mật'' được xây dựng nhằm hiện thực một hệ thống khóa điện tử đơn giản nhưng có cấu trúc RTL rõ ràng, có khả năng lưu và thay đổi mật khẩu thông qua bộ nhớ.
+
+Báo cáo này trình bày quá trình phân tích yêu cầu, thiết kế kiến trúc, xây dựng các module Verilog, kiểm thử bằng testbench và tổng hợp trên kit DE2-150. Ở phiên bản mã nguồn hiện tại, giao diện bộ nhớ giữa FSM và bộ lưu mật khẩu đã được đóng gói theo dạng đọc/ghi có tín hiệu sẵn sàng; phần hiện thực sử dụng module RAM nội bộ để mô phỏng hành vi lưu mật khẩu. Kiến trúc này vẫn giữ hướng mở để thay module RAM nội bộ bằng bộ điều khiển SRAM vật lý IS61WV51216 trên bo mạch.
+
+\section*{LỜI CAM ĐOAN}
+\addcontentsline{toc}{section}{LỜI CAM ĐOAN}
+Nhóm sinh viên cam đoan nội dung báo cáo phản ánh quá trình thiết kế, mô phỏng và tổng hợp dự án khóa số bảo mật do nhóm thực hiện. Các số liệu tổng hợp được trích từ kết quả build Quartus của project \texttt{digital\_safe\_lock\_1}. Những hình ảnh thực tế phần cứng và ảnh chụp phần mềm Quartus sẽ được bổ sung sau theo kết quả thí nghiệm trực tiếp.
+
+\section*{TÓM TẮT}
+\addcontentsline{toc}{section}{TÓM TẮT}
+Dự án thiết kế hệ thống khóa số bảo mật trên FPGA. Người dùng nhập mật khẩu bằng các switch, xác nhận bằng nút nhấn Enter, quan sát trạng thái khóa bằng LED đỏ/xanh, LED 7 đoạn và LCD. Mật khẩu mặc định được khởi tạo là \texttt{00}. Khi nhập đúng mật khẩu, hệ thống chuyển sang trạng thái mở khóa; khi nhập sai, hệ thống báo lỗi trong một khoảng thời gian rồi quay lại trạng thái khóa. Khi đang mở khóa, người dùng có thể thay đổi mật khẩu bằng cách đặt giá trị mới trên \texttt{SW[7:0]} và nhấn nút đổi mật khẩu.
+
+Thiết kế được tổ chức theo các module: \texttt{digital\_safe\_lock}, \texttt{button\_debounce}, \texttt{lock\_fsm}, \texttt{internal\_ram}, \texttt{hex\_display} và \texttt{lcd\_controller}. Testbench tự kiểm tra các kịch bản chính: mở khóa bằng mật khẩu mặc định, đổi mật khẩu, từ chối mật khẩu sai, mở khóa bằng mật khẩu mới và kiểm tra hệ thống sau nhiều lần nhập sai liên tiếp. Kết quả Quartus cho thấy thiết kế tổng hợp thành công trên FPGA Cyclone IV GX, sử dụng 349 logic elements, 187 thanh ghi và đạt timing dương ở các mô hình phân tích.
+
+\tableofcontents
+\newpage
+\listoffigures
+\addcontentsline{toc}{section}{DANH MỤC HÌNH VẼ}
+\newpage
+\listoftables
+\addcontentsline{toc}{section}{DANH MỤC BẢNG BIỂU}
+\newpage
+
+\pagenumbering{arabic}
+
+\section{TỔNG QUAN ĐỀ TÀI}
+\subsection{Bối cảnh và mục tiêu}
+Khóa số bảo mật là hệ thống điều khiển truy cập dựa trên việc so khớp mật khẩu do người dùng nhập với mật khẩu đã lưu trong bộ nhớ. Với nền tảng FPGA, hệ thống có thể được mô tả hoàn toàn bằng phần cứng số, chạy song song theo xung clock và phản hồi trực tiếp tới các ngoại vi trên kit thí nghiệm.
+
+Mục tiêu chính của dự án gồm:
+\begin{itemize}
+  \item Thiết kế hệ thống khóa số có khả năng nhập, kiểm tra và đổi mật khẩu.
+  \item Xây dựng cấu trúc RTL theo hướng module hóa, dễ kiểm thử và dễ mở rộng sang SRAM vật lý.
+  \item Hiện thực giao diện người dùng bằng \texttt{SW[7:0]}, \texttt{KEY[0]}, \texttt{KEY[1]}, \texttt{KEY[2]}, LED đỏ, LED xanh, LED 7 đoạn và LCD.
+  \item Mô phỏng các kịch bản vận hành bằng testbench tự kiểm tra.
+  \item Tổng hợp thiết kế trên kit DE2-150 bằng Quartus Prime.
+\end{itemize}
+
+\subsection{Yêu cầu chức năng}
+Các yêu cầu chức năng của hệ thống được tóm tắt trong Bảng \ref{tab:req}.
+
+\begin{table}[H]
+\centering
+\caption{Yêu cầu chức năng của hệ thống}
+\label{tab:req}
+\begin{tabularx}{\textwidth}{>{\bfseries}p{4cm}X}
+\toprule
+Nhóm chức năng & Mô tả\\
+\midrule
+Nhập mật khẩu & Người dùng đặt giá trị mật khẩu 8 bit trên \texttt{SW[7:0]}.\\
+Xác nhận & Nhấn \texttt{KEY[1]} để yêu cầu hệ thống đọc mật khẩu đã lưu và so sánh.\\
+Mở khóa & Nếu mật khẩu đúng, bật LED xanh, tắt LED đỏ và hiển thị trạng thái \texttt{OPn}.\\
+Báo lỗi & Nếu mật khẩu sai, bật LED đỏ, tắt LED xanh và hiển thị \texttt{Err} trong một khoảng thời gian.\\
+Đổi mật khẩu & Khi đang mở khóa, đặt mật khẩu mới trên switch và nhấn \texttt{KEY[2]}; hệ thống ghi mật khẩu mới vào bộ nhớ và hiển thị \texttt{Chg}.\\
+Khóa lại & Khi đang mở khóa, nhấn Enter để quay lại trạng thái khóa.\\
+Reset & \texttt{KEY[0]} reset hệ thống về trạng thái khóa và khởi tạo mật khẩu mặc định.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Nền tảng phần cứng}
+Project được cấu hình cho kit DE2-150 sử dụng FPGA Cyclone IV GX \texttt{EP4CGX150DF31C7}. Các ngoại vi được dùng gồm switch nhập dữ liệu, nút nhấn, LED đơn, LED 7 đoạn và LCD 16x2. Theo định hướng đề tài, mật khẩu cần được lưu vào SRAM vật lý \texttt{IS61WV51216}; trong mã nguồn hiện tại, khối \texttt{internal\_ram} đóng vai trò bộ nhớ lưu mật khẩu với giao diện đọc/ghi tương tự để phục vụ kiểm thử chức năng và tổng hợp.
+
+\optionalimage{images/de2_150_real.jpg}{Ảnh kit DE2-150 và mô hình khóa thực tế}{Ảnh thực tế kit, dây nối, LED và trạng thái khóa sẽ được bổ sung sau.}
+
+\section{CƠ SỞ LÝ THUYẾT}
+\subsection{FPGA và thiết kế RTL}
+FPGA là vi mạch logic khả trình, cho phép hiện thực mạch số bằng mô tả phần cứng. Thiết kế RTL mô tả dòng dữ liệu giữa các thanh ghi theo cạnh clock. Với hệ thống khóa số, cách tiếp cận RTL phù hợp vì các thao tác đều có bản chất tuần tự: chờ người dùng nhập, đọc bộ nhớ, so sánh dữ liệu, cập nhật trạng thái và điều khiển hiển thị.
+
+Thiết kế trong project sử dụng một clock hệ thống 50 MHz. Các tín hiệu bất đồng bộ từ nút nhấn được đồng bộ và lọc dội trước khi đưa vào FSM. Việc dùng chung một miền clock giúp giảm rủi ro race condition và làm cho phân tích timing trong Quartus rõ ràng hơn.
+
+\subsection{Máy trạng thái hữu hạn}
+Máy trạng thái hữu hạn (FSM) là mô hình điều khiển gồm tập trạng thái hữu hạn, tập đầu vào, tập đầu ra và luật chuyển trạng thái. Trong khóa số, FSM đảm bảo các thao tác bảo mật diễn ra theo trình tự xác định. Ví dụ, người dùng chỉ có quyền đổi mật khẩu khi hệ thống đang ở trạng thái mở khóa.
+
+Các trạng thái chính trong module \texttt{lock\_fsm} gồm:
+\begin{itemize}
+  \item \texttt{S\_INIT\_WR}: ghi mật khẩu mặc định vào bộ nhớ sau reset.
+  \item \texttt{S\_INIT\_WAIT}: chờ bộ nhớ hoàn tất ghi khởi tạo.
+  \item \texttt{S\_IDLE}: khóa đang đóng, chờ Enter.
+  \item \texttt{S\_READ\_CHECK}: đọc mật khẩu đã lưu và so sánh.
+  \item \texttt{S\_UNLOCKED}: khóa mở, cho phép khóa lại hoặc đổi mật khẩu.
+  \item \texttt{S\_ERR}: báo sai mật khẩu.
+  \item \texttt{S\_WRITE\_CHG}: ghi mật khẩu mới.
+  \item \texttt{S\_CHG\_DONE}: báo đổi mật khẩu thành công.
+\end{itemize}
+
+\subsection{Bộ nhớ SRAM và giao tiếp đọc/ghi}
+SRAM bất đồng bộ ngoài chip thường có bus địa chỉ, bus dữ liệu hai chiều và các tín hiệu điều khiển active-low như \texttt{CE\_N}, \texttt{OE\_N}, \texttt{WE\_N}. Khi đọc, FPGA đưa địa chỉ và nhả bus dữ liệu ở trạng thái trở kháng cao để SRAM lái dữ liệu. Khi ghi, FPGA lái dữ liệu lên bus và tạo xung ghi theo yêu cầu timing của chip.
+
+Trong kiến trúc mục tiêu, module \texttt{sram\_controller.v} sẽ che giấu các chi tiết timing này và cung cấp giao diện đơn giản cho FSM gồm \texttt{rd\_en}, \texttt{wr\_en}, \texttt{addr}, \texttt{data\_in}, \texttt{data\_out} và \texttt{ready}. Phiên bản hiện tại dùng \texttt{internal\_ram.v} với cùng tinh thần bắt tay: FSM phát yêu cầu, bộ nhớ trả \texttt{ready} khi thao tác hoàn tất. Nhờ vậy phần điều khiển khóa không phụ thuộc trực tiếp vào cách bộ nhớ được hiện thực.
+
+\section{THIẾT KẾ HỆ THỐNG}
+\subsection{Sơ đồ khối tổng thể}
+Hình \ref{fig:block} biểu diễn kiến trúc chức năng của hệ thống. Các nút nhấn đi qua bộ chống dội trước khi tạo xung một chu kỳ cho FSM. FSM điều khiển đọc/ghi bộ nhớ, LED và mã trạng thái hiển thị. Khối LED 7 đoạn và LCD chuyển mã trạng thái thành thông tin người dùng có thể quan sát.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  block/.style={draw, rounded corners, minimum width=3.1cm, minimum height=1.0cm, align=center},
+  small/.style={draw, rounded corners, minimum width=2.4cm, minimum height=0.8cm, align=center},
+  arrow/.style={-Latex, thick}
+]
+\node[small] (sw) {SW[7:0]\\Mật khẩu};
+\node[small, below=0.8cm of sw] (key) {KEY[1:2]\\Enter/Change};
+\node[block, right=1.5cm of key] (deb) {button\_debounce\\lọc dội phím};
+\node[block, right=1.5cm of deb] (fsm) {lock\_fsm\\điều khiển khóa};
+\node[block, above=0.9cm of fsm] (ram) {internal\_ram\\giao diện bộ nhớ};
+\node[block, right=1.5cm of fsm] (hex) {hex\_display\\LCD controller};
+\node[small, right=1.3cm of hex] (out) {LEDR/LEDG\\HEX/LCD};
+\draw[arrow] (key) -- (deb);
+\draw[arrow] (deb) -- node[above]{tick} (fsm);
+\draw[arrow] (sw) -| (fsm);
+\draw[arrow] (fsm) -- node[right]{rd/wr} (ram);
+\draw[arrow] (ram) -- node[left]{data/ready} (fsm);
+\draw[arrow] (fsm) -- node[above]{state} (hex);
+\draw[arrow] (hex) -- (out);
+\draw[arrow] (fsm) -- ++(1.15,0) |- (out);
+\end{tikzpicture}
+\caption{Sơ đồ khối chức năng của hệ thống khóa số}
+\label{fig:block}
+\end{figure}
+
+\subsection{Phân công tín hiệu vào ra}
+Bảng \ref{tab:io} tóm tắt các tín hiệu chính. Trong project hiện tại, bus SRAM vật lý chưa được đưa ra top-level; do đó phần hiện thực thực tế đang dùng RAM nội bộ và các chân FPGA chủ yếu phục vụ giao diện người dùng.
+
+\begin{table}[H]
+\centering
+\caption{Các tín hiệu vào ra chính}
+\label{tab:io}
+\begin{tabularx}{\textwidth}{>{\bfseries}p{3cm}p{3cm}X}
+\toprule
+Tín hiệu & Hướng & Chức năng\\
+\midrule
+\texttt{CLOCK\_50} & Input & Clock hệ thống 50 MHz.\\
+\texttt{KEY[0]} & Input & Reset active-low.\\
+\texttt{KEY[1]} & Input & Nút Enter, xác nhận mật khẩu hoặc khóa lại.\\
+\texttt{KEY[2]} & Input & Nút đổi mật khẩu khi đang mở khóa.\\
+\texttt{SW[7:0]} & Input & Giá trị mật khẩu 8 bit do người dùng nhập.\\
+\texttt{LEDR[0]} & Output & LED đỏ báo khóa đóng hoặc lỗi.\\
+\texttt{LEDG[0]} & Output & LED xanh báo khóa mở.\\
+\texttt{HEX2:HEX0} & Output & Hiển thị \texttt{---}, \texttt{OPn}, \texttt{Err}, \texttt{Chg}.\\
+\texttt{LCD\_*} & Output & Giao tiếp LCD 16x2, hiển thị trạng thái dạng chữ.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Module top-level}
+Module \texttt{digital\_safe\_lock} là lớp kết nối giữa các ngoại vi vật lý và các khối RTL bên trong. Top-level nhận clock, switch, nút nhấn; sau đó đưa tín hiệu nút qua hai instance \texttt{button\_debounce}. Các xung \texttt{enter\_tick} và \texttt{change\_tick} được đưa vào \texttt{lock\_fsm}. FSM trao đổi với \texttt{internal\_ram} bằng giao thức yêu cầu/sẵn sàng và xuất mã trạng thái cho LED 7 đoạn, LCD.
+
+Hai tham số quan trọng của top-level là \texttt{DB\_DELAY} và \texttt{TIMER\_CYCLES}. Khi chạy phần cứng, \texttt{DB\_DELAY=1\_000\_000} tương ứng khoảng 20 ms ở 50 MHz, còn \texttt{TIMER\_CYCLES=100\_000\_000} tương ứng khoảng 2 giây. Khi mô phỏng, testbench giảm hai tham số này để mô phỏng nhanh hơn.
+
+\subsection{Module chống dội nút nhấn}
+Nút nhấn cơ khí thường sinh ra nhiều xung rất ngắn khi tiếp điểm đóng/mở. Nếu đưa trực tiếp vào FSM, một lần nhấn có thể bị hiểu thành nhiều lần nhấn. Module \texttt{button\_debounce} xử lý vấn đề này bằng hai bước:
+\begin{itemize}
+  \item Đồng bộ tín hiệu nút vào miền clock bằng hai flip-flop nối tiếp.
+  \item Chỉ cập nhật trạng thái nút sau khi tín hiệu ổn định đủ số chu kỳ \texttt{DELAY\_CYCLES}.
+\end{itemize}
+
+Đầu ra \texttt{o\_btn\_tick} chỉ lên mức 1 trong đúng một chu kỳ clock tại cạnh nhấn active-low. Đây là dạng tín hiệu phù hợp cho FSM vì tránh việc giữ nút quá lâu gây lặp thao tác.
+
+\subsection{Module điều khiển khóa}
+Module \texttt{lock\_fsm} là trung tâm điều khiển. Sau reset, FSM ghi mật khẩu mặc định \texttt{16'h0000} vào địa chỉ 0. Khi ở trạng thái khóa, nếu người dùng nhấn Enter, FSM đọc bộ nhớ tại địa chỉ 0 và so sánh 8 bit thấp với \texttt{i\_sw}. Nếu khớp, hệ thống mở khóa; nếu không, hệ thống báo lỗi.
+
+Khi đang mở khóa, \texttt{i\_change\_tick} làm FSM ghi mật khẩu mới \texttt{\{8'h00, i\_sw\}} vào bộ nhớ. Sau khi nhận \texttt{i\_sram\_ready}, FSM hiển thị \texttt{Chg}. Nút Enter trong trạng thái mở khóa được dùng như lệnh khóa lại.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  st/.style={draw, rounded corners, minimum width=2.8cm, minimum height=0.8cm, align=center},
+  arrow/.style={-Latex, thick},
+  node distance=1.2cm and 1.0cm
+]
+\node[st] (init) {S\_INIT\_WR};
+\node[st, right=of init] (wait) {S\_INIT\_WAIT};
+\node[st, right=of wait] (idle) {S\_IDLE};
+\node[st, below=of idle] (read) {S\_READ\_CHECK};
+\node[st, left=of read] (unlock) {S\_UNLOCKED};
+\node[st, right=of read] (err) {S\_ERR};
+\node[st, below=of unlock] (wr) {S\_WRITE\_CHG};
+\node[st, right=of wr] (chg) {S\_CHG\_DONE};
+\draw[arrow] (init) -- (wait);
+\draw[arrow] (wait) -- node[above]{ready} (idle);
+\draw[arrow] (idle) -- node[right]{Enter} (read);
+\draw[arrow] (read) -- node[above]{đúng} (unlock);
+\draw[arrow] (read) -- node[above]{sai} (err);
+\draw[arrow] (err) |- node[pos=0.25,right]{timeout/Enter} (idle);
+\draw[arrow] (unlock) -- node[left]{Change} (wr);
+\draw[arrow] (wr) -- node[above]{ready} (chg);
+\draw[arrow] (chg) -- node[right]{timeout} (unlock);
+\draw[arrow] (unlock) |- node[pos=0.25,above]{Enter} (idle);
+\end{tikzpicture}
+\caption{Sơ đồ chuyển trạng thái của module \texttt{lock\_fsm}}
+\label{fig:fsm}
+\end{figure}
+
+\subsection{Module bộ nhớ}
+Module \texttt{internal\_ram} lưu một word 16 bit đại diện cho mật khẩu. Dù chỉ cần một word tại địa chỉ 0, module vẫn giữ các cổng \texttt{i\_addr}, \texttt{i\_rd\_en}, \texttt{i\_wr\_en}, \texttt{i\_data}, \texttt{o\_data}, \texttt{o\_ready}. Cách đóng gói này làm cho FSM có giao diện gần với bộ điều khiển SRAM hơn so với việc dùng trực tiếp một thanh ghi trong FSM.
+
+Chu kỳ bộ nhớ gồm ba trạng thái nội bộ: \texttt{IDLE}, \texttt{WAIT}, \texttt{DONE}. Khi có yêu cầu đọc hoặc ghi, bộ nhớ xử lý dữ liệu và sau một chu kỳ phát \texttt{o\_ready}. Trạng thái \texttt{DONE} giữ \texttt{ready} cho đến khi FSM hạ tín hiệu yêu cầu, tránh nhận nhầm cùng một yêu cầu nhiều lần.
+
+\subsection{Module hiển thị}
+Module \texttt{hex\_display} giải mã \texttt{o\_display\_state} thành mẫu LED 7 đoạn active-low. Bốn mã trạng thái được dùng:
+\begin{itemize}
+  \item \texttt{0}: hiển thị \texttt{---}, trạng thái chờ/khóa.
+  \item \texttt{1}: hiển thị \texttt{OPn}, khóa mở.
+  \item \texttt{2}: hiển thị \texttt{Err}, sai mật khẩu.
+  \item \texttt{3}: hiển thị \texttt{Chg}, đổi mật khẩu thành công.
+\end{itemize}
+
+Module \texttt{lcd\_controller} bổ sung kênh hiển thị LCD 16x2. Dòng đầu hiển thị tên hệ thống, dòng thứ hai hiển thị trạng thái như \texttt{STATUS: LOCKED}, \texttt{STATUS: OPEN}, \texttt{WRONG PASSWORD!} hoặc \texttt{NEW PASS SAVED!}.
+
+\section{MÔ PHỎNG VÀ KIỂM THỬ}
+\subsection{Chiến lược testbench}
+Testbench \texttt{tb\_digital\_safe\_lock.v} mô phỏng tương tác người dùng bằng cách gán giá trị cho switch và tạo xung nhấn nút trên \texttt{KEY}. Để mô phỏng nhanh, testbench override \texttt{DB\_DELAY=1} và \texttt{TIMER\_CYCLES=20}. Các tác vụ \texttt{reset\_system}, \texttt{enter\_password}, \texttt{wait\_for\_display\_timer} và \texttt{check\_result} giúp kịch bản kiểm thử ngắn gọn, có khả năng tự báo Pass/Fail.
+
+\subsection{Các ca kiểm thử}
+\begin{table}[H]
+\centering
+\caption{Các ca kiểm thử chính}
+\label{tab:tests}
+\begin{tabularx}{\textwidth}{>{\bfseries}p{1.5cm}p{4cm}X}
+\toprule
+Test & Thao tác & Kết quả mong đợi\\
+\midrule
+1 & Reset, nhập \texttt{00}, nhấn Enter & Mở khóa, \texttt{LEDG[0]=1}, \texttt{LEDR[0]=0}.\\
+2 & Khi đang mở, đặt \texttt{A5}, nhấn Change & Ghi mật khẩu mới, hiển thị \texttt{Chg}.\\
+3 & Khóa lại, nhập sai \texttt{11}, nhấn Enter & Báo lỗi, \texttt{LEDG[0]=0}, \texttt{LEDR[0]=1}.\\
+4 & Nhập mật khẩu mới \texttt{A5}, nhấn Enter & Mở khóa bằng mật khẩu mới.\\
+5 & Nhập sai nhiều lần liên tiếp & FSM không treo, bộ nhớ không bị sai lệch.\\
+6 & Sau nhiều lần sai, nhập lại \texttt{A5} & Hệ thống vẫn mở khóa đúng.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\optionalimage{images/modelsim_waveform.png}{Dạng sóng mô phỏng testbench}{Ảnh waveform hoặc transcript mô phỏng sẽ được bổ sung sau.}
+
+\subsection{Đánh giá kết quả mô phỏng}
+Các ca kiểm thử bao phủ luồng vận hành chính và một số tình huống biên thực tế. Test 1 xác nhận quá trình khởi tạo mật khẩu mặc định. Test 2 và Test 4 xác nhận khả năng ghi và đọc lại mật khẩu mới. Test 3, Test 5 kiểm tra nhánh lỗi và khả năng trở về trạng thái khóa sau khi báo lỗi. Do testbench dùng cơ chế tự kiểm tra LED, lỗi chức năng cơ bản sẽ làm mô phỏng dừng tại \texttt{\$stop}.
+
+\section{TỔNG HỢP VÀ TRIỂN KHAI TRÊN QUARTUS}
+\subsection{Thiết lập project}
+Project Quartus có tên revision \texttt{digital\_safe\_lock\_1}, top-level entity là \texttt{digital\_safe\_lock}. Thiết bị đích là Cyclone IV GX \texttt{EP4CGX150DF31C7}. Kết quả build được tạo bởi Quartus Prime 18.1.0 Build 625 Lite Edition.
+
+\optionalimage{images/quartus_project.png}{Ảnh project Quartus sau khi compile}{Ảnh màn hình Quartus Compile Report hoặc Project Navigator sẽ được bổ sung sau.}
+
+\subsection{Kết quả tài nguyên}
+Theo file \texttt{digital\_safe\_lock\_1.fit.summary}, quá trình Fitter thành công lúc 10:02:34 ngày 30/06/2026. Tài nguyên sử dụng được tóm tắt trong Bảng \ref{tab:resource}.
+
+\begin{table}[H]
+\centering
+\caption{Tài nguyên FPGA sau tổng hợp và fitter}
+\label{tab:resource}
+\begin{tabular}{l r}
+\toprule
+Chỉ tiêu & Kết quả\\
+\midrule
+Total logic elements & 349 / 149760, nhỏ hơn 1\%\\
+Total combinational functions & 336 / 149760, nhỏ hơn 1\%\\
+Dedicated logic registers & 187 / 149760, nhỏ hơn 1\%\\
+Total registers & 187\\
+Total pins & 83 / 508, 16\%\\
+Total memory bits & 0 / 6635520, 0\%\\
+Embedded multiplier 9-bit elements & 0 / 720, 0\%\\
+Total PLLs & 0 / 8, 0\%\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Kết quả cho thấy thiết kế nhỏ so với dung lượng FPGA. Vì mật khẩu hiện chỉ lưu trong một thanh ghi 16 bit, Quartus tối ưu thành logic register nên mục \texttt{Total memory bits} bằng 0. Khi chuyển sang block RAM hoặc SRAM vật lý, số liệu tài nguyên sẽ thay đổi theo cách hiện thực bộ nhớ.
+
+\subsection{Kết quả timing}
+Timing Analyzer báo slack dương cho clock \texttt{CLOCK\_50}. Một số kết quả chính:
+\begin{itemize}
+  \item Slow 1200 mV 85\textdegree C setup slack: 13.507 ns.
+  \item Slow 1200 mV 85\textdegree C hold slack: 0.393 ns.
+  \item Slow 1200 mV 0\textdegree C setup slack: 14.030 ns.
+  \item Fast 1200 mV 0\textdegree C setup slack: 16.714 ns.
+  \item Fast 1200 mV 0\textdegree C hold slack: 0.175 ns.
+\end{itemize}
+
+Các slack đều dương, do đó thiết kế đáp ứng ràng buộc timing ở tần số 50 MHz trong các mô hình phân tích được Quartus báo cáo.
+
+\subsection{Kiểm tra trên kit}
+Quy trình kiểm tra phần cứng đề xuất:
+\begin{enumerate}
+  \item Nạp file \texttt{digital\_safe\_lock\_1.sof} xuống kit DE2-150.
+  \item Nhấn reset bằng \texttt{KEY[0]}.
+  \item Đặt \texttt{SW[7:0]=00}, nhấn \texttt{KEY[1]}, quan sát LED xanh và chữ \texttt{OPn}.
+  \item Đặt \texttt{SW[7:0]=A5}, nhấn \texttt{KEY[2]}, quan sát \texttt{Chg}.
+  \item Nhấn Enter để khóa lại; nhập sai \texttt{11} để kiểm tra \texttt{Err}; nhập đúng \texttt{A5} để mở lại.
+\end{enumerate}
+
+\optionalimage{images/hardware_open.jpg}{Ảnh thực nghiệm trạng thái mở khóa}{Ảnh LED xanh/HEX/LCD khi mật khẩu đúng sẽ được bổ sung sau.}
+\optionalimage{images/hardware_error.jpg}{Ảnh thực nghiệm trạng thái báo lỗi}{Ảnh LED đỏ/HEX/LCD khi mật khẩu sai sẽ được bổ sung sau.}
+
+\section{ĐỊNH HƯỚNG MỞ RỘNG SANG SRAM VẬT LÝ}
+\subsection{Lý do cần bộ điều khiển SRAM}
+SRAM vật lý \texttt{IS61WV51216} trên DE2-150 có bus dữ liệu hai chiều và yêu cầu timing đọc/ghi riêng. Không nên để FSM điều khiển trực tiếp các chân \texttt{SRAM\_CE\_N}, \texttt{SRAM\_WE\_N}, \texttt{SRAM\_OE\_N} vì điều đó làm FSM phức tạp và dễ phát sinh xung điều khiển sai. Thay vào đó, nên dùng một module \texttt{sram\_controller} độc lập.
+
+\subsection{Giao diện đề xuất}
+Giao diện với FSM có thể giữ như hiện tại:
+\begin{itemize}
+  \item \texttt{i\_rd\_en}, \texttt{i\_wr\_en}: yêu cầu đọc/ghi.
+  \item \texttt{i\_addr[18:0]}: địa chỉ bộ nhớ.
+  \item \texttt{i\_data[15:0]}: dữ liệu ghi.
+  \item \texttt{o\_data[15:0]}: dữ liệu đọc.
+  \item \texttt{o\_ready}: báo hoàn tất chu kỳ.
+\end{itemize}
+
+Phía ngoài module sẽ nối tới các chân vật lý:
+\begin{itemize}
+  \item \texttt{SRAM\_ADDR}, \texttt{SRAM\_DQ}.
+  \item \texttt{SRAM\_CE\_N}, \texttt{SRAM\_OE\_N}, \texttt{SRAM\_WE\_N}.
+  \item Các tín hiệu byte enable nếu dùng: \texttt{SRAM\_LB\_N}, \texttt{SRAM\_UB\_N}.
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  block/.style={draw, rounded corners, minimum width=3.7cm, minimum height=1cm, align=center},
+  arrow/.style={-Latex, thick}
+]
+\node[block] (fsm) {lock\_fsm};
+\node[block, right=2cm of fsm] (ctrl) {sram\_controller};
+\node[block, right=2cm of ctrl] (chip) {SRAM IS61WV51216};
+\draw[arrow] (fsm) -- node[above]{rd/wr, addr, data} (ctrl);
+\draw[arrow] (ctrl) -- node[below]{ready, data} (fsm);
+\draw[arrow] (ctrl) -- node[above]{ADDR, CE/OE/WE} (chip);
+\draw[arrow] (chip) -- node[below]{DQ inout} (ctrl);
+\end{tikzpicture}
+\caption{Hướng mở rộng từ RAM nội bộ sang SRAM vật lý}
+\label{fig:sram}
+\end{figure}
+
+\subsection{Quản lý bus hai chiều}
+Điểm quan trọng nhất khi dùng SRAM vật lý là điều khiển bus \texttt{SRAM\_DQ}. Trong chu kỳ ghi, FPGA được phép lái dữ liệu lên bus. Trong chu kỳ đọc hoặc khi rỗi, FPGA phải đặt bus ở trạng thái high-Z để SRAM hoặc mạch ngoài không bị tranh chấp bus. Một mô tả thường dùng trong Verilog là:
+
+\begin{lstlisting}[style=verilogstyle]
+assign SRAM_DQ = drive_dq ? write_data : 16'hzzzz;
+assign read_data = SRAM_DQ;
+\end{lstlisting}
+
+Tín hiệu \texttt{drive\_dq} chỉ được bật trong pha ghi. Đây là yêu cầu bắt buộc để tránh hỏng dữ liệu và tránh dòng ngắn mạch trên bus.
+
+\section{KẾT LUẬN}
+Dự án đã xây dựng được hệ thống khóa số bảo mật có cấu trúc RTL rõ ràng trên FPGA. Hệ thống cho phép nhập mật khẩu bằng switch, xác nhận bằng nút nhấn, mở khóa khi mật khẩu đúng, báo lỗi khi mật khẩu sai và đổi mật khẩu khi đang ở trạng thái mở khóa. Các module được tách theo chức năng: chống dội phím, FSM điều khiển, bộ nhớ, LED 7 đoạn và LCD.
+
+Testbench đã kiểm tra các luồng chức năng chính và sử dụng cơ chế tự so sánh đầu ra LED. Project Quartus tổng hợp thành công trên Cyclone IV GX, sử dụng rất ít tài nguyên và đạt timing dương ở clock 50 MHz. Điểm cần hoàn thiện tiếp theo là thay \texttt{internal\_ram} bằng \texttt{sram\_controller} nối trực tiếp tới SRAM vật lý \texttt{IS61WV51216}, cập nhật top-level với các chân \texttt{SRAM\_*}, sau đó bổ sung ảnh thực nghiệm phần cứng và ảnh phần mềm Quartus vào báo cáo.
+
+\newpage
+\section*{TÀI LIỆU THAM KHẢO}
+\addcontentsline{toc}{section}{TÀI LIỆU THAM KHẢO}
+\begin{enumerate}
+  \item Intel, \textit{Quartus Prime Standard Edition Handbook}, Intel Corporation.
+  \item Terasic, \textit{DE2-150 User Manual}, Terasic Technologies.
+  \item ISSI, \textit{IS61WV51216 Asynchronous SRAM Datasheet}, Integrated Silicon Solution Inc.
+  \item Samir Palnitkar, \textit{Verilog HDL: A Guide to Digital Design and Synthesis}, Prentice Hall.
+  \item Project source files: \texttt{design/digital\_safe\_lock.v}, \texttt{design/lock\_fsm.v}, \texttt{design/internal\_ram.v}, \texttt{tb/tb\_digital\_safe\_lock.v}.
+\end{enumerate}
+
+\newpage
+\section*{PHỤ LỤC A: MÃ NGUỒN CHÍNH}
+\addcontentsline{toc}{section}{PHỤ LỤC A: MÃ NGUỒN CHÍNH}
+\subsection*{A.1 Module FSM điều khiển khóa}
+\lstinputlisting[style=verilogstyle,firstline=1,lastline=180]{../../design/lock_fsm.v}
+
+\subsection*{A.2 Module bộ nhớ nội bộ}
+\lstinputlisting[style=verilogstyle]{../../design/internal_ram.v}
+
+\subsection*{A.3 Trích đoạn testbench}
+\lstinputlisting[style=verilogstyle,firstline=1,lastline=190]{../../tb/tb_digital_safe_lock.v}
+
+\end{document}

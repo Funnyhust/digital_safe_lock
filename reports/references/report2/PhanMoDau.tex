@@ -1,0 +1,170 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PHẦN MỞ ĐẦU (không đánh số chương theo quy chuẩn học thuật)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{PHẦN MỞ ĐẦU}
+\addcontentsline{toc}{section}{\numberline{}PHẦN MỞ ĐẦU}
+\setcounter{section}{0}
+\setcounter{subsection}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
+\subsection*{1. Đặt vấn đề và tính cấp thiết của đề tài}
+\addcontentsline{toc}{subsection}{1. Đặt vấn đề và tính cấp thiết của đề tài}
+
+Trong những năm gần đây, công nghệ thiết bị bay không người lái (\mbox{UAV -- Unmanned Aerial Vehicle}) đã phát triển mạnh mẽ và được ứng dụng rộng rãi trong nhiều lĩnh vực thực tiễn như tuần tra an ninh, giám sát hiện trường và trinh sát cứu nạn. Tuy nhiên, phần lớn các giải pháp hiện nay thường phụ thuộc vào các module phần cứng điều khiển thương mại nhập khẩu và phần mềm đóng gói sẵn. Việc nghiên cứu thiết kế bo mạch điều khiển từ gốc rễ và tích hợp các thuật toán xử lý trí tuệ nhân tạo (AI) thời gian thực tại trạm mặt đất vẫn là một bài toán công nghệ thách thức và mang tính thực tiễn cao đối với kỹ sư Điện tử -- Viễn thông.
+
+Tại Việt Nam, các phương pháp tuần tra giám sát an ninh và cứu hộ truyền thống chủ yếu dựa trên sức người và các phương tiện mặt đất hoặc đường thủy. Phương pháp này bộc lộ nhiều hạn chế lớn:
+\begin{itemize}
+    \item \textbf{Thời gian phản ứng chậm}: Việc triển khai lực lượng cứu hộ tới vùng sâu, vùng xa hoặc vùng bị thiên tai tàn phá mất nhiều thời gian do giao thông bị chia cắt.
+    \item \textbf{Nguy hiểm cho lực lượng cứu hộ}: Việc tiếp cận trực tiếp các vùng sạt lở đất, lũ quét, hoặc môi trường rò rỉ khí độc luôn tiềm ẩn nguy cơ đe dọa tính mạng của nhân viên SAR.
+    \item \textbf{Tầm nhìn bị hạn chế}: Quan sát từ mặt đất không đem lại góc nhìn bao quát, dễ bỏ sót nạn nhân nằm khuất sau các chướng ngại vật hoặc trong các vùng địa hình phức tạp.
+\end{itemize}
+
+Sự xuất hiện của Drone cứu hộ giúp giải quyết triệt để các hạn chế trên bằng cách cung cấp góc nhìn từ trên cao (Bird's eye view) với thời gian triển khai chỉ tính bằng phút. Tuy nhiên, việc truyền luồng video FPV đơn thuần về trạm mặt đất đòi hỏi người vận hành phải liên tục quan sát màn hình điều khiển. Trong các nhiệm vụ kéo dài nhiều giờ, sự mệt mỏi của con người dễ dẫn tới việc bỏ sót các dấu hiệu cầu cứu của nạn nhân. Do đó, tích hợp Trí tuệ nhân tạo (AI), cụ thể là các mô hình thị giác máy tính học sâu (Deep Learning), trực tiếp vào quy trình giám sát nhằm tự động nhận dạng, định danh và phân tích hành vi nạn nhân là xu hướng tất yếu.
+
+Xuất phát từ thực tiễn đó, đề tài \textbf{``Xây dựng và chế tạo Drone ứng dụng cho giám sát an ninh và cứu hộ''} được thực hiện nhằm tự chủ quy trình thiết kế phần cứng mạch Flight Controller, lập trình firmware điều khiển bay thời gian thực, đồng thời xây dựng hệ thống nhận diện nạn nhân thông minh tích hợp đa mô hình học sâu YOLOv8 tại trạm mặt đất, tạo ra giải pháp giám sát an ninh và tìm kiếm cứu nạn đồng bộ, hiệu quả và an toàn.
+
+
+\subsection*{2. Mục tiêu và kết quả dự kiến của đề tài}
+\addcontentsline{toc}{subsection}{2. Mục tiêu và kết quả dự kiến của đề tài}
+
+Đề tài đặt ra các mục tiêu cụ thể trên cả ba phương diện: Thiết kế phần cứng, lập trình hệ thống nhúng và phát triển thuật toán phần mềm trí tuệ nhân tạo.
+
+\begin{itemize}
+    \item \textbf{Mục tiêu phần cứng và hệ thống động lực}
+    \begin{itemize}
+        \item Thiết kế và chế tạo thành công bo mạch Flight Controller (FC) riêng biệt sử dụng vi điều khiển kiến trúc ARM 32-bit (STM32F103C8T6), đảm bảo chống nhiễu nguồn tốt và hoạt động ổn định trong điều kiện dòng tải lớn.
+        \item Lắp ráp mô hình cơ khí Quadcopter cấu hình Quad-X hoạt động ổn định, có tải trọng hữu ích tối thiểu 300g để mang theo camera và các module phụ trợ.
+    \end{itemize}
+
+    \item \textbf{Mục tiêu phần mềm nhúng (Firmware)}
+    \begin{itemize}
+        \item Lập trình thành công firmware điều khiển bay thời gian thực với vòng lặp chính ổn định ở tần số 250\,Hz.
+        \item Tích hợp chính xác thuật toán bộ lọc tư thế rời rạc (Complementary Filter) để hòa trộn dữ liệu cảm biến IMU MPU6050, đạt sai số ước lượng góc Roll/Pitch dưới 1 độ trong trạng thái động.
+        \item Giải mã thành công giao thức truyền sóng vô tuyến kỹ thuật số ExpressLRS (CRSF) độ trễ thấp phục vụ điều khiển tầm xa.
+    \end{itemize}
+
+    \item \textbf{Mục tiêu phần mềm AI và trạm mặt đất}
+    \begin{itemize}
+        \item Xây dựng module trạm mặt đất tích hợp AI nhận và xử lý luồng video thời gian thực từ camera FPV của Drone.
+        \item Tích hợp hệ thống phân tích AI áp dụng chiến thuật Cascade Pipeline kết hợp 4 mô hình YOLOv8s (cắt ảnh), YOLOv8s-Pose, YOLOv8s-Posture và YOLOv8s-Rescue để nhận diện chính xác nạn nhân nằm ngã bất động hoặc vẫy tay cầu cứu với độ chính xác F1-score đạt trên 85\% và tốc độ xử lý khoảng 20 - 25 FPS trên máy trạm.
+        \item Tự động sinh báo cáo cứu nạn dạng HTML chứa hình ảnh chụp sự kiện cứu hộ và ghi nhật ký CSV vị trí sự kiện.
+    \end{itemize}
+\end{itemize}
+
+\subsection*{3. Đối tượng và phạm vi nghiên cứu}
+\addcontentsline{toc}{subsection}{3. Đối tượng và phạm vi nghiên cứu}
+
+\begin{itemize}
+    \item \textbf{Đối tượng nghiên cứu}
+    \begin{itemize}
+        \item Hệ thống thiết bị bay không người lái dạng Quadcopter (4 cánh, cấu hình Quad-X) tự chế tạo.
+        \item Vi điều khiển STM32F103C8T6 (ARM Cortex-M3, 32-bit) và các ngoại vi liên quan: cảm biến quán tính IMU MPU6050, bộ điều tốc điện tử ESC, bộ thu tín hiệu ELRS (ExpressLRS), module camera VTX và VRX.
+        \item Các thuật toán điều khiển bay: bộ lọc bù (Complementary Filter), bộ điều khiển PID phân tầng (Cascaded PID).
+        \item Hệ thống phần mềm trạm mặt đất (GCS) tích hợp mô hình học sâu YOLOv8 cho bài toán nhận diện nạn nhân cứu hộ.
+    \end{itemize}
+
+    \item \textbf{Phạm vi nghiên cứu}
+    \begin{itemize}
+        \item \textbf{Về phần cứng}: Tập trung thiết kế bo mạch Flight Controller PCB cho nền tảng STM32F103C8T6; không mở rộng sang các dòng vi điều khiển khác.
+        \item \textbf{Về cơ chế bay}: Chỉ nghiên cứu mô hình Quadcopter 4 động cơ cấu hình Quad-X; không bao gồm các cấu hình khác (Hexacopter, Fixed-wing, v.v.).
+        \item \textbf{Về thuật toán AI}: Mô hình YOLOv8 được triển khai hoàn toàn tại trạm mặt đất (PC/Laptop), không nhúng trực tiếp lên vi xử lý của Drone do giới hạn tài nguyên phần cứng nhúng.
+        \item \textbf{Về điều kiện thử nghiệm}: Bay thực nghiệm trong môi trường ngoài trời có điều kiện thời tiết bình thường (không mưa, gió dưới cấp 4); kiểm nghiệm nhận diện nạn nhân trong điều kiện ánh sáng ban ngày.
+    \end{itemize}
+\end{itemize}
+
+\subsection*{4. Phương pháp nghiên cứu}
+\addcontentsline{toc}{subsection}{4. Phương pháp nghiên cứu}
+
+Đề tài sử dụng kết hợp hai nhóm phương pháp nghiên cứu chính:
+
+\begin{itemize}
+    \item \textbf{Phương pháp nghiên cứu lý thuyết}
+    \begin{itemize}
+        \item Nghiên cứu tài liệu kỹ thuật, datasheet linh kiện và các công trình khoa học liên quan đến điều khiển bay UAV, lọc tín hiệu cảm biến và học sâu trong thị giác máy tính.
+        \item Phân tích và mô hình hóa toán học các bài toán: động lực học Quadcopter, thuật toán bộ lọc bù Complementary Filter, lý thuyết bộ điều khiển PID và kiến trúc mạng nơ-ron tích chập YOLOv8.
+        \item Tính toán thiết kế phần cứng: phân tích công suất hệ thống động lực, thiết kế mạch lọc nguồn và lựa chọn linh kiện dựa trên các thông số kỹ thuật yêu cầu.
+    \end{itemize}
+
+    \item \textbf{Phương pháp nghiên cứu thực nghiệm}
+    \begin{itemize}
+        \item Thiết kế và chế tạo thực tế bo mạch Flight Controller PCB; hiệu chỉnh phần cứng thông qua đo lường bằng oscilloscope và đa năng kế.
+        \item Lập trình, nạp và gỡ lỗi firmware trực tiếp trên phần cứng thực thông qua giao thức SWD (J-Link); theo dõi tín hiệu thời gian thực qua UART.
+        \item Thu thập dữ liệu hình ảnh thực tế, gán nhãn và huấn luyện mô hình YOLOv8 trên môi trường GPU; đánh giá kết quả qua các chỉ số mAP, Precision, Recall và F1-score.
+        \item Bay thực nghiệm hiệu chỉnh tham số PID theo phương pháp Ziegler-Nichols điều chỉnh thực nghiệm; kiểm tra độ ổn định cơ khí và khả năng bám theo lệnh điều khiển.
+    \end{itemize}
+\end{itemize}
+
+\subsection*{5. Ý nghĩa khoa học và thực tiễn}
+\addcontentsline{toc}{subsection}{5. Ý nghĩa khoa học và thực tiễn}
+
+\begin{itemize}
+    \item \textbf{Ý nghĩa khoa học}\\
+    Đề tài đóng góp một nghiên cứu toàn diện về quy trình phát triển hệ thống UAV tự chủ từ phần cứng đến phần mềm, đặc biệt là việc kết hợp hai lĩnh vực thường được nghiên cứu độc lập: (1) hệ thống nhúng thời gian thực cho điều khiển bay và (2) thị giác máy tính dựa trên học sâu cho nhận diện đối tượng. Kết quả nghiên cứu cung cấp cơ sở thực nghiệm về hiệu năng của thuật toán dung hợp quyết định đa mô hình YOLOv8 trong điều kiện ảnh hưởng bởi rung động và chuyển động của UAV, góp phần bổ sung vào kho tàng nghiên cứu về hệ thống cứu hộ thông minh.
+
+    \item \textbf{Ý nghĩa thực tiễn}\\
+    Kết quả của đề tài tạo ra một nguyên mẫu hệ thống Drone cứu hộ hoàn chỉnh, có thể ứng dụng thực tế trong các tình huống: tìm kiếm nạn nhân sau thiên tai (bão, lũ, động đất), hỗ trợ cứu hộ ở các địa hình hiểm trở, hoặc làm công cụ giám sát an ninh tự động. Quy trình thiết kế phần cứng và lập trình firmware được tài liệu hóa chi tiết, có thể phục vụ cho các nghiên cứu kế tiếp hoặc làm tài liệu tham khảo trong đào tạo kỹ thuật tại trường.
+\end{itemize}
+
+\subsection*{6. Những công việc chính và tiến độ thực hiện}
+\addcontentsline{toc}{subsection}{6. Những công việc chính và tiến độ thực hiện}
+
+Quy trình nghiên cứu và thực hiện đề tài được chia thành các giai đoạn cụ thể:
+
+\begin{itemize}
+    \item \textbf{Nghiên cứu lý thuyết}\\
+    Tìm hiểu động lực học bay Quadcopter, nguyên lý hoạt động cảm biến quán tính IMU, lý thuyết điều khiển phản hồi PID và kiến trúc mạng nơ-ron tích chập YOLOv8.
+    
+    \item \textbf{Thiết kế phần cứng và cơ khí}\\
+    Vẽ mạch nguyên lý và layout PCB cho Flight Controller trên phần mềm Altium Designer; chế tạo mạch in và hàn linh kiện; lắp ráp khung sườn cơ khí của Drone.
+    
+    \item \textbf{Lập trình Firmware}\\
+    Viết code C++ cấu hình clock hệ thống, cấu hình Timer PWM phát xung điều khiển ESC, driver giao tiếp cảm biến và bộ lọc bù.
+    
+    \item \textbf{Phát triển phần mềm trạm mặt đất}\\
+    Viết mã nguồn Python thu nhận và xử lý luồng video, huấn luyện mô hình YOLOv8 trên bộ dữ liệu cứu hộ cứu nạn, lập trình luồng ghi sự kiện bất đồng bộ và cài đặt thuật toán dung hợp quyết định.
+    
+    \item \textbf{Thử nghiệm và đánh giá}\\
+    Bay thực nghiệm hiệu chỉnh PID, kiểm nghiệm thuật toán nhận diện nạn nhân cứu hộ trong các tình huống thực tế và đánh giá độ chính xác.
+\end{itemize}
+
+\begin{center}
+    \begin{minipage}{\textwidth}
+        Tiến độ thực hiện chi tiết của đề tài được tổng hợp cụ thể qua bảng dưới đây:
+        
+        \vspace{6pt}
+        \centering
+        \textbf{\fontsize{12pt}{14pt}\selectfont Tiến độ thực hiện chi tiết của đề tài đồ án tốt nghiệp}
+        \vspace{8pt}
+        
+        \renewcommand{\arraystretch}{1.3}
+        \fontsize{11pt}{13pt}\selectfont
+        \begin{tabular}{|c|p{8.5cm}|c|}
+            \hline
+            \textbf{STT} & \textbf{Nhiệm vụ thực hiện} & \textbf{Thời gian (Tuần)} \\ \hline
+            1 & Nghiên cứu lý thuyết nền tảng và tổng quan tài liệu & Tuần 1 -- 3 \\ \hline
+            2 & Thiết kế phần cứng Flight Controller và lắp ráp cơ khí & Tuần 4 -- 7 \\ \hline
+            3 & Lập trình phần mềm nhúng (Firmware) và cấu hình PID & Tuần 5 -- 9 \\ \hline
+            4 & Thu thập dữ liệu, gán nhãn và huấn luyện mô hình YOLO & Tuần 7 -- 11 \\ \hline
+            5 & Thiết kế phần mềm trạm mặt đất GCS và giao diện điều khiển & Tuần 9 -- 13 \\ \hline
+            6 & Thử nghiệm bay thực địa và tối ưu liên kết hệ thống & Tuần 12 -- 15 \\ \hline
+            7 & Tổng hợp kết quả, viết báo cáo thuyết minh tốt nghiệp & Tuần 11 -- 16 \\ \hline
+        \end{tabular}
+    \end{minipage}
+\end{center}
+
+\subsection*{7. Cấu trúc đề tài}
+\addcontentsline{toc}{subsection}{7. Cấu trúc đề tài}
+
+Ngoài Phần Mở Đầu và Kết Luận, đề tài được tổ chức thành \textbf{3 chương} với nội dung chính như sau:
+
+\begin{itemize}
+    \item \textbf{Chương 1: Tổng quan về thiết bị bay không người lái}\\
+    Trình bày tổng quan về các dòng UAV, khảo sát các công trình nghiên cứu tiêu biểu trong và ngoài nước, giới thiệu sơ bộ các công nghệ nền tảng được sử dụng và xác định khoảng trống nghiên cứu của đề tài.
+
+    \item \textbf{Chương 2: Thiết kế và xây dựng hệ thống Drone cứu hộ}\\
+    Xây dựng cơ sở lý thuyết điều khiển bay (gồm động lực học bay, thuật toán PID nối tầng rời rạc, bộ lọc bù IMU và giao thức truyền thông), đồng thời trình bày chi tiết thiết kế bo mạch Flight Controller PCB, lắp ráp hoàn thiện phần cứng Drone và phát triển phần mềm AI tại trạm mặt đất.
+
+    \item \textbf{Chương 3: Kết quả thực nghiệm và đánh giá}\\
+    Trình bày các kết quả đo lường phần cứng, quá trình thử nghiệm bay thực tế để tinh chỉnh bộ điều khiển PID ổn định thái độ của Drone. Chương này cũng đưa ra các kết quả kiểm nghiệm hiệu năng của hệ thống AI nhận diện nạn nhân, tổng hợp chi phí chế tạo thực tế, phân tích các ưu nhược điểm và đề xuất hướng phát triển tiếp theo của đề tài.
+\end{itemize}

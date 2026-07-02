@@ -1,0 +1,337 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PHỤ LỤC
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{PHỤ LỤC}
+\thispagestyle{empty}
+\addcontentsline{toc}{section}{\numberline{}PHỤ LỤC}
+
+\subsection*{Phụ lục A: Mã nguồn Firmware ESP32-C3 (rút gọn)}
+Mục này cung cấp các đoạn mã nguồn cốt lõi trong tệp \texttt{main.cpp} của Firmware, bao gồm việc quét I2C gỡ lỗi phần cứng, kết nối mạng WiFi giảm công suất phát chống lỗi sụt dòng, và các bộ lọc xử lý tín hiệu số.
+
+\begin{lstlisting}[language=C++]
+// Quet dia chi thiet bi tren bus I2C (Debug phan cung)
+void scanI2CBus() {
+    Serial.println("\n[I2C] Dang quet cac thiet bi tren bus...");
+    byte error, address;
+    int nDevices = 0;
+    for (address = 1; address < 127; address++) {
+        Wire.beginTransmission(address);
+        error = Wire.endTransmission();
+        if (error == 0) {
+            Serial.print("[I2C] Tim thay thiet bi tai dia chi: 0x");
+            if (address < 16) Serial.print("0");
+            Serial.print(address, HEX);
+            if (address == 0x3C) Serial.println(" (Man hinh OLED SSD1306)");
+            else if (address == 0x40) Serial.println(" (Cam bien HDC2022 Temp/Hum)");
+            else if (address == 0x57) Serial.println(" (Cam bien MAX30102 HR/SpO2)");
+            nDevices++;
+        }
+    }
+    if (nDevices == 0) {
+        Serial.println("[I2C] Khong tim thay thiet bi I2C nao!");
+    }
+}
+
+// Logic ket noi WiFi va giam cong suat phat RF xuong 11dBm chong Brownout
+void setupWiFi() {
+    if (wifiSSID.length() == 0) return;
+    Serial.print("[WIFI] Dang ket noi toi SSID: ");
+    Serial.println(wifiSSID);
+    WiFi.setAutoReconnect(true);
+    WiFi.begin(wifiSSID.c_str(), wifiPassword.c_str());
+    WiFi.setTxPower(WIFI_POWER_11dBm); // Triet tieu loi sut ap reset chip
+}
+
+// Thuat toan loc so DSP va lay mau tu FIFO cua MAX30102
+void readBiometrics() {
+    if (USE_SIMULATOR) {
+        currentTemperature = 36.5 + (random(-30, 230) / 100.0);
+        currentHumidity = 60.0 + (random(-50, 150) / 10.0);
+        currentHeartRate = 72 + random(-4, 4);
+        currentSpO2 = 98 - random(0, 3);
+        return;
+    }
+    
+    // Doc cam bien nhiet am HDC2022
+    if (hasHDC) {
+        currentTemperature = hdc.get_Temperature();
+        currentHumidity = hdc.get_Humidity();
+    }
+    
+    // Doc tu MAX30102 va chay loc so DSP
+    if (hasMAX) {
+        uint32_t irValue = 0, redValue = 0;
+        static float dc_ir = 0, dc_red = 0;
+        static float ac_ir = 0, ac_red = 0;
+        static float ac_ir_max = -99999, ac_ir_min = 99999;
+        static float ac_red_max = -99999, ac_red_min = 99999;
+        static float dynamic_threshold = 0;
+        static bool was_above_threshold = false;
+        static float avg_beat_period = 600.0;
+        static bool first_beat = true;
+        
+        while (particleSensor.getRawValues(&irValue, &redValue)) {
+            if (irValue > 15000) {
+                // Khur DC bang EMA Filter
+                if (dc_ir == 0) {
+                    dc_ir = irValue;
+                    dc_red = redValue;
+                } else {
+                    dc_ir = dc_ir * 0.995 + irValue * 0.005;
+                    dc_red = dc_red * 0.995 + redValue * 0.005;
+                }
+                float raw_ac_ir = irValue - dc_ir;
+                float raw_ac_red = redValue - dc_red;
+                
+                // Loc thong thap IIR muot
+                ac_ir = ac_ir * 0.88 + raw_ac_ir * 0.12;
+                ac_red = ac_red * 0.88 + raw_ac_red * 0.12;
+                
+                if (ac_ir > ac_ir_max) ac_ir_max = ac_ir;
+                if (ac_ir < ac_ir_min) ac_ir_min = ac_ir;
+                if (ac_red > ac_red_max) ac_red_max = ac_red;
+                if (ac_red < ac_red_min) ac_red_min = ac_red;
+                
+                // Phat hien dinh Adaptive Peak Detection
+                unsigned long now_beat = millis();
+                float amplitude = ac_ir_max - ac_ir_min;
+                if (amplitude > 12) {
+                    dynamic_threshold = ac_ir_min + amplitude * 0.52;
+                    if (ac_ir > dynamic_threshold) {
+                        if (!was_above_threshold) {
+                            unsigned long duration = now_beat - last_beat_time;
+                            if (!first_beat && duration > 400 && duration < 1330) {
+                                avg_beat_period = avg_beat_period * 0.5 + duration * 0.5;
+                                float calculated_hr = 60000.0 / avg_beat_period;
+                                currentHeartRate = currentHeartRate * 0.7 + calculated_hr * 0.3;
+                                
+                                float red_ac_amplitude = ac_red_max - ac_red_min;
+                                float ir_ac_amplitude = ac_ir_max - ac_ir_min;
+                                if (ir_ac_amplitude > 0 && dc_ir > 0 && dc_red > 0) {
+                                    float ratio = (red_ac_amplitude / dc_red) / (ir_ac_amplitude / dc_ir);
+                                    calculateSpO2WithWristOffset(ratio, amplitude);
+                                }
+                            }
+                            ac_ir_max = -99999; ac_ir_min = 99999;
+                            ac_red_max = -99999; ac_red_min = 99999;
+                            last_beat_time = now_beat;
+                            first_beat = false;
+                            was_above_threshold = true;
+                        }
+                    } else if (ac_ir < (dynamic_threshold - amplitude * 0.1)) {
+                        was_above_threshold = false;
+                    }
+                }
+            }
+        }
+    }
+}
+\end{lstlisting}
+
+\newpage
+\subsection*{Phụ lục B: Mã nguồn Máy chủ API Node.js (\texttt{server.js})}
+Dưới đây là một phần mã nguồn chính của máy chủ trung tâm API Node.js xử lý việc nhận và phân tích JSON từ thiết bị đo, phân quyền và lưu trữ tệp phẳng.
+
+\begin{lstlisting}
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
+const PORT = 8000;
+const STORE_FILE = path.join(__dirname, 'htdocs', 'data', 'iot_store.json');
+
+// Doc du lieu tu file store
+function loadStore() {
+    try {
+        if (!fs.existsSync(STORE_FILE)) return { devices: {} };
+        const content = fs.readFileSync(STORE_FILE, 'utf8');
+        return JSON.parse(content);
+    } catch (e) {
+        return { devices: {} };
+    }
+}
+
+// Ghi du lieu dong bo co gioi han lich su 120 diem do
+function saveStore(store) {
+    store.meta = store.meta || {};
+    store.meta.updatedAt = new Date().toISOString();
+    fs.writeFileSync(STORE_FILE, JSON.stringify(store, null, 4), 'utf8');
+}
+
+// API Server tiep nhan va phan phoi du lieu
+const server = http.createServer((req, res) => {
+    const url = new URL(req.url, `http://${req.headers.host}`);
+    const method = req.method;
+
+    if (method === 'POST' && url.pathname === '/api.php' && url.searchParams.get('action') === 'post_data') {
+        let body = '';
+        req.on('data', chunk => { body += chunk.toString(); });
+        req.on('end', () => {
+            const input = JSON.parse(body);
+            const store = loadStore();
+            const deviceId = input.deviceId;
+            
+            if (!store.devices[deviceId]) {
+                store.devices[deviceId] = { deviceId, history: [], createdAt: new Date().toISOString() };
+            }
+            
+            const entry = {
+                heartRate: parseFloat(input.heartRate),
+                spo2: parseFloat(input.spo2),
+                temperature: parseFloat(input.temperature),
+                timestamp: new Date().toISOString()
+            };
+            
+            store.devices[deviceId].latest = entry;
+            store.devices[deviceId].history.push(entry);
+            
+            // Cat bot du lieu de bao ve RAM
+            if (store.devices[deviceId].history.length > 120) {
+                store.devices[deviceId].history.shift();
+            }
+            
+            saveStore(store);
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ success: true, entry }));
+        });
+    }
+});
+server.listen(PORT, () => { console.log(`Server dang chay tai port ${PORT}`); });
+\end{lstlisting}
+
+\newpage
+\subsection*{Phụ lục C: Mã nguồn Máy chủ API PHP (\texttt{api.php})}
+Dưới đây là phần code PHP cốt lõi xử lý các yêu cầu API từ thiết bị đeo và Dashboard Web:
+
+\begin{lstlisting}[language=PHP]
+<?php
+header('Content-Type: application/json; charset=utf-8');
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
+
+require_once __DIR__ . '/lib/storage.php';
+require_once __DIR__ . '/lib/auth.php';
+
+$action = $_GET['action'] ?? 'devices';
+$store = load_store();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $raw = file_get_contents('php://input');
+    $input = json_decode($raw, true) ?? $_POST;
+    
+    switch ($action) {
+        case 'post_data':
+            $deviceId = trim((string)($input['deviceId'] ?? ''));
+            $heartRate = isset($input['heartRate']) ? (float)$input['heartRate'] : null;
+            $spo2 = isset($input['spo2']) ? (float)$input['spo2'] : null;
+            $temperature = isset($input['temperature']) ? (float)$input['temperature'] : null;
+            
+            if ($deviceId === '' || $heartRate === null || $spo2 === null || $temperature === null) {
+                http_response_code(422);
+                echo json_encode(['success' => false, 'message' => 'Thieu du lieu']);
+                exit;
+            }
+            
+            // Them vao store
+            $entry = [
+                'heartRate' => $heartRate,
+                'spo2' => $spo2,
+                'temperature' => $temperature,
+                'timestamp' => date('c')
+            ];
+            $store['devices'][$deviceId]['latest'] = $entry;
+            $store['devices'][$deviceId]['history'][] = $entry;
+            
+            if (count($store['devices'][$deviceId]['history']) > 120) {
+                array_shift($store['devices'][$deviceId]['history']);
+            }
+            
+            save_store($store);
+            echo json_encode(['success' => true, 'entry' => $entry]);
+            break;
+            
+        case 'delete_device':
+            if (!auth_is_logged_in() || !auth_can_access_api_action('delete_device')) {
+                http_response_code(403);
+                echo json_encode(['success' => false, 'message' => 'Khong co quyen']);
+                exit;
+            }
+            $deviceId = trim((string)($input['deviceId'] ?? ''));
+            unset($store['devices'][$deviceId]);
+            save_store($store);
+            echo json_encode(['success' => true]);
+            break;
+    }
+}
+?>
+\end{lstlisting}
+
+\newpage
+\subsection*{Phụ lục D: Mã nguồn Giao diện Web Dashboard (\texttt{index.php})}
+Dưới đây là mã nguồn rút gọn của tệp \texttt{index.php} xây dựng giao diện Dashboard giám sát sức khỏe thời gian thực cho nhân viên y tế:
+
+\begin{lstlisting}[language=HTML]
+<?php
+require_once __DIR__ . '/lib/auth.php';
+require_login();
+$currentRole = htmlspecialchars(auth_current_role(), ENT_QUOTES, 'UTF-8');
+$currentRoleLabel = htmlspecialchars(auth_current_role_label(), ENT_QUOTES, 'UTF-8');
+?>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>IoT Health Monitoring Dashboard</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body data-role="<?php echo $currentRole; ?>">
+    <div class="dashboard-shell">
+        <aside class="sidebar">
+            <div class="brand-panel">
+                <div class="brand-icon">H</div>
+                <h1>IoT Health Monitoring</h1>
+            </div>
+            <nav class="side-nav">
+                <a href="#overview" class="nav-link active">Tong quan</a>
+                <a href="#devices" class="nav-link">Thiet bi</a>
+            </nav>
+            <section class="sidebar-card">
+                <button id="refreshBtn" class="btn">Lam moi du lieu</button>
+                <form id="deviceForm">
+                    <input type="text" id="deviceIdInput" required placeholder="Device ID">
+                    <input type="text" id="patientNameInput" placeholder="Benh nhan">
+                    <button type="submit">Luu thong tin</button>
+                </form>
+            </section>
+        </aside>
+        <main class="main-content">
+            <header class="topbar">
+                <h2>Dashboard giam sat suc khoe</h2>
+                <div class="user-pill"><?php echo $currentRoleLabel; ?></div>
+            </header>
+            <section class="summary-grid">
+                <div class="summary-card">
+                    <p>Thiet bi dang quan ly</p>
+                    <strong id="summaryTotalDevices">0</strong>
+                </div>
+            </section>
+            <section class="metrics-grid">
+                <div class="metric-card">
+                    <span>Nhip tim</span>
+                    <p id="heartRateValue">--</p>
+                </div>
+                <div class="metric-card">
+                    <span>Nong do SpO2</span>
+                    <p id="spo2Value">--</p>
+                </div>
+            </section>
+            <div class="chart-wrap">
+                <canvas id="heartRateChart"></canvas>
+            </div>
+        </main>
+    </div>
+    <script src="assets/app.js"></script>
+</body>
+</html>
+\end{lstlisting}

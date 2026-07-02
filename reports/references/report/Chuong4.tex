@@ -1,0 +1,163 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CHƯƠNG 4: LẬP TRÌNH FIRMWARE VI ĐIỀU KHIỂN ESP32-C3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{CHƯƠNG 4. LẬP TRÌNH FIRMWARE VI ĐIỀU KHIỂN ESP32-C3}
+\addcontentsline{toc}{section}{\numberline{}CHƯƠNG 4. LẬP TRÌNH FIRMWARE VI ĐIỀU KHIỂN ESP32-C3}
+\setcounter{section}{4}
+\setcounter{subsection}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
+\subsection{Lưu đồ thuật toán chính của chương trình nhúng}
+Firmware của vi điều khiển ESP32-C3 được viết trên nền tảng framework Arduino Core. Lưu đồ thuật toán hoạt động chính của chương trình được phác thảo trên Hình \ref{fig:flowchart_firmware_detail}. Sau khi khởi động cấp nguồn, vi điều khiển thực hiện khởi tạo cổng Serial truyền dữ liệu gỡ lỗi ở tốc độ 115200bps, khởi tạo bus giao tiếp I2C cho cảm biến và màn hình, đồng thời cấu hình các chân GPIO đầu vào cho phím bấm điều khiển.
+
+MCU tiến hành đọc cấu hình mạng Wi-Fi và IP máy chủ API từ phân vùng bộ nhớ Flash thông qua thư viện \texttt{Preferences}. Nếu không tìm thấy cấu hình hợp lệ (hoặc nút nhấn MODE giữ trong 3 giây lúc bật nguồn), thiết bị tự động chuyển sang chế độ Access Point (AP Mode) phát Wi-Fi cục bộ và chạy máy chủ DNS giả lập (Captive Portal) để người dùng đăng nhập cấu hình Wi-Fi. Nếu cấu hình hợp lệ, thiết bị kết nối vào mạng Wi-Fi của bệnh viện và tiến hành chu kỳ quét lấy mẫu cảm biến, thực hiện thuật toán xử lý tín hiệu DSP và đóng gói dữ liệu JSON gửi lên máy chủ API mỗi 2 giây.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        scale=0.85, transform shape,
+        node distance=1.8em and 3.5em,
+        font=\footnotesize,
+        align=center,
+        startstop/.style={draw=black, rounded corners, minimum width=8.5em, minimum height=2.2em, fill=white, thick},
+        process/.style={draw=black, minimum width=8.5em, minimum height=2.2em, fill=white, thick},
+        decision/.style={draw=black, diamond, aspect=1.8, minimum width=9.5em, minimum height=2.2em, fill=white, thick, inner sep=1pt},
+        io/.style={draw=black, trapezium, trapezium left angle=75, trapezium right angle=105, minimum width=8.5em, minimum height=2.2em, fill=white, thick},
+        arrow/.style={thick, -{Stealth[scale=1.2]}, shorten >=2pt, shorten <=2pt}
+    ]
+        % Khối chính (Cột dọc bên trái)
+        \node (start) [startstop] {Bắt đầu};
+        \node (init) [process, below=of start] {Khởi tạo hệ thống \\ (Serial, I2C, GPIO phím bấm)};
+        \node (read_pref) [process, below=of init] {Đọc cấu hình Wi-Fi \\ và Server từ Flash};
+        \node (check_config) [decision, below=of read_pref] {Cấu hình hợp lệ? \\ hoặc Giữ nút MODE?};
+        
+        \node (connect) [process, below=of check_config] {Kết nối Wi-Fi \\ và Đồng bộ NTP};
+        \node (read_sensor) [io, below=of connect] {Đọc mẫu cảm biến \\ (MAX30102, HDC2022)};
+        \node (dsp) [process, below=of read_sensor] {Xử lý tín hiệu số DSP \\ (EMA, IIR, Thuật toán cổ tay)};
+        \node (display) [process, below=of dsp] {Hiển thị sinh hiệu \\ lên màn hình OLED};
+        \node (send) [io, below=of display] {Gửi dữ liệu JSON \\ lên Server (mỗi 2 giây)};
+
+        % Khối nhánh phụ (Cột bên phải)
+        \node (ap_mode) [process, right=of check_config] {Kích hoạt AP Mode \\ và Captive Portal};
+        \node (web_setup) [io, below=of ap_mode] {Nhập Wi-Fi, IP Server \\ và thông tin bệnh nhân};
+        \node (save_pref) [process, below=of web_setup] {Lưu thông tin \\ vào Flash};
+        \node (reboot) [startstop, below=of save_pref] {Reboot thiết bị};
+
+        % Kết nối các mũi tên
+        \draw [arrow] (start) -- (init);
+        \draw [arrow] (init) -- (read_pref);
+        \draw [arrow] (read_pref) -- (check_config);
+        
+        \draw [arrow] (check_config) -- node[left, xshift=-0.2em] {Đúng (Yes)} (connect);
+        \draw [arrow] (connect) -- (read_sensor);
+        \draw [arrow] (read_sensor) -- (dsp);
+        \draw [arrow] (dsp) -- (display);
+        \draw [arrow] (display) -- (send);
+
+        % Lặp lại vòng đọc cảm biến
+        \draw [arrow] (send.west) -- ++(-1.5em,0) |- (read_sensor.west);
+
+        % Nhánh sai (No)
+        \draw [arrow] (check_config) -- node[above, pos=0.4] {Sai (No)} (ap_mode);
+        \draw [arrow] (ap_mode) -- (web_setup);
+        \draw [arrow] (web_setup) -- (save_pref);
+        \draw [arrow] (save_pref) -- (reboot);
+        \draw [arrow] (reboot.east) -- ++(1.5em,0) |- (start.east);
+        
+    \end{tikzpicture}
+    \caption[Lưu đồ thuật toán hoạt động chi tiết của Firmware ESP32-C3]{\bfseries\fontsize{12pt}{0pt}\selectfont Lưu đồ thuật toán hoạt động chi tiết của Firmware ESP32-C3}
+    \label{fig:flowchart_firmware_detail}
+\end{figure}
+
+\subsection{Thuật toán lọc số DSP xử lý tín hiệu mạch đập PPG}
+Dữ liệu thô đọc về từ đi-ốt quang của MAX30102 khi đặt tại cổ tay bị méo dạng cực kỳ nặng do trôi dòng DC (nhiệt độ da thay đổi, lực ép cơ học thay đổi) và nhiễu xoay chiều AC tần số cao (nhiễu rung gân cơ tay khi cử động). Để trích xuất chính xác nhịp mạch đập động mạch, tôi xây dựng chuỗi lọc xử lý tín hiệu số DSP thời gian thực:
+
+\subsubsection{Bộ lọc khử trôi dòng DC (DC Estimator Filter)}
+Sử dụng thuật toán lọc trung bình lũy thừa trượt (EMA -- Exponential Moving Average) đóng vai trò như một bộ lọc thông thấp có đáp ứng tần số cắt cực thấp ($\approx 0.05\text{Hz}$) nhằm mục đích ước lượng thành phần một chiều DC biến thiên chậm. Sau đó lấy giá trị thô ban đầu trừ đi thành phần DC ước lượng này để thu được tín hiệu xoay chiều AC sạch không còn trôi nền:
+\begin{equation}
+    dc\_ir_{n} = dc\_ir_{n-1} \times 0.995 + irValue_{n} \times 0.005
+\end{equation}
+\begin{equation}
+    ac\_ir_{n} = irValue_{n} - dc\_ir_{n}
+\end{equation}
+Trong đó $irValue_{n}$ là mẫu dữ liệu thô đọc từ cảm biến quang bước sóng hồng ngoại tại thời điểm $n$, $dc\_ir_{n}$ là giá trị DC ước lượng tại thời điểm $n$.
+
+\subsubsection{Bộ lọc thông thấp số IIR (Low-Pass IIR Filter)}
+Để triệt tiêu các thành phần nhiễu cơ học tần số cao do rung tay của người dùng đeo và làm mượt đường cong tín hiệu AC, tôi áp dụng bộ lọc thông thấp IIR số bậc 1 có tần số cắt $f_c = 4\text{Hz}$ cho cả hai bước sóng Red và IR:
+\begin{lstlisting}[language=C++]
+// Loc thong thap IIR voi he so lam muot alpha = 0.12
+ac_ir = ac_ir * 0.88 + raw_ac_ir * 0.12;
+ac_red = ac_red * 0.88 + raw_ac_red * 0.12;
+\end{lstlisting}
+
+\subsubsection{Thuật toán phát hiện đỉnh thích ứng động (Adaptive Peak Detection)}
+Do biên độ tín hiệu PPG biến thiên liên tục phụ thuộc vào áp lực ép của dây đeo đồng hồ lên da, việc sử dụng một ngưỡng so sánh tĩnh cố định để phát hiện mạch đập chắc chắn sẽ gây ra hiện tượng bỏ sót đỉnh hoặc nhận diện sai đỉnh. Thuật toán phát hiện đỉnh thích ứng động liên tục theo dõi giá trị cực đại ($ac\_ir_{\text{max}}$) và cực tiểu ($ac\_ir_{\text{min}}$) của tín hiệu AC hồng ngoại trong cửa sổ thời gian trượt 1.5 giây gần nhất.
+
+Biên độ đỉnh-đỉnh của tín hiệu được xác định là:
+\begin{equation}
+    amplitude = ac\_ir_{\text{max}} - ac\_ir_{\text{min}}
+\end{equation}
+Nếu biên độ lớn hơn ngưỡng nhiễu tối thiểu ($amplitude > 12.0$), một ngưỡng động thích ứng ($dynamic\_threshold$) được thiết lập tại mức 52\% của biên độ tín hiệu:
+\begin{equation}
+    dynamic\_threshold = ac\_ir_{\text{min}} + amplitude \times 0.52
+\end{equation}
+Khi đường cong tín hiệu xoay chiều sườn lên vượt qua giá trị $dynamic\_threshold$ này, sự kiện nhịp tim co bóp được kích hoạt (Beat Triggered). Thời gian giữa hai lần kích hoạt đỉnh liên tiếp được ghi nhận bằng micro giây để xác định chu kỳ nhịp tim động ($duration$). Nhịp tim tức thời (BPM) được tính qua công thức:
+\begin{equation}
+    HR_{\text{calc}} = \frac{60000.0}{duration}
+\end{equation}
+Để làm mượt kết quả hiển thị, nhịp tim cuối cùng được lọc trung bình trượt với hệ số làm mượt $0.3$:
+\begin{equation}
+    HR_{\text{smooth}} = HR_{\text{smooth\_prev}} \times 0.7 + HR_{\text{calc}} \times 0.3
+\end{equation}
+
+\subsection{Thuật toán bù sai số tĩnh thích ứng đo ở cổ tay}
+Đây là giải thuật quan trọng nhất để khắc phục điểm yếu của vị trí đo ở cổ tay. So với vị trí đo ở đầu ngón tay (mật độ mao mạch dày đặc, da mỏng dễ truyền sáng), vị trí cổ tay có lớp da dày, chứa nhiều gân cơ và mật độ mao mạch động mạch nông cực kỳ thấp. Kết quả thực nghiệm cho thấy biên độ tín hiệu AC quang học PPG đo được ở cổ tay cực kỳ nhỏ ($amplitude < 25.0$, trong khi đo ở ngón tay thường từ $80.0$ đến $300.0$). 
+
+Do biên độ AC hồng ngoại và đỏ bị suy giảm cơ học không tuyến tính ở cổ tay, nếu áp dụng trực tiếp công thức tính tỷ số R và $SpO_2$ tiêu chuẩn đầu ngón tay, giá trị $SpO_2$ tính ra của người bình thường khỏe mạnh sẽ bị kéo sụt giảm giả tạo xuống dải nguy hiểm từ 88\% đến 92\% mặc dù cơ thể hoàn toàn khỏe mạnh.
+
+Thuật toán tự động phát hiện vị trí đo dựa vào biên độ AC tín hiệu ($amplitude$):
+\begin{itemize}
+    \item \textbf{Trường hợp $amplitude \ge 25.0$ (Nhận dạng đo ở ngón tay):} Áp dụng công thức truyền sáng chuẩn y khoa:
+    \begin{equation}
+        SpO_2 = 110.0 - 25.0 \times R
+    \end{equation}
+    \item \textbf{Trường hợp $amplitude < 25.0$ (Nhận dạng đo ở cổ tay):}
+    Áp dụng công thức hiệu chuẩn phản xạ cổ tay thực nghiệm thiết lập lại:
+    \begin{equation}
+        SpO_{2,\text{raw}} = 115.0 - 18.0 \times R
+    \end{equation}
+    Nếu kết quả $SpO_{2,\text{raw}}$ tính ra bị sụt giảm xuống dưới ngưỡng 93\%, tôi áp dụng hàm co dãn tuyến tính thích ứng cổ tay để kéo hiệu chuẩn về dải sinh lý thực tế ($92\% - 97\%$):
+    \begin{equation}
+        SpO_{2,\text{comp}} = 94.0 + (SpO_{2,\text{raw}} - 93.0) \times 0.15
+    \end{equation}
+\end{itemize}
+
+Đoạn mã nguồn C++ triển khai giải thuật bù sai số cổ tay được thể hiện chi tiết dưới đây:
+\begin{lstlisting}[language=C++]
+void calculateSpO2WithWristOffset(float ratio, float ir_amplitude) {
+  float rawSpO2 = 0;
+  if (ir_amplitude >= 25.0) {
+    rawSpO2 = 110.0 - 25.0 * ratio;
+    if (rawSpO2 > 100.0) rawSpO2 = 100.0;
+    currentSpO2 = rawSpO2;
+  } else {
+    rawSpO2 = 115.0 - 18.0 * ratio;
+    if (rawSpO2 > 100.0) rawSpO2 = 100.0;
+    if (rawSpO2 < 93.0 && rawSpO2 > 80.0) {
+      currentSpO2 = 94.0 + (rawSpO2 - 93.0) * 0.15;
+    } else {
+      currentSpO2 = rawSpO2;
+    }
+  }
+}
+\end{lstlisting}
+
+\subsection{Captive Portal cấu hình WiFi và giảm công suất sóng RF}
+Khi thiết bị bật nguồn, thư viện \texttt{Preferences} mở phân vùng bộ nhớ Flash để đọc các khóa cấu hình Wi-Fi (\texttt{ssid}, \texttt{pass}), địa chỉ máy chủ (\texttt{server}) và cổng kết nối (\texttt{port}). Nếu các thông số này trống, thiết bị tự động phát mạng Wi-Fi Access Point cục bộ không mật khẩu có tên dạng \texttt{ESP32\_XXXXXX\_Setup} (với XXXXXX là địa chỉ MAC của chip). Đồng thời khởi động máy chủ DNS giả lập nhằm định tuyến toàn bộ các yêu cầu phân giải tên miền từ điện thoại của người dùng kết nối vào mạng này về trang cấu hình địa chỉ IP \texttt{192.168.4.1}. Người dùng nhập các thông số cấu hình mạng và thông tin bệnh nhân qua giao diện Web, nhấn lưu để ghi trực tiếp các cấu hình này vào Flash và tự khởi động lại thiết bị (Reboot).
+
+Trong quá trình khởi tạo kết nối Wi-Fi thông thường, mô-đun RF của ESP32-C3 có thể tiêu thụ dòng điện tức thời cực đại lên tới 350mA khi phát sóng truyền gói tin. Với nguồn điện cấp từ pin qua mạch LDO dòng giới hạn nhỏ, hiện tượng sụt dòng tức thời này sẽ kích hoạt mạch bảo vệ Brownout Reset của vi điều khiển, khiến thiết bị đeo liên tục bị reset lặp lại vô hạn. Để giải quyết triệt để lỗi này, tôi lập trình giới hạn công suất phát vô tuyến RF của mô-đun Wi-Fi xuống mức tối đa 11dBm thông qua câu lệnh phần cứng:
+\begin{lstlisting}[language=C++]
+// Gioi han cong suat phat song RF de chong sut dong
+WiFi.setTxPower(WIFI_POWER_11dBm);
+\end{lstlisting}
+Thực nghiệm cho thấy giải pháp này giúp dòng điện phát RF cực đại giảm xuống dưới 180mA, loại bỏ hoàn toàn lỗi sụt áp reset chip mà vẫn duy trì khoảng cách kết nối Wi-Fi tốt trong bán kính 15 mét.

@@ -1,0 +1,11 @@
+﻿python : Traceback (most recent call last):
+At line:1 char:1
++ python -X utf8 -c "
++ ~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "<string>", line 6, in <module>
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python310\lib\site-packages\pdfplumber\pdf.py", line 98, in open
+    stream = open(path_or_fp, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: 'd:\\admin\\Do an tot nghiep - HXT.pdf'

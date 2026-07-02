@@ -1,0 +1,27 @@
+% CHƯƠNG 2: THIẾT KẾ VÀ XÂY DỰNG HỆ THỐNG DRONE CỨU HỘ
+% = Gộp: Lý thuyết bay (cũ Ch2/Chuong2.tex) + Phần cứng (cũ Ch3/Chuong4.tex) + AI & GCS (cũ Ch4/Chuong3.tex)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{CHƯƠNG 2. THIẾT KẾ VÀ XÂY DỰNG HỆ THỐNG DRONE CỨU HỘ}
+\addcontentsline{toc}{section}{\numberline{}CHƯƠNG 2. THIẾT KẾ VÀ XÂY DỰNG HỆ THỐNG DRONE CỨU HỘ}
+\setcounter{section}{2}
+\setcounter{subsection}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
+Chương này trình bày cơ sở lý thuyết điều khiển bay và toàn bộ quy trình thiết kế, xây dựng hệ thống Drone cứu hộ từ phần cứng đến phần mềm. Nội dung bao gồm: xây dựng hệ thức vi phân mô tả mô hình động lực học Quadcopter, bộ điều khiển PID nối tầng kép trong miền rời rạc, bộ lọc bù dung hợp cảm biến IMU, và giao thức truyền thông CRSF/I2C. Từ nền tảng lý thuyết đó, chương tiếp tục đi sâu vào quy trình thiết kế bo mạch Flight Controller PCB dựa trên vi điều khiển STM32F103C8T6, thiết kế hệ thống nguồn điện, lắp ráp cơ cấu cơ khí Drone, đồng thời phát triển phần mềm trạm mặt đất GCS đa luồng tích hợp hệ thống AI đa mô hình YOLOv8 nhận dạng nạn nhân dựa trên điểm số Danger Score.
+
+%%%% Phần 2.1--2.x: Cơ sở lý thuyết điều khiển bay %%%%
+\input{Chuong2}
+
+\bigskip
+%%%% Phần 2.x+1--2.y: Thiết kế và chế tạo phần cứng %%%%
+\input{Chuong4}
+
+\bigskip
+%%%% Phần 2.y+1--: Nghiên cứu thuật toán AI và phần mềm GCS %%%%
+\input{Chuong3}
+
+\subsection*{Kết luận Chương 2}
+\addcontentsline{toc}{subsection}{Kết luận Chương 2}
+
+Chương 2 đã trình bày toàn diện cơ sở lý thuyết và quy trình thiết kế, xây dựng hệ thống Drone cứu hộ. Về lý thuyết bay, mô hình động lực học Newton-Euler mô tả chuyển động của Quadcopter, thuật toán bộ lọc bù dung hợp IMU ổn định cùng bộ điều khiển phản hồi PID nối tầng kép được xây dựng và tối ưu rời rạc. Về phần cứng, bo mạch Flight Controller PCB được tự thiết kế và chế tạo dựa trên STM32F103C8T6, đảm bảo chống nhiễu nguồn qua bộ lọc LC và tụ phân tầng; hệ thống nguồn điện ba cấp (3S LiPo $\rightarrow$ Buck 5V $\rightarrow$ LDO 3.3V) đảm bảo hoạt động ổn định cho tất cả module; Drone Quad-X được lắp ráp hoàn chỉnh với tỉ lệ lực đẩy/trọng lượng 3.58. Về phần mềm AI, hệ thống triển khai chiến thuật Cascade Pipeline gồm 4 mô hình YOLOv8 chuyên biệt (YOLOv8s làm nhiệm vụ gác cổng cắt ảnh, truyền tiếp cho YOLOv8s-Pose, YOLOv8s-Posture và YOLOv8s-Rescue phân tích chuyên sâu), sau đó tích hợp trong thuật toán dung hợp quyết định tính điểm Danger Score -- loại bỏ nhiễu bối cảnh và giảm thiểu đáng kể cảnh báo nhầm. Phần mềm GCS xây dựng theo kiến trúc đa luồng bất đồng bộ đảm bảo xử lý video trơn tru đồng thời ghi sự kiện cứu hộ. Các sản phẩm của chương này là cơ sở trực tiếp cho việc thực nghiệm và đánh giá tại Chương 3.

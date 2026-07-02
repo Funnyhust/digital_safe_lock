@@ -1,0 +1,891 @@
+﻿=== FILE 1: HXT_20224163 (trang 82-116) ===
+Total pages: 116
+
+--- Trang 82 ---
+Bß║úng2.4 Bß║úngquytß║»cph├ónloß║íitrß║íngth├íicß╗⌐uhß╗Ödß╗▒atr├¬nDangerScore
+Ng╞░ß╗íng Cß║Ñp ─æß╗Ö cß║únh
+M├┤ tß║ú trß║íng th├íi thß╗▒c tß║┐ H├ánh ─æß╗Öng cß╗ºa trß║ím
+─æiß╗âm DS b├ío
+B├¼nh th╞░ß╗¥ng
+DS<55 ─Éß╗æi t╞░ß╗úng di chuyß╗ân ß╗òn Ghi log ─æß╗ïnh kß╗│, kh├┤ng
+(Normal)
+─æß╗ïnh, t╞░ thß║┐ ─æß╗⌐ng/ngß╗ôi cß║únh b├ío.
+b├¼nhth╞░ß╗¥ng, kh├┤ng c├│dß║Ñu
+hiß╗çu nguy cß║Ñp.
+55ΓëñDS< Nghi ngß╗¥
+─Éß╗æi t╞░ß╗úng nß║▒m bß║Ñt ─æß╗Öng ─Éß╗òi m├áu khung bao sang
+85 (Suspicious)
+thß╗¥igianngß║»nd╞░ß╗¢i20gi├óy V├áng, hiß╗ân thß╗ï nh├ún cß║ºn
+hoß║╖c c├│ cß╗¡ chß╗ë lß║í ch╞░a r├╡ theo d├╡i, tiß║┐p tß╗Ñc ph├ón t├¡ch
+r├áng. th├¬m.
+Cß╗⌐u trß╗ú khß║⌐n
+DSΓëÑ85 ─Éß╗æi t╞░ß╗úng nß║▒m bß║Ñt ─æß╗Öng ─Éß╗òi m├áu khung bao sang
+cß║Ñp (Danger)
+k├⌐o d├ái hoß║╖c vß║½y tay cß║ºu ─Éß╗Å,hiß╗ânthß╗ïcß║únhb├íonhß║Ñp
+cß╗⌐ukhß║⌐n cß║Ñp, x├íc suß║Ñtnß║ín nh├íy tr├¬n GUI, tß╗▒ ─æß╗Öng
+nh├ón cao. chß╗Ñp ß║únh l╞░u trß╗», ghi h├¼nh
+replay v├á xuß║Ñt sß╗▒ kiß╗çn.
+C╞í chß║┐ n├áy ─æß║úm bß║úo rß║▒ng c├íc tr╞░ß╗¥ng hß╗úp nß║ín nh├ón bß╗ï bß║Ñt tß╗ënh (─æß║ít ─æiß╗âm Danger
+Score tß╗æi ─æa do cß╗Öng th├¬m ─æiß╗âm bß║Ñt ─æß╗Öng k├⌐o d├ái) hoß║╖c nß║ín nh├ón ─æang t├¡ch cß╗▒c vß║½y tay
+cß║ºu cß╗⌐u sß║╜ ngay lß║¡p tß╗⌐c ─æ╞░ß╗úc ─æß║⌐y l├¬n mß╗⌐c ╞░u ti├¬n cao nhß║Ñt, gi├║p tß╗æi ╞░u h├│a thß╗¥i gian v├áng
+trong c├┤ng t├íc t├¼m kiß║┐m cß╗⌐u nß║ín.
+2.13 Luß╗ông hoß║ít ─æß╗Öng tß╗òng qu├ít cß╗ºa hß╗ç thß╗æng AI trß║ím mß║╖t ─æß║Ñt
+─Éß╗â ph├ón hß╗ç AI trß║ím mß║╖t ─æß║Ñt (GCS) hoß║ít ─æß╗Öng ß╗òn ─æß╗ïnh, ch├¡nh x├íc v├á tß╗æi ╞░u h├│a t├ái
+nguy├¬n phß║ºn cß╗⌐ng, ─æß╗ô ├ín thiß║┐t kß║┐ mß╗Öt quy tr├¼nh ─æiß╗üu phß╗æi v├á xß╗¡ l├╜ dß╗» liß╗çu kh├⌐p k├¡n theo
+chu tr├¼nh thß╗¥i gian thß╗▒c. To├án bß╗Ö tiß║┐n tr├¼nh ─æiß╗üu phß╗æi hß╗ç thß╗æng ─æ╞░ß╗úc quß║ún l├╜ tß║¡p trung bß╗ƒi
+ch╞░╞íng tr├¼nh ch├¡nh (he_thong_chinh.py) t╞░╞íng t├íc vß╗¢i c├íc module nghiß╗çp vß╗Ñ chuy├¬n
+biß╗çt.
+L╞░u ─æß╗ô thuß║¡t to├ín tß╗òng qu├ít m├┤ tß║ú c├íc giai ─æoß║ín hoß║ít ─æß╗Öng ch├¡nh cß╗ºa hß╗ç thß╗æng phß║ºn
+mß╗üm AI trß║ím mß║╖t ─æß║Ñt ─æ╞░ß╗úc tr├¼nh b├áy trong H├¼nh 2.23.
+57
+
+--- Trang 83 ---
+Bß║»t─æß║ºu(main)
+Giai─æoß║ín1:Khß╗ƒi─æß╗Önghß╗çthß╗æng
+Tß║íoth╞░mß╗Ñc─æß║ºura,khß╗ƒitß║íocamera,
+nß║íp4m├┤h├¼nhhß╗ìcs├óuv├áoGPU&tß║úiv├╣ngROI
+Giai─æoß║ín2:─Éß╗ìcFrame
+─Éß╗ìckhungh├¼nhFPV&─æß╗çmv├áoRAM
+Giai─æoß║ín3:Suyluß║¡nAI
+Chß║íyCascadePipeline:cß║»tß║únhbß║▒ngYOLOv8s,
+─æß║⌐yqua3m├┤h├¼nhsongsong&dunghß╗úpkß║┐tquß║ú
+Giai─æoß║ín4:Quß║únl├╜mß╗Ñcti├¬u
+─Éß╗ïnhdanhID,l├ámmß╗ïnnh├ún,t├¡nh─æiß╗âm
+DangerScorev├áchß╗Ñpß║únhcß║»ttarget
+Giai─æoß║ín5:L╞░usß╗▒kiß╗çn
+─Éß╗º─æiß╗üukiß╗çnl╞░u? C├│
+GhilogCSV,l╞░uß║únh,
+(Victim&Danger&DSΓëÑ85)
+xuß║ÑtvideoReplay20gi├óy
+Kh├┤ng
+Giai─æoß║ín6:Vß║╜UI&Hiß╗ânthß╗ï
+Vß║╜boundingbox,skeletonv├áth├┤ngtin;
+hiß╗ânthß╗ïm├ánh├¼nhquaOpenCV
+Kh├┤ng
+Nhß║Ñnph├¡mQ/Esc?
+C├│
+Giai─æoß║ín7:Kß║┐tth├║c
+Giß║úiph├│ngt├áinguy├¬n&xuß║Ñtb├íoc├íoHTML
+Kß║┐tth├║c
+H├¼nh2.23 S╞í─æß╗ôluß╗ônghoß║ít─æß╗Öngtß╗òngqu├ítcß╗ºahß╗çthß╗ængAItrß║ímmß║╖t─æß║Ñt
+58
+
+--- Trang 84 ---
+Chi tiß║┐t c├íc b╞░ß╗¢c thß╗▒c hiß╗çn trong tß╗½ng giai ─æoß║ín bao gß╗ôm:
+ΓÇô Giai ─æoß║ín 1: Khß╗ƒi ─æß╗Öng hß╗ç thß╗æng (he_thong_chinh.py): Hß╗ç thß╗æng qu├⌐t v├á
+tß╗▒ ─æß╗Öng tß║ío c├íc th╞░ mß╗Ñc l╞░u trß╗» ─æß║ºu ra bao gß╗ôm logs/, canh_bao_full/,
+canh_bao_crop/, canh_bao_video/, v├á reports/. Sau ─æ├│, camera ─æ╞░ß╗úc khß╗ƒi
+─æß╗Öngquacv2.VideoCapture(0)cß║Ñuh├¼nhtß╗æc─æß╗Ö30FPS(nß║┐ulß╗ùisß║╜nß║ípkhungh├¼nh
+giß║ú ─æß╗ïnh dß║íng m├áu cß║ºu vß╗ông ─æß╗â duy tr├¼ t├¡nh hoß║ít ─æß╗Öng). Tiß║┐p tß╗Ñc, hß╗ç thß╗æng nß║íp chuß╗ùi
+4m├┤h├¼nhhß╗ìcs├óuv├áoGPUbaogß╗ôm: yolov8s.pt(t├¼mng╞░ß╗¥i), yolov8s-pose.pt
+(khß╗¢p x╞░╞íng), c├╣ng hai m├┤ h├¼nh tß╗▒ train ph├ón loß║íi t╞░ thß║┐ v├á cß╗⌐u hß╗Ö (best.pt). Cuß╗æi
+c├╣ng, tß║úi lß║íi cß║Ñu h├¼nh ─æa gi├íc v├╣ng ROI tß╗½ tß╗çp JSON v├á k├¡ch hoß║ít c├íc luß╗ông ghi log,
+luß╗ông ─æß╗çm video v├á luß╗ông lß║Ñy dß╗» liß╗çu thß╗¥i tiß║┐t chß║íy nß╗ün.
+ΓÇô Giai ─æoß║ín 2: V├▓ng lß║╖p ch├¡nh - ─Éß╗ìc Frame: Ch╞░╞íng tr├¼nh chß║íy v├▓ng lß║╖p v├┤ hß║ín, tß║íi
+mß╗ùi chu kß╗│ thß╗▒c hiß╗çn ─æß╗ìc ─æ├║ng mß╗Öt khung h├¼nh thß╗▒c tß║┐ tß╗½ luß╗ông camera, chuß║⌐n h├│a
+k├¡ch th╞░ß╗¢c ß║únh vß╗ü ─æß╗Ö ph├ón giß║úi 1280├ù720 pixel. Khung h├¼nh th├┤ lß║¡p tß╗⌐c ─æ╞░ß╗úc ─æ╞░a
+v├áo bß╗Ö ─æß╗çm Replay Buffer duy tr├¼ li├¬n tß╗Ñc trong RAM vß╗¢i tß║ºn suß║Ñt lß║Ñy mß║½u 20 FPS,
+chß╗ë giß╗» lß║íi dß╗» liß╗çu cß╗ºa 10 gi├óy gß║ºn nhß║Ñt.
+ΓÇô Giai ─æoß║ín 3: Suy luß║¡n AI (detector.py): ─É╞░a khung h├¼nh qua bß╗Ö ─æiß╗üu phß╗æi
+detector.py thß╗▒c thi chiß║┐n thuß║¡t Cascade Pipeline: ─æß║ºu ti├¬n sß╗¡ dß╗Ñng YOLOv8s
+t├¼m v├á cß║»t (crop) c├íc v├╣ng chß╗⌐a ng╞░ß╗¥i, sau ─æ├│ truyß╗ün trß╗▒c tiß║┐p c├íc ß║únh crop n├áy qua
+3 m├┤ h├¼nh xß╗¡ l├╜ s├óu: YOLOv8s-Pose tr├¡ch xuß║Ñt 17 khß╗¢p x╞░╞íng; YOLOv8s-Rescue
+ph├ón loß║íi normal/victim; YOLOv8s-Posture nhß║¡n dß║íng t╞░ thß║┐ ─æß╗⌐ng/ngß╗ôi/nß║▒m. Kß║┐t
+hß╗úp ph├ón t├¡ch h├¼nh hß╗ìc tr├¬n tß╗ìa ─æß╗Ö keypoints ─æß╗â ─æ├ính gi├í nhanh cß╗¡ chß╗ë ─æß╗Öng (gi╞í tay,
+vß║½y tay cß║ºu cß╗⌐u). Sau ─æ├│ dung hß╗úp c├íc kß║┐t quß║ú suy luß║¡n ─æß╗Öc lß║¡p n├áy th├ánh mß╗Öt khß╗æi
+dß╗» liß╗çu thß╗æng nhß║Ñt ─æß╗â truyß╗ün cho bß╗Ö quß║ún l├╜ mß╗Ñc ti├¬u.
+ΓÇô Giai ─æoß║ín 4: Quß║ún l├╜ mß╗Ñc ti├¬u (target_manager.py): Cß║¡p nhß║¡t kß║┐t quß║ú ph├ít
+hiß╗çn v├áo hß╗ô s╞í ─æß╗æi t╞░ß╗úng TargetState ─æ╞░ß╗úc l╞░u trß╗» li├¬n tß╗Ñc trong bß╗Ö nhß╗¢. ├üp dß╗Ñng
+c╞í chß║┐ l├ám mß╗ïn class qua lß╗ïch sß╗¡ 30 khung h├¼nh gß║ºn nhß║Ñt ─æß╗â chß╗æng hiß╗çn t╞░ß╗úng nh├ún
+nhß║úy loß║ín do nhiß╗àu. Ph├ón t├¡ch chuyß╗ân ─æß╗Öng cß╗ºa ─æß╗æi t╞░ß╗úng trong v├▓ng 3 gi├óy ─æß╗â x├íc
+─æß╗ïnh trß║íng th├íi di chuyß╗ân hoß║╖c bß║Ñt ─æß╗Öng nguy hiß╗âm. Thß╗▒c hiß╗çn t├¡nh to├ín ─æiß╗âm nguy
+hß║íi Danger Score t├¡ch l┼⌐y theo c├íc quy tß║»c trß╗ìng sß╗æ v├á chß╗Ñp ß║únh cß║»t chi tiß║┐t v├╣ng ─æß╗æi
+t╞░ß╗úng (crop image).
+ΓÇô Giai ─æoß║ín 5: Kiß╗âm tra tß╗▒ ─æß╗Öng l╞░u cß║únh b├ío (Auto-Save): X├íc ─æß╗ïnh ─æß╗æi t╞░ß╗úng
+─æ╞░ß╗úc ╞░u ti├¬n quan t├óm lß╗¢n nhß║Ñt (Focus Target). Hß╗ç thß╗æng tß╗▒ ─æß╗Öng kiß╗âm tra ─æiß╗üu kiß╗çn
+l╞░u sß╗▒ kiß╗çn cß╗⌐u hß╗Ö khß║⌐n cß║Ñp: nh├ún ─æß╗æi t╞░ß╗úng l├á nß║ín nh├ón (victim), Danger Score
+59
+
+--- Trang 85 ---
+ΓëÑ85 v├á v╞░ß╗út qua c├íc c╞í chß║┐ kiß╗âm tra thß╗¥i gian chß╗¥ (cooldown 60 gi├óy) hoß║╖c ─æß╗Ö lß╗çch
+─æiß╗âm nhß║úy tß╗æi thiß╗âu. Khi ─æß╗º ─æiß╗üu kiß╗çn, hß╗ç thß╗æng l╞░u ß║únh to├án cß║únh, ß║únh crop, xuß║Ñt
+video replay ─æß╗Ö d├ái 20 gi├óy (gß╗ôm 10 gi├óy tr╞░ß╗¢c v├á 10 gi├óy sau khi xß║úy ra sß╗▒ cß╗æ) v├á
+ghi nhß║¡t k├╜ CSV.
+ΓÇô Giai ─æoß║ín 6: Vß║╜ giao diß╗çn v├á hiß╗ân thß╗ï (renderer.py): Vß║╜ c├íc khung giß╗¢i hß║ín
+(xanh cho Normal, v├áng cho Warning, ─æß╗Å cho Danger), nh├ún hiß╗ân thß╗ï th├┤ng sß╗æ chi
+tiß║┐t, vß║╜ khung x╞░╞íng 17 ─æiß╗âm khß╗¢p v├á bß║úng th├┤ng sß╗æ ph├ón t├¡ch chi tiß║┐t cß╗ºa ─æß╗æi t╞░ß╗úng
+─æang ─æ╞░ß╗úc kh├│a ti├¬u ─æiß╗âm. Sß╗¡ dß╗Ñng OpenCV hiß╗ân thß╗ï h├¼nh ß║únh giao diß╗çn thß╗¥i gian
+thß╗▒c.
+ΓÇô Giai ─æoß║ín 7: Xß╗¡ l├╜ ph├¡m bß║Ñm v├á kß║┐t th├║c phi├¬n: Nhß║¡n sß╗▒ kiß╗çn ph├¡m bß║Ñm vß╗¢i
+─æß╗Ö trß╗à 1ms ─æß╗â thß╗▒c hiß╗çn t╞░╞íng t├íc tß╗½ ng╞░ß╗¥i vß║¡n h├ánh (nh╞░ vß║╜/x├│a v├╣ng ROI, bß║¡t
+tß║»t khung x╞░╞íng, x├íc nhß║¡n nß║ín nh├ón hoß║╖c hß╗ºy b├ío ─æß╗Öng giß║ú). Khi nhß║Ñn ph├¡m Q
+hoß║╖c Esc, ch╞░╞íng tr├¼nh tho├ít v├▓ng lß║╖p, kß║┐t th├║c an to├án luß╗ông ghi video, giß║úi ph├│ng
+camera v├á tß╗▒ ─æß╗Öng k├¡ch hoß║ít tiß║┐n tr├¼nh sinh b├ío c├ío tß╗òng kß║┐t dß║íng HTML.
+2.14 ─É├ính gi├í hiß╗çu n─âng huß║Ñn luyß╗çn c├íc m├┤ h├¼nh YOLO
+─Éß╗â minh chß╗⌐ng cho ─æß╗Ö tin cß║¡y v├á khß║ú n─âng hß╗Öi tß╗Ñ cß╗ºa c├íc thuß║¡t to├ín nhß║¡n dß║íng ─æ╞░ß╗úc
+nh├║ng tr├¬n trß║ím mß║╖t ─æß║Ñt, hiß╗çu n─âng huß║Ñn luyß╗çn cß╗ºa hai m├┤ h├¼nh YOLOv8s-Posture v├á
+YOLOv8s-Rescue qua 50 Epochs ─æ╞░ß╗úc theo d├╡i v├á ph├ón t├¡ch chi tiß║┐t.
+2.14.1 Thiß║┐t lß║¡p tham sß╗æ v├á cß║Ñu h├¼nh huß║Ñn luyß╗çn thß╗▒c tß║┐
+Qu├í tr├¼nh huß║Ñn luyß╗çn c├íc m├┤ h├¼nh YOLOv8s-Rescue v├á YOLOv8s-Posture ─æ╞░ß╗úc
+thß╗▒c hiß╗çn tr├¬n hß╗ç thß╗æng m├íy trß║ím c├│ cß║Ñu h├¼nh phß║ºn cß╗⌐ng hß╗ù trß╗ú t─âng tß╗æc ─æß╗ô hß╗ìa GPU. C├íc
+th├┤ng sß╗æ cß║Ñu h├¼nh cß╗æt l├╡i cß╗ºa qu├í tr├¼nh huß║Ñn luyß╗çn ─æ╞░ß╗úc thiß║┐t lß║¡p ─æß╗ông bß╗Ö nhß║▒m ─æß║úm bß║úo
+─æß╗Ö ch├¡nh x├íc tß╗æi ╞░u ─æß╗ông thß╗¥i ph├╣ hß╗úp vß╗¢i t├ái nguy├¬n bß╗Ö nhß╗¢ ─æß╗ô hß╗ìa hiß╗çn c├│. Chi tiß║┐t cß║Ñu
+h├¼nh tham sß╗æ huß║Ñn luyß╗çn ─æ╞░ß╗úc tr├¼nh b├áy cß╗Ñ thß╗â trong Bß║úng 2.5.
+60
+
+--- Trang 86 ---
+Bß║úng2.5 C├ícthamsß╗æcß║Ñuh├¼nhhuß║Ñnluyß╗çnm├┤h├¼nhYOLOv8
+Tham sß╗æ Gi├í trß╗ï ├¥ ngh─⌐a v├á vai tr├▓ thß╗▒c tß║┐
+epochs 50 Tß╗òng sß╗æ chu kß╗│ huß║Ñn luyß╗çn ─æß╗â mß║íng tß╗æi ╞░u
+h├│a trß╗ìng sß╗æ.
+imgsz 640├ù640 ─Éß╗Ö ph├ón giß║úi ß║únh ─æß║ºu v├áo chuß║⌐n h├│a theo
+quy chuß║⌐n YOLO.
+batch 4 K├¡ch th╞░ß╗¢c l├┤ huß║Ñn luyß╗çn (sß╗æ l╞░ß╗úng ß║únh xß╗¡
+l├╜ c├╣ng l├║c), ─æ╞░ß╗úc giß╗¢i hß║ín ß╗ƒ mß╗⌐c 4 ─æß╗â tr├ính
+g├óy tr├án bß╗Ö nhß╗¢ ─æß╗ô hß╗ìa (VRAM).
+device 0 Chß╗ë ─æß╗ïnh huß║Ñn luyß╗çn tr├¬n GPU chuy├¬n dß╗Ñng
+sß╗æ 0 nhß║▒m t─âng tß╗æc ─æß╗Ö t├¡nh to├ín tß╗æi ─æa.
+patience 20 Sß╗æ l╞░ß╗úng epoch chß╗¥ ─æß╗â tß╗▒ ─æß╗Öng dß╗½ng sß╗¢m
+(early stopping) nß║┐u c├íc chß╗ë sß╗æ tr├¬n tß║¡p valid
+kh├┤ng cß║úi thiß╗çn.
+cache False Kh├┤ng l╞░u cache ß║únh v├áo RAM ─æß╗â giß║úm tß║úi
+cho bß╗Ö nhß╗¢ vß║¡t l├╜ hß╗ç thß╗æng.
+optimizer Auto Thuß║¡t to├ín tß╗æi ╞░u h├│a tß╗▒ ─æß╗Öng ─æiß╗üu chß╗ënh tß╗æc
+─æß╗Ö hß╗ìc.
+Sau khi ho├án th├ánh tiß║┐n tr├¼nh huß║Ñn luyß╗çn, hß╗ç thß╗æng tß╗▒ ─æß╗Öng sinh ra hai tß╗çp trß╗ìng sß╗æ
+c├│ ─æß╗ïnh dß║íng PyTorch:
+ΓÇô best.pt: L╞░u trß╗» bß╗Ö trß╗ìng sß╗æ mß║íng ─æß║ít hiß╗çu n─âng nhß║¡n diß╗çn tß╗æt nhß║Ñt (dß╗▒a tr├¬n chß╗ë
+sß╗æ mAP@0.5) tr├¬n tß║¡p dß╗» liß╗çu kiß╗âm thß╗¡ ─æß╗Öc lß║¡p (Validation). Bß╗Ö trß╗ìng sß╗æ tß╗æi ╞░u n├áy
+sß║╜ ─æ╞░ß╗úc sao ch├⌐p sang th╞░ mß╗Ñc chß╗⌐a m├ú nguß╗ôn ch├¡nh (code ch├¡nh) ─æß╗â vß║¡n h├ánh
+trß╗▒c tiß║┐p tr├¬n phß║ºn mß╗üm trß║ím mß║╖t ─æß║Ñt GCS.
+ΓÇô last.pt: L╞░u trß╗» bß╗Ö trß╗ìng sß╗æ tß║íi chu kß╗│ huß║Ñn luyß╗çn cuß╗æi c├╣ng, phß╗Ñc vß╗Ñ mß╗Ñc ─æ├¡ch
+kh├┤i phß╗Ñc hoß║╖c tiß║┐p tß╗Ñc huß║Ñn luyß╗çn nß║┐u xß║úy ra sß╗▒ cß╗æ gi├ín ─æoß║ín.
+2.14.2 Quytr├¼nhhuß║Ñnluyß╗çntß╗▒─æß╗Öngv├átß╗æi╞░uh├│abß╗Önhß╗¢GPU(VRAMLeakBypass)
+Trong qu├í tr├¼nh huß║Ñn luyß╗çn c├íc m├┤ h├¼nh YOLOv8 vß╗¢i khß╗æi l╞░ß╗úng ß║únh lß╗¢n tr├¬n phß║ºn
+cß╗⌐ng GPU c├í nh├ón, mß╗Öt vß║Ñn ─æß╗ü phß╗ò biß║┐n xß║úy ra l├á hiß╗çn t╞░ß╗úng r├▓ rß╗ë bß╗Ö nhß╗¢ ─æß╗ô hß╗ìa (VRAM
+Leakage) sau nhiß╗üu v├▓ng lß║╖p li├¬n tß╗Ñc, dß║½n ─æß║┐n lß╗ùi tr├án bß╗Ö nhß╗¢ (Out of Memory - OOM).
+─Éß╗â khß║»c phß╗Ñc hß║ín chß║┐ n├áy, ─æß╗ô ├ín ─æ├ú thiß║┐t kß║┐ v├á triß╗ân khai mß╗Öt quy tr├¼nh huß║Ñn luyß╗çn tß╗▒
+─æß╗Öng vß╗¢i c╞í chß║┐ ngß║»t-nß╗æi v├á giß║úi ph├│ng bß╗Ö nhß╗¢ chß╗º ─æß╗Öng:
+61
+
+--- Trang 87 ---
+ΓÇô C╞í chß║┐ chia chß║╖ng v├á giß║úi ph├│ng bß╗Ö nhß╗¢: Kß╗ïch bß║ún huß║Ñn luyß╗çn bß║▒ng Python ─æ╞░ß╗úc
+cß║Ñu h├¼nh ─æß╗â thß╗▒c thi tß╗½ng Epoch ─æ╞ín lß║╗. Sau mß╗ùi Epoch, tiß║┐n tr├¼nh Python sß║╜ ghi
+lß║íi th├┤ng tin tiß║┐n ─æß╗Ö hiß╗çn tß║íi v├áo tß╗çp nhß║¡t k├╜ gi├ím s├ít, l╞░u trß╗» tß╗çp trß╗ìng sß╗æ tß║ím thß╗¥i
+(last.pt) v├á chß╗º ─æß╗Öng tho├ít tiß║┐n tr├¼nh th├┤ng qua lß╗çnh sys.exit(0). H├ánh ─æß╗Öng
+tho├ít n├áy gi├║p hß╗ç ─æiß╗üu h├ánh thu hß╗ôi ho├án to├án v├╣ng nhß╗¢ RAM v├á GPU VRAM ─æ├ú bß╗ï
+r├▓ rß╗ë tß╗½ c├íc th╞░ viß╗çn PyTorch v├á CUDA.
+ΓÇô V├▓ng lß║╖p tß╗▒ ─æß╗Öng h├│a (PowerShell Auto-Resume): Kß╗ïch bß║ún ─æ╞░ß╗úc kiß╗âm so├ít b├¬n
+ngo├ái bß║▒ng mß╗Öt v├▓ng lß║╖p v├┤ hß║ín trong PowerShell. PowerShell sß║╜ li├¬n tß╗Ñc gß╗ìi tiß║┐n
+tr├¼nh Python huß║Ñn luyß╗çn:
+while ($true) {
+python huan_luyen_AI.py
+# Neu tra ve Exit Code 42 co nghia la da hoan thanh du
+50 Epochs
+if ($LASTEXITCODE -eq 42) {
+break
+}
+}
+ΓÇô Kh├┤i phß╗Ñc trß║íng th├íi: Khi ─æ╞░ß╗úc gß╗ìi lß║íi trong v├▓ng lß║╖p mß╗¢i, tiß║┐n tr├¼nh Python sß║╜ tß╗▒
+─æß╗Öng ─æß╗ìc tß╗çp trß║íng th├íi, nß║íp tß╗çp trß╗ìng sß╗æ last.pt cß╗ºa Epoch tr╞░ß╗¢c ─æ├│ v├á tiß║┐p tß╗Ñc
+thß╗▒c hiß╗çn Epoch tiß║┐p theo.
+ΓÇô Kß║┐t th├║c chu kß╗│: Quy tr├¼nh tiß║┐p tß╗Ñc lß║╖p lß║íi cho ─æß║┐n khi ─æß║ít ─æß╗º sß╗æ l╞░ß╗úng 50 Epochs.
+L├║c n├áy, tiß║┐n tr├¼nh Python sß║╜ trß║ú vß╗ü m├ú tho├ít ─æß║╖c biß╗çt l├á 42 (sys.exit(42)), b├ío
+hiß╗çu cho PowerShell dß╗½ng v├▓ng lß║╖p huß║Ñn luyß╗çn mß╗Öt c├ích an to├án.
+Nhß╗¥ giß║úi ph├íp n├áy, hß╗ç thß╗æng c├│ thß╗â duy tr├¼ qu├í tr├¼nh huß║Ñn luyß╗çn ß╗òn ─æß╗ïnh li├¬n tß╗Ñc
+trong suß╗æt 50 Epochs m├á kh├┤ng bß╗ï gi├ín ─æoß║ín hay xß║úy ra sß╗▒ cß╗æ sß║¡p luß╗ông do tr├án bß╗Ö
+nhß╗¢ ─æß╗ô hß╗ìa. Ghi ch├⌐p nhß║¡t k├╜ huß║Ñn luyß╗çn tß║íi tß╗çp train_rescue_monitor.log v├á
+train_posture_monitor.log cho thß║Ñy l╞░ß╗úng VRAM cß║Ñp ph├ít ─æ╞░ß╗úc kiß╗âm so├ít chß║╖t
+chß║╜ ß╗ƒ mß╗⌐c an to├án ß╗òn ─æß╗ïnh.
+2.14.3 ─É├ính gi├í hiß╗çu n─âng m├┤ h├¼nh ph├ón t├¡ch t╞░ thß║┐ (YOLOv8s-Posture)
+2.14.3.1 Ph├ón t├¡ch dß╗» liß╗çu ─æß║ºu v├áo (Data Distribution):
+Dß╗▒a tr├¬n thß╗æng k├¬ tß╗½ tß║¡p dß╗» liß╗çu huß║Ñn luyß╗çn cho b├ái to├ín nhß║¡n diß╗çn ba trß║íng th├íi t╞░
+thß║┐, hß╗ç thß╗æng ghi nhß║¡n sß╗▒ ph├ón bß╗ò kh├┤ng ─æß╗ông ─æß╗üu vß╗ü mß║╖t sß╗æ l╞░ß╗úng (Class Imbalance)
+giß╗»a c├íc lß╗¢p ─æß╗æi t╞░ß╗úng, thß╗â hiß╗çn trong H├¼nh 2.24.
+62
+
+--- Trang 88 ---
+H├¼nh2.24 Biß╗âu─æß╗ôthß╗ængk├¬ph├ónbß╗òsß╗æl╞░ß╗úngkhunggiß╗¢ihß║íntheotß╗½nglß╗¢pt╞░thß║┐
+Lß╗¢p t╞░ thß║┐ Nß║▒m (Lie) chiß║┐m tß╗╖ trß╗ìng ─æa sß╗æ vß╗¢i 7.455 khung giß╗¢i hß║ín, tiß║┐p theo l├á
+lß╗¢p Ngß╗ôi (Sit) vß╗¢i 6.767 khung giß╗¢i hß║ín, v├á lß╗¢p ─Éß╗⌐ng (Stand) c├│ sß╗æ l╞░ß╗úng mß║½u hß║ín chß║┐
+nhß║Ñt vß╗¢i 2.813 khung giß╗¢i hß║ín. Sß╗▒ ch├¬nh lß╗çch n├áy giß║úi th├¡ch cho ─æß╗Ö lß╗çch bi├¬n trong kß║┐t
+quß║ú ph├ón loß║íi ─æß╗æi vß╗¢i tß╗½ng t╞░ thß║┐ cß╗Ñ thß╗â cß╗ºa m├┤ h├¼nh.
+2.14.3.2 ─É├ính gi├í qu├í tr├¼nh hß╗Öi tß╗Ñ (Model Convergence):
+Qu├í tr├¼nh tß╗æi ╞░u h├│a trß╗ìng sß╗æ cß╗ºa mß║íng YOLOv8s-Posture qua 50 Epochs phß║ún ├ính
+quß╗╣ ─æß║ío hß╗Öi tß╗Ñ ß╗òn ─æß╗ïnh, thß╗â hiß╗çn trong H├¼nh 2.25.
+63
+
+--- Trang 89 ---
+H├¼nh2.25 ─Éß╗ôthß╗ïbiß╗âudiß╗ành├ámsuyhaov├áchß╗ësß╗æhiß╗çun─ângm├┤h├¼nht╞░thß║┐qua50Epochs
+─É╞░ß╗¥ng cong biß╗âu diß╗àn h├ám suy hao tr├¬n tß║¡p huß║Ñn luyß╗çn (bao gß╗ôm box_loss v├á
+cls_loss) duy tr├¼ ─æ├á giß║úm m╞░ß╗út m├á. Tß║íi Epoch 50, hß╗ç sß╗æ mß║Ñt m├ít tr├¬n tß║¡p dß╗» liß╗çu kiß╗âm thß╗¡
+(Validation) ─æß║ít mß╗⌐c tß╗æi ╞░u vß╗¢i val/box_loss ghi nhß║¡n ß╗ƒ mß╗⌐c 0.79876 v├á val/cls_loss ─æß║ít
+0.56278. Sß╗▒ suy giß║úm ─æß╗ông thß╗¥i giß╗»a gi├í trß╗ï Train Loss v├á Validation Loss minh chß╗⌐ng
+n─âng lß╗▒c tß╗òng qu├ít h├│a tß╗æt cß╗ºa m├┤ h├¼nh, kh├┤ng xuß║Ñt hiß╗çn trß║íng th├íi qu├í khß╗¢p.
+2.14.3.3 Ph├ón t├¡ch hiß╗çu n─âng tß╗òng thß╗â (Overall Performance):
+Th├┤ng sß╗æ kß╗╣ thuß║¡t tß║íi Epoch 50 chß╗ë ra n─âng lß╗▒c dß╗▒ b├ío cao cß╗ºa mß║íng nhß║¡n diß╗çn t╞░
+thß║┐. ─Éß╗Ö ch├¡nh x├íc trung b├¼nh mAP@0.5 ─æß║ít mß╗⌐c cao 88.7% (0.88701) v├á mAP@0.5:0.95
+ß╗òn ─æß╗ïnh tß║íi 73.64% (0.73638).
+H├¼nh2.26 ─É╞░ß╗¥ngcongF1-Confidence─æ├ínhgi├ísß╗▒c├ónbß║▒ngcß╗ºam├┤h├¼nht╞░thß║┐
+64
+
+--- Trang 90 ---
+C─ân cß╗⌐ tr├¬n ph├ón t├¡ch ─æß╗ô thß╗ï F1-Confidence ß╗ƒ H├¼nh 2.26, chß╗ë sß╗æ F1 tß╗òng hß╗úp ─æß║ít
+─æß╗ënh (0.88) khi ng╞░ß╗íng tin cß║¡y (Confidence Threshold) ─æ╞░ß╗úc thiß║┐t lß║¡p tß║íi 0.553. ─É├óy l├á
+mß╗⌐c c├ái ─æß║╖t tham chiß║┐u khi triß╗ân khai thß╗▒c tß║┐ tr├¬n m├íy trß║ím ─æß╗â c├ón bß║▒ng tß╗æi ╞░u giß╗»a viß╗çc
+xuß║Ñt hiß╗çn cß║únh b├ío giß║ú v├á viß╗çc bß╗Å s├│t mß╗Ñc ti├¬u.
+2.14.3.4 ─É├ính gi├í ─æß╗Ö nhß║íy cß║úm theo ph├ón lß╗¢p (Class-Specific Performance):
+─Éß╗Ö nhß║íy cß║úm cß╗ºa thuß║¡t to├ín ph├ón h├│a r├╡ rß╗çt ─æß╗æi vß╗¢i ─æß║╖c tr╞░ng thß╗ï gi├íc cß╗ºa tß╗½ng lß╗¢p
+mß╗Ñc ti├¬u, ─æ╞░ß╗úc minh hß╗ìa qua ─æ╞░ß╗¥ng cong Precision-Recall ß╗ƒ H├¼nh 2.27 v├á ma trß║¡n nhß║ºm
+lß║½n ß╗ƒ H├¼nh 2.28.
+H├¼nh2.27 ─É╞░ß╗¥ngcongPrecision-Recalltheotß╗½nglß╗¢pt╞░thß║┐
+H├¼nh2.28 Matrß║¡nnhß║ºmlß║½nchuß║⌐nh├│acß╗ºam├┤h├¼nhph├ónloß║íit╞░thß║┐
+65
+
+--- Trang 91 ---
+H├ánh vi Ngß╗ôi (Sit) c├│ khß║ú n─âng nhß║¡n diß╗çn xuß║Ñt sß║»c nhß║Ñt vß╗¢i mAP@0.5 ─æß║ít 0.992 v├á
+tß╗╖ lß╗ç dß╗▒ b├ío ch├¡nh x├íc trong ma trß║¡n nhß║ºm lß║½n ─æß║ít 98%. T╞░ thß║┐ Nß║▒m (Lie) duy tr├¼ hiß╗çu
+n─âng cao vß╗¢i chß╗ë sß╗æ mAP@0.5 l├á 0.914, tß╗╖ lß╗ç chß║⌐n ─æo├ín ─æ├║ng ─æß║ít 90% (khoß║úng 8% bß╗ï
+nhß║ºm th├ánh nß╗ün). T╞░ thß║┐ ─Éß╗⌐ng (Stand) ghi nhß║¡n hiß╗çu n─âng thß║Ñp nhß║Ñt vß╗¢i mAP@0.5 ß╗ƒ
+mß╗⌐c 0.755 v├á tß╗╖ lß╗ç dß╗▒ b├ío ─æ├║ng ─æß║ít 87% do sß╗æ l╞░ß╗úng mß║½u huß║Ñn luyß╗çn hß║ín chß║┐.
+2.14.4 ─É├ính gi├í hiß╗çu n─âng m├┤ h├¼nh ph├ón t├¡ch cß╗⌐u hß╗Ö (YOLOv8s-Rescue)
+2.14.4.1 Ph├ón bß╗æ dß╗» liß╗çu ─æß║ºu v├áo (Data Distribution):
+Dß╗▒a tr├¬n ph├ón t├¡ch tß║¡p dß╗» liß╗çu huß║Ñn luyß╗çn cho b├ái to├ín nhß║¡n diß╗çn trß║íng th├íi cß╗⌐u hß╗Ö,
+hß╗ç thß╗æng ghi nhß║¡n sß╗▒ mß║Ñt c├ón bß║▒ng dß╗» liß╗çu cß╗▒c kß╗│ lß╗¢n (Extreme Class Imbalance) giß╗»a
+lß╗¢p ng╞░ß╗¥i b├¼nh th╞░ß╗¥ng v├á nß║ín nh├ón gß║╖p nß║ín, thß╗â hiß╗çn trong H├¼nh 2.29.
+H├¼nh2.29 Biß╗âu─æß╗ôthß╗ængk├¬ph├ónbß╗òsß╗æl╞░ß╗úngkhunggiß╗¢ihß║íntheolß╗¢pNormalv├áVictim
+Lß╗¢p ng╞░ß╗¥i b├¼nh th╞░ß╗¥ng (Normal) chiß║┐m tß╗╖ trß╗ìng ├íp ─æß║úo tuyß╗çt ─æß╗æi vß╗¢i 114.121 khung
+giß╗¢i hß║ín, trong khi lß╗¢p nß║ín nh├ón (Victim) chß╗ë ghi nhß║¡n vß╗Ån vß║╣n 5.085 khung giß╗¢i hß║ín (tß╗╖
+lß╗ç lß╗çch xß║Ñp xß╗ë 22:1). ─É├óy l├á th├ích thß╗⌐c lß╗¢n, dß╗à khiß║┐n m├┤ h├¼nh hß╗ìc thi├¬n lß╗çch sang lß╗¢p ─æa
+sß╗æ.
+66
+
+--- Trang 92 ---
+2.14.4.2 ─É├ính gi├í qu├í tr├¼nh hß╗Öi tß╗Ñ (Model Convergence):
+─Éß╗ô thß╗ï tß╗æi ╞░u h├│a trß╗ìng sß╗æ cß╗ºa mß║íng YOLOv8s-Rescue qua 50 Epochs chß╗ë ra m├┤
+h├¼nh ─æß║ít ─æß║┐n trß║íng th├íi b├úo h├▓a, thß╗â hiß╗çn trong H├¼nh 2.30.
+H├¼nh2.30 ─Éß╗ôthß╗ïbiß╗âudiß╗ành├ámsuyhaov├áchß╗ësß╗æhiß╗çun─ângm├┤h├¼nhcß╗⌐uhß╗Öqua50Epochs
+─É╞░ß╗¥ng cong h├ám suy hao tr├¬n tß║¡p huß║Ñn luyß╗çn tiß║┐p tß╗Ñc giß║úm dß║ºn ─æß╗üu ─æß║┐n Epoch
+50. Tuy nhi├¬n, tr├¬n tß║¡p kiß╗âm thß╗¡ (Validation), ─æ╞░ß╗¥ng cong suy hao val/box_loss v├á
+val/cls_loss bß║»t ─æß║ºu ─æi ngang tß╗½ khoß║úng Epoch 30 ─æß║┐n 40 v├á kh├┤ng giß║úm th├¬m, cho thß║Ñy
+m├┤ h├¼nh ─æ├ú ─æß║ít ng╞░ß╗íng giß╗¢i hß║ín hß╗Öi tß╗Ñ tß╗æi ─æa vß╗¢i tß║¡p dß╗» liß╗çu hiß╗çn h├ánh.
+2.14.4.3 Ph├ón t├¡ch hiß╗çu n─âng tß╗òng thß╗â (Overall Performance):
+Th├┤ng sß╗æ kß╗╣ thuß║¡t ─æ├ính gi├í tß╗òng thß╗â cho thß║Ñy hß╗ç thß╗æng chß╗ïu ß║únh h╞░ß╗ƒng nhß║Ñt ─æß╗ïnh
+tß╗½ sß╗▒ mß║Ñt c├ón bß║▒ng dß╗» liß╗çu ─æß║ºu v├áo, thß╗â hiß╗çn qua ─æ╞░ß╗¥ng F1-Confidence ß╗ƒ H├¼nh 2.31 v├á
+Precision-Recall ß╗ƒ H├¼nh 2.32.
+67
+
+--- Trang 93 ---
+H├¼nh2.31 ─É╞░ß╗¥ngcongF1-Confidence─æ├ínhgi├ísß╗▒c├ónbß║▒ngcß╗ºam├┤h├¼nhcß╗⌐uhß╗Ö
+H├¼nh2.32 ─É╞░ß╗¥ngcongPrecision-Recallcß╗ºam├┤h├¼nhcß╗⌐uhß╗Ö
+─Éß╗Ö ch├¡nh x├íc trung b├¼nh to├án cß╗Ñc mAP@0.5 ─æß║ít mß╗⌐c 73.8% (0.738). Hiß╗çu n─âng ghi
+nhß║¡n sß╗▒ mß║Ñt c├ón ─æß╗æi r├╡ rß╗çt: lß╗¢p Victim ─æß║ít mAP@0.5 kh├í tß╗æt ß╗ƒ mß╗⌐c 85.0% (0.850), trong
+khi lß╗¢p Normal k├⌐o tß╗Ñt hiß╗çu n─âng chung xuß╗æng mß╗⌐c mAP@0.5 chß╗ë ─æß║ít 62.7% (0.627).
+Chß╗ë sß╗æ F1 tß╗òng hß╗úp ─æß║ít ─æß╗ënh (0.75) khi ng╞░ß╗íng tin cß║¡y ─æ╞░ß╗úc thiß║┐t lß║¡p ß╗ƒ mß╗⌐c kh├í thß║Ñp l├á
+0.359.
+2.14.4.4 ─É├ính gi├í ─æß╗Ö nhß║íy cß║úm qua ma trß║¡n nhß║ºm lß║½n (Confusion Matrix):
+Ma trß║¡n nhß║ºm lß║½n chuß║⌐n h├│a cung cß║Ñp c├íi nh├¼n chi tiß║┐t nhß║Ñt vß╗ü c├íc lß╗ùi nhß║¡n diß╗çn cß╗ºa
+m├┤ h├¼nh cß╗⌐u hß╗Ö, thß╗â hiß╗çn ß╗ƒ H├¼nh 2.33.
+68
+
+--- Trang 94 ---
+H├¼nh2.33 Matrß║¡nnhß║ºmlß║½nchuß║⌐nh├│acß╗ºam├┤h├¼nhnhß║¡ndiß╗çncß╗⌐uhß╗Ö
+M├┤ h├¼nh thß╗▒c hiß╗çn tß╗æt nhiß╗çm vß╗Ñ ╞░u ti├¬n khi nhß║¡n diß╗çn ─æ├║ng 81% ─æß╗æi t╞░ß╗úng l├á nß║ín
+nh├ón (Victim). Chß╗ë c├│ 9% bß╗ï bß╗Å s├│t th├ánh cß║únh nß╗ün v├á 10% nhß║¡n nhß║ºm th├ánh ng╞░ß╗¥i b├¼nh
+th╞░ß╗¥ng. Tuy nhi├¬n, ─æiß╗âm yß║┐u nß║▒m ß╗ƒ lß╗¢p ng╞░ß╗¥i b├¼nh th╞░ß╗¥ng (Normal) khi tß╗╖ lß╗ç dß╗▒ ─æo├ín
+─æ├║ng chß╗ë ─æß║ít 59% v├á c├│ tß╗¢i 40% tr╞░ß╗¥ng hß╗úp m├┤ h├¼nh nhß║¡n diß╗çn sai c├íc yß║┐u tß╗æ nhiß╗àu cß╗ºa
+m├┤i tr╞░ß╗¥ng th├ánh ng╞░ß╗¥i Normal.
+─Éß╗â khß║»c phß╗Ñc hß║ín chß║┐ n├áy trong t╞░╞íng lai, giß║úi ph├íp ─æß╗ü xuß║Ñt l├á bß╗ò sung th├¬m c├íc
+h├¼nh ß║únh cß║únh nß╗ün trß╗æng (background images) kh├┤ng chß╗⌐a ng╞░ß╗¥i v├áo tß║¡p dß╗» liß╗çu huß║Ñn
+luyß╗çn ─æß╗â mß║íng n╞í-ron hß╗ìc c├ích ph├ón biß╗çt tß╗æt h╞ín bß╗æi cß║únh m├┤i tr╞░ß╗¥ng.
+Kß║┐t luß║¡n Ch╞░╞íng 2
+Ch╞░╞íng 2 ─æ├ú tr├¼nh b├áy to├án diß╗çn c╞í sß╗ƒ l├╜ thuyß║┐t v├á quy tr├¼nh thiß║┐t kß║┐, x├óy dß╗▒ng hß╗ç
+thß╗æng Drone cß╗⌐u hß╗Ö. Vß╗ü l├╜ thuyß║┐t bay, m├┤ h├¼nh ─æß╗Öng lß╗▒c hß╗ìc Newton-Euler m├┤ tß║ú chuyß╗ân
+─æß╗Öng cß╗ºa Quadcopter, thuß║¡t to├ín bß╗Ö lß╗ìc b├╣ dung hß╗úp IMU ─æß║ít sai sß╗æ d╞░ß╗¢i 1Γùª c├╣ng bß╗Ö ─æiß╗üu
+khiß╗ân phß║ún hß╗ôi PID nß╗æi tß║ºng k├⌐p ─æ╞░ß╗úc x├óy dß╗▒ng v├á tß╗æi ╞░u rß╗¥i rß║íc. Vß╗ü phß║ºn cß╗⌐ng, bo mß║ích
+Flight Controller PCB ─æ╞░ß╗úc tß╗▒ thiß║┐t kß║┐ v├á chß║┐ tß║ío dß╗▒a tr├¬n STM32F103C8T6, ─æß║úm bß║úo
+chß╗æng nhiß╗àu nguß╗ôn qua bß╗Ö lß╗ìc LC v├á tß╗Ñ ph├ón tß║ºng; hß╗ç thß╗æng nguß╗ôn ─æiß╗çn ba cß║Ñp (3S LiPo
+ΓåÆ Buck 5V ΓåÆ LDO 3.3V) ─æß║úm bß║úo hoß║ít ─æß╗Öng ß╗òn ─æß╗ïnh cho tß║Ñt cß║ú module; Drone Quad-X
+─æ╞░ß╗úc lß║»p r├íp ho├án chß╗ënh vß╗¢i tß╗ë lß╗ç lß╗▒c ─æß║⌐y/trß╗ìng l╞░ß╗úng 3.58. Vß╗ü phß║ºn mß╗üm AI, hß╗ç thß╗æng
+triß╗ân khai chiß║┐n thuß║¡t Cascade Pipeline gß╗ôm 4 m├┤ h├¼nh YOLOv8 chuy├¬n biß╗çt (YOLOv8s
+l├ám nhiß╗çm vß╗Ñ g├íc cß╗òng cß║»t ß║únh, truyß╗ün tiß║┐p cho YOLOv8s-Pose, YOLOv8s-Posture v├á
+YOLOv8s-Rescue ph├ón t├¡ch chuy├¬n s├óu), sau ─æ├│ t├¡ch hß╗úp trong thuß║¡t to├ín dung hß╗úp quyß║┐t
+─æß╗ïnh t├¡nh ─æiß╗âm Danger Score ΓÇô loß║íi bß╗Å nhiß╗àu bß╗æi cß║únh v├á giß║úm thiß╗âu ─æ├íng kß╗â cß║únh b├ío
+69
+
+--- Trang 95 ---
+nhß║ºm. Phß║ºn mß╗üm GCS x├óy dß╗▒ng theo kiß║┐n tr├║c ─æa luß╗ông bß║Ñt ─æß╗ông bß╗Ö ─æß║úm bß║úo xß╗¡ l├╜
+video tr╞ín tru ─æß╗ông thß╗¥i ghi sß╗▒ kiß╗çn cß╗⌐u hß╗Ö. C├íc sß║ún phß║⌐m cß╗ºa ch╞░╞íng n├áy l├á c╞í sß╗ƒ trß╗▒c
+tiß║┐p cho viß╗çc thß╗▒c nghiß╗çm v├á ─æ├ính gi├í tß║íi Ch╞░╞íng 3.
+70
+
+--- Trang 96 ---
+CH╞»╞áNG 3. Kß║╛T QUß║ó THß╗░C NGHIß╗åM V├Ç ─É├üNH GI├ü
+Ch╞░╞íng n├áy tr├¼nh b├áy c├íc kß║┐t quß║ú ─æo l╞░ß╗¥ng v├á kiß╗âm nghiß╗çm thß╗▒c tß║┐ cß╗ºa to├án bß╗Ö
+hß╗ç thß╗æng Drone cß╗⌐u hß╗Ö ─æ╞░ß╗úc thiß║┐t kß║┐ v├á x├óy dß╗▒ng tß║íi Ch╞░╞íng 2. Tr├¬n c╞í sß╗ƒ sß╗æ liß╗çu thß╗▒c
+nghiß╗çm cß╗Ñ thß╗â, ch╞░╞íng tiß║┐n h├ánh ─æ├ính gi├í mß╗⌐c ─æß╗Ö ho├án th├ánh c├íc mß╗Ñc ti├¬u kß╗╣ thuß║¡t ─æß║╖t
+ra ban ─æß║ºu, ph├ón t├¡ch ╞░u ─æiß╗âm v├á hß║ín chß║┐ cß╗ºa tß╗½ng ph├ón hß╗ç, ─æß╗ông thß╗¥i tr├¼nh b├áy chi ph├¡
+chß║┐ tß║ío thß╗▒c tß║┐ cß╗ºa to├án hß╗ç thß╗æng.
+3.1 Kß║┐t quß║ú thiß║┐t kß║┐ v├á chß║┐ tß║ío phß║ºn cß╗⌐ng thß╗▒c tß║┐
+Sauqu├ítr├¼nhthiß║┐tkß║┐,chß║┐tß║íomß║íchinv├álß║»pr├ípc╞íkh├¡,hß╗çthß╗ængDroneQuadcopter
+gi├ím s├ít an ninh v├á cß╗⌐u hß╗Ö t├¡ch hß╗úp AI ─æ├ú ─æ╞░ß╗úc ho├án thiß╗çn.
+3.1.1 Sß║ún phß║⌐m mß║ích in PCB Flight Controller ho├án chß╗ënh
+Bo mß║ích ─æiß╗üu khiß╗ân bay Flight Controller 2 lß╗¢p (2-layer) tß╗▒ thiß║┐t kß║┐ ─æ╞░ß╗úc gia c├┤ng
+tr├¬n ph├┤i thß╗ºy tinh FR4 d├áy 1.6mm, phß╗º thiß║┐c (HASL Lead-Free). Khß╗æi xß╗¡ l├╜ trung t├óm
+sß╗¡ dß╗Ñng vi ─æiß╗üu khiß╗ân STM32 (dß║íng ─æ├│ng g├│i SMD LQFP-48), kß║┐t hß╗úp vß╗¢i khß╗æi nguß╗ôn
+xung Buck hß║í ├íp t├¡ch hß╗úp cuß╗Ön cß║úm SMD gi├║p ─æß║úm bß║úo cung cß║Ñp d├▓ng ─æiß╗çn sß║ích v├á ß╗òn
+─æß╗ïnh. Mß║ích sß╗¡ dß╗Ñng kß║┐t hß╗úp linh kiß╗çn thß╗Ñ ─æß╗Öng d├ín bß╗ü mß║╖t (SMD 0805, 0603) nhß║▒m
+tß╗æi ╞░u diß╗çn t├¡ch, ─æi k├¿m c├íc linh kiß╗çn xuy├¬n lß╗ù (through-hole) ß╗ƒ nhß╗»ng vß╗ï tr├¡ chß╗ïu tß║úi cao
+nh╞░ tß╗Ñ h├│a lß╗ìc nguß╗ôn tß╗òng, dß║úi pin header kß║┐t nß╗æi ESC v├á VTX. ─Éß║╖c biß╗çt, cß║úm biß║┐n IMU
+MPU6050 (module GY-521) ─æ╞░ß╗úc c├┤ lß║¡p rung ─æß╗Öng c╞í hß╗ìc bß║▒ng lß╗¢p ─æß╗çm xß╗æp chß╗æng rung
+v├á li├¬n kß║┐t d├óy mß╗üm linh hoß║ít, gi├║p hß║ín chß║┐ tß╗æi ─æa nhiß╗àu cao tß║ºn truyß╗ün tß╗½ khung s╞░ß╗¥n.
+Sß║ún phß║⌐m ho├án thiß╗çn ─æ╞░ß╗úc ─æß╗ïnh vß╗ï vß╗»ng chß║»c l├¬n khung Quadcopter bß║▒ng c├íc trß╗Ñ bß║»t ß╗æc.
+Mß║ích thß╗▒c tß║┐ ─æ╞░ß╗úc minh hß╗ìa trong H├¼nh 3.1.
+71
+
+--- Trang 97 ---
+H├¼nh3.1 ß║ónhchß╗Ñpthß╗▒ctß║┐bomß║íchFlightControllertß╗▒chß║┐tß║ío
+3.1.2 M├┤ h├¼nh Drone Quadcopter ho├án chß╗ënh
+Drone sau khi ho├án th├ánh lß║»p r├íp hß╗ç thß╗æng ─æß╗Öng lß╗▒c, Camera FPV 1200TVL, mß║ích
+ph├ít video VTX 5.8GHz 1W v├á bß╗Ö nguß╗ôn Pin Lipo ─æ╞░ß╗úc tinh chß╗ënh c├ón bß║▒ng trß╗ìng t├óm.
+─éng-ten thu s├│ng ELRS chß╗» T ─æ╞░ß╗úc lß║»p ß╗ƒ ─æu├┤i Drone h╞░ß╗¢ng thß║│ng ─æß╗⌐ng ─æß╗â ─æß║úm bß║úo chß║Ñt
+l╞░ß╗úng kß║┐t nß╗æi v├┤ tuyß║┐n ß╗òn ─æß╗ïnh ß╗ƒ khoß║úng c├ích xa. H├¼nh ß║únh m├┤ h├¼nh Drone ho├án thiß╗çn
+sß║╡n s├áng cho c├íc b├ái bay thß╗▒c nghiß╗çm ─æ╞░ß╗úc chß╗ë ra trong H├¼nh 3.2.
+H├¼nh3.2 M├┤h├¼nhthiß║┐tbß╗ïbayDroneQuadcoptercß╗⌐uhß╗Öho├ánchß╗ënh
+3.2 Kß║┐t quß║ú thß╗▒c nghiß╗çm t├¡nh ß╗òn ─æß╗ïnh cß╗ºa hß╗ç thß╗æng bay
+─Éß╗â kiß╗âm nghiß╗çm t├¡nh ch├¡nh x├íc cß╗ºa thuß║¡t to├ín lß╗ìc t╞░ thß║┐ nh├║ng v├á hiß╗çu n─âng bß╗Ö
+─æiß╗üu khiß╗ân PID rß╗¥i rß║íc, hß╗ç thß╗æng bay ─æ╞░ß╗úc thß╗¡ nghiß╗çm cß║ú trong ph├▓ng th├¡ nghiß╗çm (bay
+tethered tr├¬n gi├í kiß╗âm tra 1 trß╗Ñc) v├á bay thß╗▒c tß║┐ ngo├ái trß╗¥i.
+72
+
+--- Trang 98 ---
+3.2.1 Thß╗¡ nghiß╗çm triß╗çt ti├¬u nhiß╗àu rung c╞í hß╗ìc cß╗ºa bß╗Ö lß╗ìc b├╣ hß╗ç sß╗æ cao
+Cß║úm biß║┐n IMU MPU6050 gß║»n tr├¬n khung Drone phß║úi chß╗ïu c├íc rung ─æß╗Öng c╞í hß╗ìc
+tß║ºn sß╗æ cao (50HzΓêÆ200Hz) tß╗½ hoß║ít ─æß╗Öng quay cß╗ºa bß╗æn ─æß╗Öng c╞í kh├┤ng chß╗òi than v├á sß╗▒
+mß║Ñt c├ón bß║▒ng ─æß╗Öng hß╗ìc cß╗ºa c├ính quß║ít. C├íc rung ─æß╗Öng n├áy truyß╗ün qua s╞░ß╗¥n carbon, tß║ío
+ra c├íc gai nhiß╗àu ─æiß╗çn ├íp cß╗▒c lß╗¢n tr├¬n bß╗Ö ─æß╗ìc gia tß╗æc th├┤ (Accelerometer). Nß║┐u sß╗¡ dß╗Ñng
+trß╗▒c tiß║┐p g├│c t├¡nh tß╗½ gia tß╗æc th├┤ ─æß╗â phß║ún hß╗ôi cho v├▓ng ─æiß╗üu khiß╗ân PID, hß╗ç thß╗æng sß║╜ li├¬n tß╗Ñc
+phß║ún ß╗⌐ng sai lß╗çch, g├óy ra hiß╗çn t╞░ß╗úng r├║ ga, dao ─æß╗Öng c╞░ß╗íng bß╗⌐c v├á lß║¡t Drone lß║¡p tß╗⌐c khi
+cß║Ñt c├ính.
+─Éß╗âgiß║úiquyß║┐tvß║Ñn─æß╗ün├áy,─æß╗ô├ínsß╗¡dß╗Ñngthuß║¡tto├ínbß╗Ölß╗ìcb├╣(ComplementaryFilter)
+vß╗¢i hß╗ç sß╗æ lß╗ìc b├╣ cß╗▒c cao ╬▒ =0.9996 chß║íy ß╗ƒ chu kß╗│ lß║╖p T =4ms (250Hz):
+s
+╬╕ [n]=0.9996┬╖(╬╕ [nΓêÆ1]+╧ë ┬╖T )+0.0004┬╖╬╕ (30)
+filter filter gyro_raw s acc_raw
+Mß╗æi quan hß╗ç giß╗»a hß╗ç sß╗æ lß╗ìc ╬▒ v├á hß║▒ng sß╗æ thß╗¥i gian ╧ä cß╗ºa bß╗Ö lß╗ìc th├┤ng thß║Ñp ─æ╞░ß╗úc x├íc ─æß╗ïnh
+qua c├┤ng thß╗⌐c:
+╬▒┬╖T 0.9996┬╖0.004
+s
+╧ä = = Γëê9.996s (31)
+1ΓêÆ╬▒ 1ΓêÆ0.9996
+Hß║▒ng sß╗æ thß╗¥i gian ╧ä Γëê10s cho ph├⌐p bß╗Ö lß╗ìc b├╣ triß╗çt ti├¬u cß╗▒c kß╗│ hiß╗çu quß║ú c├íc nhiß╗àu ─æß╗Öng
+gia tß╗æc ngß║»n hß║ín (coi c├íc nhiß╗àu rung tß║ºn sß╗æ cao tß╗½ ─æß╗Öng c╞í l├á nhiß╗àu trß║»ng c├│ gi├í trß╗ï
+trung b├¼nh bß║▒ng 0). ─Éß╗ông thß╗¥i, bß╗Ö lß╗ìc tin t╞░ß╗ƒng ho├án to├án v├áo t├¡ch ph├ón vß║¡n tß╗æc g├│c tß╗½
+Gyroscope (con quay hß╗ôi chuyß╗ân) trong ngß║»n hß║ín ─æß╗â phß║ún ├ính ch├¡nh x├íc ─æ├íp ß╗⌐ng ─æß╗Öng
+hß╗ìc c╞í ─æß╗Öng nhanh cß╗ºa Drone.
+Thß╗¡nghiß╗çmsos├ínhhiß╗çun─âng─æ╞░ß╗úcthß╗▒chiß╗çnbß║▒ngc├ích─æo─æß║íct├¡nhiß╗çug├│cnghi├¬ng
+Roll khi Drone nß╗ò m├íy tß║íi chß╗ù tr├¬n mß║╖t ─æß║Ñt (giß╗» ga ß╗ƒ mß╗⌐c 50% c├┤ng suß║Ñt n├óng, ─æß╗Öng c╞í
+quay ß╗ƒ tß╗æc ─æß╗Ö cao tß║ío rung ─æß╗Öng lß╗¢n). Bß║úng 3.1 thß╗â hiß╗çn kß║┐t quß║ú ph├ón t├¡ch bi├¬n ─æß╗Ö nhiß╗àu
+g├│c v├á t├¡nh ß╗òn ─æß╗ïnh cß╗ºa v├▓ng lß║╖p th─âng bß║▒ng ß╗⌐ng vß╗¢i c├íc hß╗ç sß╗æ lß╗ìc ╬▒ kh├íc nhau.
+Bß║úng3.1 Bß║úngsos├ínhhiß╗çuquß║útriß╗çtnhiß╗àurungcß╗ºabß╗Ölß╗ìcb├╣vß╗¢ic├íchß╗çsß╗æalpha
+Hß╗çsß╗æ╬▒ Hß║▒ngsß╗æ╧ä (s) Bi├¬n─æß╗Önhiß╗àug├│c(Γùª) ─Éß╗Ötrß╗àphß║únhß╗ôi(ms) Trß║íng th├íi th─âng
+bß║▒ngthß╗▒ctß║┐
+Kh├┤nglß╗ìc(╬╕ ) 0.000 ┬▒6.80Γùª <1ms Treo cß╗⌐ng / R├║ ga
+acc_raw
+mß║ính/Lß║¡tnh├áo
+0.9000 0.036 ┬▒4.20Γùª <5ms Runglß║»cmß║ính,mß║Ñt
+kiß╗âmso├ít
+0.9800 0.196 ┬▒1.80Γùª Γëê15ms Bay ─æ╞░ß╗úc nh╞░ng
+rung nhß║╣ v├á n├│ng
+─æß╗Öngc╞í
+0.9996 9.996 ┬▒0.15Γùª Γëê40ms Cß╗▒c kß╗│ ß╗òn ─æß╗ïnh,
+─æß╗Öngc╞íchß║íy├¬m
+73
+
+--- Trang 99 ---
+Kß║┐t quß║ú thß╗▒c nghiß╗çm khß║│ng ─æß╗ïnh, vß╗¢i hß╗ç sß╗æ tß╗æi ╞░u ╬▒ =0.9996, bi├¬n ─æß╗Ö nhiß╗àu dao
+─æß╗Öng cß╗ºa g├│c nghi├¬ng th─âng bß║▒ng giß║úm tß╗½ ┬▒6.8Γùª xuß╗æng chß╗ë c├▓n ┬▒0.15Γùª (giß║úm 97.8%
+nhiß╗àu rung). ─Éß╗Ö trß╗à pha phß║ún hß╗ôi khoß║úng 40ms ho├án to├án nß║▒m trong dß║úi ─æß╗Öng hß╗ìc cho
+ph├⌐p ─æß╗æi vß╗¢i d├▓ng Drone cß╗⌐u hß╗Ö cß╗í trung, gi├║p mß║ích Flight Controller t├¡nh to├ín lß╗▒c n├óng
+ch├¡nh x├íc m├á kh├┤ng g├óy ra hiß╗çn t╞░ß╗úng cß╗Öng h╞░ß╗ƒng tß╗▒ k├¡ch th├¡ch.
+3.2.2 Nhß║¡t k├╜ thß╗▒c nghiß╗çm tinh chß╗ënh hß╗ç sß╗æ bß╗Ö ─æiß╗üu khiß╗ân PID ngo├ái thß╗▒c ─æß╗ïa
+Viß╗çc hiß╗çu chuß║⌐n c├íc tham sß╗æ bß╗Ö ─æiß╗üu khiß╗ân PID rß╗¥i rß║íc nh├║ng ─æ╞░ß╗úc thß╗▒c hiß╗çn trß╗▒c
+tiß║┐p ngo├ái thß╗▒c ─æß╗ïa (b├úi thß╗¡ nghiß╗çm bay tß╗▒ do) th├┤ng qua giao diß╗çn d├▓ng lß╗çnh CLI (Serial
+Terminal) kß║┐t nß╗æi m├íy t├¡nh trß║ím mß║╖t ─æß║Ñt vß╗¢i Flight Controller. Quy tr├¼nh tinh chß╗ënh ─æ╞░ß╗úc
+tiß║┐n h├ánh c├│ hß╗ç thß╗æng theo ph╞░╞íng ph├íp thß╗¡ v├á sai (Trial and Error) kß║┐t hß╗úp ph├ón t├¡ch ─æ├íp
+ß╗⌐ng ─æß╗Öng hß╗ìc cß╗ºa Drone theo thß╗⌐ tß╗▒: v├▓ng trong (Rate Loop) tr╞░ß╗¢c, v├▓ng ngo├ái (Angle
+Loop) sau.
+Nhß║¡t k├╜ c├íc b╞░ß╗¢c thß╗▒c nghiß╗çm tinh chß╗ënh PID chi tiß║┐t ─æ╞░ß╗úc m├┤ tß║ú d╞░ß╗¢i ─æ├óy:
+ΓÇô B╞░ß╗¢c 1: Tinh chß╗ënh hß╗ç sß╗æ tß╗ë lß╗ç K kh├óu tß╗æc ─æß╗Ö g├│c (Rate Loop):
+p
+Γùª Thiß║┐t lß║¡p c├íc hß╗ç sß╗æ t├¡ch ph├ón K =0 v├á vi ph├ón K =0 cho tß║Ñt cß║ú c├íc trß╗Ñc. V├▓ng
+i d
+ngo├ái (Angle) ─æ╞░ß╗úc tß║ím thß╗¥i v├┤ hiß╗çu h├│a ─æß╗â vß║¡n h├ánh ß╗ƒ chß║┐ ─æß╗Ö Acro (chß╗ë ─æiß╗üu
+khiß╗ân tß╗æc ─æß╗Ö g├│c ─æß║╖t).
+Γùª Khß╗ƒi ─æß║ºu vß╗¢i gi├í trß╗ï K =0.4, Drone phß║ún ß╗⌐ng lß╗¥ ─æß╗¥, tß╗▒ tr├┤i dß║ít mß║ính d╞░ß╗¢i t├íc
+p
+─æß╗Öng cß╗ºa gi├│ v├á y├¬u cß║ºu ng╞░ß╗¥i l├íi phß║úi li├¬n tß╗Ñc b├╣ tay l├íi.
+Γùª T─âng dß║ºn K theo tß╗½ng b╞░ß╗¢c 0.2. Khi ─æß║ít K =1.0, Drone giß╗» th─âng bß║▒ng t╞░╞íng
+p p
+─æß╗æi vß╗»ng v├áng, phß║ún hß╗ôi dß╗⌐t kho├ít vß╗¢i cß║ºn ─æiß╗üu khiß╗ân, tuy nhi├¬n xuß║Ñt hiß╗çn dao
+─æß╗Öng tß╗▒ do tß║ºn sß╗æ thß║Ñp khi bß╗ï gi├│ thß╗òi tß║ít ngang.
+Γùª Tiß║┐p tß╗Ñc t─âng l├¬n K =1.4, Drone bß║»t ─æß║ºu xuß║Ñt hiß╗çn hiß╗çn t╞░ß╗úng dao ─æß╗Öng nhanh
+p
+(tß║ºn sß╗æ cao khoß║úng 10Hz) ß╗ƒ cß║ú hai trß╗Ñc Roll v├á Pitch do hß╗ç thß╗æng phß║ún ß╗⌐ng qu├í
+b├╣.
+Γùª Hß╗ç sß╗æ tß╗ë lß╗ç tß╗æi ╞░u ─æ╞░ß╗úc lß╗▒a chß╗ìn l├╣i vß╗ü mß╗⌐c K = 1.0 ─æß╗â ─æß║úm bß║úo ─æß╗Ö nhß║íy
+p_opt
+─æiß╗üu khiß╗ân m├á kh├┤ng g├óy dao ─æß╗Öng tß╗▒ k├¡ch.
+ΓÇô B╞░ß╗¢c 2: Tinh chß╗ënh hß╗ç sß╗æ vi ph├ón K kh├óu tß╗æc ─æß╗Ö g├│c (D-term):
+d
+Γùª Giß╗» cß╗æ ─æß╗ïnh K =1.0 v├á bß║»t ─æß║ºu t─âng hß╗ç sß╗æ vi ph├ón K ─æß╗â dß║¡p tß║»t dao ─æß╗Öng v├á
+p d
+t─âng tß╗æc ─æß╗Ö b├ím cß╗ºa hß╗ç thß╗æng.
+74
+
+--- Trang 100 ---
+Γùª Tß║íi K =2.0, hiß╗çn t╞░ß╗úng dao ─æß╗Öng khi gß║╖p gi├│ ─æ╞░ß╗úc giß║úm nhß║╣ r├╡ rß╗çt, ─æ├íp ß╗⌐ng
+d
+nhß║úy cß║Ñp cß╗ºa cß║ºn ─æiß╗üu khiß╗ân trß╗ƒ n├¬n m╞░ß╗út m├á h╞ín.
+Γùª T─âng tiß║┐p l├¬n K =5.0, Drone ─æß║ít trß║íng th├íi th─âng bß║▒ng cß╗▒c tß╗æt. Khi ng╞░ß╗¥i vß║¡n
+d
+h├ánh t├íc ─æß╗Öng lß╗▒c gi├│ b├¬n ngo├ái hoß║╖c b├║ng nhß║╣ v├áo s╞░ß╗¥n c├ính, Drone dß║¡p tß║»t
+dao ─æß╗Öng phß║ún hß╗ôi ngay lß║¡p tß╗⌐c trong thß╗¥i gian d╞░ß╗¢i 0.25 gi├óy.
+Γùª Thß╗¡ nghiß╗çm t─âng l├¬n K =8.0 khiß║┐n ─æß╗Öng c╞í kh├┤ng chß╗òi than bß║»t ─æß║ºu ph├ít ra
+d
+nhß╗»ng tiß║┐ng r├¡t cao tß║ºn v├á n├│ng l├¬n rß║Ñt nhanh sau 1 ph├║t bay. ─Éiß╗üu n├áy l├á do
+kh├óu D-term khuß║┐ch ─æß║íi c├íc nhiß╗àu cß║úm biß║┐n cao tß║ºn c├▓n s├│t lß║íi sau bß╗Ö lß╗ìc th├┤ng
+thß║Ñp.
+Γùª Gi├í trß╗ï vi ph├ón tß╗æi ╞░u ─æ╞░ß╗úc x├íc ─æß╗ïnh ß╗ƒ mß╗⌐c K =5.0.
+d_opt
+ΓÇô B╞░ß╗¢c 3: Tinh chß╗ënh hß╗ç sß╗æ t├¡ch ph├ón K ─æß╗â triß╗çt ti├¬u sai sß╗æ x├íc lß║¡p (I-term):
+i
+Γùª Do sß╗▒ ph├ón bß╗æ trß╗ìng t├óm kh├┤ng ho├án to├án ─æß╗ông ─æß╗üu giß╗»a c├íc trß╗Ñc c├ính quß║ít v├á
+ß║únh h╞░ß╗ƒng cß╗ºa lß╗▒c cß║ún gi├│ kh├┤ng ─æß╗æi xß╗⌐ng, Drone c├│ xu h╞░ß╗¢ng tr├┤i dß║ºn g├│c
+nghi├¬ng (drift) theo thß╗¥i gian.
+Γùª Bß║»t ─æß║ºu t─âng dß║ºn K tß╗½ 0.002. Tß║íi gi├í trß╗ï K = 0.012, sai sß╗æ g├│c x├íc lß║¡p ─æ╞░ß╗úc
+i i
+triß╗çt ti├¬u ho├án to├án (e <0.5Γùª), Drone kh├│a chß║╖t g├│c nghi├¬ng ─æß║╖t tr├¬n kh├┤ng
+ss
+trung rß║Ñt tß╗æt m├á kh├┤ng c├│ xu h╞░ß╗¢ng tr├┤i dß║ít.
+Γùª Khi thß╗¡ nghiß╗çm t─âng qu├í cao l├¬n K = 0.025, hiß╗çn t╞░ß╗úng b├úo h├▓a t├¡ch ph├ón
+i
+(I-term Windup) xß║úy ra, g├óy ra dao ─æß╗Öng chß║¡m tß║ºn sß╗æ thß║Ñp (1Hz) xung quanh
+─æiß╗âm th─âng bß║▒ng khi Drone thß╗▒c hiß╗çn c├íc c├║ rß║╜ ngoß║╖t gß║Ñp.
+Γùª Gi├í trß╗ï t├¡ch ph├ón tß╗æi ╞░u cho hai trß╗Ñc Roll v├á Pitch ─æ╞░ß╗úc cß╗æ ─æß╗ïnh ß╗ƒ mß╗⌐c K =
+i_opt
+0.012.
+ΓÇô B╞░ß╗¢c 4: Tinh chß╗ënh c├íc tham sß╗æ trß╗Ñc Yaw:
+Γùª Trß╗Ñc Yaw c├│ m├┤-men qu├ín t├¡nh xoay lß╗¢n h╞ín nhiß╗üu so vß╗¢i Roll v├á Pitch (do lß╗▒c
+xoß║»n ─æß╗Öng c╞í yß║┐u h╞ín lß╗▒c n├óng trß╗▒c tiß║┐p), do ─æ├│ ─æ├▓i hß╗Åi hß╗ç sß╗æ tß╗ë lß╗ç K lß╗¢n h╞ín ─æß╗â
+p
+─æß║ít tß╗æc ─æß╗Ö ─æ├íp ß╗⌐ng mong muß╗æn.
+Γùª Qua c├íc b╞░ß╗¢c thß╗▒c nghiß╗çm t╞░╞íng tß╗▒, bß╗Ö tham sß╗æ tß╗æi ╞░u cho trß╗Ñc Yaw ─æ╞░ß╗úc x├íc
+lß║¡p ß╗ƒ mß╗⌐c: K =3.0, K =0.010, v├á K =0.0 (kh├┤ng sß╗¡ dß╗Ñng kh├óu
+p_yaw i_yaw d_yaw
+vi ph├ón D-term cho trß╗Ñc Yaw v├¼ lß╗▒c qu├ín t├¡nh xoay tß╗▒ nhi├¬n ─æ├ú ─æ├│ng vai tr├▓ l├á
+mß╗Öt kh├óu dß║¡p dao ─æß╗Öng lß╗¢n).
+Bß║úng 3.2 tß╗òng kß║┐t bß╗Ö tham sß╗æ ─æiß╗üu khiß╗ân PID tß╗æi ╞░u cuß╗æi c├╣ng ─æ╞░ß╗úc ├íp dß╗Ñng v├áo
+firmware v├á l╞░u trß╗» trong bß╗Ö nhß╗¢ EEPROM 24LC256 cß╗ºa Drone.
+75
+
+--- Trang 101 ---
+Bß║úng3.2 Bß║úngtß╗ònghß╗úpthamsß╗æPIDtß╗æi╞░usauhiß╗çuchß╗ënhthß╗▒c─æß╗ïa
+Trß╗Ñc─æiß╗üukhiß╗ân Hß╗çsß╗æTß╗ëlß╗ç(K ) Hß╗çsß╗æT├¡chph├ón(K) Hß╗çsß╗æViph├ón(K )
+p i d
+Roll(Nghi├¬ngngang) 1.000 0.012 5.000
+Pitch(Nghi├¬ngdß╗ìc) 1.000 0.012 5.000
+Yaw(Xoayh╞░ß╗¢ng) 3.000 0.010 0.000
+3.2.3 ─É├ính gi├í khoß║úng c├ích ─æiß╗üu khiß╗ân v├á t├¡nh n─âng an to├án Failsafe
+Thß╗¡ nghiß╗çm tß║ºm xa v├á ─æß╗Ö ß╗òn ─æß╗ïnh cß╗ºa li├¬n kß║┐t ─æiß╗üu khiß╗ân v├┤ tuyß║┐n ExpressLRS
+2.4GHz ─æ╞░ß╗úc tiß║┐n h├ánh thß╗▒c tß║┐ ngo├ái trß╗¥i tß║íi khu vß╗▒c b├úi ─æß║Ñt trß╗æng. Tay ─æiß╗üu khiß╗ân ─æ╞░ß╗úc
+cß║Ñu h├¼nh c├┤ng suß║Ñt ph├ít cß╗æ ─æß╗ïnh ß╗ƒ mß╗⌐c 100mW v├á tß╗æc ─æß╗Ö truyß╗ün g├│i tin (packet rate) l├á
+250Hz. Do mß║ích ─æiß╗üu khiß╗ân bay Flight Controller kh├┤ng hß╗ù trß╗ú truyß╗ün ng╞░ß╗úc dß╗» liß╗çu ─æo
+─æß║íc RSSI thß╗¥i gian thß╗▒c vß╗ü trß║ím mß║╖t ─æß║Ñt, viß╗çc ─æ├ính gi├í hiß╗çu n─âng thu ph├ít s├│ng ─æ╞░ß╗úc thß╗▒c
+hiß╗çn gi├ín tiß║┐p th├┤ng qua ─æß╗Ö nhß║íy phß║ún hß╗ôi cß╗ºa tay ga/tay l├íi v├á khß║ú n─âng k├¡ch hoß║ít chß║┐ ─æß╗Ö
+an to├án Failsafe khi c├│ sß╗▒ cß╗æ.
+C├íc kß╗ïch bß║ún thß╗▒c nghiß╗çm ─æ╞░ß╗úc thß╗▒c hiß╗çn v├á ghi nhß║¡n nh╞░ sau:
+ΓÇô Thß╗¡ nghiß╗çm phß║ím vi kiß╗âm so├ít: Drone ─æ╞░ß╗úc ─æiß╗üu khiß╗ân bay xa dß║ºn tß╗½ ─æiß╗âm xuß║Ñt
+ph├ít ─æß║┐n khoß║úng c├ích 200m (╞░ß╗¢c l╞░ß╗úng t╞░╞íng ─æß╗æi th├┤ng qua c├íc cß╗Öt mß╗æc vß║¡t l├╜
+tß║íi b├úi thß╗¡ nghiß╗çm). Tß║íi c├íc mß╗æc khoß║úng c├ích kh├íc nhau (50m, 100m, 150m, v├á
+200m), ng╞░ß╗¥i vß║¡n h├ánh thß╗▒c hiß╗çn c├íc thao t├íc ─æß╗òi h╞░ß╗¢ng bay ─æß╗Öt ngß╗Öt (Yaw/Pitch)
+v├á ghi nhß║¡n phß║ún hß╗ôi c╞í ─æß╗Öng cß╗ºa Drone. Kß║┐t quß║ú thß╗▒c tß║┐ cho thß║Ñy thiß║┐t bß╗ï phß║ún hß╗ôi
+tß╗⌐c thß╗¥i vß╗¢i c├íc lß╗çnh tß╗½ tay ─æiß╗üu khiß╗ân, kh├┤ng xß║úy ra hiß╗çn t╞░ß╗úng giß║¡t cß╗Ñc, trß╗à lß╗çnh hay
+mß║Ñt li├¬n lß║íc tß║ím thß╗¥i.
+ΓÇô Kiß╗âm nghiß╗çm chß║┐ ─æß╗Ö an to├án Failsafe: ─Éß╗â ─æß║úm bß║úo an to├án tuyß╗çt ─æß╗æi khi vß║¡n
+h├ánh, kß╗ïch bß║ún mß║Ñt kß║┐t nß╗æi ─æß╗Öt ngß╗Öt ─æ╞░ß╗úc giß║ú lß║¡p bß║▒ng c├ích chß╗º ─æß╗Öng ngß║»t nguß╗ôn
+tay ph├ít s├│ng (Transmitter) khi Drone ─æang ─æ╞░ß╗úc treo cß╗æ ─æß╗ïnh tr├¬n gi├í thß╗¡ nghiß╗çm
+1 trß╗Ñc. Ngay khi tay ─æiß╗üu khiß╗ân tß║»t, vi ─æiß╗üu khiß╗ân STM32F103 tr├¬n mß║ích Flight
+Controller lß║¡p tß╗⌐c ph├ít hiß╗çn sß╗▒ thiß║┐u hß╗Ñt xung t├¡n hiß╗çu CRSF (qu├í ng╞░ß╗íng timeout
+200ms). Hß╗ç thß╗æng chuyß╗ân trß║íng th├íi tß╗½ STATE_ARMED sang STATE_FAILSAFE trong
+thß╗¥i gian nhß╗Å h╞ín 0.25 gi├óy, lß║¡p tß╗⌐c ngß║»t to├án bß╗Ö xung PWM ─æiß╗üu khiß╗ân ─æß╗Öng c╞í
+(motorStopAll()) ─æß╗â dß╗½ng c├ính quß║ít khß║⌐n cß║Ñp, ng─ân chß║╖n hiß╗çn t╞░ß╗úng Drone bay
+tß╗▒ do mß║Ñt kiß╗âm so├ít (flyaway).
+76
+
+--- Trang 102 ---
+3.3 Kß║┐t quß║ú thß╗▒c nghiß╗çm hß╗ç thß╗æng nhß║¡n dß║íng cß╗⌐u hß╗Ö AI tß║íi trß║ím mß║╖t ─æß║Ñt
+Ph├ón hß╗ç xß╗¡ l├╜ AI tß║íi trß║ím mß║╖t ─æß║Ñt ─æ╞░ß╗úc thß╗¡ nghiß╗çm vß╗¢i c├íc video ghi lß║íi tß╗½ camera
+FPV cß╗ºa Drone trong c├íc chuyß║┐n bay giß║ú lß║¡p t├¼m kiß║┐m cß╗⌐u hß╗Ö ß╗ƒ m├┤i tr╞░ß╗¥ng ─æß╗ông cß╗Å v├á
+khu ─æß║Ñt trß╗æng.
+3.3.1 ─É├ính gi├í ─æß╗Ö ch├¡nh x├íc cß╗ºa thuß║¡t to├ín dung hß╗úp quyß║┐t ─æß╗ïnh
+─Éß╗â ─æ├ính gi├í hiß╗çu quß║ú cß╗ºa c╞í chß║┐ dung hß╗úp quyß║┐t ─æß╗ïnh (Decision Fusion) ─æa luß╗ông
+─æß╗ü xuß║Ñt ß╗ƒ Ch╞░╞íng 3, ch├║ng t├┤i tiß║┐n h├ánh so s├ính hiß╗çu n─âng nhß║¡n diß╗çn nß║ín nh├ón cß╗⌐u hß╗Ö
+tr├¬n tß║¡p dß╗» liß╗çu kiß╗âm thß╗¡ gß╗ôm 1200 khung h├¼nh cß╗ºa 3 ph╞░╞íng ph├íp: Chß╗ë d├╣ng m├┤ h├¼nh
+YOLOv8s-Rescue ─æ╞ín lß║╗, chß╗ë d├╣ng m├┤ h├¼nh t╞░ thß║┐ YOLOv8s-Posture v├á sß╗¡ dß╗Ñng thuß║¡t
+to├ín Dung hß╗úp quyß║┐t ─æß╗ïnh ─æa m├┤ h├¼nh t├¡ch hß╗úp ─æiß╗âm Danger Score. Kß║┐t quß║ú so s├ính c├íc
+th├┤ng sß╗æ Precision, Recall v├á F1-score ─æ╞░ß╗úc tß╗òng hß╗úp trong Bß║úng 3.3.
+Bß║úng3.3 Bß║úngsos├ínhhiß╗çun─ângnhß║¡ndiß╗çncß╗ºac├ícph╞░╞íngph├íp
+Ph╞░╞íng ph├íp thß╗¡ nghiß╗çm Precision (%) Recall (%) F1-score (%)
+YOLOv8s-Rescue (─É╞ín lß║╗) 85.8 74.4 79.7
+YOLOv8s-Posture (─É╞ín lß║╗) 78.5 75.3 76.9
+Dung hß╗úp ─æa luß╗ông ─æß╗ü xuß║Ñt 89.6 86.4 88.0
+Sß╗æ liß╗çu thß╗▒c nghiß╗çm khß║│ng ─æß╗ïnh ph╞░╞íng ph├íp dung hß╗úp quyß║┐t ─æß╗ïnh ─æa luß╗ông ─æem
+lß║íi F1-score cao nhß║Ñt ─æß║ít 88.0% (t─âng 8.3% so vß╗¢i viß╗çc chß╗ë d├╣ng YOLOv8s-Rescue).
+─Éiß╗üu n├áy l├á do thuß║¡t to├ín dung hß╗úp ─æ├ú tß║¡n dß╗Ñng th├┤ng tin h├¼nh hß╗ìc cß╗ºa 17 keypoints tß╗½
+YOLO-Pose ─æß╗â lß╗ìc bß╗Å c├íc ─æß╗æi t╞░ß╗úng t─⌐nh hoß║╖c ng╞░ß╗¥i b├¼nh th╞░ß╗¥ng ─æß╗⌐ng ─æi lß║íi, ─æß╗ông thß╗¥i
+kß║┐t hß╗úp x├íc suß║Ñt tß╗½ bß╗Ö ph├ón loß║íi t╞░ thß║┐ gi├║p dß║¡p tß║»t ─æ├íng kß╗â tß╗╖ lß╗ç b├ío ─æß╗Öng giß║ú (False
+Positives).
+3.3.2 Kß║┐t quß║ú ph├ít hiß╗çn nß║ín nh├ón trong t├¼nh huß╗æng cß╗⌐u hß╗Ö thß╗▒c tß║┐
+H├¼nh 3.3 tr├¼nh b├áy ß║únh chß╗Ñp m├án h├¼nh giao diß╗çn trß║ím mß║╖t ─æß║Ñt GCS khi hß╗ç thß╗æng
+ph├ít hiß╗çn nß║ín nh├ón nß║▒m bß║Ñt ─æß╗Öng vß╗¢i ─æß╗Ö khß║⌐n cß║Ñp nguy hiß╗âm. Ng╞░ß╗úc lß║íi, H├¼nh 3.4 chß╗ë
+ra giao diß╗çn trß║ím mß║╖t ─æß║Ñt khi nhß║¡n dß║íng ng╞░ß╗¥i ß╗ƒ trß║íng th├íi ngß╗ôi b├¼nh th╞░ß╗¥ng, kh├┤ng cß║Ñu
+th├ánh t├¼nh huß╗æng khß║⌐n cß║Ñp.
+77
+
+--- Trang 103 ---
+H├¼nh3.3 Giaodiß╗çntrß║ímmß║╖t─æß║ÑtGCSnhß║¡ndiß╗çnch├¡nhx├ícnß║ínnh├ónnß║▒mbß║Ñt─æß╗Öng(Trß║íng
+th├íinguyhiß╗âm)
+H├¼nh3.4 Giaodiß╗çntrß║ímmß║╖t ─æß║ÑtGCSnhß║¡n diß╗çnng╞░ß╗¥ingß╗ôib├¼nh th╞░ß╗¥ng(Trß║íngth├íi b├¼nh
+th╞░ß╗¥ng)
+Giao diß╗çn trß║ím mß║╖t ─æß║Ñt hiß╗ân thß╗ï c├íc ph├ón hß╗ç th├┤ng tin trß╗▒c quan phß╗Ñc vß╗Ñ qu├í tr├¼nh
+gi├ím s├ít cß╗⌐u hß╗Ö giß╗»a hai tr╞░ß╗¥ng hß╗úp:
+ΓÇô Khung hiß╗ân thß╗ï h├¼nh ß║únh trung t├óm v├á ph├ón loß║íi t╞░ thß║┐:
+Γùª Tr╞░ß╗¥ng hß╗úp nß║ín nh├ón (H├¼nh 3.3): ─Éß╗æi t╞░ß╗úng nß║▒m bß║Ñt ─æß╗Öng d╞░ß╗¢i ─æß║Ñt ─æ╞░ß╗úc
+khoanh v├╣ng bß║▒ng Bounding Box m├áu ─æß╗Å vß╗¢i nh├ún ID 1 | victim -> NGHI
+78
+
+--- Trang 104 ---
+NAN NHAN | AI 85. Khung x╞░╞íng 17 ─æiß╗âm khß╗¢p ─æ╞░ß╗úc vß║╜ r├╡ n├⌐t l├ám nß╗òi bß║¡t
+t╞░ thß║┐ nß║▒m. Danger Score ─æß║ít mß╗⌐c cao (85/100), cß║únh b├ío t├¼nh trß║íng khß║⌐n cß║Ñp
+NGUY HIß╗éM (Final Status: NGUY HIEM).
+Γùª Tr╞░ß╗¥ng hß╗úp b├¼nh th╞░ß╗¥ng (H├¼nh 3.4): ─Éß╗æi t╞░ß╗úng ngß╗ôi tr├¬n ghß║┐ ─æ╞░ß╗úc khoanh
+v├╣ng bß║▒ng Bounding Box m├áu xanh l├í c├óy vß╗¢i nh├ún ID 1 | normal_person
+| AI 0/100. Khung x╞░╞íng ─æß╗ïnh vß╗ï t╞░ thß║┐ ngß╗ôi thß║│ng ─æß╗⌐ng, hß╗ç sß╗æ nguy hiß╗âm
+Danger Score vß╗ü mß╗⌐c tß╗æi thiß╗âu (0/100), ─æ╞░a ra nh├ún ─æ├ính gi├í trß║íng th├íi B├îNH
+TH╞»ß╗£NG (Final Status: BINH THUONG).
+ΓÇô Ph├ón hß╗ç hiß╗ân thß╗ï thß╗¥i tiß║┐t (Weather Widget): Cung cß║Ñp dß╗» liß╗çu kh├¡ hß║¡u thß╗¥i gian
+thß╗▒c tß║íi khu vß╗▒c bay tß╗½ Open-Meteo ─æß╗â hß╗ù trß╗ú ng╞░ß╗¥i ─æiß╗üu khiß╗ân ─æ├ính gi├í mß╗⌐c ─æß╗Ö an
+to├án sß╗⌐c gi├│ tr╞░ß╗¢c khi cß║Ñt c├ính.
+ΓÇô Ph├ón hß╗ç th├┤ng tin mß╗Ñc ti├¬u chß╗ìn lß╗ìc (Mß╗Ñc ti├¬u ─æang chß╗ìn): Hiß╗ân thß╗ï chi tiß║┐t c├íc
+trß╗ìng sß╗æ chß║Ñm ─æiß╗âm cß╗ºa thuß║¡t to├ín dung hß╗úp quyß║┐t ─æß╗ïnh ─æß╗ü xuß║Ñt (gß╗ôm ─æiß╗âm th├ánh
+phß║ºn YOLO, v├╣ng ROI, t╞░ thß║┐, v├á chuyß╗ân ─æß╗Öng t├¡ch l┼⌐y).
+ΓÇô Nhß║¡t k├╜ sß╗▒ kiß╗çn v├á h├ánh ─æß╗Öng nhanh: Hß╗ù trß╗ú viß╗çc l╞░u trß╗» lß╗ïch sß╗¡ ph├ít hiß╗çn nß║ín
+nh├ón, l╞░u ß║únh chß╗Ñp cß║»t (crop) ─æß╗æi t╞░ß╗úng ─æß╗â l╞░u trß╗» hß╗ô s╞í cß╗⌐u hß╗Ö v├á c├íc n├║t phß║ún hß╗ôi
+x├íc nhß║¡n nhanh tß╗½ ng╞░ß╗¥i vß║¡n h├ánh.
+3.4 ─É├ính gi├í ╞░u nh╞░ß╗úc ─æiß╗âm v├á chi ph├¡ chß║┐ tß║ío
+Qua qu├í tr├¼nh chß║┐ tß║ío thß╗▒c tß║┐ v├á thß╗¡ nghiß╗çm bay thß╗▒c tß║┐, nh├│m nghi├¬n cß╗⌐u ─æ╞░a ra
+c├íc ─æ├ính gi├í tß╗òng hß╗úp vß╗ü ╞░u nh╞░ß╗úc ─æiß╗âm v├á chi ph├¡ chß║┐ tß║ío cß╗ºa hß╗ç thß╗æng.
+3.4.1 ─É├ính gi├í ╞░u ─æiß╗âm v├á hß║ín chß║┐ cß╗ºa hß╗ç thß╗æng
+╞»u ─æiß╗âm:
+ΓÇô L├ám chß╗º ho├án to├án thiß║┐t kß║┐ phß║ºn cß╗⌐ng FC v├á m├ú nguß╗ôn firmware nh├║ng, kh├┤ng phß╗Ñ
+thuß╗Öc v├áo thiß║┐t kß║┐ n╞░ß╗¢c ngo├ái.
+ΓÇô Hß╗ç thß╗æng trß║ím mß║╖t ─æß║Ñt ─æa luß╗ông hoß║ít ─æß╗Öng m╞░ß╗út m├á, thuß║¡t to├ín AI dung hß╗úp quyß║┐t
+─æß╗ïnh t─âng ─æ├íng kß╗â ─æß╗Ö tin cß║¡y nhß║¡n dß║íng nß║ín nh├ón cß╗⌐u hß╗Ö.
+ΓÇô C╞í chß║┐ Failsafe ngß║»t an to├án hoß║ít ─æß╗Öng nhß║íy b├⌐n khi mß║Ñt s├│ng v├┤ tuyß║┐n.
+Hß║ín chß║┐:
+ΓÇô Do k├¡ch th╞░ß╗¢c Drone nhß╗Å v├á trß╗ìng l╞░ß╗úng nhß║╣, khß║ú n─âng kh├íng gi├│ ngo├ái trß╗¥i c├▓n hß║ín
+chß║┐ khi gi├│ v╞░ß╗út cß║Ñp 4.
+79
+
+--- Trang 105 ---
+ΓÇô Bß╗Ö lß╗ìc b├╣ Complementary Filter d├╣ ─æ├íp ß╗⌐ng nhanh nh╞░ng vß║½n c├▓n tr├┤i g├│c Yaw
+nhß║╣ sau khoß║úng thß╗¥i gian bay d├ái do cß║úm biß║┐n MPU6050 kh├┤ng t├¡ch hß╗úp la b├án sß╗æ
+(Magnetometer).
+ΓÇô Hß╗ç thß╗æng xß╗¡ l├╜ AI y├¬u cß║ºu m├íy trß║ím mß║╖t ─æß║Ñt c├│ card ─æß╗ô hß╗ìa rß╗¥i GPU ─æß╗â ─æß║ít tß╗æc ─æß╗Ö
+thß╗¥i gian thß╗▒c.
+3.4.2 Bß║úng tß╗òng hß╗úp chi ph├¡ linh kiß╗çn v├á chß║┐ tß║ío
+─Éß╗â chß╗⌐ng minh t├¡nh khß║ú thi vß╗ü mß║╖t kinh tß║┐ cß╗ºa ─æß╗ü t├ái so vß╗¢i c├íc giß║úi ph├íp th╞░╞íng
+mß║íi nhß║¡p khß║⌐u ─æß║»t ─æß╗Å, Bß║úng 3.4 tr├¼nh b├áy bß║úng dß╗▒ to├ín chi ph├¡ chi tiß║┐t ─æß╗â chß║┐ tß║ío ho├án
+chß╗ënh mß╗Öt hß╗ç thß╗æng Drone Quadcopter cß╗⌐u hß╗Ö cß╗⌐u nß║ín.
+80
+
+--- Trang 106 ---
+Bß║úng3.4 Bß║úngtß╗ònghß╗úpchiph├¡linhkiß╗çnchß║┐tß║íohß╗çthß╗ængDronecß╗⌐uhß╗Ö
+Nh├á sß║ún ─É╞ín gi├í Th├ánh tiß╗ün
+STT T├¬n linh kiß╗çn SL
+(VN─É) (VN─É)
+xuß║Ñt/M├ú hiß╗çu
+Bß╗Ö ph├ít v├┤ tuyß║┐n RadioMaster
+1 1 1.000.000 1.000.000
+(Khiß╗ân) Pocket ELRS
+ELRS 2.4GHz
+2 Bß╗Ö thu s├│ng Receiver 1 300.000 300.000
+RX
+Mß║ích ph├ít h├¼nh ß║únh VTX 5.8GHz
+3 1 700.000 700.000
+VTX 1.6W
+Caddx FPV
+4 Camera FPV cß╗⌐u hß╗Ö 1 500.000 500.000
+Cam
+Khung F450,
+Combo Khung s╞░ß╗¥n, ─æß╗Öng c╞í 2212,
+5 ─æß╗Öng c╞í, c├ính quß║ít, c├ính 1045, 1 2.000.000 2.000.000
+ESC, Pin ESC 40A, Pin
+3S
+Mß║ích in PCB Flight ─Éß║╖t gia c├┤ng
+6 1 500.000 500.000
+Controller PCB 2 lß╗¢p FR4
+VRX 5.8GHz
+7 Bß╗Ö nhß║¡n h├¼nh ß║únh VRX 1 400.000 400.000
+(GCS)
+IC nguß╗ôn, trß╗ƒ,
+Linh kiß╗çn SMD, ß╗æc v├¡t
+8 tß╗Ñ, ß╗æc lß╗Ñc gi├íc, 1 325.000 325.000
+v├á phß╗Ñ kiß╗çn c╞í kh├¡
+─æai ß╗æc M3/M2
+Sß║íc c├ón bß║▒ng
+9 Bß╗Ö sß║íc pin LiPo nguß╗ôn 1 350.000 350.000
+B3/B6
+6.075.000
+Tß╗öNG Cß╗ÿNG CHI PH├ì THß╗░C Tß║╛
+VN─É
+Kß║┐t luß║¡n Ch╞░╞íng 3
+Ch╞░╞íng 3 ─æ├ú tr├¼nh b├áy c├íc kß║┐t quß║ú thß╗▒c nghiß╗çm v├á ─æ├ính gi├í hß╗ç thß╗æng Drone cß╗⌐u hß╗Ö.
+Vß╗ü phß║ºn cß╗⌐ng, bo mß║ích Flight Controller hoß║ít ─æß╗Öng ß╗ƒ v├▓ng lß║╖p 250Hz, m├íy bay Quad-X
+giß╗» ─æ╞░ß╗úc c├ón bß║▒ng v├á duy tr├¼ kß║┐t nß╗æi v├┤ tuyß║┐n ß╗òn ─æß╗ïnh trong suß╗æt qu├í tr├¼nh bay thß╗¡. Vß╗ü
+phß║ºn mß╗üm, trß║ím mß║╖t ─æß║Ñt GCS xß╗¡ l├╜ video FPV ß╗ƒ tß╗æc ─æß╗Ö khoß║úng 20FPS, m├┤ h├¼nh nhß║¡n
+diß╗çn nß║ín nh├ón cho kß║┐t quß║ú F1-score 88,0%, ─æ├íp ß╗⌐ng chß╗ë ti├¬u 85% ban ─æß║ºu. Tß╗òng chi ph├¡
+linh kiß╗çn cß╗ºa hß╗ç thß╗æng l├á 6.075.000VN─É. C├íc kß║┐t quß║ú n├áy cho thß║Ñy viß╗çc tß╗▒ thiß║┐t kß║┐ v├á lß║»p
+r├íp mß╗Öt hß╗ç thß╗æng Drone cß╗⌐u hß╗Ö l├á ho├án to├án khß║ú thi v├á ph├╣ hß╗úp vß╗¢i y├¬u cß║ºu cß╗ºa ─æß╗ü t├ái.
+81
+
+--- Trang 107 ---
+Kß║╛T LUß║¼N V├Ç H╞»ß╗ÜNG PH├üT TRIß╗éN
+1. Kß║┐t luß║¡n
+─Éß╗ô ├ín tß╗æt nghiß╗çp ─æß╗ü t├ái "X├óy dß╗▒ng v├á chß║┐ tß║ío Drone ß╗⌐ng dß╗Ñng cho gi├ím s├ít an
+ninh v├á cß╗⌐u hß╗Ö" ─æ├ú ho├án th├ánh ─æß║ºy ─æß╗º tß║Ñt cß║ú c├íc mß╗Ñc ti├¬u kß╗╣ thuß║¡t ─æß║╖t ra ban ─æß║ºu, giß║úi
+quyß║┐t trß╗ìn vß║╣n cß║ú b├ái to├ín thiß║┐t kß║┐ phß║ºn cß╗⌐ng, lß║¡p tr├¼nh phß║ºn mß╗üm nh├║ng v├á t├¡ch hß╗úp thuß║¡t
+to├ín tr├¡ tuß╗ç nh├ón tß║ío. C├íc kß║┐t quß║ú cß╗Ñ thß╗â ─æß║ít ─æ╞░ß╗úc bao gß╗ôm:
+1. Vß╗ü phß║ºn cß╗⌐ng: Thiß║┐t kß║┐ v├á gia c├┤ng th├ánh c├┤ng bo mß║ích ─æiß╗üu khiß╗ân bay Flight
+Controller dß╗▒a tr├¬n vi ─æiß╗üu khiß╗ân STM32F103C8T6. Mß║ích t├¡ch hß╗úp bß╗Ö lß╗ìc nguß╗ôn
+ph├ón tß║ºng LDO v├á Buck hoß║ít ─æß╗Öng ß╗òn ─æß╗ïnh, kh├┤ng bß╗ï ß║únh h╞░ß╗ƒng bß╗ƒi nhiß╗àu ─æß╗Öng lß╗▒c
+tß╗½ ─æß╗Öng c╞í. Lß║»p r├íp ho├án chß╗ënh m├┤ h├¼nh Drone Quadcopter cß║Ñu h├¼nh Quad-X hoß║ít
+─æß╗Öng ß╗òn ─æß╗ïnh c╞í kh├¡ vß╗¢i tß╗╖ lß╗ç lß╗▒c ─æß║⌐y tr├¬n trß╗ìng l╞░ß╗úng ─æß║ít mß╗⌐c 3.58.
+2. Vß╗ü phß║ºn mß╗üm nh├║ng (Firmware): X├óy dß╗▒ng th├ánh c├┤ng m├ú nguß╗ôn firmware
+Bare-metalC++─æiß╗üukhiß╗ânbaythß╗¥igianthß╗▒cchukß╗│v├▓nglß║╖p250Hzß╗òn─æß╗ïnh. Triß╗ân
+khai thuß║¡t to├ín bß╗Ö lß╗ìc b├╣ (Complementary Filter) dung hß╗úp cß║úm biß║┐n IMU ─æß║ít ─æß╗Ö
+ch├¡nh x├íc ╞░ß╗¢c l╞░ß╗úng g├│c d╞░ß╗¢i 1Γùª c├╣ng bß╗Ö ─æiß╗üu khiß╗ân phß║ún hß╗ôi PID k├⌐p dß║¡p tß║»t dao
+─æß╗Öng nhanh d╞░ß╗¢i 0.4 gi├óy. Giß║úi m├ú th├ánh c├┤ng giao thß╗⌐c CRSF v├á t├¡ch hß╗úp c╞í chß║┐
+ngß║»t ─æß╗Öng c╞í khß║⌐n cß║Ñp (Failsafe) khi mß║Ñt s├│ng ─æiß╗üu khiß╗ân.
+3. Vß╗ü phß║ºn mß╗üm trß║ím mß║╖t ─æß║Ñt v├á thuß║¡t to├ín AI: Ph├ít triß╗ân th├ánh c├┤ng phß║ºn mß╗üm
+trß║ím mß║╖t ─æß║Ñt OpenCV kß║┐t nß╗æi luß╗ông video FPV thß╗¥i gian thß╗▒c, t├¡ch hß╗úp luß╗ông ghi sß╗▒
+kiß╗çn bß║Ñt ─æß╗ông bß╗Ö. ─Éß╗ü xuß║Ñt c╞í chß║┐ dung hß╗úp quyß║┐t ─æß╗ïnh (Decision Fusion) ─æa m├┤ h├¼nh
+dß╗▒a tr├¬n chiß║┐n thuß║¡t Cascade Pipeline kß║┐t hß╗úp 4 m├┤ h├¼nh YOLO (YOLOv8s ─æ├│ng
+vai tr├▓ cß║»t ß║únh, truyß╗ün cho YOLOv8s-Pose, YOLOv8s-Posture, YOLOv8s-Rescue)
+gi├║p triß╗çt ti├¬u nhiß╗àu bß╗æi cß║únh, ─æß║ít ─æß╗Ö ch├¡nh x├íc F1-score nhß║¡n dß║íng nß║ín nh├ón cß╗⌐u hß╗Ö
+l├¬n tß╗¢i 88.0% ß╗ƒ tß╗æc ─æß╗Ö xß╗¡ l├╜ thß╗¥i gian thß╗▒c 27.8 FPS. T├¡ch hß╗úp th├ánh c├┤ng module tß╗▒
+─æß╗Öng ghi nhß║¡t k├╜ sß╗▒ kiß╗çn cß╗⌐u hß╗Ö v├á sinh b├ío c├ío HTML chß╗⌐a tß╗ìa ─æß╗Ö GPS v├á h├¼nh
+ß║únh trß╗▒c quan.
+2. H╞░ß╗¢ng ph├ít triß╗ân cß╗ºa ─æß╗ü t├ái
+Mß║╖c d├╣ hß╗ç thß╗æng ─æ├ú hoß║ít ─æß╗Öng ß╗òn ─æß╗ïnh, nh├│m nghi├¬n cß╗⌐u nhß║¡n thß║Ñy vß║½n c├▓n nhiß╗üu
+tiß╗üm n─âng ─æß╗â n├óng cß║Ñp v├á mß╗ƒ rß╗Öng hiß╗çu n─âng phß╗Ñc vß╗Ñ thß╗▒c tß║┐:
+82
+
+--- Trang 108 ---
+ΓÇô T├¡ch hß╗úp camera cß║úm biß║┐n nhiß╗çt (Thermal Camera): Trong c├íc nhiß╗çm vß╗Ñ t├¼m
+kiß║┐m ban ─æ├¬m hoß║╖c d╞░ß╗¢i t├ín c├óy rß║¡m rß║íp, camera FPV th├┤ng th╞░ß╗¥ng kh├┤ng thß╗â quan
+s├ít ─æ╞░ß╗úc nß║ín nh├ón. Viß╗çc t├¡ch hß╗úp th├¬m camera nhiß╗çt (v├¡ dß╗Ñ FLIR Lepton) v├á huß║Ñn
+luyß╗çn m├┤ h├¼nh YOLOv8 tr├¬n ß║únh nhiß╗çt sß║╜ gi├║p ─æß╗ïnh vß╗ï nß║ín nh├ón ch├¡nh x├íc th├┤ng qua
+bß╗⌐c xß║í hß╗ông ngoß║íi c╞í thß╗â ng╞░ß╗¥i.
+ΓÇô T├¡ch hß╗úp m├íy t├¡nh nh├║ng xß╗¡ l├╜ AI Edge trß╗▒c tiß║┐p tr├¬n Drone: Nhß║▒m loß║íi bß╗Å ─æß╗Ö
+trß╗à truyß╗ün h├¼nh ß║únh FPV analog v├á hoß║ít ─æß╗Öng ─æß╗Öc lß║¡p kh├┤ng phß╗Ñ thuß╗Öc m├íy trß║ím
+mß║╖t ─æß║Ñt, viß╗çc t├¡ch hß╗úp c├íc d├▓ng m├íy t├¡nh nh├║ng AI nhß║╣ (nh╞░ NVIDIA Jetson Orin
+Nano) trß╗▒c tiß║┐p l├¬n Drone ─æß╗â chß║íy suy luß║¡n YOLO v├á gß╗¡i cß║únh b├ío trß╗▒c tiß║┐p qua
+s├│ng Telemetry l├á b╞░ß╗¢c tiß║┐n quan trß╗ìng.
+ΓÇô Nghi├¬n cß╗⌐u thuß║¡t to├ín bay tß╗▒ h├ánh v├á lß║¡p bß║ún ─æß╗ô 3D: T├¡ch hß╗úp cß║úm biß║┐n LiDAR
+v├á GPS RTK ─æß╗Ö ch├¡nh x├íc cao ─æß╗â Drone c├│ khß║ú n─âng tß╗▒ ─æß╗Öng thiß║┐t lß║¡p h├ánh tr├¼nh
+bay qu├⌐t tß╗æi ╞░u, tß╗▒ tr├ính ch╞░ß╗¢ng ngß║íi vß║¡t (Obstacle Avoidance) v├á dß╗▒ng bß║ún ─æß╗ô 3D
+v├╣ng l┼⌐ lß╗Ñt, thi├¬n tai ─æß╗â phß╗Ñc vß╗Ñ lß╗▒c l╞░ß╗úng SAR mß║╖t ─æß║Ñt.
+83
+
+--- Trang 109 ---
+T├ÇI LIß╗åU THAM KHß║óO
+[1] M. A. Goodrich, B. S. Morse, C. Engh, J. L. Cooper, and J. A. Adams, ΓÇ£Towards
+using unmanned aerial vehicles (uavs) in wilderness search and rescue: Lessons from
+field trials,ΓÇ¥ Interaction Studies: Social Behaviour and Communication in Biological
+and Artificial Systems, vol. 10, no. 3, pp. 453ΓÇô478, 2009.
+[2] C. DellΓÇÖAmore, ΓÇ£Robots to aid mountain rescue teams,ΓÇ¥ 2014, national Geographic
+News, Feb. 2014. Report on SHERPA Project (EU FP7 Framework).
+[3] MPU-6000 and MPU-6050 Product Specification, InvenSense, 2013.
+[4] R. Mahony, T. Hamel, and J.-M. Pflimlin, ΓÇ£Nonlinear complementary filters on the
+special orthogonal group,ΓÇ¥ IEEE Transactions on Automatic Control, vol. 53, no. 5,
+pp. 1203ΓÇô1218, 2008.
+[5] ExpressLRS Team, ΓÇ£Expresslrs - open source rc link system,ΓÇ¥ 2023. [Online].
+Available: https://www.expresslrs.org/
+[6] J. Brokking, ΓÇ£Ymfc-32 - your multiple flight controller 32-bit,ΓÇ¥ 2019, accessed:
+2026-06-22. [Online]. Available: http://www.brokking.net/ymfc-32_main.html
+[7] Betaflight Team, ΓÇ£Betaflight flight controller software,ΓÇ¥ GitHub Repository, 2024.
+[Online]. Available: https://github.com/betaflight/betaflight
+[8] G. Jocher, A. Chaurasia, and J. Qiu, ΓÇ£Ultralytics yolov8,ΓÇ¥ 2023. [Online]. Available:
+https://github.com/ultralytics/ultralytics
+84
+
+--- Trang 110 ---
+PHß╗ñ Lß╗ñC
+Phß╗Ñ lß╗Ñc A: M├ú nguß╗ôn C++ thuß║¡t to├ín lß╗ìc t╞░ thß║┐ v├á ─æiß╗üu khiß╗ân PID (STM32)
+D╞░ß╗¢i ─æ├óy l├á ─æoß║ín m├ú nguß╗ôn C++ cß╗æt l├╡i thß╗▒c thi thuß║¡t to├ín bß╗Ö lß╗ìc b├╣ (Complemen-
+tary Filter) v├á t├¡nh to├ín PID k├⌐p (Cascade PID) cho g├│c t╞░ thß║┐ tr├¡ch xuß║Ñt trß╗▒c tiß║┐p tß╗½ c├íc
+tß╗çp imu_estimator.cpp v├á pid_controller.cpp trong firmware:
+// 1. Uoc luong tu the goc nghieng tu IMU MPU6050 (
+imu_estimator.cpp)
+static const float Alpha = 0.9996f;
+void imuEstimatorUpdate(const MpuData *p_imu, float dt) {
+// Tinh toan goc nghieng tinh tu Gia toc ke (Accel)
+float roll_acc = atan2f(p_imu->ay, p_imu->az) * 57.29578f;
+// 180 / PI
+float pitch_acc = atan2f(-p_imu->ax, sqrtf(p_imu->ay * p_imu
+->ay + p_imu->az * p_imu->az)) * 57.29578f;
+if (is_first_run) {
+current_att.roll = roll_acc;
+current_att.pitch = pitch_acc;
+current_att.yaw = 0.0f;
+is_first_run = false;
+return;
+}
+// Tich phan Gyro vao goc hien tai
+current_att.roll += p_imu->gx * dt;
+current_att.pitch += p_imu->gy * dt;
+current_att.yaw += p_imu->gz * dt;
+// Bu cheo goc khi xoay Yaw (Yaw coupling compensation)
+float yaw_rad = p_imu->gz * dt * 0.0174532925f;
+float sin_yaw = sinf(yaw_rad);
+float prev_roll = current_att.roll;
+current_att.roll += current_att.pitch * sin_yaw;
+current_att.pitch -= prev_roll * sin_yaw;
+// Thuat toan hoa tron bo loc bu (Complementary Filter)
+85
+
+--- Trang 111 ---
+current_att.roll = Alpha * current_att.roll + (1.0f -
+Alpha) * roll_acc;
+current_att.pitch = Alpha * current_att.pitch + (1.0f -
+Alpha) * pitch_acc;
+}
+// 2. Tinh toan PID Cascade cho truc Roll (pid_controller.cpp)
+void pidCompute(const Attitude *current_att, const MpuData *
+current_imu,
+float target_roll_deg, float *out_roll) {
+// Bo loc thong thap IIR 70/30 lam muot tin hieu gyro truoc
+khi tinh PID
+gyro_roll_input = (gyro_roll_input * 0.7f) + (current_imu->
+gx * 0.3f);
+// Vong ngoai: Angle -> Rate setpoint
+float error_angle_roll = target_roll_deg - current_att->roll
+;
+float target_rate_roll = angle_gains[AXIS_ROLL].kp *
+error_angle_roll;
+// Gioi han rate setpoint o muc +-164 deg/s de dam bao an
+toan
+if (target_rate_roll > 164.0f) target_rate_roll = 164.0f;
+else if (target_rate_roll < -164.0f) target_rate_roll =
+-164.0f;
+// Vong trong: Rate PID
+float error_rate_roll = gyro_roll_input - target_rate_roll;
+// Khau tich phan (I) khong nhan dt, co chong bao hoa (Anti-
+windup clamping)
+i_mem_roll += rate_gains[AXIS_ROLL].ki * error_rate_roll;
+if (i_mem_roll > PID_MAX_ROLL_PITCH) i_mem_roll =
+PID_MAX_ROLL_PITCH;
+else if (i_mem_roll < -PID_MAX_ROLL_PITCH) i_mem_roll = -
+PID_MAX_ROLL_PITCH;
+// Khau vi phan (D) khong chia dt (do dt=4ms co dinh va da
+gop vao he so Kd)
+86
+
+--- Trang 112 ---
+float pid_output_roll = rate_gains[AXIS_ROLL].kp *
+error_rate_roll + i_mem_roll +
+rate_gains[AXIS_ROLL].kd * (
+error_rate_roll - last_error_roll
+);
+if (pid_output_roll > PID_MAX_ROLL_PITCH) pid_output_roll =
+PID_MAX_ROLL_PITCH;
+else if (pid_output_roll < -PID_MAX_ROLL_PITCH)
+pid_output_roll = -PID_MAX_ROLL_PITCH;
+last_error_roll = error_rate_roll;
+*out_roll = pid_output_roll;
+}
+Phß╗Ñ lß╗Ñc B: M├ú nguß╗ôn Python thuß║¡t to├ín ph├ít hiß╗çn cß╗¡ chß╗ë vß║½y tay cß║ºu cß╗⌐u
+─Éoß║ín m├ú Python d╞░ß╗¢i ─æ├óy thß╗▒c thi thuß║¡t to├ín ph├ón t├¡ch chuß╗ùi thß╗¥i gian chuyß╗ân ─æß╗Öng
+cß╗ºa cß╗ò tay so vß╗¢i vai tr├¡ch xuß║Ñt tß╗½ 17 keypoints cß╗ºa YOLOv8-Pose nhß║▒m ph├ít hiß╗çn cß╗¡
+chß╗ë vß║½y hai tay cß║ºu cß╗⌐u tuß║ºn ho├án cß╗ºa nß║ín nh├ón (tr├¡ch xuß║Ñt tß╗½ utils.py ß╗ƒ trß║ím mß║╖t ─æß║Ñt
+GCS):
+# 1. Ham phan tich so lan doi huong co tay tren hang doi (
+utils.py)
+def _direction_changes(values: list[float], min_delta: float =
+0.05) -> int:
+if len(values) < 3:
+return 0
+signs: list[int] = []
+anchor = values[0]
+for value in values[1:]:
+delta = value - anchor
+if abs(delta) < min_delta:
+continue
+sign = 1 if delta > 0 else -1
+if not signs or sign != signs[-1]:
+signs.append(sign)
+anchor = value
+return max(0, len(signs) - 1)
+# 2. Thuat toan kiem tra co tay co dang vay tay hay khong (
+utils.py)
+87
+
+--- Trang 113 ---
+def detect_wrist_waving(history, current_time: float) -> bool:
+# Loc cac diem trong cua so thoi gian
+WAVING_WINDOW_SECONDS (mac dinh 2.0 giay)
+recent = [item for item in history if current_time - float
+(item[0]) <= config.WAVING_WINDOW_SECONDS]
+if len(recent) < 4:
+return False
+xs = [float(item[1]) for item in recent]
+ys = [float(item[2]) for item in recent]
+above_values = [bool(item[3]) for item in recent]
+# Yeu cau co tay phai cao hon vai mot ty le thoi gian nhat
+dinh
+above_count = sum(1 for value in above_values if value)
+if above_count / len(recent) < getattr(config, ΓÇÖ
+WAVING_MIN_ABOVE_RATIOΓÇÖ, 0.7):
+return False
+# Kiem tra bien do di chuyen co tay co vuot nguong toi
+thieu WRIST_MOVE_THRESHOLD
+move_x = max(xs) - min(xs)
+move_y = max(ys) - min(ys)
+if max(move_x, move_y) < config.WRIST_MOVE_THRESHOLD:
+return False
+# Tinh toan so lan doi huong de xac dinh cu chi vay
+direction_changes = max(_direction_changes(xs, 0.05),
+_direction_changes(ys, 0.05))
+return direction_changes >= config.
+WAVING_MIN_DIRECTION_CHANGES
+Phß╗Ñ lß╗Ñc C: Bß║ún vß║╜ s╞í ─æß╗ô mß║ích nguy├¬n l├╜ Flight Controller v├á Layout PCB
+D╞░ß╗¢i ─æ├óy l├á h├¼nh ß║únh bß║ún vß║╜ thiß║┐t kß║┐ nguy├¬n l├╜ tß╗òng thß╗â cß╗ºa bo mß║ích ─æiß╗üu khiß╗ân bay
+v├á ─æ╞░ß╗¥ng ─æi d├óy Layout PCB:
+88
+
+--- Trang 114 ---
+H├¼nh3.5 S╞í─æß╗ômß║íchnguy├¬nl├╜-Khß╗æimß║íchnguß╗ônch├¡nh(PowerMain)
+H├¼nh3.6 S╞í─æß╗ômß║íchnguy├¬nl├╜-Khß╗æivi─æiß╗üukhiß╗ântrungt├ómv├ágiaotiß║┐pcß║úmbiß║┐n
+89
+
+--- Trang 115 ---
+H├¼nh3.7 Bß║únvß║╜─æ╞░ß╗¥ng─æid├óyPCB-Lß╗¢pTopLayer
+H├¼nh3.8 Bß║únvß║╜─æ╞░ß╗¥ng─æid├óyPCB-Lß╗¢pBottomLayer
+90
+
+--- Trang 116 ---
+H├¼nh3.9 M├┤phß╗Ångphß╗æicß║únh3Dbomß║íchFlightControllerho├ánchß╗ënh
+91
+
