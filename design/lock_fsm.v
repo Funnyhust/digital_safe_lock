@@ -25,14 +25,15 @@ module lock_fsm #(
 );
 
     // State Encoding for the Finite State Machine
-    localparam S_INIT_WR    = 4'd0; // State: Send initial default password to SRAM on boot
-    localparam S_INIT_WAIT  = 4'd1; // State: Wait for SRAM to finish writing the initial password
+    localparam S_INIT_RD    = 4'd0; // State: Read saved password on boot
+    localparam S_INIT_WAIT  = 4'd1; // State: Wait for memory boot read to complete
     localparam S_IDLE       = 4'd2; // State: Safe is locked, waiting for user input
     localparam S_READ_CHECK = 4'd3; // State: Reading password from SRAM and comparing it with user input
     localparam S_UNLOCKED   = 4'd4; // State: Safe is unlocked, waiting for "Lock" or "Change Password" command
     localparam S_ERR        = 4'd5; // State: Wrong password entered, display error for 2 seconds
-    localparam S_WRITE_CHG  = 4'd6; // State: Sending new password to SRAM to overwrite the old one
+    localparam S_INIT_WR    = 4'd6; // State: Write default password only if EEPROM is blank
     localparam S_CHG_DONE   = 4'd7; // State: New password saved, display success message for 2 seconds
+    localparam S_WRITE_CHG  = 4'd8; // State: Sending new password to memory to overwrite the old one
 
     reg [3:0] state; // Current FSM state
     
@@ -62,7 +63,7 @@ module lock_fsm #(
     always @(posedge i_clk or negedge i_rst_n) begin
         if (!i_rst_n) begin
             // Initialize system into a locked, safe state upon reset
-            state <= S_INIT_WR;
+            state <= S_INIT_RD;
             o_sram_rd_en <= 1'b0;
             o_sram_wr_en <= 1'b0;
             o_sram_addr <= 19'd0;
@@ -72,19 +73,33 @@ module lock_fsm #(
             o_display_state <= 3'd0; // Default to Blank display
         end else begin
             case (state)
-                S_INIT_WR: begin
-                    // Trigger a write operation to set the default password (00) at address 0
-                    o_sram_wr_en <= 1'b1;
+                S_INIT_RD: begin
+                    // Read the saved password on boot. A blank EEPROM cell returns 16'hFFFF.
+                    o_sram_rd_en <= 1'b1;
                     o_sram_addr <= 19'd0;
-                    o_sram_data_out <= 16'h0000; 
                     state <= S_INIT_WAIT;
                 end
                 
                 S_INIT_WAIT: begin
-                    // Wait until the SRAM controller confirms the write is complete
+                    // Keep an existing EEPROM password. If EEPROM is blank, initialize it to 00.
                     if (i_sram_ready) begin
-                        o_sram_wr_en <= 1'b0; // De-assert write request
-                        state <= S_IDLE;      // Move to IDLE (ready for user)
+                        o_sram_rd_en <= 1'b0;
+                        if (i_sram_data == 16'hFFFF) begin
+                            o_sram_wr_en <= 1'b1;
+                            o_sram_addr <= 19'd0;
+                            o_sram_data_out <= 16'h0000;
+                            state <= S_INIT_WR;
+                        end else begin
+                            state <= S_IDLE;
+                        end
+                    end
+                end
+
+                S_INIT_WR: begin
+                    // Wait until the default password has been written to a blank EEPROM.
+                    if (i_sram_ready) begin
+                        o_sram_wr_en <= 1'b0;
+                        state <= S_IDLE;
                     end
                 end
                 
@@ -168,7 +183,7 @@ module lock_fsm #(
                     end
                 end
                 
-                default: state <= S_INIT_WR; // Fallback to initialization for safety
+                default: state <= S_INIT_RD; // Fallback to initialization for safety
             endcase
         end
     end

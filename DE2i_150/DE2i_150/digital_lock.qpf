@@ -1,0 +1,6 @@
+DATE = "03:21:23 July 03, 2026"
+QUARTUS_VERSION = "13.1"
+
+# Revisions
+
+PROJECT_REVISION = "digital_lock"

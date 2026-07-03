@@ -1,4 +1,5 @@
 module digital_safe_lock #(
+    parameter USE_EEPROM = 1'b0,                  // 0: internal RAM for simulation, 1: external EEPROM through I2C
     parameter DB_DELAY = 20'd1_000_000,         // Configurable debounce delay (1 million clock cycles at 50MHz ~ 20ms). Set to 1 for simulations.
     parameter TIMER_CYCLES = 28'd100_000_000    // Configurable 2-second timer (100 million clock cycles at 50MHz).
 )(
@@ -18,7 +19,11 @@ module digital_safe_lock #(
     output wire LCD_RS,         // Register Select
     output wire LCD_RW,         // Read/Write
     output wire LCD_EN,         // Enable
-    output wire [7:0] LCD_DATA  // 8-bit Data bus
+    output wire [7:0] LCD_DATA, // 8-bit Data bus
+
+    // External EEPROM I2C interface on DE2i-150
+    output wire EEP_I2C_SCLK,
+    inout  wire EEP_I2C_SDAT
 );
 
     // Turn off unused LEDs
@@ -60,8 +65,9 @@ module digital_safe_lock #(
         .o_btn_tick(change_tick)      // Retrieve the clean pulse
     );
     
-    // --- Internal RAM Instantiation ---
-    // Replaces the physical SRAM with an internal FPGA block RAM / register to save pins and complexity
+    // --- Password memory ---
+    // Internal RAM is useful for fast simulation. On the board, USE_EEPROM=1 stores
+    // the password in the non-volatile I2C EEPROM.
     
     wire sram_rd_en;                  // Internal read request signal
     wire sram_wr_en;                  // Internal write request signal
@@ -70,18 +76,46 @@ module digital_safe_lock #(
     wire [15:0] sram_data_from_ctrl;  // Data flowing from RAM into FSM
     wire sram_ready;                  // Handshake signal indicating memory operation is done
     
-    internal_ram int_ram (
-        .i_clk(CLOCK_50),
-        .i_rst_n(rst_n),
-        
-        // FSM Interface
-        .i_rd_en(sram_rd_en),
-        .i_wr_en(sram_wr_en),
-        .i_addr(sram_addr_internal),
-        .i_data(sram_data_to_ctrl),
-        .o_data(sram_data_from_ctrl),
-        .o_ready(sram_ready)
-    );
+    generate
+        if (USE_EEPROM) begin : gen_eeprom
+            wire eeprom_busy;
+            wire eeprom_error;
+
+            eeprom_i2c #(
+                .CLK_FREQ(50_000_000),
+                .I2C_FREQ(100_000),
+                .WRITE_WAIT_CYCLES(250_000),
+                .DEV_ADDR(7'h50)
+            ) eeprom_mem (
+                .i_clk(CLOCK_50),
+                .i_rst_n(rst_n),
+                .i_rd_en(sram_rd_en),
+                .i_wr_en(sram_wr_en),
+                .i_addr(sram_addr_internal),
+                .i_data(sram_data_to_ctrl),
+                .o_data(sram_data_from_ctrl),
+                .o_ready(sram_ready),
+                .o_busy(eeprom_busy),
+                .o_error(eeprom_error),
+                .o_i2c_sclk(EEP_I2C_SCLK),
+                .io_i2c_sdat(EEP_I2C_SDAT)
+            );
+        end else begin : gen_internal_ram
+            assign EEP_I2C_SCLK = 1'b1;
+            assign EEP_I2C_SDAT = 1'bz;
+
+            internal_ram int_ram (
+                .i_clk(CLOCK_50),
+                .i_rst_n(rst_n),
+                .i_rd_en(sram_rd_en),
+                .i_wr_en(sram_wr_en),
+                .i_addr(sram_addr_internal),
+                .i_data(sram_data_to_ctrl),
+                .o_data(sram_data_from_ctrl),
+                .o_ready(sram_ready)
+            );
+        end
+    endgenerate
     
     // --- Central Lock FSM Instantiation ---
     // The "Brain" of the digital safe, managing states and password verification

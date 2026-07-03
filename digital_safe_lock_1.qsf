@@ -169,6 +169,7 @@ set_location_assignment PIN_AF28 -to FAN_CTRL
 set_global_assignment -name VERILOG_FILE design/lock_fsm.v
 set_global_assignment -name VERILOG_FILE design/lcd_controller.v
 set_global_assignment -name VERILOG_FILE design/internal_ram.v
+set_global_assignment -name VERILOG_FILE design/eeprom_i2c.v
 set_global_assignment -name VERILOG_FILE design/hex_display.v
 set_global_assignment -name VERILOG_FILE design/digital_safe_lock.v
 set_global_assignment -name VERILOG_FILE design/button_debounce.v
@@ -293,6 +294,10 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LCD_DATA[4]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LCD_DATA[5]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LCD_DATA[6]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LCD_DATA[7]
+set_location_assignment PIN_AG27 -to EEP_I2C_SCLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to EEP_I2C_SCLK
+set_location_assignment PIN_AG25 -to EEP_I2C_SDAT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to EEP_I2C_SDAT
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LCD_RW
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LCD_EN
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LCD_RS

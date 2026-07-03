@@ -1,8 +1,10 @@
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Ảnh kit DE2-150 và mô hình khóa thực tế}}{2}{figure.caption.2}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Sơ đồ khối chức năng của hệ thống khóa số}}{4}{figure.caption.3}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Sơ đồ chuyển trạng thái của module \texttt {lock\_fsm}}}{6}{figure.caption.5}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Dạng sóng mô phỏng testbench}}{8}{figure.caption.7}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Ảnh project Quartus sau khi compile}}{9}{figure.caption.8}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Ảnh thực nghiệm trạng thái mở khóa}}{10}{figure.caption.10}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Ảnh thực nghiệm trạng thái báo lỗi}}{11}{figure.caption.11}%
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Hướng mở rộng từ RAM nội bộ sang SRAM vật lý}}{12}{figure.caption.12}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Ảnh kit DE2-150 dùng trong thí nghiệm}}{3}{figure.caption.2}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Sơ đồ khối chức năng của hệ thống khóa số}}{6}{figure.caption.3}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Sơ đồ chuyển trạng thái của module \texttt {lock\_fsm}}}{8}{figure.caption.5}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Dạng sóng mô phỏng testbench}}{11}{figure.caption.7}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Ảnh project Quartus sau khi compile}}{12}{figure.caption.8}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Ảnh thực nghiệm trạng thái khóa/chờ nhập mật khẩu}}{14}{figure.caption.10}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Ảnh thực nghiệm trạng thái mở khóa}}{15}{figure.caption.11}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Ảnh thực nghiệm trạng thái báo lỗi}}{15}{figure.caption.12}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Ảnh thực nghiệm trạng thái đổi mật khẩu thành công}}{16}{figure.caption.13}%
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Kết nối FSM với EEPROM thông qua module \texttt {eeprom\_i2c}}}{17}{figure.caption.14}%
