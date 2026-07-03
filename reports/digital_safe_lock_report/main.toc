@@ -8,28 +8,28 @@
 \contentsline {section}{\numberline {2}CƠ SỞ LÝ THUYẾT}{4}{section.2}%
 \contentsline {subsection}{\numberline {2.1}FPGA và thiết kế RTL}{4}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Máy trạng thái hữu hạn}{4}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}EEPROM I2C và giao tiếp đọc/ghi}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.3}SRAM và giao tiếp đọc/ghi}{4}{subsection.2.3}%
 \contentsline {section}{\numberline {3}THIẾT KẾ HỆ THỐNG}{6}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Sơ đồ khối tổng thể}{6}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Phân công tín hiệu vào ra}{6}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Module top-level}{7}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Module chống dội nút nhấn}{8}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Module điều khiển khóa}{8}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Module bộ nhớ}{8}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.6}Module bộ nhớ}{9}{subsection.3.6}%
 \contentsline {subsection}{\numberline {3.7}Module hiển thị}{9}{subsection.3.7}%
 \contentsline {section}{\numberline {4}MÔ PHỎNG VÀ KIỂM THỬ}{10}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Chiến lược testbench}{10}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Các ca kiểm thử}{10}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Đánh giá kết quả mô phỏng}{11}{subsection.4.3}%
-\contentsline {section}{\numberline {5}TỔNG HỢP VÀ TRIỂN KHAI TRÊN QUARTUS}{12}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Thiết lập project}{12}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Kết quả tài nguyên}{12}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Kết quả timing}{13}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Kiểm tra trên kit}{13}{subsection.5.4}%
-\contentsline {section}{\numberline {6}LƯU MẬT KHẨU VÀO EEPROM}{17}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Nguyên tắc thiết kế}{17}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Giao diện với FSM}{17}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Quản lý chân dữ liệu hai chiều}{17}{subsection.6.3}%
+\contentsline {section}{\numberline {5}LƯU MẬT KHẨU VÀO SRAM}{12}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Nguyên tắc thiết kế}{12}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Giao diện với FSM}{12}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Đọc/ghi mật khẩu}{12}{subsection.5.3}%
+\contentsline {section}{\numberline {6}KẾT QUẢ TỔNG HỢP VÀ TRIỂN KHAI TRÊN QUARTUS}{14}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Thiết lập project}{14}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Kết quả tài nguyên}{14}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Kết quả timing}{15}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Kiểm tra trên kit}{15}{subsection.6.4}%
 \contentsline {section}{\numberline {7}KẾT LUẬN}{19}{section.7}%
 \contentsline {section}{TÀI LIỆU THAM KHẢO}{20}{section.7}%
 \contentsline {section}{PHỤ LỤC A: MÃ NGUỒN CHÍNH}{21}{Item.12}%

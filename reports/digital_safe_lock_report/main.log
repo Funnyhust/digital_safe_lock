@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.18)  3 JUL 2026 03:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.18)  4 JUL 2026 00:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1197,92 +1197,110 @@ Package pdftex.def Info: images/kit_de2i_150.png  used on input line 187.
 (pdftex.def)             Requested size: 391.51021pt x 283.39081pt.
  [2] [3 <./images/kit_de2i_150.png (PNG copy)>] [4
 
-] [5] [6
+] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 292--292
+[]|\T5/cmtt/m/n/13 SRAM_LB_N\T5/ptm/b/n/13 ,
+ []
 
-] [7] [8]
-[9]
-Underfull \hbox (badness 2318) in paragraph at lines 390--390
+[6
+
+] [7] [8] [9]
+Underfull \hbox (badness 2318) in paragraph at lines 401--401
 []|\T5/ptm/m/n/13 Nhªp sai nhi·u l¦n
  []
 
 
-Underfull \hbox (badness 5374) in paragraph at lines 390--390
+Underfull \hbox (badness 5374) in paragraph at lines 401--401
 []|\T5/ptm/m/n/13 Sau nhi·u l¦n sai,
  []
 
+<images/gtkwave_waveform.png, id=279, 1445.4pt x 776.9025pt>
+File: images/gtkwave_waveform.png Graphic file (type png)
+<use images/gtkwave_waveform.png>
+Package pdftex.def Info: images/gtkwave_waveform.png  used on input line 404.
+(pdftex.def)             Requested size: 391.51021pt x 210.43033pt.
 [10
 
-] [11] [12
-
-] [13]
-<images/___.png, id=296, 2569.6pt x 1934.22626pt>
-File: images/___.png Graphic file (type png)
-<use images/___.png>
-Package pdftex.def Info: images/___.png  used on input line 468.
-(pdftex.def)             Requested size: 391.51021pt x 294.69608pt.
-<images/open.png, id=297, 2569.6pt x 1935.23pt>
-File: images/open.png Graphic file (type png)
-<use images/open.png>
-Package pdftex.def Info: images/open.png  used on input line 469.
-(pdftex.def)             Requested size: 391.51021pt x 294.849pt.
-<images/Err.png, id=298, 2569.6pt x 1935.23pt>
-File: images/Err.png Graphic file (type png)
-<use images/Err.png>
-Package pdftex.def Info: images/Err.png  used on input line 470.
-(pdftex.def)             Requested size: 391.51021pt x 294.849pt.
- [14 <./images/___.png (PNG copy)>]
-<images/change.png, id=310, 2569.6pt x 1935.23pt>
-File: images/change.png Graphic file (type png)
-<use images/change.png>
-Package pdftex.def Info: images/change.png  used on input line 471.
-(pdftex.def)             Requested size: 391.51021pt x 294.849pt.
- [15 <./images/open.png (PNG copy)> <./images/Err.png (PNG copy)>] [16 <./image
-s/change.png (PNG copy)>] (C:\Users\hustv\AppData\Local\Programs\MiKTeX\tex/lat
-ex/listings\lstlang1.sty
+] [11 <./images/gtkwave_waveform.png>]
+(C:\Users\hustv\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
-) (C:\Users\hustv\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang2.sty
+)
+(C:\Users\hustv\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang2.sty
 File: lstlang2.sty 2025/11/14 1.11b listings language file
-) (C:\Users\hustv\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang3.sty
+)
+(C:\Users\hustv\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang3.sty
 File: lstlang3.sty 2025/11/14 1.11b listings language file
 )
 LaTeX Font Info:    Font shape `T5/cmtt/bx/n' in size <11.86258> not available
-(Font)              Font shape `T5/cmtt/m/n' tried instead on input line 515.
-[17
+(Font)              Font shape `T5/cmtt/m/n' tried instead on input line 455.
 
-] [18] [19
+[12
+
+] [13]
+<images/quatus.png, id=309, 1926.19624pt x 1154.3125pt>
+File: images/quatus.png Graphic file (type png)
+<use images/quatus.png>
+Package pdftex.def Info: images/quatus.png  used on input line 480.
+(pdftex.def)             Requested size: 391.51021pt x 234.61006pt.
+ [14
+
+ <./images/quatus.png (PNG copy)>] [15]
+<images/___.png, id=320, 2569.6pt x 1934.22626pt>
+File: images/___.png Graphic file (type png)
+<use images/___.png>
+Package pdftex.def Info: images/___.png  used on input line 539.
+(pdftex.def)             Requested size: 391.51021pt x 294.69608pt.
+<images/open.png, id=321, 2569.6pt x 1935.23pt>
+File: images/open.png Graphic file (type png)
+<use images/open.png>
+Package pdftex.def Info: images/open.png  used on input line 540.
+(pdftex.def)             Requested size: 391.51021pt x 294.849pt.
+<images/Err.png, id=322, 2569.6pt x 1935.23pt>
+File: images/Err.png Graphic file (type png)
+<use images/Err.png>
+Package pdftex.def Info: images/Err.png  used on input line 541.
+(pdftex.def)             Requested size: 391.51021pt x 294.849pt.
+ [16 <./images/___.png (PNG copy)>]
+<images/change.png, id=334, 2569.6pt x 1935.23pt>
+File: images/change.png Graphic file (type png)
+<use images/change.png>
+Package pdftex.def Info: images/change.png  used on input line 542.
+(pdftex.def)             Requested size: 391.51021pt x 294.849pt.
+ [17 <./images/open.png (PNG copy)> <./images/Err.png (PNG copy)>]
+[18 <./images/change.png (PNG copy)>] [19
 
 ] [20]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 542.
- (../../design/lock_fsm.v [21] [22] [23] [24] [25])
-(../../design/eeprom_i2c.v [26] [27] [28] [29] [30] [31] [32] [33])
-(../../design/internal_ram.v [34] [35]) (../../tb/tb_digital_safe_lock.v
-[36] [37] [38] [39] [40] [41]) [42] (main.aux)
+nput line 564.
+ (../../design/lock_fsm.v
+[21] [22] [23] [24] [25]) (../../design/sram_controller.v [26] [27] [28])
+(../../tb/tb_digital_safe_lock.v [29] [30] [31] [32] [33] [34]) [35] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 2C5E6DFAC365D3314D60B273C1AABB3E;5971.
+(rerunfilecheck)             Checksum: E453B248B3FD3B09C6790848224A68FF;5892.
  ) 
 Here is how much of TeX's memory you used:
- 28409 strings out of 467871
- 517200 string characters out of 5418376
- 1417208 words of memory out of 5000000
- 55955 multiletter control sequences out of 15000+600000
- 668483 words of font info for 83 fonts, out of 8000000 for 9000
+ 28125 strings out of 467871
+ 513165 string characters out of 5418376
+ 1413998 words of memory out of 5000000
+ 55927 multiletter control sequences out of 15000+600000
+ 668794 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,10n,107p,803b,2186s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,10n,107p,730b,2286s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/urwvn/utmb8v.
 pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.
 pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/urwvn/utmr8
 v.pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/urwvn/utm
 ri8v.pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vn
 itt10.pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/v
-ntt12.pfb>
-Output written on main.pdf (48 pages, 12267006 bytes).
+ntt12.pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/v
+ntt9.pfb>
+Output written on main.pdf (41 pages, 13062104 bytes).
 PDF statistics:
- 1396 PDF objects out of 1440 (max. 8388607)
- 862 named destinations out of 1000 (max. 500000)
- 323 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1078 PDF objects out of 1200 (max. 8388607)
+ 608 named destinations out of 1000 (max. 500000)
+ 333 words of extra memory for PDF output out of 10000 (max. 10000000)
 

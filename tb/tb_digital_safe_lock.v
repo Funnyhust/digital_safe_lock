@@ -22,13 +22,23 @@ module tb_digital_safe_lock();
     wire LCD_EN;
     wire [7:0] LCD_DATA;
 
+    // External SRAM physical interface wires
+    wire [18:0] SRAM_ADDR;
+    wire [15:0] SRAM_DQ;
+    wire SRAM_CE_N;
+    wire SRAM_OE_N;
+    wire SRAM_WE_N;
+    wire SRAM_LB_N;
+    wire SRAM_UB_N;
+
     // --- Device Under Test (DUT) Instantiation ---
     // Instantiate the Top Module with simulation-friendly parameters to drastically speed up the test
     // DB_DELAY = 1 ensures instant debouncing (no waiting millions of cycles for a button press)
     // TIMER_CYCLES = 20 ensures the 2-second display timer finishes in just 400ns
     digital_safe_lock #(
         .DB_DELAY(20'd1),
-        .TIMER_CYCLES(28'd20)
+        .TIMER_CYCLES(28'd20),
+        .SRAM_WAIT_CYCLES(1)
     ) dut (
         .CLOCK_50(CLOCK_50),
         .SW(SW),
@@ -42,11 +52,27 @@ module tb_digital_safe_lock();
         .LCD_RS(LCD_RS),
         .LCD_RW(LCD_RW),
         .LCD_EN(LCD_EN),
-        .LCD_DATA(LCD_DATA)
+        .LCD_DATA(LCD_DATA),
+        .SRAM_ADDR(SRAM_ADDR),
+        .SRAM_DQ(SRAM_DQ),
+        .SRAM_CE_N(SRAM_CE_N),
+        .SRAM_OE_N(SRAM_OE_N),
+        .SRAM_WE_N(SRAM_WE_N),
+        .SRAM_LB_N(SRAM_LB_N),
+        .SRAM_UB_N(SRAM_UB_N)
     );
 
-    // The memory is now internal to the FPGA (internal_ram), so we don't need
-    // an external SRAM behavioral model anymore.
+    // Behavioral model of the external 16-bit asynchronous SRAM.
+    reg [15:0] sram_mem [0:1];
+
+    assign SRAM_DQ = (!SRAM_CE_N && !SRAM_OE_N && SRAM_WE_N) ? sram_mem[SRAM_ADDR[0]] : 16'hzzzz;
+
+    always @(*) begin
+        if (!SRAM_CE_N && !SRAM_WE_N) begin
+            if (!SRAM_LB_N) sram_mem[SRAM_ADDR[0]][7:0] = SRAM_DQ[7:0];
+            if (!SRAM_UB_N) sram_mem[SRAM_ADDR[0]][15:8] = SRAM_DQ[15:8];
+        end
+    end
 
     // --- Clock Generation ---
     initial begin
@@ -119,6 +145,8 @@ module tb_digital_safe_lock();
         // Set initial, safe values for all inputs before resetting
         SW = 18'h00000;
         KEY = 4'b1111; // All buttons unpressed (Active Low)
+        sram_mem[0] = 16'h0000;
+        sram_mem[1] = 16'h0000;
         
         $display("========================================");
         $display("   DIGITAL SAFE LOCK - TESTBENCH START  ");

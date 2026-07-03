@@ -37,9 +37,14 @@ module digital_lock(
 	output		          		LCD_RS,
 	output		          		LCD_RW,
 
-	//////////// I2C for EEPROM (I2C ADDRESS W/R = 0xA0/0xA1) //////////
-	output		          		EEP_I2C_SCLK,
-	inout 		          		EEP_I2C_SDAT,
+	//////////// SRAM //////////
+	output		    [18:0]		SRAM_ADDR,
+	inout 		    [15:0]		SRAM_DQ,
+	output		          		SRAM_CE_N,
+	output		          		SRAM_OE_N,
+	output		          		SRAM_WE_N,
+	output		          		SRAM_LB_N,
+	output		          		SRAM_UB_N,
 
 	//////////// Fan Control //////////
 	inout 		          		FAN_CTRL
@@ -65,9 +70,9 @@ assign HEX6 = 7'h7F;
 assign HEX7 = 7'h7F;
 
 digital_safe_lock #(
-	.USE_EEPROM(1'b1),
 	.DB_DELAY(20'd1_000_000),
-	.TIMER_CYCLES(28'd100_000_000)
+	.TIMER_CYCLES(28'd100_000_000),
+	.SRAM_WAIT_CYCLES(2)
 ) lock_core (
 	.CLOCK_50(CLOCK_50),
 	.SW(SW),
@@ -82,8 +87,13 @@ digital_safe_lock #(
 	.LCD_RW(LCD_RW),
 	.LCD_EN(LCD_EN),
 	.LCD_DATA(LCD_DATA),
-	.EEP_I2C_SCLK(EEP_I2C_SCLK),
-	.EEP_I2C_SDAT(EEP_I2C_SDAT)
+	.SRAM_ADDR(SRAM_ADDR),
+	.SRAM_DQ(SRAM_DQ),
+	.SRAM_CE_N(SRAM_CE_N),
+	.SRAM_OE_N(SRAM_OE_N),
+	.SRAM_WE_N(SRAM_WE_N),
+	.SRAM_LB_N(SRAM_LB_N),
+	.SRAM_UB_N(SRAM_UB_N)
 );
 
 

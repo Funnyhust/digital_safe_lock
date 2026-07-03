@@ -18,7 +18,7 @@
 \@writefile{toc}{\contentsline {section}{\numberline {2}CƠ SỞ LÝ THUYẾT}{4}{section.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}FPGA và thiết kế RTL}{4}{subsection.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Máy trạng thái hữu hạn}{4}{subsection.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}EEPROM I2C và giao tiếp đọc/ghi}{5}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}SRAM và giao tiếp đọc/ghi}{4}{subsection.2.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}THIẾT KẾ HỆ THỐNG}{6}{section.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Sơ đồ khối tổng thể}{6}{subsection.3.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Sơ đồ khối chức năng của hệ thống khóa số}}{6}{figure.caption.3}\protected@file@percent }
@@ -29,40 +29,39 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Module top-level}{7}{subsection.3.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Module chống dội nút nhấn}{8}{subsection.3.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Module điều khiển khóa}{8}{subsection.3.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Sơ đồ chuyển trạng thái của module \texttt  {lock\_fsm}}}{8}{figure.caption.5}\protected@file@percent }
-\newlabel{fig:fsm}{{3.3}{8}{Sơ đồ chuyển trạng thái của module \texttt {lock\_fsm}}{figure.caption.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Module bộ nhớ}{8}{subsection.3.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Sơ đồ chuyển trạng thái của module \texttt  {lock\_fsm}}}{9}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:fsm}{{3.3}{9}{Sơ đồ chuyển trạng thái của module \texttt {lock\_fsm}}{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Module bộ nhớ}{9}{subsection.3.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.7}Module hiển thị}{9}{subsection.3.7}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}MÔ PHỎNG VÀ KIỂM THỬ}{10}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Chiến lược testbench}{10}{subsection.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Các ca kiểm thử}{10}{subsection.4.2}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces Các ca kiểm thử chính}}{10}{table.caption.6}\protected@file@percent }
 \newlabel{tab:tests}{{4.3}{10}{Các ca kiểm thử chính}{table.caption.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Dạng sóng mô phỏng testbench}}{11}{figure.caption.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Dạng sóng mô phỏng testbench trên GTKWave}}{11}{figure.caption.7}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Đánh giá kết quả mô phỏng}{11}{subsection.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}TỔNG HỢP VÀ TRIỂN KHAI TRÊN QUARTUS}{12}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Thiết lập project}{12}{subsection.5.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Ảnh project Quartus sau khi compile}}{12}{figure.caption.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Kết quả tài nguyên}{12}{subsection.5.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces Tài nguyên FPGA sau tổng hợp và fitter}}{13}{table.caption.9}\protected@file@percent }
-\newlabel{tab:resource}{{5.4}{13}{Tài nguyên FPGA sau tổng hợp và fitter}{table.caption.9}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Kết quả timing}{13}{subsection.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Kiểm tra trên kit}{13}{subsection.5.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Ảnh thực nghiệm trạng thái khóa/chờ nhập mật khẩu}}{14}{figure.caption.10}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Ảnh thực nghiệm trạng thái mở khóa}}{15}{figure.caption.11}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces Ảnh thực nghiệm trạng thái báo lỗi}}{15}{figure.caption.12}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces Ảnh thực nghiệm trạng thái đổi mật khẩu thành công}}{16}{figure.caption.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}LƯU MẬT KHẨU VÀO EEPROM}{17}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Nguyên tắc thiết kế}{17}{subsection.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Giao diện với FSM}{17}{subsection.6.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6.10}{\ignorespaces Kết nối FSM với EEPROM thông qua module \texttt  {eeprom\_i2c}}}{17}{figure.caption.14}\protected@file@percent }
-\newlabel{fig:eeprom}{{6.10}{17}{Kết nối FSM với EEPROM thông qua module \texttt {eeprom\_i2c}}{figure.caption.14}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Quản lý chân dữ liệu hai chiều}{17}{subsection.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}LƯU MẬT KHẨU VÀO SRAM}{12}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Nguyên tắc thiết kế}{12}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Giao diện với FSM}{12}{subsection.5.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Kết nối FSM với SRAM thông qua module \texttt  {sram\_controller}}}{12}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:sram}{{5.5}{12}{Kết nối FSM với SRAM thông qua module \texttt {sram\_controller}}{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Đọc/ghi mật khẩu}{12}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}KẾT QUẢ TỔNG HỢP VÀ TRIỂN KHAI TRÊN QUARTUS}{14}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Thiết lập project}{14}{subsection.6.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.6}{\ignorespaces Ảnh Flow Summary trong Quartus sau khi compile}}{14}{figure.caption.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Kết quả tài nguyên}{14}{subsection.6.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.4}{\ignorespaces Tài nguyên FPGA sau tổng hợp và fitter}}{15}{table.caption.10}\protected@file@percent }
+\newlabel{tab:resource}{{6.4}{15}{Tài nguyên FPGA sau tổng hợp và fitter}{table.caption.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Kết quả timing}{15}{subsection.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Kiểm tra trên kit}{15}{subsection.6.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.7}{\ignorespaces Ảnh thực nghiệm trạng thái khóa/chờ nhập mật khẩu}}{16}{figure.caption.11}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.8}{\ignorespaces Ảnh thực nghiệm trạng thái mở khóa}}{17}{figure.caption.12}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.9}{\ignorespaces Ảnh thực nghiệm trạng thái báo lỗi}}{17}{figure.caption.13}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.10}{\ignorespaces Ảnh thực nghiệm trạng thái đổi mật khẩu thành công}}{18}{figure.caption.14}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {7}KẾT LUẬN}{19}{section.7}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{TÀI LIỆU THAM KHẢO}{20}{section.7}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{PHỤ LỤC A: MÃ NGUỒN CHÍNH}{21}{Item.12}\protected@file@percent }
 \@writefile{lol}{\contentsline {lstlisting}{../../design/lock\textunderscore fsm.v}{21}{lstlisting.-2}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{../../design/eeprom\textunderscore i2c.v}{26}{lstlisting.-3}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{../../design/internal\textunderscore ram.v}{34}{lstlisting.-4}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{../../tb/tb\textunderscore digital\textunderscore safe\textunderscore lock.v}{36}{lstlisting.-5}\protected@file@percent }
-\gdef \@abspage@last{48}
+\@writefile{lol}{\contentsline {lstlisting}{../../design/sram\textunderscore controller.v}{26}{lstlisting.-3}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{../../tb/tb\textunderscore digital\textunderscore safe\textunderscore lock.v}{30}{lstlisting.-4}\protected@file@percent }
+\gdef \@abspage@last{41}

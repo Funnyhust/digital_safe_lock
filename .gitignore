@@ -1,0 +1,44 @@
+# Quartus generated working directories
+**/db/
+**/incremental_db/
+**/output_files/
+
+# Quartus generated reports and programming/output files
+*.rpt
+*.summary
+*.smsg
+*.done
+*.jdi
+*.pin
+*.sld
+*.sof
+*.pof
+*.jam
+*.cdf
+*.qws
+*.bak
+
+# Simulation outputs
+sim/*.vvp
+*.vcd
+*.fst
+*.lxt
+*.lxt2
+*.vvp
+
+# LaTeX auxiliary files
+*.aux
+*.log
+*.lof
+*.lot
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# OS/editor noise
+Thumbs.db
+.DS_Store
+*.swp
+*.tmp
