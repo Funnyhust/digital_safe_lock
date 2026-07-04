@@ -3,33 +3,47 @@
 \contentsline {section}{DANH MỤC BẢNG BIỂU}{v}{Doc-Start}%
 \contentsline {section}{\numberline {1}TỔNG QUAN ĐỀ TÀI}{1}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Bối cảnh và mục tiêu}{1}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Yêu cầu chức năng}{1}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Nền tảng phần cứng}{2}{subsection.1.3}%
-\contentsline {section}{\numberline {2}CƠ SỞ LÝ THUYẾT}{4}{section.2}%
-\contentsline {subsection}{\numberline {2.1}FPGA và thiết kế RTL}{4}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Máy trạng thái hữu hạn}{4}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}SRAM và giao tiếp đọc/ghi}{4}{subsection.2.3}%
-\contentsline {section}{\numberline {3}THIẾT KẾ HỆ THỐNG}{6}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Sơ đồ khối tổng thể}{6}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Phân công tín hiệu vào ra}{6}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Module top-level}{7}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Module chống dội nút nhấn}{8}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Module điều khiển khóa}{8}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Module bộ nhớ}{9}{subsection.3.6}%
-\contentsline {subsection}{\numberline {3.7}Module hiển thị}{9}{subsection.3.7}%
-\contentsline {section}{\numberline {4}MÔ PHỎNG VÀ KIỂM THỬ}{10}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Chiến lược testbench}{10}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Các ca kiểm thử}{10}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Đánh giá kết quả mô phỏng}{11}{subsection.4.3}%
-\contentsline {section}{\numberline {5}LƯU MẬT KHẨU VÀO SRAM}{12}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Nguyên tắc thiết kế}{12}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Giao diện với FSM}{12}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Đọc/ghi mật khẩu}{12}{subsection.5.3}%
-\contentsline {section}{\numberline {6}KẾT QUẢ TỔNG HỢP VÀ TRIỂN KHAI TRÊN QUARTUS}{14}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Thiết lập project}{14}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Kết quả tài nguyên}{14}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Kết quả timing}{15}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Kiểm tra trên kit}{15}{subsection.6.4}%
-\contentsline {section}{\numberline {7}KẾT LUẬN}{19}{section.7}%
-\contentsline {section}{TÀI LIỆU THAM KHẢO}{20}{section.7}%
-\contentsline {section}{PHỤ LỤC A: MÃ NGUỒN CHÍNH}{21}{Item.12}%
+\contentsline {subsection}{\numberline {1.2}Luồng sử dụng hệ thống}{1}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Phạm vi kiểm chứng}{2}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Yêu cầu chức năng}{3}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Nền tảng phần cứng}{3}{subsection.1.5}%
+\contentsline {section}{\numberline {2}CƠ SỞ LÝ THUYẾT}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}FPGA và thiết kế RTL}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Máy trạng thái hữu hạn}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}SSRAM và giao tiếp đọc/ghi}{6}{subsection.2.3}%
+\contentsline {section}{\numberline {3}THIẾT KẾ HỆ THỐNG}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Sơ đồ khối tổng thể}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Đường dữ liệu và đường điều khiển}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Bản đồ bộ nhớ}{8}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Phân công tín hiệu vào ra}{8}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Module top-level}{10}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Module chống dội nút nhấn}{10}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Module điều khiển khóa}{11}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Module bộ nhớ}{13}{subsection.3.8}%
+\contentsline {subsection}{\numberline {3.9}Module hiển thị}{14}{subsection.3.9}%
+\contentsline {section}{\numberline {4}MÔ PHỎNG VÀ KIỂM THỬ}{16}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Chiến lược testbench}{16}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Cấu trúc testbench}{16}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Các kịch bản kiểm thử}{18}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Tiêu chí đánh giá pass/fail}{19}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Đánh giá kết quả mô phỏng}{20}{subsection.4.5}%
+\contentsline {section}{\numberline {5}LƯU MẬT KHẨU VÀO SSRAM VẬT LÝ}{21}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Vai trò của SSRAM trong hệ thống}{21}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Giao diện giữa \texttt {lock\_fsm} và \texttt {ssram\_controller}}{21}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Trình tự truy cập SSRAM}{22}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Giao diện vật lý với SSRAM}{23}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Chu kỳ ghi mật khẩu}{23}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Chu kỳ đọc và kiểm tra mật khẩu}{23}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}Quản lý bus dữ liệu hai chiều}{23}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.8}Lựa chọn thời gian chờ}{24}{subsection.5.8}%
+\contentsline {subsection}{\numberline {5.9}Giới hạn của thiết kế hiện tại}{24}{subsection.5.9}%
+\contentsline {section}{\numberline {6}KẾT QUẢ TỔNG HỢP VÀ TRIỂN KHAI TRÊN QUARTUS}{25}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Tình trạng project Quartus}{25}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Kết quả tài nguyên}{26}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Các nhóm cảnh báo cần kiểm tra}{26}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Quy trình kiểm tra trên kit}{27}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Kịch bản kiểm tra phần cứng đề xuất}{28}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Hình ảnh kết quả kiểm tra}{28}{subsection.6.6}%
+\contentsline {section}{\numberline {7}KẾT LUẬN}{31}{section.7}%
+\contentsline {section}{TÀI LIỆU THAM KHẢO}{32}{section.7}%
+\contentsline {section}{PHỤ LỤC A: MÃ NGUỒN CHÍNH}{33}{Item.19}%

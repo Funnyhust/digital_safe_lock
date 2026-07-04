@@ -1,4 +1,16 @@
-\contentsline {table}{\numberline {1.1}{\ignorespaces Yêu cầu chức năng của hệ thống}}{2}{table.caption.1}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces Các tín hiệu vào ra chính}}{7}{table.caption.4}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Các ca kiểm thử chính}}{10}{table.caption.6}%
-\contentsline {table}{\numberline {6.4}{\ignorespaces Tài nguyên FPGA sau tổng hợp và fitter}}{15}{table.caption.10}%
+\contentsline {table}{\numberline {1.1}{\ignorespaces Yêu cầu chức năng của hệ thống khóa số}}{3}{table.caption.1}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Bản đồ vùng nhớ SSRAM sử dụng trong đề tài}}{8}{table.caption.4}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Các tín hiệu vào ra chính}}{9}{table.caption.5}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces Tín hiệu vào ra của module \texttt {button\_debounce}}}{11}{table.caption.6}%
+\contentsline {table}{\numberline {3.5}{\ignorespaces Tín hiệu vào ra của module \texttt {lock\_fsm}}}{11}{table.caption.7}%
+\contentsline {table}{\numberline {3.6}{\ignorespaces Bảng trạng thái của module \texttt {lock\_fsm}}}{12}{table.caption.8}%
+\contentsline {table}{\numberline {3.7}{\ignorespaces Tín hiệu vào ra của module \texttt {ssram\_controller}}}{14}{table.caption.10}%
+\contentsline {table}{\numberline {3.8}{\ignorespaces Tín hiệu vào ra của module \texttt {hex\_display}}}{15}{table.caption.11}%
+\contentsline {table}{\numberline {3.9}{\ignorespaces Tín hiệu vào ra của module \texttt {lcd\_controller}}}{15}{table.caption.12}%
+\contentsline {table}{\numberline {4.10}{\ignorespaces Nhóm tín hiệu quan sát trong mô phỏng}}{17}{table.caption.13}%
+\contentsline {table}{\numberline {4.11}{\ignorespaces Các kịch bản kiểm thử chức năng}}{18}{table.caption.14}%
+\contentsline {table}{\numberline {5.12}{\ignorespaces Giao diện logic giữa FSM và controller SSRAM}}{21}{table.caption.18}%
+\contentsline {table}{\numberline {5.13}{\ignorespaces Trình tự đọc/ghi mật khẩu qua SSRAM}}{22}{table.caption.19}%
+\contentsline {table}{\numberline {5.14}{\ignorespaces Giao diện vật lý SSRAM trong thiết kế hiện tại}}{23}{table.caption.21}%
+\contentsline {table}{\numberline {6.15}{\ignorespaces Tình trạng kết quả tổng hợp}}{26}{table.caption.23}%
+\contentsline {table}{\numberline {6.16}{\ignorespaces Các cảnh báo Quartus cần chú ý}}{27}{table.caption.24}%

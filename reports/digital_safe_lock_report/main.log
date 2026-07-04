@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.18)  4 JUL 2026 00:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.18)  4 JUL 2026 07:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1004,7 +1004,7 @@ Package: titlesec 2025/01/04 v2.17 Sectioning titles
 \titlewidthfirst=\dimen321
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 23.
-LaTeX Font Info:    Trying to load font information for T5+ptm on input line 84
+LaTeX Font Info:    Trying to load font information for T5+ptm on input line 62
 .
 
 (C:\Users\hustv\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5ptm.fd
@@ -1022,26 +1022,26 @@ LaTeX Warning: Unused global option(s):
 (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1107,53 +1107,53 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 84.
+Package hyperref Info: Link coloring ON on input line 62.
  (main.out) (main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-<images/logoBK.png, id=143, 1204.5pt x 1806.75pt>
+<images/logoBK.png, id=199, 1204.5pt x 1806.75pt>
 File: images/logoBK.png Graphic file (type png)
 <use images/logoBK.png>
-Package pdftex.def Info: images/logoBK.png  used on input line 97.
+Package pdftex.def Info: images/logoBK.png  used on input line 75.
 (pdftex.def)             Requested size: 72.84071pt x 109.25494pt.
-LaTeX Font Info:    Calculating math sizes for size <13> on input line 110.
+LaTeX Font Info:    Calculating math sizes for size <13> on input line 88.
 LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
- 110.
+ 88.
 
 (C:\Users\hustv\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
- 110.
+ 88.
 
 (C:\Users\hustv\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line
- 110.
+ 88.
 
 (C:\Users\hustv\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line
- 110.
+ 88.
 
 (C:\Users\hustv\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 1
-10.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 8
+8.
 
 (C:\Users\hustv\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <13> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 110.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 88.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9.62007> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 110.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 88.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.80008> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 110.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 88.
 
 [1
 
@@ -1161,7 +1161,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.80008> not available
 v/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/vntex/t5.enc} <./images/logoBK.
 png>]
 LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 1
-27.
+05.
  (C:\Users\hustv\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmtt.fd
 File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ) [1] (main.toc [2])
@@ -1178,7 +1178,7 @@ File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 
  [5]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
-49.
+26.
 
 (C:\Users\hustv\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
@@ -1187,41 +1187,379 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.183 
+l.139 
        [1{C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.
-enc}]
-<images/kit_de2i_150.png, id=242, 526.96875pt x 381.425pt>
+enc}] [2]
+<images/kit_de2i_150.png, id=343, 526.96875pt x 381.425pt>
 File: images/kit_de2i_150.png Graphic file (type png)
 <use images/kit_de2i_150.png>
-Package pdftex.def Info: images/kit_de2i_150.png  used on input line 187.
-(pdftex.def)             Requested size: 391.51021pt x 283.39081pt.
- [2] [3 <./images/kit_de2i_150.png (PNG copy)>] [4
+Package pdftex.def Info: images/kit_de2i_150.png  used on input line 178.
+(pdftex.def)             Requested size: 355.08984pt x 257.03171pt.
+ [3] [4 <./images/kit_de2i_150.png (PNG copy)>] [5
 
-] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 292--292
-[]|\T5/cmtt/m/n/13 SRAM_LB_N\T5/ptm/b/n/13 ,
+] [6]
+<images/so_do_khoi_he_thong.png, id=363, 906.38625pt x 544.0325pt>
+File: images/so_do_khoi_he_thong.png Graphic file (type png)
+<use images/so_do_khoi_he_thong.png>
+Package pdftex.def Info: images/so_do_khoi_he_thong.png  used on input line 221
+.
+(pdftex.def)             Requested size: 418.82375pt x 251.38696pt.
+ [7
+
+ <./images/so_do_khoi_he_thong.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 250--250
+[]|\T5/ptm/b/n/13 C¡c ^^_àa ch¿
  []
 
-[6
 
-] [7] [8] [9]
-Underfull \hbox (badness 2318) in paragraph at lines 401--401
-[]|\T5/ptm/m/n/13 Nhªp sai nhi·u l¦n
+Underfull \hbox (badness 1178) in paragraph at lines 293--293
+[]|\T5/ptm/m/n/11.86258 G¡n tîi clock 50 MHz
  []
 
 
-Underfull \hbox (badness 5374) in paragraph at lines 401--401
-[]|\T5/ptm/m/n/13 Sau nhi·u l¦n sai,
+Underfull \hbox (badness 10000) in paragraph at lines 293--293
+[]|\T5/ptm/m/n/11.86258 ^^^i qua
  []
 
-<images/gtkwave_waveform.png, id=279, 1445.4pt x 776.9025pt>
-File: images/gtkwave_waveform.png Graphic file (type png)
-<use images/gtkwave_waveform.png>
-Package pdftex.def Info: images/gtkwave_waveform.png  used on input line 404.
-(pdftex.def)             Requested size: 391.51021pt x 210.43033pt.
-[10
 
-] [11 <./images/gtkwave_waveform.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 293--293
+[]|\T5/ptm/m/n/11.86258 Bus ^^_àa ch¿ SS-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 293--293
+\T5/ptm/m/n/11.86258 RAM/Flash shared
+ []
+
+
+Underfull \hbox (badness 1810) in paragraph at lines 293--293
+[]|\T5/ptm/m/n/11.86258 T¶n do tem-plate DE2i-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 293--293
+[]|\T5/cmtt/m/n/11.86258 SSRAM0_CE_N\T5/ptm/b/n/11.86258 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 293--293
+[]|\T5/cmtt/m/n/11.86258 SSRAM_ADSC_N\T5/ptm/b/n/11.86258 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 293--293
+\T5/cmtt/m/n/11.86258 SSRAM_ADSP_N\T5/ptm/b/n/11.86258 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 293--293
+[]|\T5/ptm/m/n/11.86258 Thi¸t k¸ khæng dòng
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 293--293
+[]|\T5/cmtt/m/n/11.86258 SSRAM_CLK\T5/ptm/b/n/11.86258 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 293--293
+\T5/cmtt/m/n/11.86258 SSRAM_OE_N\T5/ptm/b/n/11.86258 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 293--293
+\T5/cmtt/m/n/11.86258 SSRAM_WE_N\T5/ptm/b/n/11.86258 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 293--293
+[]|\T5/ptm/m/n/11.86258 Clock, out-put en-able,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 293--293
+\T5/ptm/m/n/11.86258 write en-able, global
+ []
+
+[8] [9]
+LaTeX Font Info:    Font shape `T5/cmtt/bx/n' in size <13> not available
+(Font)              Font shape `T5/cmtt/m/n' tried instead on input line 313.
+ [10]
+Underfull \hbox (badness 6016) in paragraph at lines 407--407
+[]|\T5/ptm/m/n/8.66673 Chí con-troller ^^_åc xong
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 407--407
+[]|\T5/ptm/m/n/8.66673 Ready th¼ sang
+ []
+
+
+Underfull \hbox (badness 4168) in paragraph at lines 407--407
+[]|\T5/ptm/m/n/8.66673 Ghi mªt kh©u m°c ^^_ành
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 407--407
+[]|\T5/ptm/m/n/8.66673 Ready th¼ sang
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 407--407
+[]|\T5/ptm/m/n/8.66673 Ghi magic num-ber
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 407--407
+\T5/cmtt/m/n/8.66673 16'h55AA \T5/ptm/m/n/8.66673 v o ^^_àa ch¿
+ []
+
+
+Underfull \hbox (badness 4291) in paragraph at lines 407--407
+[]|\T5/cmtt/m/n/8.66673 LEDR=1\T5/ptm/m/n/8.66673 , \T5/cmtt/m/n/8.66673 LEDG=0
+\T5/ptm/m/n/8.66673 , dis-play
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 407--407
+[]|\T5/ptm/m/n/8.66673 So s¡nh
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 407--407
+[]|\T5/ptm/m/n/8.66673 Ghi mªt kh©u mîi
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 407--407
+\T5/cmtt/m/n/8.66673 {8'h00,i_sw} \T5/ptm/m/n/8.66673 v o ^^_àa
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 407--407
+[]|\T5/ptm/m/n/8.66673 Ready th¼ sang
+ []
+
+
+Underfull \hbox (badness 3240) in paragraph at lines 407--407
+[]|\T5/ptm/m/n/8.66673 B¡o ^^_êi mªt kh©u th nh
+ []
+
+
+Underfull \hbox (badness 1137) in paragraph at lines 407--407
+[]|\T5/ptm/m/n/8.66673 H¸t \T5/cmtt/m/n/8.66673 TIMER_CYCLES \T5/ptm/m/n/8.6667
+3 th¼ v·
+ []
+
+[11]
+<images/fsm.png, id=388, 896.34875pt x 695.59875pt>
+File: images/fsm.png Graphic file (type png)
+<use images/fsm.png>
+Package pdftex.def Info: images/fsm.png  used on input line 415.
+(pdftex.def)             Requested size: 418.82375pt x 325.02095pt.
+ [12]
+Underfull \hbox (badness 10000) in paragraph at lines 460--460
+[]|\T5/cmtt/m/n/11.86258 SSRAM0_CE_N\T5/ptm/b/n/11.86258 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 460--460
+[]|\T5/cmtt/m/n/11.86258 SSRAM_ADSC_N\T5/ptm/b/n/11.86258 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 460--460
+\T5/cmtt/m/n/11.86258 SSRAM_ADSP_N\T5/ptm/b/n/11.86258 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 460--460
+[]|\T5/cmtt/m/n/11.86258 SSRAM_CLK\T5/ptm/b/n/11.86258 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 460--460
+\T5/cmtt/m/n/11.86258 SSRAM_GW_N\T5/ptm/b/n/11.86258 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 460--460
+\T5/cmtt/m/n/11.86258 SSRAM_OE_N\T5/ptm/b/n/11.86258 ,
+ []
+
+[13 <./images/fsm.png (PNG copy)>] [14]
+Overfull \hbox (3.57996pt too wide) in paragraph at lines 508--508
+[]|\T5/cmtt/m/n/13 o_lcd_data[7:0]| 
+ []
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 544--544
+[]|\T5/cmtt/m/n/13 state\T5/ptm/b/n/13 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 544--544
+[]|\T5/cmtt/m/n/13 enter_tick\T5/ptm/b/n/13 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 544--544
+[]|\T5/cmtt/m/n/13 sram_rd_en\T5/ptm/b/n/13 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 544--544
+\T5/cmtt/m/n/13 sram_wr_en\T5/ptm/b/n/13 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 544--544
+[]|\T5/cmtt/m/n/13 FS_ADDR\T5/ptm/b/n/13 , \T5/cmtt/m/n/13 FS_DQ\T5/ptm/b/n/13 
+,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 544--544
+\T5/cmtt/m/n/13 SSRAM_WE_N\T5/ptm/b/n/13 ,
+ []
+
+
+Underfull \hbox (badness 7814) in paragraph at lines 544--544
+[]|\T5/cmtt/m/n/13 LEDR[0]\T5/ptm/b/n/13 , \T5/cmtt/m/n/13 LEDG[0]\T5/ptm/b/n/1
+3 ,
+ []
+
+[16
+
+]
+Underfull \hbox (badness 5050) in paragraph at lines 573--573
+[]|\T5/ptm/m/n/11.86258 Reset, nhªp \T5/cmtt/m/n/11.86258 00\T5/ptm/m/n/11.8625
+8 ,
+ []
+
+
+Underfull \hbox (badness 4779) in paragraph at lines 573--573
+[]|\T5/ptm/m/n/11.86258 ^^^àa ch¿ 0 chùa
+ []
+
+
+Underfull \hbox (badness 1917) in paragraph at lines 573--573
+\T5/cmtt/m/n/11.86258 0000\T5/ptm/m/n/11.86258 ; ^^_àa ch¿ 1
+ []
+
+
+Underfull \hbox (badness 4805) in paragraph at lines 573--573
+[]|\T5/ptm/m/n/11.86258 Pass: LEDG=1,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 573--573
+[]|\T5/ptm/m/n/11.86258 Pass, hiºn thà
+ []
+
+
+Underfull \hbox (badness 4805) in paragraph at lines 573--573
+[]|\T5/ptm/m/n/11.86258 Pass: LEDG=0,
+ []
+
+
+Underfull \hbox (badness 4805) in paragraph at lines 573--573
+[]|\T5/ptm/m/n/11.86258 Pass: LEDG=1,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 573--573
+[]|\T5/ptm/m/n/11.86258 Khæng cho ^^_êi
+ []
+
+
+Underfull \hbox (badness 5475) in paragraph at lines 573--573
+[]|\T5/ptm/m/n/11.86258 Khi khâa, nh§n
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 573--573
+\T5/ptm/m/n/11.86258 Change vîi \T5/cmtt/m/n/11.86258 BB\T5/ptm/m/n/11.86258 ,
+ []
+
+
+Underfull \hbox (badness 6063) in paragraph at lines 573--573
+\T5/ptm/m/n/11.86258 sau ^^_â thû mð
+ []
+
+
+Underfull \hbox (badness 5519) in paragraph at lines 573--573
+[]|\T5/ptm/m/n/11.86258 Tho¡t sîm khäi
+ []
+
+
+Underfull \hbox (badness 1194) in paragraph at lines 573--573
+[]|\T5/ptm/m/n/11.86258 Nhªp sai ^^_º v o
+ []
+
+
+Underfull \hbox (badness 2735) in paragraph at lines 573--573
+\T5/cmtt/m/n/11.86258 Err\T5/ptm/m/n/11.86258 , nh§n En-ter
+ []
+
+
+Underfull \hbox (badness 6893) in paragraph at lines 573--573
+[]|\T5/ptm/m/n/11.86258 Khæng thay ^^_êi
+ []
+
+[17] [18]
+<images/wave_form1.png, id=419, 1723.43875pt x 552.0625pt>
+File: images/wave_form1.png Graphic file (type png)
+<use images/wave_form1.png>
+Package pdftex.def Info: images/wave_form1.png  used on input line 588.
+(pdftex.def)             Requested size: 418.82375pt x 134.15718pt.
+<images/wave_form2.png, id=420, 1722.435pt x 550.055pt>
+File: images/wave_form2.png Graphic file (type png)
+<use images/wave_form2.png>
+Package pdftex.def Info: images/wave_form2.png  used on input line 595.
+(pdftex.def)             Requested size: 418.82375pt x 133.74487pt.
+<images/wave_form3.png, id=421, 1725.44624pt x 548.0475pt>
+File: images/wave_form3.png Graphic file (type png)
+<use images/wave_form3.png>
+Package pdftex.def Info: images/wave_form3.png  used on input line 602.
+(pdftex.def)             Requested size: 418.82375pt x 133.02261pt.
+ [19 <./images/wave_form1.png (PNG copy)> <./images/wave_form2.png (PNG copy)>]
+ [20 <./images/wave_form3.png (PNG copy)>]
+LaTeX Font Info:    Font shape `T5/cmtt/bx/n' in size <14> not available
+(Font)              Font shape `T5/cmtt/m/n' tried instead on input line 619.
+ [21
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 664--664
+[]|\T5/ptm/m/n/13 Controller nhªn
+ []
+
+
+Underfull \hbox (badness 1902) in paragraph at lines 664--664
+[]|\T5/ptm/m/n/13 Controller latch y¶u c¦u, t¤o ^^_àa ch¿ tr¶n
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 664--664
+[]|\T5/ptm/m/n/13 Controller b¡o
+ []
+
+<images/fsm_ssram.png, id=436, 528.97626pt x 399.4925pt>
+File: images/fsm_ssram.png Graphic file (type png)
+<use images/fsm_ssram.png>
+Package pdftex.def Info: images/fsm_ssram.png  used on input line 669.
+(pdftex.def)             Requested size: 355.08984pt x 268.17062pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 700--700
+[]|\T5/ptm/m/n/11.86258 Bus dú li»u hai chi·u. Con-troller ghi
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 700--700
+[]|\T5/cmtt/m/n/11.86258 SSRAM0_CE_N\T5/ptm/b/n/11.86258 ,
+ []
+
+[22 <./images/fsm_ssram.png (PNG copy)>]
 (C:\Users\hustv\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
@@ -1231,76 +1569,81 @@ File: lstlang2.sty 2025/11/14 1.11b listings language file
 (C:\Users\hustv\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang3.sty
 File: lstlang3.sty 2025/11/14 1.11b listings language file
 )
-LaTeX Font Info:    Font shape `T5/cmtt/bx/n' in size <11.86258> not available
-(Font)              Font shape `T5/cmtt/m/n' tried instead on input line 455.
-
-[12
-
-] [13]
-<images/quatus.png, id=309, 1926.19624pt x 1154.3125pt>
+[23] [24]
+<images/quatus.png, id=451, 1926.19624pt x 1037.8775pt>
 File: images/quatus.png Graphic file (type png)
 <use images/quatus.png>
-Package pdftex.def Info: images/quatus.png  used on input line 480.
-(pdftex.def)             Requested size: 391.51021pt x 234.61006pt.
- [14
+Package pdftex.def Info: images/quatus.png  used on input line 740.
+(pdftex.def)             Requested size: 391.51021pt x 210.94504pt.
+ [25
 
- <./images/quatus.png (PNG copy)>] [15]
-<images/___.png, id=320, 2569.6pt x 1934.22626pt>
+ <./images/quatus.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 790--790
+[]|\T5/ptm/m/n/13 Cho th§y \T5/cmtt/m/n/13 .qsf \T5/ptm/m/n/13 cán tham chi¸u f
+ile cô nh÷
+ []
+
+
+Underfull \hbox (badness 1688) in paragraph at lines 790--790
+[]|\T5/ptm/m/n/13 Top-level wrap-per ch÷a khîp vîi cêng hi»n t¤i cõa
+ []
+
+[26] [27]
+<images/___.png, id=473, 2569.6pt x 1934.22626pt>
 File: images/___.png Graphic file (type png)
 <use images/___.png>
-Package pdftex.def Info: images/___.png  used on input line 539.
-(pdftex.def)             Requested size: 391.51021pt x 294.69608pt.
-<images/open.png, id=321, 2569.6pt x 1935.23pt>
+Package pdftex.def Info: images/___.png  used on input line 817.
+(pdftex.def)             Requested size: 355.08984pt x 267.27768pt.
+<images/open.png, id=474, 2569.6pt x 1935.23pt>
 File: images/open.png Graphic file (type png)
 <use images/open.png>
-Package pdftex.def Info: images/open.png  used on input line 540.
-(pdftex.def)             Requested size: 391.51021pt x 294.849pt.
-<images/Err.png, id=322, 2569.6pt x 1935.23pt>
+Package pdftex.def Info: images/open.png  used on input line 824.
+(pdftex.def)             Requested size: 355.08984pt x 267.41638pt.
+ [28 <./images/___.png (PNG copy)>]
+<images/Err.png, id=479, 2569.6pt x 1935.23pt>
 File: images/Err.png Graphic file (type png)
 <use images/Err.png>
-Package pdftex.def Info: images/Err.png  used on input line 541.
-(pdftex.def)             Requested size: 391.51021pt x 294.849pt.
- [16 <./images/___.png (PNG copy)>]
-<images/change.png, id=334, 2569.6pt x 1935.23pt>
+Package pdftex.def Info: images/Err.png  used on input line 831.
+(pdftex.def)             Requested size: 355.08984pt x 267.41638pt.
+<images/change.png, id=480, 2569.6pt x 1935.23pt>
 File: images/change.png Graphic file (type png)
 <use images/change.png>
-Package pdftex.def Info: images/change.png  used on input line 542.
-(pdftex.def)             Requested size: 391.51021pt x 294.849pt.
- [17 <./images/open.png (PNG copy)> <./images/Err.png (PNG copy)>]
-[18 <./images/change.png (PNG copy)>] [19
+Package pdftex.def Info: images/change.png  used on input line 838.
+(pdftex.def)             Requested size: 355.08984pt x 267.41638pt.
+ [29 <./images/open.png (PNG copy)> <./images/Err.png (PNG copy)>] [30 <./image
+s/change.png (PNG copy)>] [31
 
-] [20]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 564.
- (../../design/lock_fsm.v
-[21] [22] [23] [24] [25]) (../../design/sram_controller.v [26] [27] [28])
-(../../tb/tb_digital_safe_lock.v [29] [30] [31] [32] [33] [34]) [35] (main.aux)
+]
+[32] [33] [34] [35] [36] [37] [38] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E453B248B3FD3B09C6790848224A68FF;5892.
+(rerunfilecheck)             Checksum: 44D9398E844FFADE3DA0F9127A14F0B2;9431.
  ) 
 Here is how much of TeX's memory you used:
- 28125 strings out of 467871
- 513165 string characters out of 5418376
- 1413998 words of memory out of 5000000
- 55927 multiletter control sequences out of 15000+600000
- 668794 words of font info for 84 fonts, out of 8000000 for 9000
+ 27751 strings out of 467871
+ 507132 string characters out of 5418376
+ 1242077 words of memory out of 5000000
+ 55842 multiletter control sequences out of 15000+600000
+ 702269 words of font info for 149 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,10n,107p,730b,2286s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/urwvn/utmb8v.
-pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.
-pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/urwvn/utmr8
-v.pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/urwvn/utm
-ri8v.pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vn
-itt10.pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/v
-ntt12.pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/v
-ntt9.pfb>
-Output written on main.pdf (41 pages, 13062104 bytes).
+ 108i,10n,107p,750b,2089s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmr10.pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmsy10.pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/type1/vn
+tex/urwvn/utmb8v.pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/type1/
+urw/times/utmr8a.pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/type1/
+vntex/urwvn/utmr8v.pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/type
+1/urw/times/utmri8a.pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/vntex/urwvn/utmri8v.pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/
+type1/vntex/vnr/vnitt10.pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts
+/type1/vntex/vnr/vntt12.pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts
+/type1/vntex/vnr/vntt9.pfb>
+Output written on main.pdf (44 pages, 14039635 bytes).
 PDF statistics:
- 1078 PDF objects out of 1200 (max. 8388607)
- 608 named destinations out of 1000 (max. 500000)
- 333 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 833 PDF objects out of 1000 (max. 8388607)
+ 321 named destinations out of 1000 (max. 500000)
+ 470 words of extra memory for PDF output out of 10000 (max. 10000000)
 

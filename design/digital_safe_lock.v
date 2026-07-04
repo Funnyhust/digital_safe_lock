@@ -1,7 +1,6 @@
 module digital_safe_lock #(
     parameter DB_DELAY = 20'd1_000_000,         // Configurable debounce delay (1 million clock cycles at 50MHz ~ 20ms). Set to 1 for simulations.
-    parameter TIMER_CYCLES = 28'd100_000_000,   // Configurable 2-second timer (100 million clock cycles at 50MHz).
-    parameter SRAM_WAIT_CYCLES = 2
+    parameter TIMER_CYCLES = 28'd100_000_000    // Configurable 2-second timer (100 million clock cycles at 50MHz).
 )(
     input  wire CLOCK_50,       // System clock input (50MHz)
     input  wire [17:0] SW,      // Toggle switches (we use SW[7:0] for password input)
@@ -20,15 +19,20 @@ module digital_safe_lock #(
     output wire LCD_RW,         // Read/Write
     output wire LCD_EN,         // Enable
     output wire [7:0] LCD_DATA, // 8-bit Data bus
-
-    // External asynchronous SRAM interface
-    output wire [18:0] SRAM_ADDR,
-    inout  wire [15:0] SRAM_DQ,
-    output wire SRAM_CE_N,
-    output wire SRAM_OE_N,
-    output wire SRAM_WE_N,
-    output wire SRAM_LB_N,
-    output wire SRAM_UB_N
+    
+    // SSRAM & Flash shared physical interface pins (DE2i-150)
+    inout  wire [31:0] FS_DQ,
+    output wire [26:1] FS_ADDR,
+    output wire SSRAM0_CE_N,
+    output wire SSRAM1_CE_N,
+    output wire SSRAM_ADSC_N,
+    output wire SSRAM_ADSP_N,
+    output wire SSRAM_ADV_N,
+    output wire [3:0]  SSRAM_BE,
+    output wire SSRAM_CLK,
+    output wire SSRAM_GW_N,
+    output wire SSRAM_OE_N,
+    output wire SSRAM_WE_N
 );
 
     // Turn off unused LEDs
@@ -70,8 +74,9 @@ module digital_safe_lock #(
         .o_btn_tick(change_tick)      // Retrieve the clean pulse
     );
     
-    // --- External SRAM Controller Instantiation ---
-    // Converts the FSM's simple request/ready memory interface into physical SRAM bus cycles.
+    // --- I2C EEPROM Controller Instantiation ---
+    // Replaces the physical SRAM with an I2C EEPROM interface
+    // --- SRAM Controller Instantiation ---
     
     wire sram_rd_en;                  // Internal read request signal
     wire sram_wr_en;                  // Internal write request signal
@@ -80,24 +85,31 @@ module digital_safe_lock #(
     wire [15:0] sram_data_from_ctrl;  // Data flowing from RAM into FSM
     wire sram_ready;                  // Handshake signal indicating memory operation is done
     
-    sram_controller #(
-        .WAIT_CYCLES(SRAM_WAIT_CYCLES)
-    ) sram_ctrl (
-        .i_clk(CLOCK_50),
-        .i_rst_n(rst_n),
+    ssram_controller sram_ctrl (
+        .clk(CLOCK_50),
+        .rst_n(rst_n),
+        
+        // FSM Interface
         .i_rd_en(sram_rd_en),
         .i_wr_en(sram_wr_en),
         .i_addr(sram_addr_internal),
         .i_data(sram_data_to_ctrl),
         .o_data(sram_data_from_ctrl),
         .o_ready(sram_ready),
-        .SRAM_ADDR(SRAM_ADDR),
-        .SRAM_DQ(SRAM_DQ),
-        .SRAM_CE_N(SRAM_CE_N),
-        .SRAM_OE_N(SRAM_OE_N),
-        .SRAM_WE_N(SRAM_WE_N),
-        .SRAM_LB_N(SRAM_LB_N),
-        .SRAM_UB_N(SRAM_UB_N)
+        
+        // SSRAM Physical Interface
+        .FS_DQ(FS_DQ),
+        .FS_ADDR(FS_ADDR),
+        .SSRAM0_CE_N(SSRAM0_CE_N),
+        .SSRAM1_CE_N(SSRAM1_CE_N),
+        .SSRAM_ADSC_N(SSRAM_ADSC_N),
+        .SSRAM_ADSP_N(SSRAM_ADSP_N),
+        .SSRAM_ADV_N(SSRAM_ADV_N),
+        .SSRAM_BE(SSRAM_BE),
+        .SSRAM_CLK(SSRAM_CLK),
+        .SSRAM_GW_N(SSRAM_GW_N),
+        .SSRAM_OE_N(SSRAM_OE_N),
+        .SSRAM_WE_N(SSRAM_WE_N)
     );
     
     // --- Central Lock FSM Instantiation ---

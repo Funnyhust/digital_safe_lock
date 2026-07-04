@@ -1,10 +1,12 @@
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Ảnh kit DE2-150 dùng trong thí nghiệm}}{3}{figure.caption.2}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Sơ đồ khối chức năng của hệ thống khóa số}}{6}{figure.caption.3}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Sơ đồ chuyển trạng thái của module \texttt {lock\_fsm}}}{9}{figure.caption.5}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Dạng sóng mô phỏng testbench trên GTKWave}}{11}{figure.caption.7}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Kết nối FSM với SRAM thông qua module \texttt {sram\_controller}}}{12}{figure.caption.8}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Ảnh Flow Summary trong Quartus sau khi compile}}{14}{figure.caption.9}%
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Ảnh thực nghiệm trạng thái khóa/chờ nhập mật khẩu}}{16}{figure.caption.11}%
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Ảnh thực nghiệm trạng thái mở khóa}}{17}{figure.caption.12}%
-\contentsline {figure}{\numberline {6.9}{\ignorespaces Ảnh thực nghiệm trạng thái báo lỗi}}{17}{figure.caption.13}%
-\contentsline {figure}{\numberline {6.10}{\ignorespaces Ảnh thực nghiệm trạng thái đổi mật khẩu thành công}}{18}{figure.caption.14}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Kit DE2i-150 dùng cho đề tài}}{4}{figure.caption.2}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Sơ đồ khối tổng thể của hệ thống khóa số}}{7}{figure.caption.3}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Sơ đồ chuyển trạng thái của module \texttt {lock\_fsm}}}{13}{figure.caption.9}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Dạng sóng mô phỏng giai đoạn khởi tạo và mở khóa}}{19}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Dạng sóng mô phỏng quá trình đổi mật khẩu}}{19}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Dạng sóng mô phỏng kiểm tra mật khẩu sai và đúng}}{20}{figure.caption.17}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Sơ đồ trạng thái nội bộ của module \texttt {ssram\_controller}}}{22}{figure.caption.20}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Ảnh Flow Summary trong Quartus}}{25}{figure.caption.22}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Trạng thái khóa/chờ nhập mật khẩu sau reset}}{28}{figure.caption.25}%
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Trạng thái mở khóa khi nhập đúng mật khẩu}}{29}{figure.caption.26}%
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Trạng thái báo lỗi khi nhập sai mật khẩu}}{29}{figure.caption.27}%
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Trạng thái đổi mật khẩu thành công}}{30}{figure.caption.28}%

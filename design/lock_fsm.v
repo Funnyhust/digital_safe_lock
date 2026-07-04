@@ -25,14 +25,19 @@ module lock_fsm #(
 );
 
     // State Encoding for the Finite State Machine
-    localparam S_INIT_WR    = 4'd0; // State: Send initial default password to SRAM on boot
-    localparam S_INIT_WAIT  = 4'd1; // State: Wait for SRAM to finish writing the initial password
-    localparam S_IDLE       = 4'd2; // State: Safe is locked, waiting for user input
-    localparam S_READ_CHECK = 4'd3; // State: Reading password from SRAM and comparing it with user input
-    localparam S_UNLOCKED   = 4'd4; // State: Safe is unlocked, waiting for "Lock" or "Change Password" command
-    localparam S_ERR        = 4'd5; // State: Wrong password entered, display error for 2 seconds
-    localparam S_WRITE_CHG  = 4'd6; // State: Sending new password to SRAM to overwrite the old one
-    localparam S_CHG_DONE   = 4'd7; // State: New password saved, display success message for 2 seconds
+    localparam S_CHK_MAGIC_RD   = 4'd8; // State: Read address 1 to check for magic number
+    localparam S_CHK_MAGIC_WAIT = 4'd9; // State: Wait for SRAM to finish reading magic number
+    localparam S_CHK_MAGIC_EVAL = 4'd10;// State: Evaluate magic number
+    localparam S_INIT_WR        = 4'd0; // State: Send initial default password to SRAM on boot
+    localparam S_INIT_WAIT      = 4'd1; // State: Wait for SRAM to finish writing the initial password
+    localparam S_INIT_WR_MAGIC  = 4'd11;// State: Write magic number to address 1
+    localparam S_INIT_WAIT_MAGIC= 4'd12;// State: Wait for SRAM to finish writing magic number
+    localparam S_IDLE           = 4'd2; // State: Safe is locked, waiting for user input
+    localparam S_READ_CHECK     = 4'd3; // State: Reading password from SRAM and comparing it with user input
+    localparam S_UNLOCKED       = 4'd4; // State: Safe is unlocked, waiting for "Lock" or "Change Password" command
+    localparam S_ERR            = 4'd5; // State: Wrong password entered, display error for 2 seconds
+    localparam S_WRITE_CHG      = 4'd6; // State: Sending new password to SRAM to overwrite the old one
+    localparam S_CHG_DONE       = 4'd7; // State: New password saved, display success message for 2 seconds
 
     reg [3:0] state; // Current FSM state
     
@@ -62,7 +67,7 @@ module lock_fsm #(
     always @(posedge i_clk or negedge i_rst_n) begin
         if (!i_rst_n) begin
             // Initialize system into a locked, safe state upon reset
-            state <= S_INIT_WR;
+            state <= S_CHK_MAGIC_RD;
             o_sram_rd_en <= 1'b0;
             o_sram_wr_en <= 1'b0;
             o_sram_addr <= 19'd0;
@@ -72,6 +77,30 @@ module lock_fsm #(
             o_display_state <= 3'd0; // Default to Blank display
         end else begin
             case (state)
+                S_CHK_MAGIC_RD: begin
+                    // Read address 1 to see if SRAM is already initialized
+                    o_sram_rd_en <= 1'b1;
+                    o_sram_addr <= 19'd1;
+                    state <= S_CHK_MAGIC_WAIT;
+                end
+                
+                S_CHK_MAGIC_WAIT: begin
+                    if (i_sram_ready) begin
+                        o_sram_rd_en <= 1'b0;
+                        state <= S_CHK_MAGIC_EVAL;
+                    end
+                end
+                
+                S_CHK_MAGIC_EVAL: begin
+                    // Magic number 16'h55AA means memory was already initialized
+                    $display("[FSM] S_CHK_MAGIC_EVAL: Read magic number = %h", i_sram_data);
+                    if (i_sram_data == 16'h55AA) begin
+                        state <= S_IDLE; // Skip writing default password
+                    end else begin
+                        state <= S_INIT_WR; // Memory not initialized, write defaults
+                    end
+                end
+
                 S_INIT_WR: begin
                     // Trigger a write operation to set the default password (00) at address 0
                     o_sram_wr_en <= 1'b1;
@@ -84,6 +113,21 @@ module lock_fsm #(
                     // Wait until the SRAM controller confirms the write is complete
                     if (i_sram_ready) begin
                         o_sram_wr_en <= 1'b0; // De-assert write request
+                        state <= S_INIT_WR_MAGIC;
+                    end
+                end
+                
+                S_INIT_WR_MAGIC: begin
+                    // Write magic number to address 1 to mark SRAM as initialized
+                    o_sram_wr_en <= 1'b1;
+                    o_sram_addr <= 19'd1;
+                    o_sram_data_out <= 16'h55AA;
+                    state <= S_INIT_WAIT_MAGIC;
+                end
+                
+                S_INIT_WAIT_MAGIC: begin
+                    if (i_sram_ready) begin
+                        o_sram_wr_en <= 1'b0;
                         state <= S_IDLE;      // Move to IDLE (ready for user)
                     end
                 end
@@ -106,6 +150,7 @@ module lock_fsm #(
                 S_READ_CHECK: begin
                     // Wait until SRAM fetches the data
                     if (i_sram_ready) begin
+                        $display("[FSM] S_READ_CHECK: Read password = %h, Sw input = %h", i_sram_data, i_sw);
                         // Compare the lowest 8 bits from memory against the physical switches
                         if (i_sram_data[7:0] == i_sw) begin
                             // Passwords match -> Unlock the safe
@@ -168,7 +213,7 @@ module lock_fsm #(
                     end
                 end
                 
-                default: state <= S_INIT_WR; // Fallback to initialization for safety
+                default: state <= S_CHK_MAGIC_RD; // Fallback to initialization check for safety
             endcase
         end
     end

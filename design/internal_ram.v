@@ -11,10 +11,8 @@ module internal_ram (
     output reg  o_ready           // High when the read/write operation is complete
 );
 
-    // We only need to store a single 16-bit word (the password at address 0)
-    // To simulate a larger RAM if needed, this could be an array: reg [15:0] mem [0:1023];
-    // But since the FSM only writes to address 0, a single register is highly optimized.
-    reg [15:0] memory;
+    // We need to store at least two 16-bit words (password at address 0, magic number at address 1)
+    reg [15:0] memory [0:1];
     
     // Simple state machine to mimic SRAM controller timing (1-cycle delay)
     reg [1:0] state;
@@ -22,21 +20,27 @@ module internal_ram (
     localparam WAIT = 2'd1;
     localparam DONE = 2'd2;
 
+    // Simulate random/uninitialized memory on power-up
+    initial begin
+        memory[0] = 16'hXXXX;
+        memory[1] = 16'hXXXX;
+    end
+
     always @(posedge i_clk or negedge i_rst_n) begin
         if (!i_rst_n) begin
             state <= IDLE;
             o_ready <= 1'b0;
             o_data <= 16'd0;
-            memory <= 16'd0; 
+            // IMPORTANT: Do NOT clear memory here. A soft reset should not erase SRAM.
         end else begin
             case (state)
                 IDLE: begin
                     o_ready <= 1'b0;
                     if (i_wr_en) begin
-                        memory <= i_data; // Write data immediately
+                        memory[i_addr[0]] <= i_data; // Write data immediately
                         state <= WAIT;
                     end else if (i_rd_en) begin
-                        o_data <= memory; // Read data immediately
+                        o_data <= memory[i_addr[0]]; // Read data immediately
                         state <= WAIT;
                     end
                 end

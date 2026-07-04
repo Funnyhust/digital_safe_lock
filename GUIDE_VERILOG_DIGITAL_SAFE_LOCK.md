@@ -1,72 +1,54 @@
-# Hướng dẫn đọc hiểu source Verilog - Digital Safe Lock dùng SRAM
+# Hướng dẫn đọc code Digital Safe Lock - bản SSRAM hiện tại
 
-Tài liệu này giải thích toàn bộ các file trong thư mục `design/` theo thứ tự nên học. Mình giả sử bạn đã biết C, nhưng chưa quen tư duy Verilog/FPGA.
+Tài liệu này được viết theo trạng thái code hiện tại trong thư mục `design/`. Bản này không còn dùng `sram_controller.v` kiểu SRAM bất đồng bộ cũ nữa, mà đang dùng `ssram_controller.v` để giao tiếp SSRAM/Flash shared bus trên DE2i-150 qua `FS_DQ`, `FS_ADDR` và các tín hiệu `SSRAM_*`.
 
-Điểm quan trọng nhất: Verilog không giống C ở chỗ không có một chương trình chạy từ trên xuống dưới. Mỗi `module` là một khối phần cứng. Các module được nối dây với nhau và chạy song song. Khi một input đổi, phần cứng liên quan tự phản ứng theo clock hoặc theo logic tổ hợp.
+Tài liệu giả sử bạn đã biết C, nhưng mới học Verilog.
 
-## 1. Tổng quan hệ thống
+## 1. Nên đọc file theo thứ tự nào?
 
-Dự án là khóa két điện tử trên FPGA:
-
-- `SW[7:0]`: nhập mật khẩu 8 bit.
-- `KEY[0]`: reset, active-low.
-- `KEY[1]`: Enter.
-- `KEY[2]`: Change password.
-- `LEDR[0]`: báo khóa/lỗi.
-- `LEDG[0]`: báo mở khóa.
-- `HEX2`, `HEX1`, `HEX0`: hiện `---`, `OPn`, `Err`, `Chg`.
-- LCD 16x2: hiện text trạng thái.
-- SRAM ngoài: lưu mật khẩu.
-
-Luồng khối:
+Thứ tự khuyến nghị để học từ dễ đến khó:
 
 ```text
-KEY[1] --> button_debounce --> enter_tick  --+
-KEY[2] --> button_debounce --> change_tick --+
-SW[7:0] -------------------------------------+--> lock_fsm
-                                                 |
-                                                 +--> LEDR[0], LEDG[0]
-                                                 +--> display_state
-                                                 |       |
-                                                 |       +--> hex_display --> HEX2/HEX1/HEX0
-                                                 |       |
-                                                 |       +--> lcd_controller --> LCD
-                                                 |
-                                                 +--> sram_controller <--> SRAM ngoài
+1. design/hex_display.v
+2. design/button_debounce.v
+3. design/internal_ram.v
+4. design/lock_fsm.v
+5. design/ssram_controller.v
+6. design/digital_safe_lock.v
+7. design/lcd_controller.v
+8. design/digital_safe_lock_3.qsf
 ```
 
-## 2. Thứ tự nên đọc code
+Lý do:
 
-Nên đọc theo thứ tự này:
+- `hex_display.v`: dễ nhất, chỉ là logic tổ hợp đổi mã trạng thái thành LED 7 đoạn.
+- `button_debounce.v`: học clock, reset, thanh ghi, lọc nút bấm và tạo xung 1 chu kỳ.
+- `internal_ram.v`: học giao diện bộ nhớ `rd_en/wr_en/ready` đơn giản.
+- `lock_fsm.v`: học thuật toán chính của khóa.
+- `ssram_controller.v`: học cách FSM nói chuyện với SSRAM vật lý.
+- `digital_safe_lock.v`: học cách nối tất cả module lại với nhau.
+- `lcd_controller.v`: dài nhất, chủ yếu là timing LCD.
+- `digital_safe_lock_3.qsf`: file cấu hình Quartus/pin assignment, không phải code logic.
 
-1. `hex_display.v`
-   - Dễ nhất. Học logic tổ hợp `always @(*)` và `case`.
-2. `button_debounce.v`
-   - Học clock, reset, thanh ghi, nút bấm active-low, và xung `tick`.
-3. `internal_ram.v`
-   - Học giao diện bộ nhớ đơn giản: `rd_en`, `wr_en`, `ready`.
-4. `sram_controller.v`
-   - Học cách biến giao diện bộ nhớ đơn giản thành tín hiệu SRAM vật lý.
-5. `lock_fsm.v`
-   - Phần thuật toán chính của khóa. Đây là file quan trọng nhất.
-6. `digital_safe_lock.v`
-   - Top-level nối tất cả module lại với nhau.
-7. `lcd_controller.v`
-   - Dài nhất và nhiều timing. Đọc sau cùng.
+Nếu muốn hiểu nhanh hệ thống hoạt động ra sao, có thể đọc:
 
-Nếu chỉ muốn hiểu thuật toán khóa, hãy tập trung vào `lock_fsm.v`. Nếu muốn hiểu toàn hệ thống, đọc đủ theo thứ tự trên.
-
-## 3. Một số khái niệm Verilog cần nhớ
-
-### `module`
-
-`module` giống một linh kiện hoặc một khối mạch. Ví dụ:
-
-```verilog
-module hex_display (...);
+```text
+lock_fsm.v -> digital_safe_lock.v -> ssram_controller.v
 ```
 
-Khi dùng module trong module khác, ta không "gọi hàm" như C. Ta **instantiate** nó, tức tạo một khối phần cứng con:
+## 2. Tư duy Verilog trước khi đọc
+
+Trong C, bạn hay nghĩ theo kiểu chương trình chạy tuần tự:
+
+```c
+read_button();
+check_password();
+set_led();
+```
+
+Trong Verilog, bạn đang mô tả phần cứng. Các module chạy song song. Module này không "gọi hàm" module kia. Chúng được nối dây với nhau.
+
+Ví dụ trong `digital_safe_lock.v`:
 
 ```verilog
 hex_display hex_inst (
@@ -77,65 +59,56 @@ hex_display hex_inst (
 );
 ```
 
-`hex_display` là tên loại module. `hex_inst` là tên instance cụ thể.
+Đây không phải gọi hàm `hex_display()`. Đây là tạo một instance phần cứng tên `hex_inst`. Từ đó trở đi, `hex_inst` luôn tồn tại và luôn theo dõi `display_state`.
 
-### `wire` và `reg`
+Một số khái niệm:
 
-- `wire`: dây nối giữa các module hoặc giữa các biểu thức.
-- `reg`: biến lưu giá trị trong `always`, thường là thanh ghi nếu dùng với clock.
+| Verilog | C gần giống | Ý nghĩa |
+| --- | --- | --- |
+| `module` | struct/module/object | Một khối phần cứng |
+| `wire` | dây nối | Không tự lưu trạng thái |
+| `reg` | biến lưu | Có thể thành flip-flop/thanh ghi |
+| `always @(*)` | hàm tính liên tục | Logic tổ hợp |
+| `always @(posedge clk)` | update mỗi tick | Logic tuần tự theo clock |
+| `<=` | cập nhật thanh ghi | Dùng trong always có clock |
+| `=` | gán tức thời | Hay dùng trong logic tổ hợp |
+| `inout` | bus hai chiều | Lúc đọc thì nhả bus, lúc ghi thì lái bus |
 
-Trong code hiện tại:
+## 3. Sơ đồ tổng thể hiện tại
 
-```verilog
-wire enter_tick;
-reg [3:0] state;
+```text
+SW[7:0] ---------------------------+
+KEY[1] -> button_debounce -> tick -+
+KEY[2] -> button_debounce -> tick -+
+                                   |
+                                   v
+                              lock_fsm
+                              |   |   |
+                              |   |   +--> LEDR[0], LEDG[0]
+                              |   |
+                              |   +--> display_state --> hex_display --> HEX
+                              |                       --> lcd_controller --> LCD
+                              |
+                              v
+                         ssram_controller
+                              |
+                              v
+             FS_DQ / FS_ADDR / SSRAM_* physical pins
 ```
 
-`enter_tick` là dây nối từ debounce sang FSM. `state` là trạng thái hiện tại của FSM.
+`lock_fsm` là bộ não. Các module khác phục vụ nó:
 
-### `always @(*)`
+- `button_debounce`: biến nút bấm nhiễu thành event sạch.
+- `ssram_controller`: đọc/ghi password vào SSRAM.
+- `hex_display`: hiển thị trạng thái ngắn trên LED 7 đoạn.
+- `lcd_controller`: hiển thị trạng thái dài trên LCD.
+- `digital_safe_lock`: nối dây toàn bộ.
 
-Đây là logic tổ hợp. Output tự đổi khi input đổi. Gần giống một hàm tính liên tục.
-
-Ví dụ trong `hex_display.v`, khi `i_state` đổi thì `o_hex2/o_hex1/o_hex0` đổi theo.
-
-### `always @(posedge i_clk or negedge i_rst_n)`
-
-Đây là logic tuần tự có clock và reset. Code bên trong chạy tại cạnh lên clock, hoặc reset tại cạnh xuống `i_rst_n`.
-
-Gần giống:
-
-```c
-while (1) {
-    wait_for_clock_edge();
-    update_registers();
-}
-```
-
-Nhưng thực tế là phần cứng, không phải CPU chạy vòng lặp.
-
-### `<=` và `=`
-
-- Dùng `<=` trong logic có clock.
-- Dùng `=` trong logic tổ hợp.
-
-Ví dụ:
-
-```verilog
-state <= S_IDLE;
-```
-
-Nghĩa là thanh ghi `state` sẽ nhận giá trị mới ở cạnh clock.
-
-## 4. File `hex_display.v`
-
-Đây là file dễ nhất, nên đọc đầu tiên.
+## 4. `hex_display.v`
 
 ### Vai trò
 
-`hex_display` nhận mã trạng thái 3 bit từ FSM và đổi thành mẫu LED 7 đoạn.
-
-Input/output:
+File này nhận `i_state` 3 bit và xuất mã LED 7 đoạn cho `HEX2`, `HEX1`, `HEX0`.
 
 ```verilog
 input  wire [2:0] i_state
@@ -144,7 +117,7 @@ output reg  [6:0] o_hex1
 output reg  [6:0] o_hex0
 ```
 
-`i_state` có ý nghĩa:
+Mapping:
 
 | `i_state` | Hiển thị |
 | --- | --- |
@@ -153,88 +126,60 @@ output reg  [6:0] o_hex0
 | `3'd2` | `Err` |
 | `3'd3` | `Chg` |
 
-### Mã LED 7 đoạn
+### Vì sao không cần gọi hàm set LED?
 
-Các dòng như:
-
-```verilog
-localparam CHAR_O = 7'h40;
-localparam CHAR_P = 7'h0C;
-```
-
-không phải mã ASCII. Đây là mẫu bật/tắt 7 đoạn LED.
-
-Comment trong file nói:
-
-```verilog
-// active-low (0 = ON, 1 = OFF)
-```
-
-Tức là bit `0` làm đoạn sáng, bit `1` làm đoạn tắt.
-
-### Logic chính
+Logic chính:
 
 ```verilog
 always @(*) begin
     case (i_state)
-        3'd0: begin
-            o_hex2 = CHAR_DASH;
-            o_hex1 = CHAR_DASH;
-            o_hex0 = CHAR_DASH;
-        end
         ...
     endcase
 end
 ```
 
-Không có hàm `set_led()` nào được gọi. Module này luôn theo dõi `i_state`. Khi `i_state` đổi, output tự đổi.
+`always @(*)` nghĩa là logic tổ hợp. Cứ khi `i_state` đổi, output sẽ tự tính lại. Nó không cần được gọi như C.
 
-Tư duy gần giống C:
+Tư duy gần giống:
 
 ```c
 switch (i_state) {
-case 0:
-    HEX2 = DASH;
-    HEX1 = DASH;
-    HEX0 = DASH;
-    break;
-case 1:
-    HEX2 = O;
-    HEX1 = P;
-    HEX0 = n;
-    break;
+case 0: HEX = "---"; break;
+case 1: HEX = "OPn"; break;
+case 2: HEX = "Err"; break;
+case 3: HEX = "Chg"; break;
 }
 ```
 
-Nhưng trong Verilog, đây là mạch tổ hợp chạy liên tục.
+Nhưng trong phần cứng, mạch này luôn tồn tại.
 
-## 5. File `button_debounce.v`
+### Active-low LED
+
+Comment trong code:
+
+```verilog
+// active-low (0 = ON, 1 = OFF)
+```
+
+Tức là bit `0` làm segment sáng, bit `1` làm segment tắt. Vì vậy các hằng như `7'h40`, `7'h0C` là mẫu bật/tắt segment, không phải ASCII.
+
+## 5. `button_debounce.v`
 
 ### Vai trò
 
-Nút bấm vật lý bị rung tiếp điểm. Một lần nhấn có thể tạo nhiều xung nhiễu rất nhanh. `button_debounce` lọc nhiễu đó và tạo ra:
+Nút bấm vật lý bị rung tiếp điểm. Một lần nhấn có thể tạo nhiều xung giả. Module này lọc nhiễu và tạo:
 
 - `o_btn_state`: trạng thái nút đã lọc.
-- `o_btn_tick`: xung 1 clock khi vừa nhấn.
+- `o_btn_tick`: xung đúng 1 clock khi vừa nhấn.
 
-Input/output:
-
-```verilog
-input  wire i_clk
-input  wire i_rst_n
-input  wire i_btn
-output reg  o_btn_state
-output wire o_btn_tick
-```
-
-Nút `KEY` trên board là active-low:
+Nút `KEY` là active-low:
 
 ```text
-Không nhấn: 1
-Nhấn:      0
+Không nhấn = 1
+Nhấn      = 0
 ```
 
-### Parameter debounce
+### Parameter
 
 ```verilog
 parameter DELAY_CYCLES = 20'd1_000_000
@@ -243,29 +188,30 @@ parameter DELAY_CYCLES = 20'd1_000_000
 Với clock 50 MHz:
 
 ```text
-1_000_000 chu kỳ * 20 ns = 20 ms
+1 chu kỳ = 20 ns
+1_000_000 chu kỳ = 20 ms
 ```
 
-Nút phải ổn định khoảng 20 ms thì mới được công nhận.
+Nút phải ổn định khoảng 20 ms thì mới được công nhận. Trong testbench, `DB_DELAY` được đặt là `1` để mô phỏng nhanh.
 
-### Đồng bộ input ngoài
+### Đồng bộ tín hiệu ngoài
 
 ```verilog
 btn_sync_0 <= i_btn;
 btn_sync_1 <= btn_sync_0;
 ```
 
-Nút bấm là tín hiệu ngoài FPGA, không đồng bộ với clock. Cho đi qua 2 flip-flop giúp giảm rủi ro metastability.
+Nút bấm đến từ ngoài FPGA, không đồng bộ với clock. Hai flip-flop này đưa tín hiệu vào miền clock nội bộ và giảm rủi ro metastability.
 
 Luồng:
 
 ```text
-i_btn --> btn_sync_0 --> btn_sync_1 --> debounce logic
+i_btn -> btn_sync_0 -> btn_sync_1 -> debounce logic
 ```
 
-### Logic lọc nhiễu
+### Lọc nhiễu
 
-Nếu tín hiệu mới giống trạng thái đang công nhận:
+Nếu tín hiệu đồng bộ giống trạng thái đã công nhận:
 
 ```verilog
 if (btn_sync_1 == o_btn_state) begin
@@ -281,34 +227,28 @@ Nếu khác:
 counter <= counter + 1'b1;
 ```
 
-Bắt đầu đếm. Nếu giữ khác đủ lâu:
+Nó bắt đầu đếm. Khi đếm đủ `DELAY_CYCLES - 1`:
 
 ```verilog
-if (counter == (DELAY_CYCLES - 1)) begin
-    o_btn_state <= btn_sync_1;
-    counter <= 20'd0;
-end
+o_btn_state <= btn_sync_1;
+counter <= 20'd0;
 ```
 
-Lúc đó mới cập nhật trạng thái nút.
+Lúc đó trạng thái nút mới được cập nhật.
 
-### Tạo tick 1 clock
+### Tạo tick
 
 ```verilog
 assign o_btn_tick = (btn_state_prev == 1'b1) && (o_btn_state == 1'b0);
 ```
 
-Vì nút active-low, cạnh nhấn là `1 -> 0`. `tick` chỉ lên `1` đúng một chu kỳ clock.
+Vì nút active-low, cạnh nhấn là `1 -> 0`. `tick` chỉ lên 1 trong đúng một clock. FSM dùng `tick` để một lần nhấn chỉ xử lý một lần, dù bạn giữ nút lâu.
 
-FSM dùng `tick` để một lần nhấn chỉ xử lý một lần, dù người dùng giữ nút lâu.
-
-## 6. File `internal_ram.v`
-
-File này hiện có trong `design/`, nhưng `digital_safe_lock.v` bản hiện tại không instantiate nó. Top-level đang dùng `sram_controller.v` để nói chuyện với SRAM ngoài.
+## 6. `internal_ram.v`
 
 ### Vai trò
 
-`internal_ram` là RAM đơn giản bên trong FPGA hoặc dùng cho mô phỏng/thay thế SRAM. Nó dùng cùng kiểu giao diện với SRAM controller:
+File này là RAM nội bộ/mô phỏng đơn giản dùng cùng giao diện với controller bộ nhớ:
 
 ```verilog
 i_rd_en
@@ -319,51 +259,57 @@ o_data
 o_ready
 ```
 
-Điều này có nghĩa là `lock_fsm` không cần biết phía sau là RAM nội bộ hay SRAM ngoài. Nó chỉ cần bật read/write và đợi `ready`.
+Trong `digital_safe_lock.v` hiện tại, module này không được instantiate. Top-level đang dùng `ssram_controller.v`. Tuy vậy, `internal_ram.v` vẫn hữu ích để hiểu giao diện bộ nhớ đơn giản mà `lock_fsm` mong muốn.
 
-### Bộ nhớ thật sự
+### Khác bản cũ ở điểm nào?
 
-```verilog
-reg [15:0] memory;
-```
-
-Code chỉ lưu một word 16 bit, vì dự án chỉ cần lưu mật khẩu ở địa chỉ 0.
-
-Nếu muốn nhiều ô nhớ hơn, có thể dùng:
+Bản hiện tại lưu 2 word:
 
 ```verilog
-reg [15:0] mem [0:1023];
+reg [15:0] memory [0:1];
 ```
 
-Nhưng hiện tại chưa cần.
+Ý nghĩa:
 
-### FSM nhỏ bên trong
+- `memory[0]`: password.
+- `memory[1]`: magic number.
+
+Magic number là `16'h55AA`, dùng để biết RAM đã được khởi tạo chưa.
+
+### Không xóa RAM khi reset
+
+Trong reset:
+
+```verilog
+// IMPORTANT: Do NOT clear memory here. A soft reset should not erase SRAM.
+```
+
+Đây là ý tưởng quan trọng: reset logic FPGA không nên tự động xóa nội dung SRAM. Nếu đã có magic number, hệ thống không ghi đè password về mặc định.
+
+### Initial X
+
+```verilog
+initial begin
+    memory[0] = 16'hXXXX;
+    memory[1] = 16'hXXXX;
+end
+```
+
+Trong mô phỏng, `X` nghĩa là chưa biết/chưa khởi tạo. Khi FSM đọc magic number mà không thấy `55AA`, nó sẽ ghi default password và magic number.
+
+### FSM nhỏ trong RAM
 
 State:
 
 ```verilog
-localparam IDLE = 2'd0;
-localparam WAIT = 2'd1;
-localparam DONE = 2'd2;
-```
-
-Luồng ghi:
-
-```text
-IDLE thấy i_wr_en = 1
--> memory <= i_data
--> WAIT
--> o_ready = 1
--> DONE
--> đợi i_wr_en hạ xuống 0
--> IDLE
+IDLE -> WAIT -> DONE
 ```
 
 Luồng đọc:
 
 ```text
-IDLE thấy i_rd_en = 1
--> o_data <= memory
+IDLE thấy i_rd_en
+-> o_data <= memory[i_addr[0]]
 -> WAIT
 -> o_ready = 1
 -> DONE
@@ -371,228 +317,61 @@ IDLE thấy i_rd_en = 1
 -> IDLE
 ```
 
-Điểm đáng học ở file này là handshake `enable/ready`. Đây là mẫu giao tiếp rất phổ biến trong thiết kế số.
-
-## 7. File `sram_controller.v`
-
-Đây là module nối FSM với SRAM ngoài bất đồng bộ.
-
-### Vai trò
-
-`lock_fsm` muốn giao tiếp bộ nhớ theo kiểu đơn giản:
+Luồng ghi:
 
 ```text
-rd_en/wr_en, addr, data, ready
+IDLE thấy i_wr_en
+-> memory[i_addr[0]] <= i_data
+-> WAIT
+-> o_ready = 1
+-> DONE
+-> đợi i_wr_en hạ xuống 0
+-> IDLE
 ```
 
-Nhưng SRAM ngoài cần tín hiệu vật lý:
+## 7. `lock_fsm.v`
 
-```text
-SRAM_ADDR
-SRAM_DQ
-SRAM_CE_N
-SRAM_OE_N
-SRAM_WE_N
-SRAM_LB_N
-SRAM_UB_N
-```
+Đây là file quan trọng nhất. Nó chứa thuật toán khóa.
 
-`sram_controller` đứng giữa để chuyển đổi hai kiểu giao tiếp này.
+### Giao diện input/output
 
-### Giao diện phía FSM
+Input từ người dùng:
 
 ```verilog
-input  wire        i_rd_en
-input  wire        i_wr_en
-input  wire [18:0] i_addr
-input  wire [15:0] i_data
-output reg  [15:0] o_data
-output reg         o_ready
+input wire [7:0] i_sw
+input wire i_enter_tick
+input wire i_change_tick
 ```
 
-FSM chỉ cần:
-
-```text
-Muốn đọc: bật i_rd_en, đặt i_addr, đợi o_ready.
-Muốn ghi: bật i_wr_en, đặt i_addr/i_data, đợi o_ready.
-```
-
-### Giao diện phía SRAM
+Giao diện bộ nhớ:
 
 ```verilog
-output reg  [18:0] SRAM_ADDR
-inout  wire [15:0] SRAM_DQ
-output reg         SRAM_CE_N
-output reg         SRAM_OE_N
-output reg         SRAM_WE_N
-output reg         SRAM_LB_N
-output reg         SRAM_UB_N
+output reg  o_sram_rd_en
+output reg  o_sram_wr_en
+output reg  [18:0] o_sram_addr
+output reg  [15:0] o_sram_data_out
+input  wire [15:0] i_sram_data
+input  wire i_sram_ready
 ```
 
-Các tín hiệu có `_N` là active-low:
-
-| Tín hiệu | Ý nghĩa |
-| --- | --- |
-| `SRAM_CE_N` | Chip Enable, `0` là bật chip |
-| `SRAM_OE_N` | Output Enable, `0` là SRAM được phép xuất dữ liệu |
-| `SRAM_WE_N` | Write Enable, `0` là ghi |
-| `SRAM_LB_N` | Lower Byte enable |
-| `SRAM_UB_N` | Upper Byte enable |
-
-### Bus hai chiều `SRAM_DQ`
+Output trạng thái:
 
 ```verilog
-assign SRAM_DQ = dq_drive ? dq_out : 16'hzzzz;
-```
-
-Đây là dòng rất quan trọng.
-
-- Khi ghi, FPGA phải lái dữ liệu ra bus: `dq_drive = 1`.
-- Khi đọc, SRAM lái dữ liệu ra bus, FPGA phải nhả bus: `dq_drive = 0`, tức high-Z.
-
-Nếu cả FPGA và SRAM cùng lái bus, có thể gây tranh chấp điện.
-
-### FSM trong SRAM controller
-
-State:
-
-```verilog
-S_IDLE
-S_READ_WAIT
-S_READ_DONE
-S_WRITE_WAIT
-S_DONE
-```
-
-### Luồng ghi SRAM
-
-Ở `S_IDLE`, nếu thấy `i_wr_en`:
-
-```verilog
-SRAM_ADDR <= i_addr;
-dq_out <= i_data;
-dq_drive <= 1'b1;
-SRAM_CE_N <= 1'b0;
-SRAM_OE_N <= 1'b1;
-SRAM_WE_N <= 1'b0;
-SRAM_LB_N <= 1'b0;
-SRAM_UB_N <= 1'b0;
-state <= S_WRITE_WAIT;
-```
-
-Ý nghĩa:
-
-```text
-Đặt địa chỉ
-Đưa dữ liệu ra bus
-Bật chip
-Tắt output SRAM
-Bật write
-Bật cả byte thấp và byte cao
-Đợi vài chu kỳ
-```
-
-Sau `WAIT_CYCLES`, controller tắt write và báo xong:
-
-```verilog
-SRAM_WE_N <= 1'b1;
-SRAM_CE_N <= 1'b1;
-dq_drive <= 1'b0;
-o_ready <= 1'b1;
-```
-
-### Luồng đọc SRAM
-
-Ở `S_IDLE`, nếu thấy `i_rd_en`:
-
-```verilog
-SRAM_ADDR <= i_addr;
-dq_drive <= 1'b0;
-SRAM_CE_N <= 1'b0;
-SRAM_OE_N <= 1'b0;
-SRAM_WE_N <= 1'b1;
-SRAM_LB_N <= 1'b0;
-SRAM_UB_N <= 1'b0;
-state <= S_READ_WAIT;
-```
-
-Ý nghĩa:
-
-```text
-Đặt địa chỉ
-Nhả bus data
-Bật chip
-Cho SRAM xuất dữ liệu
-Không ghi
-Đợi dữ liệu ổn định
-```
-
-Sau `WAIT_CYCLES`, lấy dữ liệu:
-
-```verilog
-o_data <= SRAM_DQ;
-```
-
-Rồi tắt SRAM và báo:
-
-```verilog
-o_ready <= 1'b1;
-```
-
-### Vì sao có `S_DONE`?
-
-```verilog
-if (!i_rd_en && !i_wr_en) begin
-    o_ready <= 1'b0;
-    state <= S_IDLE;
-end
-```
-
-Controller giữ `ready = 1` cho tới khi FSM hạ `rd_en/wr_en` xuống. Đây là handshake sạch, tránh việc FSM bỏ lỡ xung `ready`.
-
-## 8. File `lock_fsm.v`
-
-Đây là file quan trọng nhất. Nó chứa thuật toán của khóa.
-
-### Vai trò
-
-`lock_fsm` quyết định hệ thống đang:
-
-- mới reset và ghi mật khẩu mặc định,
-- đang khóa,
-- đang đọc mật khẩu,
-- đã mở,
-- báo lỗi,
-- đang đổi mật khẩu,
-- báo đổi mật khẩu xong.
-
-Input chính:
-
-```verilog
-i_sw
-i_enter_tick
-i_change_tick
-i_sram_data
-i_sram_ready
-```
-
-Output chính:
-
-```verilog
-o_sram_rd_en
-o_sram_wr_en
-o_sram_addr
-o_sram_data_out
-o_ledr
-o_ledg
-o_display_state
+output reg o_ledr
+output reg o_ledg
+output reg [2:0] o_display_state
 ```
 
 ### Các state
 
 ```verilog
+S_CHK_MAGIC_RD
+S_CHK_MAGIC_WAIT
+S_CHK_MAGIC_EVAL
 S_INIT_WR
 S_INIT_WAIT
+S_INIT_WR_MAGIC
+S_INIT_WAIT_MAGIC
 S_IDLE
 S_READ_CHECK
 S_UNLOCKED
@@ -605,51 +384,70 @@ S_CHG_DONE
 
 | State | Ý nghĩa |
 | --- | --- |
-| `S_INIT_WR` | Ghi mật khẩu mặc định `00` vào SRAM |
-| `S_INIT_WAIT` | Đợi SRAM ghi xong |
+| `S_CHK_MAGIC_RD` | Đọc địa chỉ 1 để kiểm tra magic number |
+| `S_CHK_MAGIC_WAIT` | Đợi bộ nhớ đọc xong |
+| `S_CHK_MAGIC_EVAL` | So sánh dữ liệu đọc với `16'h55AA` |
+| `S_INIT_WR` | Ghi password mặc định `00` vào địa chỉ 0 |
+| `S_INIT_WAIT` | Đợi ghi password xong |
+| `S_INIT_WR_MAGIC` | Ghi `55AA` vào địa chỉ 1 |
+| `S_INIT_WAIT_MAGIC` | Đợi ghi magic xong |
 | `S_IDLE` | Đang khóa, chờ Enter |
-| `S_READ_CHECK` | Đọc mật khẩu từ SRAM và so sánh |
+| `S_READ_CHECK` | Đọc password và so sánh |
 | `S_UNLOCKED` | Đã mở khóa |
 | `S_ERR` | Sai mật khẩu |
 | `S_WRITE_CHG` | Ghi mật khẩu mới |
 | `S_CHG_DONE` | Báo đổi mật khẩu xong |
 
-### Reset
+### Reset và magic number
 
 Khi reset:
 
 ```verilog
-state <= S_INIT_WR;
-o_ledr <= 1'b1;
-o_ledg <= 1'b0;
-o_display_state <= 3'd0;
+state <= S_CHK_MAGIC_RD;
 ```
 
-Hệ thống mặc định ở trạng thái khóa, đèn đỏ bật, display `---`.
-
-### Khởi tạo mật khẩu mặc định
-
-Ở `S_INIT_WR`:
+FSM không ghi password mặc định ngay. Nó đọc địa chỉ 1 trước:
 
 ```verilog
-o_sram_wr_en <= 1'b1;
+o_sram_rd_en <= 1'b1;
+o_sram_addr <= 19'd1;
+```
+
+Nếu đọc được `16'h55AA`:
+
+```verilog
+state <= S_IDLE;
+```
+
+Nếu không:
+
+```verilog
+state <= S_INIT_WR;
+```
+
+Nghĩa là SRAM chưa được khởi tạo, cần ghi password mặc định và magic number.
+
+### Khởi tạo SRAM
+
+Password mặc định:
+
+```verilog
 o_sram_addr <= 19'd0;
 o_sram_data_out <= 16'h0000;
-state <= S_INIT_WAIT;
 ```
 
-FSM yêu cầu ghi `0000` vào địa chỉ 0 của SRAM. Mật khẩu thực tế dùng 8 bit thấp, nên password mặc định là `00`.
-
-Ở `S_INIT_WAIT`, FSM chờ:
+Magic number:
 
 ```verilog
-if (i_sram_ready) begin
-    o_sram_wr_en <= 1'b0;
-    state <= S_IDLE;
-end
+o_sram_addr <= 19'd1;
+o_sram_data_out <= 16'h55AA;
 ```
 
-### Trạng thái khóa `S_IDLE`
+Sau đó vào `S_IDLE`.
+
+### `S_IDLE`
+
+Trong trạng thái khóa:
 
 ```verilog
 o_ledr <= 1'b1;
@@ -665,11 +463,11 @@ o_sram_addr <= 19'd0;
 state <= S_READ_CHECK;
 ```
 
-Nó không tự so sánh ngay, mà yêu cầu SRAM controller đọc password đã lưu.
+FSM yêu cầu đọc password từ địa chỉ 0.
 
-### Kiểm tra mật khẩu `S_READ_CHECK`
+### `S_READ_CHECK`
 
-Khi SRAM báo ready:
+Khi bộ nhớ báo `i_sram_ready`:
 
 ```verilog
 if (i_sram_data[7:0] == i_sw) begin
@@ -677,18 +475,21 @@ if (i_sram_data[7:0] == i_sw) begin
 end else begin
     state <= S_ERR;
 end
-o_sram_rd_en <= 1'b0;
 ```
 
-Chỉ 8 bit thấp được dùng:
+Chỉ 8 bit thấp của word 16 bit được dùng làm password.
 
-```verilog
-i_sram_data[7:0]
+Ví dụ:
+
+```text
+i_sram_data = 16'h00A5
+i_sw        = 8'hA5
+=> đúng mật khẩu
 ```
 
-Ví dụ SRAM lưu `16'h00A5`, switch là `8'hA5`, thì mở khóa.
+### `S_UNLOCKED`
 
-### Trạng thái mở khóa `S_UNLOCKED`
+Khi mở khóa:
 
 ```verilog
 o_ledr <= 1'b0;
@@ -705,7 +506,7 @@ o_sram_data_out <= {8'h00, i_sw};
 state <= S_WRITE_CHG;
 ```
 
-`{8'h00, i_sw}` là nối bit. Nếu `i_sw = 8'hA5`, kết quả là `16'h00A5`.
+`{8'h00, i_sw}` nối 8 bit 0 với 8 bit switch để thành word 16 bit.
 
 Nếu nhấn Enter khi đang mở:
 
@@ -715,7 +516,9 @@ state <= S_IDLE;
 
 Tức là khóa lại.
 
-### Trạng thái lỗi `S_ERR`
+### `S_ERR`
+
+Sai password:
 
 ```verilog
 o_ledr <= 1'b1;
@@ -723,7 +526,7 @@ o_ledg <= 1'b0;
 o_display_state <= 3'd2;
 ```
 
-Giữ trạng thái lỗi cho tới khi:
+Thoát lỗi khi hết timer hoặc nhấn Enter:
 
 ```verilog
 if (timer_done || i_enter_tick) begin
@@ -731,20 +534,11 @@ if (timer_done || i_enter_tick) begin
 end
 ```
 
-Nghĩa là hết timer thì quay lại khóa, hoặc người dùng nhấn Enter để bỏ qua chờ.
+Testbench hiện có test riêng cho hành vi "nhấn Enter để thoát ERR sớm".
 
-### Đổi mật khẩu xong
+### `S_CHG_DONE`
 
-Ở `S_WRITE_CHG`, FSM chờ SRAM ghi xong:
-
-```verilog
-if (i_sram_ready) begin
-    o_sram_wr_en <= 1'b0;
-    state <= S_CHG_DONE;
-end
-```
-
-Ở `S_CHG_DONE`:
+Đổi password xong:
 
 ```verilog
 o_ledr <= 1'b0;
@@ -752,11 +546,7 @@ o_ledg <= 1'b1;
 o_display_state <= 3'd3;
 ```
 
-Sau timer:
-
-```verilog
-state <= S_UNLOCKED;
-```
+Hết timer thì quay lại `S_UNLOCKED`.
 
 ### Timer
 
@@ -767,31 +557,198 @@ wire timer_en = (state == S_ERR) || (state == S_CHG_DONE);
 wire timer_done = (timer >= TIMER_CYCLES);
 ```
 
-Nếu không ở hai state đó, timer reset về 0.
+Nếu không ở 2 state này, timer reset về 0.
 
-## 9. File `digital_safe_lock.v`
+## 8. `ssram_controller.v`
 
-Đây là top-level core của hệ thống. Nó không chứa thuật toán chi tiết, mà nối các module lại.
+File này thay thế `sram_controller.v` cũ. Nó điều khiển SSRAM đồng bộ/pipelined trên DE2i-150.
+
+### Vai trò
+
+Phía FSM dùng giao diện đơn giản:
+
+```verilog
+i_rd_en
+i_wr_en
+i_addr
+i_data
+o_data
+o_ready
+```
+
+Phía board dùng interface vật lý:
+
+```verilog
+FS_DQ[31:0]
+FS_ADDR[26:1]
+SSRAM0_CE_N
+SSRAM1_CE_N
+SSRAM_ADSC_N
+SSRAM_ADSP_N
+SSRAM_ADV_N
+SSRAM_BE[3:0]
+SSRAM_CLK
+SSRAM_GW_N
+SSRAM_OE_N
+SSRAM_WE_N
+```
+
+Controller này đứng giữa để đổi request đọc/ghi của FSM thành chu kỳ SSRAM.
+
+### Static signals
+
+```verilog
+assign SSRAM0_CE_N = 1'b0;
+assign SSRAM1_CE_N = 1'b0;
+assign SSRAM_ADSP_N = 1'b1;
+assign SSRAM_ADV_N = 1'b1;
+assign SSRAM_GW_N = 1'b1;
+assign SSRAM_BE = 4'b1100;
+assign SSRAM_CLK = clk;
+```
+
+Ý nghĩa:
+
+- Bật cả hai chip enable.
+- Không dùng processor mode.
+- Không dùng burst.
+- Không dùng global write.
+- Chỉ enable lower 2 bytes. Vì password chỉ dùng 16 bit thấp trong bus 32 bit.
+- SSRAM nhận clock từ `CLOCK_50`.
+
+`SSRAM_BE` active-low. `4'b1100` nghĩa là byte enable thấp đang bật, hai byte cao tắt.
+
+### Bus hai chiều `FS_DQ`
+
+```verilog
+assign FS_DQ = data_oe ? data_out_reg : 32'bz;
+```
+
+- Khi ghi: `data_oe = 1`, FPGA lái data ra bus.
+- Khi đọc: `data_oe = 0`, FPGA nhả bus, SSRAM/mock SSRAM lái data.
+
+Đây là phần quan trọng để tránh tranh chấp bus.
+
+### State
+
+```verilog
+IDLE
+R1
+R2
+R3
+W1
+W2
+WAIT_IDLE
+```
+
+### Ghi SSRAM
+
+Khi `i_wr_en` ở `IDLE`:
+
+```verilog
+addr_reg[20:1] <= i_addr;
+adsc_n_reg <= 1'b0;
+we_n_reg <= 1'b0;
+state <= W1;
+```
+
+Ý nghĩa:
+
+```text
+Đặt địa chỉ
+Kéo ADSC_N xuống để latch address
+Kéo WE_N xuống để đăng ký lệnh ghi
+```
+
+Ở `W1`:
+
+```verilog
+adsc_n_reg <= 1'b1;
+we_n_reg <= 1'b1;
+data_out_reg <= {16'd0, i_data};
+data_oe <= 1'b1;
+state <= W2;
+```
+
+Vì SSRAM pipelined, data được đưa ra sau chu kỳ address/command.
+
+Ở `W2`:
+
+```verilog
+data_oe <= 1'b0;
+o_ready <= 1'b1;
+state <= WAIT_IDLE;
+```
+
+### Đọc SSRAM
+
+Khi `i_rd_en` ở `IDLE`:
+
+```verilog
+addr_reg[20:1] <= i_addr;
+adsc_n_reg <= 1'b0;
+we_n_reg <= 1'b1;
+oe_n_reg <= 1'b0;
+state <= R1;
+```
+
+Sau đó chờ pipeline:
+
+```text
+R1 -> R2 -> R3
+```
+
+Ở `R3`:
+
+```verilog
+o_data <= FS_DQ[15:0];
+oe_n_reg <= 1'b1;
+o_ready <= 1'b1;
+```
+
+Chỉ lấy 16 bit thấp từ bus 32 bit.
+
+### `WAIT_IDLE`
+
+```verilog
+if (!i_rd_en && !i_wr_en) begin
+    o_ready <= 1'b0;
+    state <= IDLE;
+end
+```
+
+Controller giữ `ready = 1` cho tới khi FSM hạ request xuống. Đây là handshake tránh mất tín hiệu ready.
+
+### Lưu ý warning hiện tại
+
+Khi compile bằng Icarus, có warning:
+
+```text
+Port 5 (i_addr) of module ssram_controller expects 20 bit(s), given 19.
+Padding 1 high bits of the port.
+```
+
+Nguyên nhân:
+
+- `lock_fsm` xuất `o_sram_addr` rộng 19 bit.
+- `ssram_controller` nhận `i_addr` rộng 20 bit.
+
+Hiện mô phỏng vẫn pass vì địa chỉ dùng chỉ là 0 và 1. Nhưng để sạch hơn, nên thống nhất độ rộng địa chỉ sau này.
+
+## 9. `digital_safe_lock.v`
+
+Đây là top-level core, nối các module lại với nhau.
 
 ### Parameter
 
 ```verilog
 parameter DB_DELAY = 20'd1_000_000
 parameter TIMER_CYCLES = 28'd100_000_000
-parameter SRAM_WAIT_CYCLES = 2
 ```
 
-Ý nghĩa:
+Không còn `SRAM_WAIT_CYCLES` như bản SRAM bất đồng bộ trước. SSRAM controller hiện có timing pipeline cố định trong state machine.
 
-| Parameter | Ý nghĩa |
-| --- | --- |
-| `DB_DELAY` | thời gian lọc nút bấm |
-| `TIMER_CYCLES` | thời gian giữ `Err`/`Chg` |
-| `SRAM_WAIT_CYCLES` | số chu kỳ đợi SRAM ổn định |
-
-Trong testbench các giá trị này được giảm nhỏ để mô phỏng nhanh.
-
-### Input/output board
+### I/O chính
 
 Input:
 
@@ -808,17 +765,18 @@ LEDR
 LEDG
 HEX2/HEX1/HEX0
 LCD
-SRAM
+FS_DQ / FS_ADDR / SSRAM_*
 ```
 
-### Tắt LED không dùng
+### LED và LCD power
 
 ```verilog
 assign LEDR[17:1] = 17'd0;
 assign LEDG[8:1] = 8'd0;
+assign LCD_ON = 1'b1;
 ```
 
-Chỉ dùng `LEDR[0]` và `LEDG[0]`, các LED còn lại tắt.
+Chỉ dùng `LEDR[0]`, `LEDG[0]`. LCD được bật nguồn/backlight.
 
 ### Reset
 
@@ -826,27 +784,29 @@ Chỉ dùng `LEDR[0]` và `LEDG[0]`, các LED còn lại tắt.
 wire rst_n = KEY[0];
 ```
 
-`KEY[0]` active-low nên tên là `rst_n`, trong đó `_n` thường nghĩa là active-low.
+`KEY[0]` là reset active-low.
 
-### Debounce nút Enter và Change
+### Debounce
+
+Hai instance:
 
 ```verilog
 button_debounce db_enter (...)
 button_debounce db_change (...)
 ```
 
-Hai instance giống nhau, chỉ khác input:
+- `KEY[1]` -> `enter_tick`
+- `KEY[2]` -> `change_tick`
 
-- `KEY[1]` tạo `enter_tick`.
-- `KEY[2]` tạo `change_tick`.
-
-### Nối SRAM controller
+### SSRAM controller
 
 ```verilog
-sram_controller sram_ctrl (...)
+ssram_controller sram_ctrl (...)
 ```
 
-Module này nhận giao diện đơn giản từ FSM:
+Tên instance vẫn là `sram_ctrl`, nhưng module thật là `ssram_controller`.
+
+Giao diện nội bộ:
 
 ```text
 sram_rd_en
@@ -857,19 +817,24 @@ sram_data_from_ctrl
 sram_ready
 ```
 
-Rồi điều khiển chân SRAM vật lý:
+Giao diện vật lý:
 
 ```text
-SRAM_ADDR
-SRAM_DQ
-SRAM_CE_N
-SRAM_OE_N
-SRAM_WE_N
-SRAM_LB_N
-SRAM_UB_N
+FS_DQ
+FS_ADDR
+SSRAM0_CE_N
+SSRAM1_CE_N
+SSRAM_ADSC_N
+SSRAM_ADSP_N
+SSRAM_ADV_N
+SSRAM_BE
+SSRAM_CLK
+SSRAM_GW_N
+SSRAM_OE_N
+SSRAM_WE_N
 ```
 
-### Nối FSM
+### FSM
 
 ```verilog
 lock_fsm fsm_inst (...)
@@ -881,8 +846,8 @@ FSM nhận:
 SW[7:0]
 enter_tick
 change_tick
-sram_ready
 sram_data_from_ctrl
+sram_ready
 ```
 
 FSM xuất:
@@ -897,31 +862,35 @@ LEDG[0]
 display_state
 ```
 
-### Nối HEX và LCD
+### HEX và LCD
+
+`display_state` đi song song tới:
 
 ```verilog
-hex_display hex_inst (
-    .i_state(display_state),
-    ...
-);
+hex_display
+lcd_controller
 ```
+
+FSM không cần biết từng segment LED hay từng byte LCD. Nó chỉ xuất mã trạng thái 0/1/2/3.
+
+### Comment cũ cần chú ý
+
+Trong file vẫn còn comment:
 
 ```verilog
-lcd_controller lcd_inst (
-    .i_state(display_state),
-    ...
-);
+// I2C EEPROM Controller Instantiation
+// Replaces the physical SRAM with an I2C EEPROM interface
 ```
 
-`display_state` là một dây chung từ FSM sang cả HEX và LCD. FSM chỉ xuất mã trạng thái; module hiển thị tự dịch mã đó thành chữ.
+Comment này đã lỗi thời. Code thực tế đang dùng `ssram_controller`, không dùng I2C EEPROM.
 
-## 10. File `lcd_controller.v`
+## 10. `lcd_controller.v`
 
-Đọc file này sau cùng vì nó dài và chủ yếu là timing LCD.
+File này dài vì phải làm đúng timing LCD HD44780.
 
 ### Vai trò
 
-LCD controller nhận `i_state` từ FSM và in text ra LCD 16x2.
+Nhận `i_state` từ FSM và in ra LCD 16x2.
 
 Output:
 
@@ -932,17 +901,15 @@ o_lcd_en
 o_lcd_data
 ```
 
-`o_lcd_rw` luôn bằng 0:
+`o_lcd_rw` luôn là 0:
 
 ```verilog
 assign o_lcd_rw = 1'b0;
 ```
 
-Tức là chỉ ghi ra LCD, không đọc từ LCD.
+Tức là chỉ ghi ra LCD, không đọc.
 
-### Delay LCD
-
-LCD HD44780 cần đợi giữa các lệnh:
+### Delay
 
 ```verilog
 localparam DELAY_20MS = CLK_FREQ / 50;
@@ -950,13 +917,15 @@ localparam DELAY_2MS  = CLK_FREQ / 500;
 localparam DELAY_50US = CLK_FREQ / 20_000;
 ```
 
-Với `CLK_FREQ = 50_000_000`:
+Với 50 MHz:
 
-- `DELAY_20MS`: đợi sau bật nguồn.
-- `DELAY_2MS`: lệnh clear display.
-- `DELAY_50US`: lệnh bình thường.
+- 20 ms power-up delay.
+- 2 ms cho clear display.
+- 50 us cho lệnh thường.
 
-### State chính
+### FSM LCD
+
+State:
 
 ```verilog
 S_PWR_ON
@@ -974,57 +943,34 @@ S_WAIT
 Luồng:
 
 ```text
-Đợi LCD bật nguồn
--> gửi lệnh khởi tạo
+Đợi LCD lên nguồn
+-> gửi lệnh init
 -> set địa chỉ dòng 1
--> in 16 ký tự dòng 1
+-> in dòng 1
 -> set địa chỉ dòng 2
--> in 16 ký tự dòng 2
--> chờ i_state đổi
+-> in dòng 2
+-> chờ trạng thái đổi
 -> nếu đổi thì in lại dòng 2
 ```
 
 ### Nội dung dòng 1
 
-Dòng 1 cố định:
-
 ```text
 " DIGITAL SAFE   "
 ```
 
-Trong code là mảng `line1_char[0:15]`.
-
 ### Nội dung dòng 2
 
-Dòng 2 phụ thuộc trạng thái:
-
-| `i_state` | LCD line 2 |
+| State | LCD line 2 |
 | --- | --- |
 | `3'd0` | `STATUS: LOCKED  ` |
 | `3'd1` | `STATUS: OPEN    ` |
 | `3'd2` | `WRONG PASSWORD! ` |
 | `3'd3` | `NEW PASS SAVED! ` |
 
-Code dùng `current_fsm_state`, không dùng trực tiếp `i_state` trong mảng:
+### Sequence gửi byte
 
-```verilog
-case(current_fsm_state)
-```
-
-Khi phát hiện `i_state` đổi:
-
-```verilog
-if (current_fsm_state != i_state) begin
-    current_fsm_state <= i_state;
-    state <= S_LINE2;
-end
-```
-
-Nó cập nhật state hiện tại rồi in lại dòng 2.
-
-### Sequence nhỏ để gửi một byte
-
-Ngoài FSM chính, file còn có `seq`:
+LCD cần xung `EN`. Vì vậy file có sequence nhỏ:
 
 ```verilog
 SEQ_SETUP
@@ -1034,25 +980,142 @@ SEQ_DELAY
 SEQ_DONE
 ```
 
-Đây là trình tự gửi một command/ký tự:
+Tức là:
 
 ```text
-Setup RS và DATA
--> kéo EN lên 1
--> kéo EN xuống 0
+Đặt RS/DATA
+-> EN = 1
+-> EN = 0
 -> đợi delay
 -> xong
 ```
 
-LCD không nhận dữ liệu chỉ bằng cách đặt `DATA`; phải có xung `EN`.
+## 11. `digital_safe_lock_3.qsf`
 
-## 11. Luồng thuật toán toàn hệ thống
+Đây không phải file Verilog. Đây là file Quartus Settings File.
 
-Dưới đây là cách nghĩ gần giống C:
+Vai trò:
+
+- Chọn FPGA family/device.
+- Chọn top-level entity.
+- Khai báo pin assignment cho LED, switch, key, LCD, SSRAM, bus `FS_DQ/FS_ADDR`.
+- Khai báo chuẩn điện áp I/O.
+
+Điểm cần chú ý:
+
+```text
+set_global_assignment -name TOP_LEVEL_ENTITY "digital_safe_lock_3"
+```
+
+Trong khi module Verilog top hiện tại tên là:
+
+```verilog
+module digital_safe_lock #(...)
+```
+
+Nếu build Quartus bằng file `.qsf` này, cần đảm bảo top-level entity trong QSF khớp với module top thật, hoặc có wrapper `digital_safe_lock_3` ở nơi khác. Nếu không, Quartus sẽ không tìm thấy top-level.
+
+## 12. Testbench hiện tại
+
+Ngoài `design/`, bản hiện tại có:
+
+```text
+tb/tb_digital_safe_lock.v
+tb/mock_ssram.v
+```
+
+### `tb_digital_safe_lock.v`
+
+Testbench instantiate `digital_safe_lock` với:
+
+```verilog
+.DB_DELAY(20'd1),
+.TIMER_CYCLES(28'd200_000)
+```
+
+Tức:
+
+- Debounce gần như tức thì.
+- Timer ERR/CHG khoảng 4 ms trong mô phỏng.
+
+Testbench kiểm tra:
+
+1. Mở bằng password mặc định `00`.
+2. Đổi password sang `A5`.
+3. Khóa lại.
+4. Nhập sai `11`.
+5. Mở bằng password mới `A5`.
+6. Spam password sai.
+7. Đảm bảo không thể đổi password khi đang khóa.
+8. Thoát ERR sớm bằng Enter.
+
+### `mock_ssram.v`
+
+Đây là model SSRAM để mô phỏng. Nó tạo RAM 256 word:
+
+```verilog
+reg [31:0] memory [0:255];
+```
+
+Ban đầu:
+
+```verilog
+memory[i] = 32'h0000_FFFF;
+```
+
+Vì địa chỉ magic ban đầu đọc ra `FFFF`, FSM hiểu bộ nhớ chưa init và ghi:
+
+- password `0000` vào address 0.
+- magic `55AA` vào address 1.
+
+Mock này mô phỏng pipeline:
+
+- Latch address khi `ADSC_N = 0`.
+- Ghi data ở chu kỳ sau nếu command trước là write.
+- Đưa read data ra `FS_DQ` khi `OE_N = 0`.
+
+## 13. Kết quả mô phỏng hiện tại
+
+Lệnh compile đã chạy:
+
+```powershell
+iverilog -g2012 -o sim\tb_current_guide_check.vvp `
+  tb\tb_digital_safe_lock.v `
+  tb\mock_ssram.v `
+  design\digital_safe_lock.v `
+  design\button_debounce.v `
+  design\lock_fsm.v `
+  design\hex_display.v `
+  design\lcd_controller.v `
+  design\ssram_controller.v `
+  design\internal_ram.v
+```
+
+Có warning:
+
+```text
+ssram_controller expects 20-bit i_addr, top-level gives 19-bit address.
+```
+
+Mô phỏng:
+
+```powershell
+vvp sim\tb_current_guide_check.vvp
+```
+
+Kết quả: tất cả test hiện tại pass.
+
+## 14. Thuật toán tổng quát
+
+Viết gần giống C:
 
 ```c
-reset:
-    password = 0x00;       // ghi vào SRAM address 0
+on_reset:
+    magic = memory_read(1);
+    if (magic != 0x55AA) {
+        memory_write(0, 0x0000); // default password
+        memory_write(1, 0x55AA); // mark initialized
+    }
     state = IDLE;
 
 IDLE:
@@ -1060,7 +1123,7 @@ IDLE:
     green = 0;
     display = "---";
     if (enter_tick) {
-        saved = sram_read(0);
+        saved = memory_read(0);
         if ((saved & 0xff) == SW[7:0])
             state = UNLOCKED;
         else
@@ -1072,7 +1135,7 @@ UNLOCKED:
     green = 1;
     display = "OPn";
     if (change_tick) {
-        sram_write(0, SW[7:0]);
+        memory_write(0, SW[7:0]);
         state = CHG_DONE;
     } else if (enter_tick) {
         state = IDLE;
@@ -1093,84 +1156,32 @@ CHG_DONE:
         state = UNLOCKED;
 ```
 
-Nhưng trong Verilog, `sram_read()` và `sram_write()` không trả kết quả ngay như function C. Chúng là handshake:
+Điểm khác C: `memory_read()` và `memory_write()` không trả kết quả ngay. Trong Verilog hiện tại, chúng là handshake:
 
 ```text
-FSM bật rd_en hoặc wr_en
-SRAM controller chạy bus cycle
-SRAM controller bật ready
-FSM lấy data hoặc chuyển state
+FSM bật rd_en/wr_en
+ssram_controller chạy chu kỳ bus
+ssram_controller bật ready
+FSM lấy dữ liệu hoặc chuyển state
 FSM hạ rd_en/wr_en
-Controller quay về IDLE
+controller quay về IDLE
 ```
 
-## 12. Ghi chú về testbench hiện tại
+## 15. Tóm tắt từng file trong `design/`
 
-Testbench `tb/tb_digital_safe_lock.v` hiện đã có SRAM model:
-
-```verilog
-reg [15:0] sram_mem [0:1];
-```
-
-Nó mô phỏng SRAM ngoài bằng cách lái `SRAM_DQ` khi đọc:
-
-```verilog
-assign SRAM_DQ = (!SRAM_CE_N && !SRAM_OE_N && SRAM_WE_N)
-               ? sram_mem[SRAM_ADDR[0]]
-               : 16'hzzzz;
-```
-
-Và ghi vào `sram_mem` khi `WE_N = 0`.
-
-Lệnh compile/mô phỏng đã kiểm tra:
-
-```powershell
-iverilog -g2012 -o sim\tb_sram_current_check.vvp `
-  tb\tb_digital_safe_lock.v `
-  design\digital_safe_lock.v `
-  design\button_debounce.v `
-  design\lock_fsm.v `
-  design\hex_display.v `
-  design\lcd_controller.v `
-  design\sram_controller.v `
-  design\internal_ram.v
-
-vvp sim\tb_sram_current_check.vvp
-```
-
-Kết quả hiện tại: các test unlock default, đổi password sang `A5`, sai password, unlock bằng password mới, spam sai password, rồi unlock lại đều pass.
-
-## 13. Tóm tắt từng file
-
-| File | Nên hiểu như |
+| File | Vai trò |
 | --- | --- |
-| `hex_display.v` | Bộ dịch trạng thái sang LED 7 đoạn |
-| `button_debounce.v` | Bộ lọc nút bấm và tạo event nhấn 1 clock |
-| `internal_ram.v` | RAM đơn giản dùng giao diện `rd/wr/ready`, hiện không được top-level dùng |
-| `sram_controller.v` | Driver cho SRAM ngoài, quản lý bus data hai chiều |
-| `lock_fsm.v` | Bộ não thuật toán khóa |
-| `digital_safe_lock.v` | File nối dây toàn hệ thống |
+| `hex_display.v` | Dịch `display_state` sang LED 7 đoạn |
+| `button_debounce.v` | Lọc nhiễu nút bấm và tạo tick 1 clock |
+| `internal_ram.v` | RAM nội bộ 2 word, hiện không được top-level dùng trực tiếp |
+| `lock_fsm.v` | Bộ não thuật toán khóa, password, magic number |
+| `ssram_controller.v` | Controller SSRAM pipeline cho bus `FS_DQ/FS_ADDR/SSRAM_*` |
+| `digital_safe_lock.v` | Top-level nối debounce, FSM, SSRAM, HEX, LCD |
 | `lcd_controller.v` | Driver LCD 16x2 |
+| `digital_safe_lock_3.qsf` | File cấu hình Quartus/pin assignment, không phải logic Verilog |
 
-Nếu học để sửa code, thứ tự thực tế nên là:
+Các điểm nên sửa/kiểm tra sau:
 
-```text
-hex_display.v
--> button_debounce.v
--> internal_ram.v
--> sram_controller.v
--> lock_fsm.v
--> digital_safe_lock.v
--> lcd_controller.v
-```
-
-Nếu học để hiểu nhanh sản phẩm hoạt động ra sao:
-
-```text
-lock_fsm.v
--> digital_safe_lock.v
--> sram_controller.v
--> button_debounce.v
--> hex_display.v
--> lcd_controller.v
-```
+- Đồng bộ độ rộng địa chỉ: `lock_fsm` đang xuất 19 bit, `ssram_controller` nhận 20 bit.
+- Cập nhật comment cũ trong `digital_safe_lock.v` còn nhắc I2C EEPROM.
+- Kiểm tra top-level entity trong `digital_safe_lock_3.qsf` có khớp với module top thật không.

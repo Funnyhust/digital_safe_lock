@@ -21,24 +21,28 @@ module tb_digital_safe_lock();
     wire LCD_RW;
     wire LCD_EN;
     wire [7:0] LCD_DATA;
-
-    // External SRAM physical interface wires
-    wire [18:0] SRAM_ADDR;
-    wire [15:0] SRAM_DQ;
-    wire SRAM_CE_N;
-    wire SRAM_OE_N;
-    wire SRAM_WE_N;
-    wire SRAM_LB_N;
-    wire SRAM_UB_N;
-
+    
+    // SSRAM wires
+    wire [31:0] FS_DQ;
+    wire [26:1] FS_ADDR;
+    wire SSRAM0_CE_N;
+    wire SSRAM1_CE_N;
+    wire SSRAM_ADSC_N;
+    wire SSRAM_ADSP_N;
+    wire SSRAM_ADV_N;
+    wire [3:0]  SSRAM_BE;
+    wire SSRAM_CLK;
+    wire SSRAM_GW_N;
+    wire SSRAM_OE_N;
+    wire SSRAM_WE_N;
+    
     // --- Device Under Test (DUT) Instantiation ---
     // Instantiate the Top Module with simulation-friendly parameters to drastically speed up the test
     // DB_DELAY = 1 ensures instant debouncing (no waiting millions of cycles for a button press)
     // TIMER_CYCLES = 20 ensures the 2-second display timer finishes in just 400ns
     digital_safe_lock #(
         .DB_DELAY(20'd1),
-        .TIMER_CYCLES(28'd20),
-        .SRAM_WAIT_CYCLES(1)
+        .TIMER_CYCLES(28'd200_000) // 200,000 cycles = 4ms timer
     ) dut (
         .CLOCK_50(CLOCK_50),
         .SW(SW),
@@ -53,26 +57,35 @@ module tb_digital_safe_lock();
         .LCD_RW(LCD_RW),
         .LCD_EN(LCD_EN),
         .LCD_DATA(LCD_DATA),
-        .SRAM_ADDR(SRAM_ADDR),
-        .SRAM_DQ(SRAM_DQ),
-        .SRAM_CE_N(SRAM_CE_N),
-        .SRAM_OE_N(SRAM_OE_N),
-        .SRAM_WE_N(SRAM_WE_N),
-        .SRAM_LB_N(SRAM_LB_N),
-        .SRAM_UB_N(SRAM_UB_N)
+        .FS_DQ(FS_DQ),
+        .FS_ADDR(FS_ADDR),
+        .SSRAM0_CE_N(SSRAM0_CE_N),
+        .SSRAM1_CE_N(SSRAM1_CE_N),
+        .SSRAM_ADSC_N(SSRAM_ADSC_N),
+        .SSRAM_ADSP_N(SSRAM_ADSP_N),
+        .SSRAM_ADV_N(SSRAM_ADV_N),
+        .SSRAM_BE(SSRAM_BE),
+        .SSRAM_CLK(SSRAM_CLK),
+        .SSRAM_GW_N(SSRAM_GW_N),
+        .SSRAM_OE_N(SSRAM_OE_N),
+        .SSRAM_WE_N(SSRAM_WE_N)
     );
 
-    // Behavioral model of the external 16-bit asynchronous SRAM.
-    reg [15:0] sram_mem [0:1];
-
-    assign SRAM_DQ = (!SRAM_CE_N && !SRAM_OE_N && SRAM_WE_N) ? sram_mem[SRAM_ADDR[0]] : 16'hzzzz;
-
-    always @(*) begin
-        if (!SRAM_CE_N && !SRAM_WE_N) begin
-            if (!SRAM_LB_N) sram_mem[SRAM_ADDR[0]][7:0] = SRAM_DQ[7:0];
-            if (!SRAM_UB_N) sram_mem[SRAM_ADDR[0]][15:8] = SRAM_DQ[15:8];
-        end
-    end
+    // Instantiate mock async SSRAM
+    mock_ssram ssram_chip (
+        .FS_DQ(FS_DQ),
+        .FS_ADDR(FS_ADDR),
+        .SSRAM0_CE_N(SSRAM0_CE_N),
+        .SSRAM1_CE_N(SSRAM1_CE_N),
+        .SSRAM_ADSC_N(SSRAM_ADSC_N),
+        .SSRAM_ADSP_N(SSRAM_ADSP_N),
+        .SSRAM_ADV_N(SSRAM_ADV_N),
+        .SSRAM_BE(SSRAM_BE),
+        .SSRAM_CLK(SSRAM_CLK),
+        .SSRAM_GW_N(SSRAM_GW_N),
+        .SSRAM_OE_N(SSRAM_OE_N),
+        .SSRAM_WE_N(SSRAM_WE_N)
+    );
 
     // --- Clock Generation ---
     initial begin
@@ -88,7 +101,8 @@ module tb_digital_safe_lock();
         begin
             KEY[0] = 1'b0;       // Assert Reset (Active Low)
             #100 KEY[0] = 1'b1;  // De-assert Reset after 100ns
-            #200;                // Wait 200ns to allow the FSM to finish writing the default password to SRAM
+            // SRAM init is extremely fast (just 2 clock cycles)
+            #1000;               // Wait 1us
         end
     endtask
 
@@ -100,7 +114,7 @@ module tb_digital_safe_lock();
             
             if (btn_type == 1) begin
                 KEY[1] = 1'b0; // Press the 'Enter' button
-                #40;           // Hold it down for 40ns (longer than 1 clock cycle to guarantee the debouncer catches it)
+                #40;           // Hold it down for 40ns
                 KEY[1] = 1'b1; // Release the button
             end else if (btn_type == 2) begin
                 KEY[2] = 1'b0; // Press the 'Change Password' button
@@ -108,75 +122,71 @@ module tb_digital_safe_lock();
                 KEY[2] = 1'b1; 
             end
             
-            #200; // Wait 200ns for the SRAM operations and FSM processing to complete
+            // SRAM read/write takes 2 clock cycles (40ns).
+            #1000; // Wait 1us
         end
     endtask
 
     // Task 3: Wait for the display timer (e.g., the 2-second "ERR" or "CHG" display) to finish naturally
     task wait_for_display_timer;
         begin
-            // Since we parameterized TIMER_CYCLES to 20, the FSM will only wait 20 cycles (400ns).
-            // We wait 600ns here to ensure the timer has fully expired and the FSM has transitioned back to IDLE.
-            #600; 
+            // Since we parameterized TIMER_CYCLES to 200,000, the timer is 4ms.
+            // We wait 4.1 million ns (4.1ms) to ensure it expires safely.
+            #4100000; 
         end
     endtask
 
-    // Task 4: Self-checking result verifier. Automatically checks if the LEDs match our expectations.
-    task check_result(input exp_ledg, input exp_ledr, input [7:0] test_id);
+    // Task 4: Verify the outcome automatically
+    task check_result(input expected_ledg, input expected_ledr, input [7:0] test_num);
         begin
-            if (LEDG[0] == exp_ledg && LEDR[0] == exp_ledr) begin
-                // If the outputs match expectations, print a Success message
-                $display("Pass: Test %0d (LEDG=%b, LEDR=%b)", test_id, LEDG[0], LEDR[0]);
+            if (LEDG[0] == expected_ledg && LEDR[0] == expected_ledr) begin
+                $display("Pass: Test %0d (LEDG=%b, LEDR=%b)", test_num, LEDG[0], LEDR[0]);
             end else begin
-                // If they don't match, print a Failure message with details and stop the simulation
                 $display("Fail: Test %0d - Expected LEDG=%b LEDR=%b, Got LEDG=%b LEDR=%b", 
-                         test_id, exp_ledg, exp_ledr, LEDG[0], LEDR[0]);
-                $stop; 
+                         test_num, expected_ledg, expected_ledr, LEDG[0], LEDR[0]);
+                $stop; // Pause simulation on failure
             end
         end
     endtask
 
-    // --- Main Test Sequence (Execution Block) ---
+    // --- Main Simulation Block ---
     initial begin
-        // Generate a waveform file (VCD) for viewing in tools like GTKWave
-        $dumpfile("waveform.vcd");
-        $dumpvars(0, tb_digital_safe_lock);
-
-        // Set initial, safe values for all inputs before resetting
-        SW = 18'h00000;
-        KEY = 4'b1111; // All buttons unpressed (Active Low)
-        sram_mem[0] = 16'h0000;
-        sram_mem[1] = 16'h0000;
+        // Initialize inputs
+        SW = 18'd0;
+        KEY = 4'b1111; // Buttons are active low, so 1 means unpressed
+        
+        $dumpfile("waveform.vcd"); 
+        $dumpvars(0, tb_digital_safe_lock); 
         
         $display("========================================");
         $display("   DIGITAL SAFE LOCK - TESTBENCH START  ");
         $display("========================================");
-        
-        // --- Boot Sequence ---
+
+        // Reset the system to its initial state
         reset_system();
-        
-        // --- Test 1: Unlock with the default password ---
+
+        // --- Test 1: Try unlocking with the default password ---
         $display("\n[Test 1] Unlock with default password (00)");
         enter_password(8'h00, 1);
-        check_result(1'b1, 1'b0, 1); // We expect Green LED ON, Red LED OFF
-        
-        // --- Test 2: Change the password ---
+        check_result(1'b1, 1'b0, 1); // We expect Green LED ON (Unlock Success)
+
+        // --- Test 2: Change the password to a new value (e.g., A5) ---
         $display("\n[Test 2] Change password to A5");
-        enter_password(8'hA5, 2);    // Enter 'A5' and press the 'Change' button
-        wait_for_display_timer();    // Wait for the "CHG" message to finish displaying
+        enter_password(8'hA5, 2); // Press 'Change' button
         $display("Password changed to A5.");
+        wait_for_display_timer(); // Wait for "CHANGED!" to disappear
         
-        // Relock the safe before proceeding
+        // Relock the safe before testing the new password
         $display("\nLocking the safe...");
-        enter_password(8'hA5, 1);    // Pressing 'Enter' while unlocked will lock it
+        enter_password(8'h00, 1); // Password doesn't matter when locking
         
-        // --- Test 3: Attempt to unlock with an incorrect password ---
+        // --- Test 3: Try unlocking with the WRONG password (11) ---
         $display("\n[Test 3] Try unlocking with WRONG password (11)");
         enter_password(8'h11, 1);
-        check_result(1'b0, 1'b1, 3); // We expect Green LED OFF, Red LED ON (Error)
-        wait_for_display_timer();    // Wait for the 2-second "ERR" display to finish
+        check_result(1'b0, 1'b1, 3); // We expect Red LED ON (Error)
+        wait_for_display_timer();    // Wait for the "ERROR!" display to finish
         
-        // --- Test 4: Attempt to unlock with the NEW correct password ---
+        // --- Test 4: Try unlocking with the NEW CORRECT password (A5) ---
         $display("\n[Test 4] Unlock with NEW password (A5)");
         enter_password(8'hA5, 1);
         check_result(1'b1, 1'b0, 4); // We expect Green LED ON, Red LED OFF
@@ -199,6 +209,52 @@ module tb_digital_safe_lock();
         $display("\n[Test 6] Unlock again with correct password (A5)");
         enter_password(8'hA5, 1);
         check_result(1'b1, 1'b0, 6);
+
+        // Relock
+        $display("\nLocking the safe...");
+        enter_password(8'hA5, 1);
+
+        // --- Test 8: Attempt to change password while locked ---
+        $display("\n[Test 8] Try changing password without unlocking");
+        // Safe is currently locked. Try to change password to BB.
+        enter_password(8'hBB, 2); // Press 'Change' button
+        wait_for_display_timer();
+        
+        $display("  > Verify password didn't change to BB");
+        enter_password(8'hBB, 1);
+        check_result(1'b0, 1'b1, 81); // BB should fail
+        wait_for_display_timer();
+        
+        $display("  > Verify A5 still works");
+        enter_password(8'hA5, 1);
+        check_result(1'b1, 1'b0, 82); // A5 should still work
+        
+        // Relock
+        $display("\nLocking the safe...");
+        enter_password(8'hA5, 1);
+
+        // --- Test 9: Bypass ERR state with Enter button (Early Exit) ---
+        $display("\n[Test 9] Early exit from ERR state");
+        // Enter wrong password to trigger ERR state
+        SW[7:0] = 8'h99; 
+        KEY[1] = 1'b0; // Press Enter
+        #40;
+        KEY[1] = 1'b1;
+        
+        #1000; // Wait for SRAM read and transition to ERR
+        check_result(1'b0, 1'b1, 91); // Confirm we are in ERR state
+        
+        // normally wait_for_display_timer is called (which is 4ms).
+        $display("  > Pressing Enter to bypass the error timer");
+        KEY[1] = 1'b0;
+        #40;
+        KEY[1] = 1'b1;
+        #1000; // Wait for FSM to transition back to IDLE
+        
+        // Prove we are back in IDLE by immediately unlocking with correct password
+        $display("  > Unlocking immediately with A5");
+        enter_password(8'hA5, 1);
+        check_result(1'b1, 1'b0, 92);
 
         // Simulation is finished
         #500;
