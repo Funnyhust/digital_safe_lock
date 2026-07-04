@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.18)  4 JUL 2026 07:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.6.18)  4 JUL 2026 07:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1404,16 +1404,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 544--544
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 544--544
-[]|\T5/cmtt/m/n/13 sram_rd_en\T5/ptm/b/n/13 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 544--544
-\T5/cmtt/m/n/13 sram_wr_en\T5/ptm/b/n/13 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 544--544
 []|\T5/cmtt/m/n/13 FS_ADDR\T5/ptm/b/n/13 , \T5/cmtt/m/n/13 FS_DQ\T5/ptm/b/n/13 
 ,
  []
@@ -1578,12 +1568,6 @@ Package pdftex.def Info: images/quatus.png  used on input line 740.
  [25
 
  <./images/quatus.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 790--790
-[]|\T5/ptm/m/n/13 Cho th§y \T5/cmtt/m/n/13 .qsf \T5/ptm/m/n/13 cán tham chi¸u f
-ile cô nh÷
- []
-
-
 Underfull \hbox (badness 1688) in paragraph at lines 790--790
 []|\T5/ptm/m/n/13 Top-level wrap-per ch÷a khîp vîi cêng hi»n t¤i cõa
  []
@@ -1629,7 +1613,7 @@ Here is how much of TeX's memory you used:
  55842 multiletter control sequences out of 15000+600000
  702269 words of font info for 149 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,10n,107p,750b,2089s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,10n,107p,731b,2089s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmr10.pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
 onts/cm/cmsy10.pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/type1/vn
@@ -1641,7 +1625,7 @@ e1/vntex/urwvn/utmri8v.pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts/
 type1/vntex/vnr/vnitt10.pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts
 /type1/vntex/vnr/vntt12.pfb><C:/Users/hustv/AppData/Local/Programs/MiKTeX/fonts
 /type1/vntex/vnr/vntt9.pfb>
-Output written on main.pdf (44 pages, 14039635 bytes).
+Output written on main.pdf (44 pages, 14039605 bytes).
 PDF statistics:
  833 PDF objects out of 1000 (max. 8388607)
  321 named destinations out of 1000 (max. 500000)
